@@ -22,9 +22,12 @@ import org.slf4j.LoggerFactory;
 
 public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 	// @Override
+	// version Via ModrinthAPI
 	String modpackVersion = "Placeholder";
+	//Local version
 	String currentVersion = "1.1.3";
-	Boolean needUpdate = Boolean.TRUE;
+	// Assume update as false to avoid spamming up to date clients in case of breaking
+	Boolean needUpdate = Boolean.FALSE;
 	public static final Logger PRINT_TO_LOGS = LoggerFactory.getLogger("modpackVersion");
 
 	public static class UpdateWidget extends ClickableWidget {
@@ -96,6 +99,7 @@ public class VersionChecker {
 }
 	public void onInitializeClient() {
 		modpackVersion = new VersionChecker().toString();
+		// Compare local version to version listed via Modrinth API
 		if (Objects.equals(modpackVersion, currentVersion)){
 			needUpdate = Boolean.FALSE;
 		}
