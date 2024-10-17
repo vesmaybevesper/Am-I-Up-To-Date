@@ -3,29 +3,19 @@ package vesper.aiutd;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import net.minecraft.client.MinecraftClient;
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.Selectable;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
-import net.minecraft.client.util.SelectionManager;
-import net.minecraft.text.Text;
 import net.fabricmc.api.ClientModInitializer;
-import net.minecraft.client.gui.widget.ClickableWidget;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Objects;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 
 public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 	// TODO: grab version numbers from config instead of hardcoding to improve usability for other modpack authors
 	// version Via ModrinthAPI, grabbed in VersionChecker
-	String modpackVersion = "Placeholder";
+	String modpackVersion = "*.*.*";
 	//Local version
 	String currentVersion = "1.1.3";
 	// Assume update as false to avoid spamming up-to-date clients in case of breaking
