@@ -98,14 +98,13 @@ public class VersionChecker {
 		}
 }
 	public void onInitializeClient() {
-		modpackVersion = new VersionChecker().toString();
+		modpackVersion = VersionChecker.getLatestVersion();
 		// Compare local version to version listed via Modrinth API
 		if (Objects.equals(modpackVersion, currentVersion)){
 			needUpdate = Boolean.FALSE;
 		}
 		else {
 			needUpdate = Boolean.TRUE;
-			PRINT_TO_LOGS.info(modpackVersion);
 		}
 
 		//pop-up should only display if there is an update
