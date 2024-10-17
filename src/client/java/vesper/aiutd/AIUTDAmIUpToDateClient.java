@@ -125,6 +125,7 @@ public class VersionChecker {
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {if (needUpdate == Boolean.TRUE && client.currentScreen == null) {
 			CustomScreen windowPopup = new CustomScreen(Text.literal("test"));
 			MinecraftClient.getInstance().setScreen(windowPopup);
+            needUpdate = Boolean.FALSE;
 		}
 		});
 	}
