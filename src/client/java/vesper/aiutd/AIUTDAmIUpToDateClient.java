@@ -6,8 +6,10 @@ import com.google.gson.JsonParser;
 import net.minecraft.client.MinecraftClient;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.gui.Selectable;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
+import net.minecraft.client.util.SelectionManager;
 import net.minecraft.text.Text;
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.gui.widget.ClickableWidget;
@@ -21,13 +23,15 @@ import org.slf4j.LoggerFactory;
 
 
 public class AIUTDAmIUpToDateClient implements ClientModInitializer {
-	// @Override
-	// version Via ModrinthAPI
+	// TODO: grab version numbers from config instead of hardcoding to improve usability for other modpack authors
+	// version Via ModrinthAPI, grabbed in VersionChecker
 	String modpackVersion = "Placeholder";
 	//Local version
 	String currentVersion = "1.1.3";
-	// Assume update as false to avoid spamming up to date clients in case of breaking
-	Boolean needUpdate = Boolean.FALSE;
+	// Assume update as false to avoid spamming up-to-date clients in case of breaking
+	static Boolean needUpdate = Boolean.FALSE;
+
+
 	public static final Logger PRINT_TO_LOGS = LoggerFactory.getLogger("modpackVersion");
 
 	public static class UpdateWidget extends ClickableWidget {
@@ -37,10 +41,14 @@ public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 
 		@Override
 		protected void renderWidget(DrawContext context, int mouseX, int mouseY, float delta) {
-			int startColor = 0xFF00FF00;
-			int endColor = 0xFF0000FF;
+			int startColor = 0xFFbcafab;
+			int endColor = 0xFF252326;
 
-			context.fillGradient(getX(), getY(), +this.width, getY() + this.height, startColor, endColor);
+			context.fillGradient(getX(), getY(), getX()+this.width, getY() + this.height, startColor, endColor);
+			if (mouseClicked(1720,720,1)) {
+				needUpdate = Boolean.FALSE;
+				PRINT_TO_LOGS.info("CLICKED");
+			}
 		}
 
 		@Override
@@ -60,8 +68,14 @@ public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 			super.init();
 
 
-
-			UpdateWidget customWidget = new UpdateWidget(40, 80, 120, 20);
+			//some frankly insane math to center the pop-up
+			double widthPercent = 0.2;
+			double hieghtPercent =0.15;
+			int popupWidth = (int) (this.width * widthPercent);
+			int popupHeight = (int) (this.height *hieghtPercent);
+			int x = (this.width/2) - (popupWidth/2);
+			int y = (this.height/2) - (popupHeight/2);
+			UpdateWidget customWidget = new UpdateWidget(x, y, popupWidth, popupHeight);
 			this.addDrawableChild(customWidget);
 		}
 
