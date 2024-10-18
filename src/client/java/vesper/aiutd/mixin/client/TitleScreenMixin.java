@@ -77,7 +77,7 @@ public abstract class TitleScreenMixin  extends Screen {
         String modpackVersion;
         //Local version
         String currentVersion;
-        currentVersion = "1.1.3";
+        currentVersion = "1.1.4";
 
 
         modpackVersion = getLatestVersion();
