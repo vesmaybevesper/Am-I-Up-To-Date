@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "aiutd-am-i-up-to-date",
-	"version": "1.0.0",
+	"version": "0.0.1",
 	"name": "AIUTD? (Am I Up To Date?)",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [

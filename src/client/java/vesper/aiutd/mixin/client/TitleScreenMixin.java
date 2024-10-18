@@ -17,6 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.awt.*;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URI;
@@ -95,12 +96,25 @@ public abstract class TitleScreenMixin  extends Screen {
                        try {
                             // The URL you want to open
                             URI url = new URI("https://modrinth.com/modpack/vespers-vanilla-enhanced/changelog");
-                            LOGGER.info("attempting to create button");
                             // Check if the Desktop class is supported and if the browser can be opened
                             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
                                 Desktop.getDesktop().browse(url);  // Open the browser with the URL
                             } else {
-                                System.out.println("Desktop browsing is not supported on this system.");
+                                System.out.println("Desktop browsing is not supported. Trying alternative method...");
+                                String os = System.getProperty("os.name").toLowerCase();
+                                try {
+                                    if (os.contains("win")) {
+                                        Runtime.getRuntime().exec(new String[]{"rundll32", "url.dll,FileProtocolHandler", "https://modrinth.com/modpack/vespers-vanilla-enhanced/changelog"});
+                                    } else if (os.contains("mac")) {
+                                        Runtime.getRuntime().exec(new String[]{"open", "https://modrinth.com/modpack/vespers-vanilla-enhanced/changelog"});
+                                    } else if (os.contains("nix") || os.contains("nux")) {
+                                        Runtime.getRuntime().exec(new String[]{"xdg-open", "https://modrinth.com/modpack/vespers-vanilla-enhanced/changelog"});
+                                    } else {
+                                        System.out.println("Unsupported OS for opening a browser.");
+                                    }
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
