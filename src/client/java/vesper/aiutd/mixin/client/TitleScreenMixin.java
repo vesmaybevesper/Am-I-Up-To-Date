@@ -14,7 +14,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
 import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -61,11 +60,11 @@ public abstract class TitleScreenMixin  extends Screen {
                 return latestVersion;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.info(String.valueOf(e));
         }
         return null;
     }
-    // Assume update as false to avoid spamming up-to-date clients in case of breaking
+
     public boolean needUpdate;
 
     @Inject(at = @At("RETURN"), method = "initWidgetsNormal")
@@ -94,13 +93,13 @@ public abstract class TitleScreenMixin  extends Screen {
             this.addDrawableChild(
             ButtonWidget.builder(Text.translatable("Update Available"), button -> {
                        try {
-                            // The URL you want to open
+                            // URL to fetch from
                             URI url = new URI("https://modrinth.com/modpack/vespers-vanilla-enhanced/changelog");
                             // Check if the Desktop class is supported and if the browser can be opened
                             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
                                 Desktop.getDesktop().browse(url);  // Open the browser with the URL
                             } else {
-                                System.out.println("Desktop browsing is not supported. Trying alternative method...");
+                                // alternative link opening logic
                                 String os = System.getProperty("os.name").toLowerCase();
                                 try {
                                     if (os.contains("win")) {
@@ -113,11 +112,11 @@ public abstract class TitleScreenMixin  extends Screen {
                                         System.out.println("Unsupported OS for opening a browser.");
                                     }
                                 } catch (IOException e) {
-                                    e.printStackTrace();
+                                    LOGGER.info(String.valueOf(e));
                                 }
                             }
                         } catch (Exception e) {
-                            e.printStackTrace();
+                            LOGGER.info(String.valueOf(e));
                         }
                     })
                     .dimensions(this.width / 2 - 100 + 205, y, 90, 20)
