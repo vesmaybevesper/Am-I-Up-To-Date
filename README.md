@@ -1,4 +1,4 @@
-Am I Up To Date is a simple mod designed to be included in modpacks to check the local version against the most recent version and notify the user of an update. For the time being the mod versions and links are hard-coded meaning its not very end user friendly, thiss is being worked on.
+Am I Up To Date is a simple mod designed to be included in modpacks to check the local version against the most recent version and notify the user of an update. For the time being the mod versions and links are hard-coded meaning its not very end user friendly, this is being worked on.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Currently Supported:
