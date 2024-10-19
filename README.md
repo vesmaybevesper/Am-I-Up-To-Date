@@ -2,7 +2,7 @@ Am I Up To Date is a simple mod designed to be included in modpacks to check the
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Currently Supported:
-Minecraft 1.21.1 on Fabric 0.16.7, Moddrinth modpacks
+Minecraft 1.21.1 on Fabric 0.16.7, Modrinth modpacks
 
 Planned:
 
