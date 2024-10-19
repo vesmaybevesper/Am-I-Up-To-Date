@@ -37,7 +37,6 @@ public abstract class TitleScreenMixin  extends Screen {
 
     // grab version from Modrinth API
     private static String getLatestVersion(){
-        String apiUrl = "https://api.modrinth.com/v2/project/ihN5bmrg/version";
         StringBuilder result = new StringBuilder();
         try {
             URL url = new URL("https://api.modrinth.com/v2/project/ihN5bmrg/version");
