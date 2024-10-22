@@ -1,7 +1,7 @@
 Am I Up To Date is a simple mod designed to be included in modpacks to check the local version against the most recent version and notify the user of an update. For the time being the mod versions and links are hard-coded meaning its not very end user friendly, this is being worked on (just need to read values from the config, will do when I wake up).
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Modrinth Listing
+[Modrinth Listing](https://modrinth.com/project/aiutd)
 Requires [YetAnotherConfigLib](https://github.com/isXander/YetAnotherConfigLib)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
