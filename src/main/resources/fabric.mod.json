@@ -12,7 +12,7 @@
 		"sources": "https://github.com/vesmaybevesper/Am-I-Up-To-Date"
 	},
 	"license": "Apache-2.0",
-	"icon": "assets/aiutd-am-i-up-to-date/icon.png",
+	"icon": "assets/aiutd-am-i-up-to-date/aiutd-logo.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [

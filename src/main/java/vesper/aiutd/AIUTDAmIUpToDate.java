@@ -19,6 +19,6 @@ public class AIUTDAmIUpToDate implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		LOGGER.info("Am I Up To Date Loaded!");
+		LOGGER.info("Am I Up To Date says Trans Rights are Human Rights!");
 	}
 }

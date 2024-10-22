@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "aiutd-am-i-up-to-date",
-	"version": "0.5.0-Beta-3-1.21.1",
+	"version": "0.5.0",
 	"name": "AIUTD? (Am I Up To Date?)",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
@@ -12,7 +12,7 @@
 		"sources": "https://github.com/vesmaybevesper/Am-I-Up-To-Date"
 	},
 	"license": "Apache-2.0",
-	"icon": "assets/aiutd-am-i-up-to-date/icon.png",
+	"icon": "assets/aiutd-am-i-up-to-date/aiutd-logo.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
