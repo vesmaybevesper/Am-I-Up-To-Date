@@ -22,7 +22,6 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
 import java.util.Objects;
-import vesper.aiutd.AIUTDConfigModel;
 
 
 @Mixin(TitleScreen.class)
@@ -41,7 +40,7 @@ public abstract class TitleScreenMixin extends Screen {
     private static String getLatestVersion(){
         StringBuilder result = new StringBuilder();
         try {
-            URL url = new URL(AIUTDConfigModel.VersionAPI);
+            URL url = new URL("https://api.modrinth.com/v2/project/ihN5bmrg/version");
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
@@ -74,9 +73,9 @@ public abstract class TitleScreenMixin extends Screen {
 
         // TODO: grab version numbers from config instead of hardcoding to improve usability for other modpack authors
         // version Via ModrinthAPI, grabbed in VersionChecker
-        String modpackVersion = getLatestVersion();;
+        String modpackVersion = getLatestVersion();
         //Local version
-        String localVersion = AIUTDConfigModel.checkLocalVersion;
+        String localVersion = "1.1.4";
 
 
         // Compare local version to version listed via Modrinth API
@@ -93,7 +92,7 @@ public abstract class TitleScreenMixin extends Screen {
             ButtonWidget.builder(Text.translatable("Update Available"), button -> {
                        try {
                             // URL to fetch from
-                            URI url = new URI(AIUTDConfigModel.changelogLink);
+                            URI url = new URI("https://modrinth.com/modpack/vespers-vanilla-enhanced/changelog");
                             // Check if the Desktop class is supported and if the browser can be opened
                             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
                                 Desktop.getDesktop().browse(url);  // Open the browser with the URL
@@ -102,11 +101,11 @@ public abstract class TitleScreenMixin extends Screen {
                                 String os = System.getProperty("os.name").toLowerCase();
                                 try {
                                     if (os.contains("win")) {
-                                        Runtime.getRuntime().exec(new String[]{"rundll32", "url.dll,FileProtocolHandler", AIUTDConfigModel.changelogLink});
+                                        Runtime.getRuntime().exec(new String[]{"rundll32", "url.dll,FileProtocolHandler", "https://modrinth.com/modpack/vespers-vanilla-enhanced/changelog"});
                                     } else if (os.contains("mac")) {
-                                        Runtime.getRuntime().exec(new String[]{"open", AIUTDConfigModel.changelogLink});
+                                        Runtime.getRuntime().exec(new String[]{"open", "https://modrinth.com/modpack/vespers-vanilla-enhanced/changelog"});
                                     } else if (os.contains("nix") || os.contains("nux")) {
-                                        Runtime.getRuntime().exec(new String[]{"xdg-open", AIUTDConfigModel.changelogLink});
+                                        Runtime.getRuntime().exec(new String[]{"xdg-open", "https://modrinth.com/modpack/vespers-vanilla-enhanced/changelog"});
                                     } else {
                                         System.out.println("Unsupported OS for opening a browser.");
                                     }
