@@ -13,7 +13,7 @@ public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		MyConfig config = MyConfig.HANDLER.instance();
 		Path configPath = FabricLoader.getInstance().getConfigDir().resolve("aiutd-mod-config.json5");
-
+		//load config if it already exists
 		if (!Files.exists(configPath)) {
 			config.localVersion = "0.0.0";
 			config.versionAPI = "https://api.modrinth.com/v2/project/<id>/version";

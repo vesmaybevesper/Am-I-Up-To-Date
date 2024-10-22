@@ -12,7 +12,7 @@ import java.nio.file.Path;
 
 public class MyConfig {
     public static ConfigClassHandler<MyConfig> HANDLER;
-
+// create strings
     @SerialEntry
     public String localVersion;
 
@@ -23,7 +23,7 @@ public class MyConfig {
     public String changelogLink;
 
     static {
-
+        //crate config
         Path configPath = FabricLoader.getInstance().getConfigDir().resolve("aiutd-mod-config.json5");
 
         HANDLER = ConfigClassHandler.createBuilder(MyConfig.class)

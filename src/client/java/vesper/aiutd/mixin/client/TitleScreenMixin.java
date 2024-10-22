@@ -30,6 +30,7 @@ import vesper.aiutd.MyConfig;
 public abstract class TitleScreenMixin extends Screen {
 
     @Shadow @Final private static Logger LOGGER;
+    // import strings from config
     MyConfig config = MyConfig.HANDLER.instance();
 
 
