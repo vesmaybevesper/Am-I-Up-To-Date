@@ -13,7 +13,6 @@ Minecraft 1.21.1 on Fabric 0.16.7, Modrinth modpacks
 Planned:
 
 High Priority:
-* Read modpack versions from config file
 * Message on world load (in addition to/ inplace of main menu message)
 * Allow editing through Mod Menu
 * Curseforge support
