@@ -16,7 +16,7 @@ High Priority:
 * Read modpack versions from config file
 * Message on world load (in addition to/ inplace of main menu message)
 * Allow editing through Mod Menu
-* Curseforge suport
+* Curseforge support
 
 Medium Priority:
 * Backport to 1.20.x (and beyond)
