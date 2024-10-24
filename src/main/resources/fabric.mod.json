@@ -20,8 +20,10 @@
 		],
 		"client": [
 			"vesper.aiutd.AIUTDAmIUpToDateClient"
-		]
-	},
+		],
+		"modmenu": [ "vesper.aiutd.AIUTDModMenuCompat" ]
+	}
+	,
 	"mixins": [
 		"aiutd-am-i-up-to-date.mixins.json",
 		{

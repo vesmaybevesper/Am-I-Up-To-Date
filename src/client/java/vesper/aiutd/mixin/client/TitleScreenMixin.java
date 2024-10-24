@@ -3,7 +3,6 @@ package vesper.aiutd.mixin.client;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -31,7 +30,6 @@ public abstract class TitleScreenMixin extends Screen {
 
     @Shadow @Final private static Logger LOGGER;
     // import strings from config
-    MyConfig config = MyConfig.HANDLER.instance();
 
 
 
@@ -44,7 +42,7 @@ public abstract class TitleScreenMixin extends Screen {
     private String getLatestVersion(){
         StringBuilder result = new StringBuilder();
         try {
-            URL url = new URL(config.versionAPI);
+            URL url = new URL(MyConfig.versionAPI);
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
@@ -74,12 +72,10 @@ public abstract class TitleScreenMixin extends Screen {
     @Inject(at = @At("RETURN"), method = "initWidgetsNormal")
     private void addUpdateNotice(int y, int spacingY, CallbackInfo ci) {
         super.init();
-
-        // TODO: grab version numbers from config instead of hardcoding to improve usability for other modpack authors
         // version Via ModrinthAPI, grabbed in VersionChecker
         String modpackVersion = getLatestVersion();
         //Local version
-        String localVersion = config.localVersion;
+        String localVersion = MyConfig.localVersion;
 
 
         // Compare local version to version listed via Modrinth API
@@ -96,7 +92,7 @@ public abstract class TitleScreenMixin extends Screen {
             ButtonWidget.builder(Text.translatable("Update Available"), button -> {
                        try {
                             // URL to fetch from
-                            URI url = new URI(config.changelogLink);
+                            URI url = new URI(MyConfig.changelogLink);
                             // Check if the Desktop class is supported and if the browser can be opened
                             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
                                 Desktop.getDesktop().browse(url);  // Open the browser with the URL
@@ -105,11 +101,11 @@ public abstract class TitleScreenMixin extends Screen {
                                 String os = System.getProperty("os.name").toLowerCase();
                                 try {
                                     if (os.contains("win")) {
-                                        Runtime.getRuntime().exec(new String[]{"rundll32", "url.dll,FileProtocolHandler", config.changelogLink});
+                                        Runtime.getRuntime().exec(new String[]{"rundll32", "url.dll,FileProtocolHandler", MyConfig.changelogLink});
                                     } else if (os.contains("mac")) {
-                                        Runtime.getRuntime().exec(new String[]{"open", config.changelogLink});
+                                        Runtime.getRuntime().exec(new String[]{"open", MyConfig.changelogLink});
                                     } else if (os.contains("nix") || os.contains("nux")) {
-                                        Runtime.getRuntime().exec(new String[]{"xdg-open", config.changelogLink});
+                                        Runtime.getRuntime().exec(new String[]{"xdg-open", MyConfig.changelogLink});
                                     } else {
                                         System.out.println("Unsupported OS for opening a browser.");
                                     }

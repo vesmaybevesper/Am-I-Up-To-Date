@@ -17,8 +17,11 @@ repositories {
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
 	maven {
-		name 'Xander Maven'
-		url 'https://maven.isxander.dev/releases'
+		url  "https://api.modrinth.com/maven"
+	}
+	maven {
+		name  "Terraformers"
+		url "https://maven.terraformersmc.com/"
 	}
 }
 
@@ -40,11 +43,12 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	implementation 'com.google.code.gson:gson:2.8.9'
-	modImplementation "dev.isxander:yet-another-config-lib:${project.yacl_version}"
+	modImplementation include ("maven.modrinth:midnightlib:${project.midnightlib_version}")
 
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	modCompileOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
 	
 }
 

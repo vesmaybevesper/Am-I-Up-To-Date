@@ -1,5 +1,7 @@
 package vesper.aiutd;
 
+import eu.midnightdust.core.MidnightLib;
+import eu.midnightdust.lib.config.MidnightConfig;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
@@ -11,16 +13,6 @@ import java.nio.file.Path;
 
 public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 	public void onInitializeClient() {
-		MyConfig config = MyConfig.HANDLER.instance();
-		Path configPath = FabricLoader.getInstance().getConfigDir().resolve("aiutd-mod-config.json5");
-		//load config if it already exists
-		if (!Files.exists(configPath)) {
-			config.localVersion = "0.0.0";
-			config.versionAPI = "https://api.modrinth.com/v2/project/<id>/version";
-			config.changelogLink = "https://modrinth.com/modpack/<modpack URL>/changelog";
-			config.HANDLER.save();
-		} else {
-			config.HANDLER.load();
-		}
+		MidnightConfig.init("AIUTD", MyConfig.class);
 	}
 }
