@@ -13,8 +13,8 @@ Minecraft 1.21.1 on Fabric 0.16.7, Modrinth modpacks
 Planned:
 
 High Priority:
+* Fix Mod Menu names
 * Message on world load (in addition to/ inplace of main menu message)
-
 * Curseforge support
 
 Medium Priority:
