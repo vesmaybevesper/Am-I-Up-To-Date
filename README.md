@@ -3,7 +3,7 @@ Am I Up To Date is a simple mod designed to be included in modpacks to check the
 
 [Modrinth Listing](https://modrinth.com/project/aiutd)
 
-Requires [YetAnotherConfigLib](https://github.com/isXander/YetAnotherConfigLib)
+Requires [MidnightLib](https://github.com/TeamMidnightDust/MidnightLib)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -14,7 +14,7 @@ Planned:
 
 High Priority:
 * Message on world load (in addition to/ inplace of main menu message)
-* Allow editing through Mod Menu
+
 * Curseforge support
 
 Medium Priority:
