@@ -29,7 +29,7 @@ loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		"aiutd-am-i-up-to-date" {
+		"aiutd" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}
