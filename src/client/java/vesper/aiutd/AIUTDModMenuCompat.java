@@ -8,6 +8,6 @@ import eu.midnightdust.lib.config.MidnightConfig;
 public class AIUTDModMenuCompat implements ModMenuApi {
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return parent -> MidnightConfig.getScreen(parent, "AIUTD");
+        return parent -> MidnightConfig.getScreen(parent, "aiutd");
     }
 }

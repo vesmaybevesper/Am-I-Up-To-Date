@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
-	"id": "aiutd-am-i-up-to-date",
-	"version": "0.5.1",
-	"name": "AIUTD? (Am I Up To Date?)",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"id": "aiutd",
+	"version": "${version}",
+	"name": "Am I Up To Date?",
+	"description": "Checks for modpack updates",
 	"authors": [
 		"VesMaybeVesper"
 	],
@@ -12,7 +12,7 @@
 		"sources": "https://github.com/vesmaybevesper/Am-I-Up-To-Date"
 	},
 	"license": "Apache-2.0",
-	"icon": "assets/aiutd-am-i-up-to-date/aiutd-logo.png",
+	"icon": "assets/aiutd/aiutd-logo.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -25,9 +25,9 @@
 	}
 	,
 	"mixins": [
-		"aiutd-am-i-up-to-date.mixins.json",
+		"aiutd.json",
 		{
-			"config": "aiutd-am-i-up-to-date.client.mixins.json",
+			"config": "aiutd.mixins.json",
 			"environment": "client"
 		}
 	],
