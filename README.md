@@ -8,7 +8,7 @@ Requires [MidnightLib](https://github.com/TeamMidnightDust/MidnightLib)
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Currently Supported:
-Minecraft 1.20.1 & 1.21.1 on Fabric 0.16.7, Modrinth modpacks
+Modrinth modpacks
 
 Planned:
 
