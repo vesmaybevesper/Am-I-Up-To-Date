@@ -8,12 +8,11 @@ Requires [MidnightLib](https://github.com/TeamMidnightDust/MidnightLib)
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Currently Supported:
-Minecraft 1.20.1 & 1.21.1 on Fabric 0.16.7, Modrinth modpacks
+Modrinth modpacks
 
 Planned:
 
 High Priority:
-* Fix Mod Menu names
 * Message on world load (in addition to/ inplace of main menu message)
 * Curseforge support
 
