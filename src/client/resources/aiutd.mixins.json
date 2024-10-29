@@ -1,12 +1,14 @@
 {
-	"required": true,
-	"package": "vesper.aiutd.mixin.client",
-	"compatibilityLevel": "JAVA_21",
-	"client": [
-		"AmIUpToDateMixin",
-		"TitleScreenMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	}
+  "required": true,
+  "package": "vesper.aiutd.mixin.client",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "AmIUpToDateMixin",
+    "TitleScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+  ]
 }

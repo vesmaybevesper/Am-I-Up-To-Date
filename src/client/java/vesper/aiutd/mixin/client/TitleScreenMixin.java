@@ -22,7 +22,11 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
 import java.util.Objects;
+
+import vesper.aiutd.AIUTDAmIUpToDateClient;
 import vesper.aiutd.MyConfig;
+
+import static vesper.aiutd.MyConfig.menuAlert;
 
 
 @Mixin(TitleScreen.class)
@@ -37,43 +41,13 @@ public abstract class TitleScreenMixin extends Screen {
         super(title);
     }
 
-
-    // grab version from Modrinth API
-    private String getLatestVersion(){
-        StringBuilder result = new StringBuilder();
-        try {
-            URL url = new URL(MyConfig.versionAPI);
-
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
-            conn.setRequestProperty("User-Agent", "Mozilla/5.0");
-
-            BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            String line;
-            while ((line = rd.readLine()) != null) {
-                result.append(line);
-            }
-            rd.close();
-
-            JsonArray jsonArray = JsonParser.parseString(result.toString()).getAsJsonArray();
-            if (!jsonArray.isEmpty()) {
-                JsonElement getVersionElement = jsonArray.get(0);
-                String latestVersion = getVersionElement.getAsJsonObject().get("version_number").getAsString();
-                return latestVersion;
-            }
-        } catch (Exception e) {
-            LOGGER.info(String.valueOf(e));
-        }
-        return null;
-    }
-
     public boolean needUpdate;
 
     @Inject(at = @At("RETURN"), method = "initWidgetsNormal")
     private void addUpdateNotice(int y, int spacingY, CallbackInfo ci) {
         super.init();
         // version Via ModrinthAPI, grabbed in VersionChecker
-        String modpackVersion = getLatestVersion();
+        String modpackVersion = AIUTDAmIUpToDateClient.getLatestVersion();
         //Local version
         String localVersion = MyConfig.localVersion;
 
@@ -87,7 +61,7 @@ public abstract class TitleScreenMixin extends Screen {
         }
 
         //message should only display if there is an update
-        if (needUpdate == Boolean.TRUE) {
+        if (needUpdate == Boolean.TRUE && menuAlert == Boolean.TRUE) {
             this.addDrawableChild(
             ButtonWidget.builder(Text.translatable("Update Available"), button -> {
                        try {

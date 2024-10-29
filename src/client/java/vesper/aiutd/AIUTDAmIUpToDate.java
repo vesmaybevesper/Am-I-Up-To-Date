@@ -21,5 +21,7 @@ public class AIUTDAmIUpToDate implements ModInitializer {
 		// Proceed with mild caution.
 		MidnightConfig.init("aiutd", MyConfig.class);
 		LOGGER.info("Am I Up To Date says Trans Rights are Human Rights!");
+
+
 	}
 }
