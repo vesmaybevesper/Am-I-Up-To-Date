@@ -17,8 +17,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Objects;
 
-
-import static vesper.aiutd.MyConfig.chatAlert;
+import static vesper.aiutd.MyConfig.*;
 
 
 public class AIUTDAmIUpToDateClient implements ClientModInitializer {
@@ -72,12 +71,30 @@ public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		setVersion();
 		if (chatAlert == Boolean.TRUE && needUpdate == Boolean.TRUE) {
-			ClientPlayConnectionEvents.JOIN.register(((handler, sender, client) -> {
-				client.execute(() -> {
-					assert MinecraftClient.getInstance().player != null;
-				MinecraftClient.getInstance().player.sendMessage(Text.of("There is an update available for your modpack!"), false);
-				});
-			}));
+			if (useCustomMessage == Boolean.TRUE) {
+				ClientPlayConnectionEvents.JOIN.register(((handler, sender, client) -> {
+					client.execute(() -> {
+						assert MinecraftClient.getInstance().player != null;
+						MinecraftClient.getInstance().player.sendMessage(Text.of(customMessage), false);
+					});
+				}));
+			}
+			else if (useModpackName == Boolean.TRUE && !Objects.equals(modpackName, "Default")) {
+				ClientPlayConnectionEvents.JOIN.register(((handler, sender, client) -> {
+					client.execute(() -> {
+						assert MinecraftClient.getInstance().player != null;
+						MinecraftClient.getInstance().player.sendMessage(Text.of("There is an update available for" + modpackName +"!"), false);
+					});
+				}));
+			}
+			else {
+				ClientPlayConnectionEvents.JOIN.register(((handler, sender, client) -> {
+					client.execute(() -> {
+						assert MinecraftClient.getInstance().player != null;
+						MinecraftClient.getInstance().player.sendMessage(Text.of("There is an update available for your modpack!"), false);
+					});
+				}));
+			}
 		}
 	}
 }
