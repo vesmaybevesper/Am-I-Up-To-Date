@@ -83,7 +83,7 @@ public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 				ClientPlayConnectionEvents.JOIN.register(((handler, sender, client) -> {
 					client.execute(() -> {
 						assert MinecraftClient.getInstance().player != null;
-						MinecraftClient.getInstance().player.sendMessage(Text.of("There is an update available for" + modpackName +"!"), false);
+						MinecraftClient.getInstance().player.sendMessage(Text.of("There is an update available for " + modpackName +"!"), false);
 					});
 				}));
 			}
