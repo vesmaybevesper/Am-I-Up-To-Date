@@ -12,7 +12,6 @@ Modrinth modpacks
 
 Planned:
 
-* Curseforge support
 * More detailed world message (changelog link)
 * easy option for modpack user to disable chat reminder
 * support for multi-versioned(i.e. x.x.x-1.20.1 & x.x.x-1.21.1)
