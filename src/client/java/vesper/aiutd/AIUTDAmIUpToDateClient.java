@@ -6,7 +6,11 @@ import com.google.gson.JsonParser;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.text.ClickEvent;
+import net.minecraft.text.Style;
 import net.minecraft.text.Text;
+import net.minecraft.text.TextColor;
+import net.minecraft.util.Formatting;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,10 +27,10 @@ import static vesper.aiutd.MyConfig.*;
 public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 
 
-    private static final Logger log = LoggerFactory.getLogger(AIUTDAmIUpToDateClient.class);
+	private static final Logger log = LoggerFactory.getLogger(AIUTDAmIUpToDateClient.class);
 
-    // grab version from Modrinth API
-	public static String getLatestVersion(){
+	// grab version from Modrinth API
+	public static String getLatestVersion() {
 		StringBuilder result = new StringBuilder();
 		try {
 			URL url = new URL(MyConfig.versionAPI);
@@ -54,6 +58,7 @@ public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 	}
 
 	public static boolean needUpdate;
+
 	public static void setVersion() {
 		// version Via ModrinthAPI, grabbed in VersionChecker
 		String modpackVersion = AIUTDAmIUpToDateClient.getLatestVersion();
@@ -68,6 +73,15 @@ public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 		}
 	}
 
+	public Text clickableLink(String message, String url) {
+		Text linkLog = Text.literal(message)
+				.setStyle(Style.EMPTY
+						.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, url))
+						.withUnderline(true)
+						.withColor(TextColor.fromFormatting(Formatting.RED)));
+		return linkLog;
+	}
+
 	public void onInitializeClient() {
 		setVersion();
 		if (chatAlert == Boolean.TRUE && needUpdate == Boolean.TRUE) {
@@ -78,17 +92,31 @@ public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 						MinecraftClient.getInstance().player.sendMessage(Text.of(customMessage), false);
 					});
 				}));
-                }
-			}
-			else if (useModpackName == Boolean.TRUE && !Objects.equals(modpackName, "Default")) {
+				if (linkChangelog == Boolean.TRUE) {
+					ClientPlayConnectionEvents.JOIN.register((((handler, sender, client) -> {
+						client.execute(() -> {
+							assert MinecraftClient.getInstance().player != null;
+							MinecraftClient.getInstance().player.sendMessage(clickableLink("Read the changelog!", changelogLink));
+						});
+					})));
+				}
+			} else if (useModpackName == Boolean.TRUE) {
 				ClientPlayConnectionEvents.JOIN.register(((handler, sender, client) -> {
 					client.execute(() -> {
 						assert MinecraftClient.getInstance().player != null;
-						MinecraftClient.getInstance().player.sendMessage(Text.of("There is an update available for " + modpackName +"!"), false);
+						MinecraftClient.getInstance().player.sendMessage(Text.of("There is an update available for " + modpackName + "!"), false);
 					});
 				}));
-			}
-			else {
+
+				if (linkChangelog == Boolean.TRUE) {
+					ClientPlayConnectionEvents.JOIN.register((((handler, sender, client) -> {
+						client.execute(() -> {
+							assert MinecraftClient.getInstance().player != null;
+							MinecraftClient.getInstance().player.sendMessage(clickableLink("Read the changelog!", changelogLink));
+						});
+					})));
+				}
+			} else {
 				ClientPlayConnectionEvents.JOIN.register(((handler, sender, client) -> {
 					client.execute(() -> {
 						assert MinecraftClient.getInstance().player != null;
@@ -96,8 +124,16 @@ public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 					});
 				}));
 
+				if (linkChangelog == Boolean.TRUE) {
+					ClientPlayConnectionEvents.JOIN.register((((handler, sender, client) -> {
+						client.execute(() -> {
+							assert MinecraftClient.getInstance().player != null;
+							MinecraftClient.getInstance().player.sendMessage(clickableLink("Read the changelog!", changelogLink));
+						});
+					})));
+				}
 
 			}
 		}
 	}
-
+}

@@ -18,6 +18,7 @@ public class MyConfig extends MidnightConfig {
     @Entry(category = OPTIONAL) public static String modpackName = "Default";
     @Entry(category = OPTIONAL) public static boolean useCustomMessage = false;
     @Entry(category = OPTIONAL) public static String customMessage = "This is a custom message!";
+    @Entry(category = OPTIONAL) public static boolean linkChangelog = false;
 
 
 }
