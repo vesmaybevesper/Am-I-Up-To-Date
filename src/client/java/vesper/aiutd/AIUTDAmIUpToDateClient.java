@@ -4,8 +4,12 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.server.command.CommandManager;
 import net.minecraft.text.ClickEvent;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
@@ -82,10 +86,33 @@ public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 		return linkLog;
 	}
 
+
+
+	public Text ignoreMessage () {
+			Text ignore = Text.literal("Ignore update messages")
+					.setStyle(Style.EMPTY
+							.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/shouldIgnore"))
+							.withUnderline(true)
+							.withColor(TextColor.fromFormatting(Formatting.GRAY))
+					);
+
+		return ignore;
+	}
+
 	public void onInitializeClient() {
 		setVersion();
+
+		ClientCommandRegistrationCallback.EVENT.register(((dispatcher, registryAccess) -> {
+			dispatcher.register(ClientCommandManager.literal("shouldIgnore").executes(context -> {
+					context.getSource().sendFeedback(Text.literal("You have set chat notifications to be ignored!"));
+					shouldIgnore = Boolean.TRUE;
+                return 1;
+            }));
+
+		}));
+
 		if (chatAlert == Boolean.TRUE && needUpdate == Boolean.TRUE) {
-			if (useCustomMessage == Boolean.TRUE && !Objects.equals(customMessage, "This is a custom message!")) {
+			if (useCustomMessage == Boolean.TRUE && !Objects.equals(customMessage, "This is a custom message!") && shouldIgnore == Boolean.FALSE) {
 				ClientPlayConnectionEvents.JOIN.register(((handler, sender, client) -> {
 					client.execute(() -> {
 						assert MinecraftClient.getInstance().player != null;
@@ -101,10 +128,14 @@ public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 					})));
 				}
 
-				// TODO Add global toggle off
+				ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
+					client.execute(() -> {
+						assert MinecraftClient.getInstance().player != null;
+						MinecraftClient.getInstance().player.sendMessage(ignoreMessage());
+					});
+				});
 
-
-			} else if (useModpackName == Boolean.TRUE && !Objects.equals(modpackName, "Default") && useCustomMessage == Boolean.FALSE) {
+			} else if (useModpackName == Boolean.TRUE && !Objects.equals(modpackName, "Default") && useCustomMessage == Boolean.FALSE && shouldIgnore == Boolean.FALSE) {
 				ClientPlayConnectionEvents.JOIN.register(((handler, sender, client) -> {
 					client.execute(() -> {
 						assert MinecraftClient.getInstance().player != null;
@@ -120,7 +151,15 @@ public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 						});
 					})));
 				}
-			} else {
+
+				ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
+					client.execute(() -> {
+						assert MinecraftClient.getInstance().player != null;
+						MinecraftClient.getInstance().player.sendMessage(ignoreMessage());
+					});
+				});
+
+			} else if (shouldIgnore == Boolean.FALSE) {
 				ClientPlayConnectionEvents.JOIN.register(((handler, sender, client) -> {
 					client.execute(() -> {
 						assert MinecraftClient.getInstance().player != null;
@@ -136,6 +175,13 @@ public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 						});
 					})));
 				}
+
+				ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
+					client.execute(() -> {
+						assert MinecraftClient.getInstance().player != null;
+						MinecraftClient.getInstance().player.sendMessage(ignoreMessage());
+					});
+				});
 
 			}
 		}
