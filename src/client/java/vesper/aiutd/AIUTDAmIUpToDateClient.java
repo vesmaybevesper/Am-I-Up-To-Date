@@ -85,7 +85,7 @@ public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		setVersion();
 		if (chatAlert == Boolean.TRUE && needUpdate == Boolean.TRUE) {
-			if (useCustomMessage == Boolean.TRUE) {
+			if (useCustomMessage == Boolean.TRUE && !Objects.equals(customMessage, "This is a custom message!")) {
 				ClientPlayConnectionEvents.JOIN.register(((handler, sender, client) -> {
 					client.execute(() -> {
 						assert MinecraftClient.getInstance().player != null;
@@ -97,10 +97,14 @@ public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 						client.execute(() -> {
 							assert MinecraftClient.getInstance().player != null;
 							MinecraftClient.getInstance().player.sendMessage(clickableLink("Read the changelog!", changelogLink));
-						});
+					});
 					})));
 				}
-			} else if (useModpackName == Boolean.TRUE) {
+
+				// TODO Add global toggle off
+
+
+			} else if (useModpackName == Boolean.TRUE && !Objects.equals(modpackName, "Default") && useCustomMessage == Boolean.FALSE) {
 				ClientPlayConnectionEvents.JOIN.register(((handler, sender, client) -> {
 					client.execute(() -> {
 						assert MinecraftClient.getInstance().player != null;
