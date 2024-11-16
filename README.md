@@ -12,7 +12,7 @@ Modrinth modpacks
 
 Planned:
 
-* easy option for modpack user to disable chat reminder
+* multi-version support
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 At this time I have no plans to port to Forge/NeoForge as they arent platforms I'm interested in. Feel free to make your own port (or submit a pull request) and let me know so I can link people to it
