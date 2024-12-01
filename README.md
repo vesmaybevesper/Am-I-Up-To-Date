@@ -15,7 +15,7 @@ Modrinth modpacks
 Planned:
 
 * multi-version support
-* NeoForge supoort (63% complete, see Modrinth for beta versions)
+* NeoForge supoort (82% complete, see Modrinth for beta versions)
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 My main reason for creating this mod was due to the lack of a good way to be alerted to updates in the Modrinth Launcher and third party launchers (MultiMC, Prism, etc). The Curseforge launcher does a much better job of making updates known so I have no plans to suppoort CurseForge packs at this time.
