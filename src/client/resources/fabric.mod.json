@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "aiutd",
-	"version": "0.9.0",
+	"version": "0.9.1",
 	"name": "Am I Up To Date?",
 	"description": "Checks for modpack updates",
 	"authors": [
@@ -32,7 +32,7 @@
 		}
 	],
 	"depends": {
-		"fabricloader": ">=0.16.7",
+		"fabricloader": ">=0.16.9",
 		"minecraft": "~1.21.1",
 		"java": ">=21",
 		"fabric-api": "*"

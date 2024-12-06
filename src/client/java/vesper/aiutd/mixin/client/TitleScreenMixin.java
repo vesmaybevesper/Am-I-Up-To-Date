@@ -15,8 +15,10 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Objects;
-import vesper.aiutd.AIUTDAmIUpToDateClient;
+
 import vesper.aiutd.MyConfig;
+import vesper.aiutd.VersionGrabber;
+
 import static vesper.aiutd.MyConfig.menuAlert;
 
 
@@ -38,7 +40,7 @@ public abstract class TitleScreenMixin extends Screen {
     private void addUpdateNotice(int y, int spacingY, CallbackInfo ci) {
         super.init();
         // version Via ModrinthAPI, grabbed in VersionChecker
-        String modpackVersion = AIUTDAmIUpToDateClient.getLatestVersion();
+        String modpackVersion = VersionGrabber.getLatestVersion();
         //Local version
         String localVersion = MyConfig.localVersion;
 
