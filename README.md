@@ -1,3 +1,5 @@
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/P5P613RFGD)
+
 Am I Up To Date is a simple mod designed to be included in modpacks to check the local version against the most recent version and notify the user of an update.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -12,9 +14,8 @@ Modrinth modpacks
 
 Planned:
 
-* easy option for modpack user to disable chat reminder
+* multi-version support
+* NeoForge supoort (93.75% complete, see Modrinth for beta versions)
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-At this time I have no plans to port to Forge/NeoForge as they arent platforms I'm interested in. Feel free to make your own port (or submit a pull request) and let me know so I can link people to it
 
 My main reason for creating this mod was due to the lack of a good way to be alerted to updates in the Modrinth Launcher and third party launchers (MultiMC, Prism, etc). The Curseforge launcher does a much better job of making updates known so I have no plans to suppoort CurseForge packs at this time.
