@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URI;
 
 public class VersionGrabber {
 
@@ -19,9 +20,9 @@ public class VersionGrabber {
     public static String getLatestVersion() {
         StringBuilder result = new StringBuilder();
         try {
-            URL url = new URL(MyConfig.versionAPI);
+            URI url = new URI(MyConfig.versionAPI);
 
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            HttpURLConnection conn = (HttpURLConnection) url.toURL().openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("User-Agent", "Mozilla/5.0");
 
