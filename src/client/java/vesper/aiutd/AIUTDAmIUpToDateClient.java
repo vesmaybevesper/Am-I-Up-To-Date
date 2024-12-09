@@ -13,7 +13,7 @@ import static vesper.aiutd.VersionSet.setVersion;
 public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 
 	public void onInitializeClient() {
-		setVersion();
+		MultiVersionSupport.setVersion();
 
 		ClientCommandRegistrationCallback.EVENT.register(((dispatcher, registryAccess) -> {
 			dispatcher.register(ClientCommandManager.literal("shouldIgnore").executes(context -> {

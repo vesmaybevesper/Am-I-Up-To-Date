@@ -1,30 +1,38 @@
 package vesper.aiutd;
 
 import java.util.Objects;
-import vesper.aiutd.MyConfig;
+
+import static vesper.aiutd.MyConfig.multiLoaderBool;
+import static vesper.aiutd.MyConfig.multiVersion;
+
 
 public class MultiVersionSupport {
     public static boolean needUpdate;
 
-    // if multiLoader
-        // set loader name
+    public static void setVersion() {
 
-        // Parse for First version with identical loader name
+    if (multiVersion && multiLoaderBool) {
 
-        // get its version number
-
-    // if multiVersion
-        // Parse for first MP version with identical Minecraft version
-
-        // Get its version number
-
-    // if both
         // Parse for first version with Identical loader and mc version
 
         // grab its version
+    }
+    else if (multiLoaderBool){
 
-    //else
-    public static void setVersion() {
+            // if multiLoader
+            // set loader name
+
+            // Parse for First version with identical loader name
+
+            // get its version number
+        }
+    else if (multiVersion) {
+        // if multiVersion
+        // Parse for first MP version with identical Minecraft version
+
+        // Get its version number
+    }
+    else {
         // version Via ModrinthAPI, grabbed in VersionChecker
         String modpackVersion = VersionGrabber.getLatestVersion();
         //Local version
@@ -35,9 +43,7 @@ public class MultiVersionSupport {
             needUpdate = Boolean.FALSE;
         } else {
             needUpdate = Boolean.TRUE;
+            }
         }
     }
-
-
-
 }
