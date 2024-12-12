@@ -31,11 +31,9 @@ public class MultiVersionSupport {
     else {
         // version Via ModrinthAPI, grabbed in VersionChecker
         String modpackVersion = VersionGrabber.getLatestVersion();
-        //Local version
-        String localVersion = MyConfig.localVersion;
 
         // Compare local version to version listed via Modrinth API
-        if (Objects.equals(localVersion, modpackVersion)) {
+        if (Objects.equals(MyConfig.localVersion, modpackVersion)) {
             needUpdate = Boolean.FALSE;
         } else {
             needUpdate = Boolean.TRUE;
