@@ -35,6 +35,7 @@ public class VersionGrabber {
             JsonArray jsonArray = JsonParser.parseString(result.toString()).getAsJsonArray();
             if (!jsonArray.isEmpty()) {
                 JsonElement getVersionElement = jsonArray.get(0);
+                MyConfig.versionCache = getVersionElement.getAsJsonObject().get("version_number").getAsString();
                 return getVersionElement.getAsJsonObject().get("version_number").getAsString();
             }
         } catch (Exception fetchVersionError) {
