@@ -40,6 +40,7 @@ public class VersionGrabber {
         } catch (Exception fetchVersionError) {
             log.error("fetchVersionError: ", fetchVersionError);
             log.info("If this is first launch this error can be ignored");
+            return MyConfig.versionCache;
         }
         return null;
     }

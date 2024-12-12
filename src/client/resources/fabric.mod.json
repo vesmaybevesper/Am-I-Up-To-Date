@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "aiutd",
-	"version": "0.9.1",
+	"version": "1.0.0",
 	"name": "Am I Up To Date?",
 	"description": "Checks for modpack updates",
 	"authors": [

@@ -12,14 +12,11 @@ public class MultiVersionSupport {
     public static void setVersion() {
 
     if (multiVersion && multiLoaderBool) {
-
         // Parse for first version with Identical loader and mc version
 
         // grab its version
     }
     else if (multiLoaderBool){
-
-            // if multiLoader
             // set loader name
 
             // Parse for First version with identical loader name
@@ -27,7 +24,6 @@ public class MultiVersionSupport {
             // get its version number
         }
     else if (multiVersion) {
-        // if multiVersion
         // Parse for first MP version with identical Minecraft version
 
         // Get its version number

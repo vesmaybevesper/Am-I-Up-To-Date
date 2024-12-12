@@ -24,5 +24,7 @@ public class MyConfig extends MidnightConfig {
     @Entry(category = OPTIONAL) public static String customMessage = "This is a custom message!";
     @Entry(category = OPTIONAL) public static boolean linkChangelog = false;
 
+    public static String versionCache = "0.0.0";
+
     public static boolean shouldIgnore = false;
 }
