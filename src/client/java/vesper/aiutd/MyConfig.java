@@ -25,8 +25,6 @@ public class MyConfig extends MidnightConfig {
     @Entry(category = OPTIONAL) public static boolean linkChangelog = false;
 
     public static String versionCache = "0.0.0";
-    public static String mcVersionCache = "";
-    public static String loaderCache = "";
 
 
     public static boolean shouldIgnore = false;

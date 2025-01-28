@@ -7,7 +7,7 @@ public class VersionSet {
 
     public static void setVersion() {
         // version Via ModrinthAPI, grabbed in VersionChecker
-        String modpackVersion = VersionGrabber.getLatestVersion();
+        String modpackVersion = VersionGrabber.getLatestVersion(1);
         //Local version
         String localVersion = MyConfig.localVersion;
 

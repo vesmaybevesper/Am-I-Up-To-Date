@@ -16,7 +16,7 @@ public class VersionGrabber {
     private static final Logger log = LoggerFactory.getLogger(VersionGrabber.class);
 
     // grab version from Modrinth API
-    public static String getLatestVersion() {
+    public static String getLatestVersion(int location) {
         StringBuilder result = new StringBuilder();
         try {
             URI url = new URI(MyConfig.versionAPI);
@@ -34,7 +34,7 @@ public class VersionGrabber {
 
             JsonArray jsonArray = JsonParser.parseString(result.toString()).getAsJsonArray();
             if (!jsonArray.isEmpty()) {
-                JsonElement getVersionElement = jsonArray.get(0);
+                JsonElement getVersionElement = jsonArray.get(location);
                 MyConfig.versionCache = getVersionElement.getAsJsonObject().get("version_number").getAsString();
                 return getVersionElement.getAsJsonObject().get("version_number").getAsString();
             }
