@@ -10,13 +10,11 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Objects;
-
-import vesper.aiutd.MultiVersionSupport;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import vesper.aiutd.MyConfig;
 import vesper.aiutd.VersionGrabber;
 
@@ -38,8 +36,8 @@ public abstract class TitleScreenMixin extends Screen {
 
     public boolean needUpdate;
 
-    @Inject(at = @At("RETURN"), method = "initWidgetsNormal")
-    private void addUpdateNotice(int y, int spacingY, CallbackInfo ci) {
+    @Inject(at = @At("RETURN"), method = "addNormalWidgets")
+    private void addUpdateNotice(int y, int spacingY, CallbackInfoReturnable<Integer> cir) {
         super.init();
         // version Via ModrinthAPI, grabbed in VersionChecker
         String modpackVersion = VersionGrabber.getLatestVersion(loaderLocation);
