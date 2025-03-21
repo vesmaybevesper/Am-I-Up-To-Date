@@ -10,13 +10,13 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Objects;
 
-import vesper.aiutd.MultiVersionSupport;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import vesper.aiutd.MyConfig;
 import vesper.aiutd.VersionGrabber;
 
@@ -38,8 +38,8 @@ public abstract class TitleScreenMixin extends Screen {
 
     public boolean needUpdate;
 
-    @Inject(at = @At("RETURN"), method = "initWidgetsNormal")
-    private void addUpdateNotice(int y, int spacingY, CallbackInfo ci) {
+    @Inject(at = @At("RETURN"), method = "addNormalWidgets")
+    private void addUpdateNotice(int y, int spacingY, CallbackInfoReturnable<Integer> cir) {
         super.init();
         // version Via ModrinthAPI, grabbed in VersionChecker
         String modpackVersion = VersionGrabber.getLatestVersion(loaderLocation);
@@ -58,36 +58,36 @@ public abstract class TitleScreenMixin extends Screen {
         //message should only display if there is an update
         if (needUpdate == Boolean.TRUE && menuAlert == Boolean.TRUE) {
             this.addDrawableChild(
-            ButtonWidget.builder(Text.translatable("Update Available"), button -> {
-                       try {
-                            // URL to fetch from
-                            URI url = new URI(MyConfig.changelogLink);
-                            // Check if the Desktop class is supported and if the browser can be opened
-                            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-                                Desktop.getDesktop().browse(url);  // Open the browser with the URL
-                            } else {
-                                // alternative link opening logic
-                                String os = System.getProperty("os.name").toLowerCase();
+                    ButtonWidget.builder(Text.translatable("Update Available"), button -> {
                                 try {
-                                    if (os.contains("win")) {
-                                        Runtime.getRuntime().exec(new String[]{"rundll32", "url.dll,FileProtocolHandler", MyConfig.changelogLink});
-                                    } else if (os.contains("mac")) {
-                                        Runtime.getRuntime().exec(new String[]{"open", MyConfig.changelogLink});
-                                    } else if (os.contains("nix") || os.contains("nux")) {
-                                        Runtime.getRuntime().exec(new String[]{"xdg-open", MyConfig.changelogLink});
+                                    // URL to fetch from
+                                    URI url = new URI(MyConfig.changelogLink);
+                                    // Check if the Desktop class is supported and if the browser can be opened
+                                    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                                        Desktop.getDesktop().browse(url);  // Open the browser with the URL
                                     } else {
-                                        System.out.println("Unsupported OS for opening a browser.");
+                                        // alternative link opening logic
+                                        String os = System.getProperty("os.name").toLowerCase();
+                                        try {
+                                            if (os.contains("win")) {
+                                                Runtime.getRuntime().exec(new String[]{"rundll32", "url.dll,FileProtocolHandler", MyConfig.changelogLink});
+                                            } else if (os.contains("mac")) {
+                                                Runtime.getRuntime().exec(new String[]{"open", MyConfig.changelogLink});
+                                            } else if (os.contains("nix") || os.contains("nux")) {
+                                                Runtime.getRuntime().exec(new String[]{"xdg-open", MyConfig.changelogLink});
+                                            } else {
+                                                System.out.println("Unsupported OS for opening a browser.");
+                                            }
+                                        } catch (IOException e) {
+                                            LOGGER.info(String.valueOf(e));
+                                        }
                                     }
-                                } catch (IOException e) {
+                                } catch (Exception e) {
                                     LOGGER.info(String.valueOf(e));
                                 }
-                            }
-                        } catch (Exception e) {
-                            LOGGER.info(String.valueOf(e));
-                        }
-                    })
-                    .dimensions(this.width / 2 - 100 + 205, y, 90, 20)
-                    .build());
+                            })
+                            .dimensions(this.width / 2 - 100 + 205, y, 90, 20)
+                            .build());
         }
     }
 }
