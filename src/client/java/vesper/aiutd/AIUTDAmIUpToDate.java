@@ -2,6 +2,8 @@ package vesper.aiutd;
 
 import eu.midnightdust.lib.config.MidnightConfig;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.Screen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,9 +21,8 @@ public class AIUTDAmIUpToDate implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
+
 		MidnightConfig.init("aiutd", MyConfig.class);
-		LOGGER.info("Death before detransition");
-
-
+		LOGGER.info("Trans Rights are Human Rights!");
 	}
 }
