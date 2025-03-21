@@ -52,7 +52,7 @@ public class ChatFunctions {
                     ClientPlayConnectionEvents.JOIN.register((((handler, sender, client) -> {
                         client.execute(() -> {
                             assert MinecraftClient.getInstance().player != null;
-                            MinecraftClient.getInstance().player.sendMessage(clickableLink("Read the changelog!", changelogLink));
+                            MinecraftClient.getInstance().player.sendMessage(clickableLink("Read the changelog!", changelogLink), false);
                         });
                     })));
                 }
@@ -60,7 +60,7 @@ public class ChatFunctions {
                 ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
                     client.execute(() -> {
                         assert MinecraftClient.getInstance().player != null;
-                        MinecraftClient.getInstance().player.sendMessage(ignoreMessage());
+                        MinecraftClient.getInstance().player.sendMessage(ignoreMessage(), false);
                     });
                 });
 
@@ -76,7 +76,7 @@ public class ChatFunctions {
                     ClientPlayConnectionEvents.JOIN.register((((handler, sender, client) -> {
                         client.execute(() -> {
                             assert MinecraftClient.getInstance().player != null;
-                            MinecraftClient.getInstance().player.sendMessage(clickableLink("Read the changelog!", changelogLink));
+                            MinecraftClient.getInstance().player.sendMessage(clickableLink("Read the changelog!", changelogLink), false);
                         });
                     })));
                 }
@@ -84,7 +84,7 @@ public class ChatFunctions {
                 ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
                     client.execute(() -> {
                         assert MinecraftClient.getInstance().player != null;
-                        MinecraftClient.getInstance().player.sendMessage(ignoreMessage());
+                        MinecraftClient.getInstance().player.sendMessage(ignoreMessage(), false);
                     });
                 });
 
@@ -100,7 +100,7 @@ public class ChatFunctions {
                     ClientPlayConnectionEvents.JOIN.register((((handler, sender, client) -> {
                         client.execute(() -> {
                             assert MinecraftClient.getInstance().player != null;
-                            MinecraftClient.getInstance().player.sendMessage(clickableLink("Read the changelog!", changelogLink));
+                            MinecraftClient.getInstance().player.sendMessage(clickableLink("Read the changelog!", changelogLink), false);
                         });
                     })));
                 }
@@ -108,7 +108,7 @@ public class ChatFunctions {
                 ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
                     client.execute(() -> {
                         assert MinecraftClient.getInstance().player != null;
-                        MinecraftClient.getInstance().player.sendMessage(ignoreMessage());
+                        MinecraftClient.getInstance().player.sendMessage(ignoreMessage(), false);
                     });
                 });
 
