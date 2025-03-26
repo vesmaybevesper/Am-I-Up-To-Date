@@ -14,6 +14,7 @@ public class MyConfig extends MidnightConfig {
     @Entry(category = MAIN) public static String localVersion = "0.0.0";
     @Entry(category = MAIN) public static String versionAPI = "https://api.modrinth.com/v2/project/<id>/version";
     @Entry(category = MAIN) public static String changelogLink = "https://modrinth.com/modpack/<modpack-URL>/changelog";
+    @Entry(category = MAIN) public static int maxChecks = 5;
 
     @Entry(category = OPTIONAL) public static boolean multiVersion = false;
     @Entry(category = OPTIONAL) public static boolean multiLoaderBool = false;
