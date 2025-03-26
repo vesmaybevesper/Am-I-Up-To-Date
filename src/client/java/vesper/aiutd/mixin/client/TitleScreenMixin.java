@@ -14,12 +14,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
-import java.util.Objects;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import vesper.aiutd.MyConfig;
-import vesper.aiutd.VersionGrabber;
-
-import static vesper.aiutd.MultiVersionSupport.loaderLocation;
 import static vesper.aiutd.MyConfig.menuAlert;
 
 
@@ -47,7 +43,7 @@ public abstract class TitleScreenMixin extends Screen {
                             URI url = new URI(MyConfig.changelogLink);
                             // Check if the Desktop class is supported and if the browser can be opened
                             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-                                Desktop.getDesktop().browse(url);  // Open the browser with the URL
+                                Desktop.getDesktop().browse(url);
                             } else {
                                 // alternative link opening logic
                                 String os = System.getProperty("os.name").toLowerCase();
