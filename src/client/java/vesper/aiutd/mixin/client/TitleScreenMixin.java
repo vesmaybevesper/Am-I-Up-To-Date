@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import java.awt.*;
@@ -26,33 +27,17 @@ import static vesper.aiutd.MyConfig.menuAlert;
 public abstract class TitleScreenMixin extends Screen {
 
     @Shadow @Final private static Logger LOGGER;
-    // import strings from config
-
-
 
     protected TitleScreenMixin(Text title) {
         super(title);
     }
 
+    @Unique
     public boolean needUpdate;
 
     @Inject(at = @At("RETURN"), method = "addNormalWidgets")
     private void addUpdateNotice(int y, int spacingY, CallbackInfoReturnable<Integer> cir) {
         super.init();
-        // version Via ModrinthAPI, grabbed in VersionChecker
-        String modpackVersion = VersionGrabber.getLatestVersion(loaderLocation);
-        //Local version
-        String localVersion = MyConfig.localVersion;
-
-
-        // Compare local version to version listed via Modrinth API
-        if (Objects.equals(localVersion, modpackVersion)){
-            needUpdate = Boolean.FALSE;
-        }
-        else {
-            needUpdate = Boolean.TRUE;
-        }
-
         //message should only display if there is an update
         if (needUpdate == Boolean.TRUE && menuAlert == Boolean.TRUE) {
             this.addDrawableChild(

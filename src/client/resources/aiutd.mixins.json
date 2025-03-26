@@ -3,7 +3,6 @@
   "package": "vesper.aiutd.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "AmIUpToDateMixin",
     "TitleScreenMixin"
   ],
   "injectors": {

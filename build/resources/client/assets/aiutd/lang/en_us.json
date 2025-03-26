@@ -30,5 +30,7 @@
   "aiutd.midnightconfig.multiVersion.tooltip": "Should the mod check for Minecraft version",
   "aiutd.midnightconfig.enum.LoaderEnum.FABRIC": "Fabric",
   "aiutd.midnightconfig.enum.LoaderEnum.QUILT": "Quilt",
-  "aiutd.midnightconfig.enum.LoaderEnum.NEOFORGE": "NeoForge"
+  "aiutd.midnightconfig.enum.LoaderEnum.NEOFORGE": "NeoForge",
+  "aiutd.midnightconfig.maxChecks": "Max Checks",
+  "aiutd.midnightconfig.maxChecks.tooltip": "Sets the maximum number of versions the mod will check  against"
 }

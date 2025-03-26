@@ -11,7 +11,6 @@ import java.net.URISyntaxException;
 
 import static vesper.aiutd.ChatFunctions.chatMessage;
 import static vesper.aiutd.MyConfig.*;
-import static vesper.aiutd.VersionSet.setVersion;
 
 
 public class AIUTDAmIUpToDateClient implements ClientModInitializer {
@@ -27,8 +26,8 @@ public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 		}));
         try {
             MultiVersionSupport.setVersion();
-        } catch (URISyntaxException | IOException e) {
-            throw new RuntimeException(e);
+        } catch (URISyntaxException | IOException ignored) {
+
         }
 			chatMessage();
 	}
