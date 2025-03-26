@@ -3,11 +3,9 @@ package vesper.aiutd;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.minecraft.text.*;
 import net.minecraft.util.Formatting;
-
 import java.net.URI;
 import java.util.Objects;
-
-import static vesper.aiutd.MultiVersionSupport.needUpdate;
+import static vesper.aiutd.VersionCheck.needUpdate;
 import static vesper.aiutd.MyConfig.*;
 
 public class ChatFunctions {

@@ -25,7 +25,7 @@ public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 
 		}));
         try {
-            MultiVersionSupport.setVersion();
+            VersionCheck.setVersion();
         } catch (URISyntaxException | IOException ignored) {
 
         }
