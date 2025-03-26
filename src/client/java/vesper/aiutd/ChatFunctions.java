@@ -3,39 +3,26 @@ package vesper.aiutd;
 
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.text.ClickEvent;
-import net.minecraft.text.Style;
-import net.minecraft.text.Text;
-import net.minecraft.text.TextColor;
+import net.minecraft.text.*;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.math.BlockPos;
 
+import java.net.URI;
 import java.util.Objects;
 
 import static vesper.aiutd.MyConfig.*;
 import static vesper.aiutd.VersionSet.needUpdate;
 
-public class ChatFunctions {
+public class ChatFunctions implements ClickEvent {
 
-    public static Text clickableLink(String message, String url) {
-        Text linkLog = Text.literal(message)
-                .setStyle(Style.EMPTY
-                        .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, url))
-                        .withUnderline(true)
-                        .withColor(TextColor.fromFormatting(Formatting.RED)));
-        return linkLog;
+    public static MutableText clickableLink(String message, String url) {
+        ClickEvent clickEvent = new ClickEvent.OpenUrl(URI.create(url));
+        return Text.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderline(true).withColor(TextColor.fromFormatting(Formatting.RED)));
     }
 
-
-
-    public static Text ignoreMessage() {
-        Text ignore = Text.literal("Ignore update messages")
-                .setStyle(Style.EMPTY
-                        .withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/shouldIgnore"))
-                        .withUnderline(true)
-                        .withColor(TextColor.fromFormatting(Formatting.GRAY))
-                );
-
-        return ignore;
+    public static MutableText ignoreMessage() {
+        ClickEvent clickEvent = new ClickEvent.RunCommand("/shouldIgnore");
+        return Text.literal("Ignore update messages").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderline(true).withColor(TextColor.fromFormatting(Formatting.GRAY)));
     }
 
     public static void chatMessage() {
@@ -52,7 +39,7 @@ public class ChatFunctions {
                     ClientPlayConnectionEvents.JOIN.register((((handler, sender, client) -> {
                         client.execute(() -> {
                             assert MinecraftClient.getInstance().player != null;
-                            MinecraftClient.getInstance().player.sendMessage(clickableLink("Read the changelog!", changelogLink));
+                            MinecraftClient.getInstance().player.sendMessage(clickableLink("Read the changelog!", changelogLink), false);
                         });
                     })));
                 }
@@ -60,7 +47,7 @@ public class ChatFunctions {
                 ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
                     client.execute(() -> {
                         assert MinecraftClient.getInstance().player != null;
-                        MinecraftClient.getInstance().player.sendMessage(ignoreMessage());
+                        MinecraftClient.getInstance().player.sendMessage(ignoreMessage(), false);
                     });
                 });
 
@@ -76,7 +63,7 @@ public class ChatFunctions {
                     ClientPlayConnectionEvents.JOIN.register((((handler, sender, client) -> {
                         client.execute(() -> {
                             assert MinecraftClient.getInstance().player != null;
-                            MinecraftClient.getInstance().player.sendMessage(clickableLink("Read the changelog!", changelogLink));
+                            MinecraftClient.getInstance().player.sendMessage(clickableLink("Read the changelog!", changelogLink), false);
                         });
                     })));
                 }
@@ -84,7 +71,7 @@ public class ChatFunctions {
                 ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
                     client.execute(() -> {
                         assert MinecraftClient.getInstance().player != null;
-                        MinecraftClient.getInstance().player.sendMessage(ignoreMessage());
+                        MinecraftClient.getInstance().player.sendMessage(ignoreMessage(), false);
                     });
                 });
 
@@ -100,7 +87,7 @@ public class ChatFunctions {
                     ClientPlayConnectionEvents.JOIN.register((((handler, sender, client) -> {
                         client.execute(() -> {
                             assert MinecraftClient.getInstance().player != null;
-                            MinecraftClient.getInstance().player.sendMessage(clickableLink("Read the changelog!", changelogLink));
+                            MinecraftClient.getInstance().player.sendMessage(clickableLink("Read the changelog!", changelogLink), false);
                         });
                     })));
                 }
@@ -108,7 +95,7 @@ public class ChatFunctions {
                 ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
                     client.execute(() -> {
                         assert MinecraftClient.getInstance().player != null;
-                        MinecraftClient.getInstance().player.sendMessage(ignoreMessage());
+                        MinecraftClient.getInstance().player.sendMessage(ignoreMessage(), false);
                     });
                 });
 
@@ -116,4 +103,9 @@ public class ChatFunctions {
         }
     }
 
+
+    @Override
+    public Action getAction() {
+        return null;
+    }
 }
