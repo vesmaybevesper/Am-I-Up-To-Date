@@ -24,6 +24,7 @@ public class VersionCheck {
     public static String versionLoader = "";
     public static String APIMcVersion = "";
     public static String clientVersion;
+    static boolean hasChecked = false;
 
     public static void setVersion() throws URISyntaxException, IOException {
         clientVersion = MinecraftClient.getInstance().getGameVersion();
@@ -82,18 +83,19 @@ public class VersionCheck {
         }
 
         int timesChecked = 0;
+
         // Iterate through the JSON elements (with a maximum number of tries).
-        while (loaderLocation < jsonArray.size() && timesChecked <= maxChecks) {
+        while (loaderLocation < jsonArray.size() && timesChecked <= maxChecks && !hasChecked) {
             JsonObject versionObject = jsonArray.get(loaderLocation).getAsJsonObject();
             JsonArray gameVersionsArray = versionObject.getAsJsonArray("game_versions");
             JsonArray loadersArray = versionObject.getAsJsonArray("loaders");
+            log.info("the check has run");
 
             // Check for multiLoader and multiVersion conditions.
             if (multiLoaderBool && multiVersion) {
                 boolean versionMatch = false;
                 boolean loaderMatch = false;
                 if (gameVersionsArray != null && !gameVersionsArray.isEmpty()) {
-                    // Assumes checking the first entry in the array.
                     APIMcVersion = gameVersionsArray.get(0).getAsString();
                     versionMatch = Objects.equals(clientVersion, APIMcVersion);
                 }
@@ -131,5 +133,6 @@ public class VersionCheck {
 
         modpackVersion = VersionGrabber.getLatestVersion(loaderLocation);
         needUpdate = !Objects.equals(localVersion, modpackVersion);
+
     }
 }

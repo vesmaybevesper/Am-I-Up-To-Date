@@ -16,6 +16,7 @@ import static vesper.aiutd.MyConfig.*;
 public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 
 	public void onInitializeClient() {
+        // Register /shouldIgnore
         ClientCommandRegistrationCallback.EVENT.register(((dispatcher, registryAccess) -> {
 			dispatcher.register(ClientCommandManager.literal("shouldIgnore").executes(context -> {
 					context.getSource().sendFeedback(Text.literal("You have set chat notifications to be ignored!"));
@@ -25,10 +26,15 @@ public class AIUTDAmIUpToDateClient implements ClientModInitializer {
 
 		}));
         try {
-            VersionCheck.setVersion();
+            // Check version ONLY if it hasn't already happened this run
+            if (!VersionCheck.hasChecked) {
+                VersionCheck.setVersion();
+                VersionCheck.hasChecked = true;
+            }
         } catch (URISyntaxException | IOException ignored) {
 
         }
+        // Run chat msg code
 			chatMessage();
 	}
 }

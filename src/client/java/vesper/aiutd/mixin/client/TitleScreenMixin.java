@@ -35,7 +35,7 @@ public abstract class TitleScreenMixin extends Screen {
     private void addUpdateNotice(int y, int spacingY, CallbackInfoReturnable<Integer> cir) {
         super.init();
         //message should only display if there is an update
-        if (needUpdate == Boolean.TRUE && menuAlert == Boolean.TRUE) {
+        if (needUpdate && menuAlert) {
             this.addDrawableChild(
             ButtonWidget.builder(Text.translatable("Update Available"), button -> {
                        try {

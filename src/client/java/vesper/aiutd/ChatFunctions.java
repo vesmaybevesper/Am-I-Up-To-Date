@@ -34,15 +34,15 @@ public class ChatFunctions {
     public static void chatMessage() {
         if (chatAlert && needUpdate && !shouldIgnore) {
             // Determine which primary message to send.
-            if (Boolean.TRUE.equals(useCustomMessage) && !Objects.equals(customMessage, "This is a custom message!")) {
+            if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
                 registerJoinMessage((MutableText) Text.of(customMessage));
-            } else if (Boolean.TRUE.equals(useModpackName) && !Objects.equals(modpackName, "Default") && Boolean.FALSE.equals(useCustomMessage)) {
+            } else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
                 registerJoinMessage((MutableText) Text.of("There is an update available for " + modpackName + "!"));
             } else {
                 registerJoinMessage((MutableText) Text.of("There is an update available for your modpack!"));
             }
             // Register changelog link if enabled.
-            if (Boolean.TRUE.equals(linkChangelog)) {
+            if (linkChangelog) {
                 registerJoinMessage(clickableLink("Read the changelog!", changelogLink));
             }
             // Register ignore message.
