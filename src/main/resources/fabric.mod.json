@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "aiutd",
+  "name": "Am I Up To Date?",
+  "version": "${version}",
+  "authors": ["VesMaybeVesper"],
+  "contact": {
+    "sources": "",
+    "issues": ""
+  },
+  "description": "Checks for modpack updates",
+  "icon": "assets/icon.png",
+  "license": "MIT",
+  "environment": "*",
+  "accessWidener": "modtemplate.accesswidener",
+  "entrypoints": {
+    "main": [
+      "dev.vesper.AIUTD.fabric.FabricEntrypoint"
+    ],
+    "client": [
+      "dev.vesper.AIUTD.fabric.FabricClientEntrypoint"
+    ]
+  },
+  "mixins": [
+    "aiutd.mixins.json"
+  ],
+  "depends": {
+    "fabric-api": "*",
+    "yet_another_config_lib_v3": ">=3.7.1"
+  }
+}
