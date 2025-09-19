@@ -5,6 +5,7 @@ import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import dev.isxander.yacl3.platform.YACLPlatform;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.Nullable;
 
 public class EndUserConfig {
     public static ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
@@ -16,5 +17,5 @@ public class EndUserConfig {
             .build();
 
     @SerialEntry
-    public boolean shouldIgnore = false;
+    public static boolean shouldIgnore = false;
 }
