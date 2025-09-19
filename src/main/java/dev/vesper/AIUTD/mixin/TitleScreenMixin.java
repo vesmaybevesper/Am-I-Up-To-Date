@@ -15,6 +15,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 
+import static dev.vesper.AIUTD.common.UpdateChecker.needUpdate;
 import static dev.vesper.AIUTD.config.Config.menuAlert;
 
 
