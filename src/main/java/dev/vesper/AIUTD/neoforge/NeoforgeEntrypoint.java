@@ -31,6 +31,7 @@ public class NeoforgeEntrypoint {
             Config.HANDLER.load();
             EndUserConfig.HANDLER.load();
             CommonClient.init();
+            new ChatMessagesNeoForge().chatMessageInit();
         }
     }
 
