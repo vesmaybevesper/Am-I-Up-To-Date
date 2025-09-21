@@ -21,10 +21,21 @@ repositories{
     maven("https://maven.isxander.dev/releases") {
         name = "Xander Maven"
     }
+<<<<<<< Updated upstream
 }
 
 dependencies {
     compileOnly(("dev.isxander:yet-another-config-lib:${property("deps.yacl_version")}"))
+=======
+
+    maven("https://maven.parchmentmc.org")
+    maven("https://maven.shedaniel.me/")
+    maven("https://maven.terraformersmc.com/releases/")
+}
+
+dependencies {
+    api("me.shedaniel.cloth:cloth-config-neoforge:19.0.147")
+>>>>>>> Stashed changes
 }
 
 version = "${property("mod.version")}+${property("deps.minecraft")}-neoforge"

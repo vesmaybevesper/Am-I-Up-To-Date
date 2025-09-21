@@ -1,4 +1,9 @@
+<<<<<<< Updated upstream
 package dev.vesper.AIUTD.neoforge;
+=======
+//? neoforge {
+/*package dev.vesper.AIUTD.neoforge;
+>>>>>>> Stashed changes
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
@@ -33,3 +38,7 @@ public class RegisterCommand {
         );
     }
 }
+<<<<<<< Updated upstream
+=======
+*///?}
+>>>>>>> Stashed changes

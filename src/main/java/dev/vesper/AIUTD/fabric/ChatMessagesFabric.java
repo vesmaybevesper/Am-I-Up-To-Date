@@ -1,6 +1,10 @@
 package dev.vesper.AIUTD.fabric;
 
+<<<<<<< Updated upstream
 //?{
+=======
+//? fabric {
+>>>>>>> Stashed changes
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.*;

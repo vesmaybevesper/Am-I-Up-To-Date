@@ -1,5 +1,6 @@
 package dev.vesper.AIUTD.config;
 
+<<<<<<< Updated upstream
 import dev.isxander.yacl3.api.ConfigCategory;
 import dev.isxander.yacl3.api.Option;
 import dev.isxander.yacl3.api.OptionDescription;
@@ -57,10 +58,54 @@ public class Config {
     @SerialEntry
     public static String customMessage = "This is a custom message!";
     @SerialEntry
+=======
+import me.shedaniel.autoconfig.ConfigData;
+import me.shedaniel.autoconfig.annotation.ConfigEntry;
+
+@me.shedaniel.autoconfig.annotation.Config(name = "aiutd")
+public class Config implements ConfigData {
+
+    public enum LoaderEnum {FABRIC, QUILT, NEOFORGE}
+
+    @ConfigEntry.Category("Main")
+    // Main Settings
+    @ConfigEntry.Gui.Tooltip
+    public static boolean menuAlert = true;
+    @ConfigEntry.Gui.Tooltip
+    public static boolean chatAlert = true;
+    @ConfigEntry.Gui.Tooltip
+    public static String localVersion = "1.0.0";
+    @ConfigEntry.Gui.Tooltip
+    public static String versionAPI = "https://api.modrinth.com/v2/project/<id>/version";
+    @ConfigEntry.Gui.Tooltip
+    public static String changelogLink = "https://modrinth.com/modpack/<modpack-URL>/changelog";
+    // i can delete this if i do my logic correctly this time
+    @ConfigEntry.Gui.Tooltip
+    public static int maxChecks = 5;
+
+    @ConfigEntry.Category("Optional")
+    // Optional Settings
+    @ConfigEntry.Gui.Tooltip
+    public static boolean multiVersion = false;
+    @ConfigEntry.Gui.Tooltip
+    public static boolean multiLoaderBool = false;
+    @ConfigEntry.Gui.Tooltip
+    public static LoaderEnum multiLoader = LoaderEnum.FABRIC;
+    @ConfigEntry.Gui.Tooltip
+    public static boolean useModpackName = false;
+    @ConfigEntry.Gui.Tooltip
+    public static String modpackName = "Default";
+    @ConfigEntry.Gui.Tooltip
+    public static boolean useCustomMessage = false;
+    @ConfigEntry.Gui.Tooltip
+    public static String customMessage = "This is a custom message!";
+    @ConfigEntry.Gui.Tooltip
+>>>>>>> Stashed changes
     public static boolean linkChangelog = false;
     
     // Cache to prevent crashing. May relocate
     public static String versionCache = "0.0.0";
+<<<<<<< Updated upstream
 
     public static Screen configGui(Screen parent){
         return YetAnotherConfigLib.createBuilder()
@@ -166,3 +211,7 @@ public class Config {
                 .generateScreen(parent);
     }
 }
+=======
+}
+
+>>>>>>> Stashed changes

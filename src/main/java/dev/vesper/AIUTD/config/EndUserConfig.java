@@ -1,5 +1,6 @@
 package dev.vesper.AIUTD.config;
 
+<<<<<<< Updated upstream
 import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
 import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
@@ -17,5 +18,13 @@ public class EndUserConfig {
             .build();
 
     @SerialEntry
+=======
+import me.shedaniel.autoconfig.annotation.Config;
+import me.shedaniel.autoconfig.annotation.ConfigEntry;
+
+@Config(name = "aiutd-enduser")
+public class EndUserConfig {
+    @ConfigEntry.Gui.Tooltip
+>>>>>>> Stashed changes
     public static boolean shouldIgnore = false;
 }

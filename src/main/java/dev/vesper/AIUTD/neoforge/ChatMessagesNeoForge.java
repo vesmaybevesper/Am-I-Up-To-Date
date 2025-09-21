@@ -1,4 +1,9 @@
+<<<<<<< Updated upstream
 package dev.vesper.AIUTD.neoforge;
+=======
+//? neoforge {
+/*package dev.vesper.AIUTD.neoforge;
+>>>>>>> Stashed changes
 
 import dev.vesper.AIUTD.config.Config;
 import net.minecraft.ChatFormatting;
@@ -10,9 +15,13 @@ import net.minecraft.network.chat.TextColor;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.common.NeoForge;
+<<<<<<< Updated upstream
 
 import java.util.Objects;
 
+=======
+import java.util.Objects;
+>>>>>>> Stashed changes
 import static dev.vesper.AIUTD.common.UpdateChecker.needUpdate;
 import static dev.vesper.AIUTD.config.Config.*;
 import static dev.vesper.AIUTD.config.EndUserConfig.shouldIgnore;
@@ -112,3 +121,7 @@ public class ChatMessagesNeoForge {
         }
     }
 }
+<<<<<<< Updated upstream
+=======
+*///?}
+>>>>>>> Stashed changes

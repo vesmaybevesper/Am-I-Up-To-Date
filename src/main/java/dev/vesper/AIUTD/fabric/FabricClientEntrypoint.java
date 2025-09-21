@@ -23,8 +23,11 @@ public class FabricClientEntrypoint implements ClientModInitializer {
                 return 1;
             }));
         }));
+<<<<<<< Updated upstream
         Config.HANDLER.load();
         EndUserConfig.HANDLER.load();
+=======
+>>>>>>> Stashed changes
         CommonClient.init();
         ChatMessagesFabric.chatMessage();
     }
