@@ -19,6 +19,12 @@
     ],
     "client": [
       "dev.vesper.AIUTD.fabric.FabricClientEntrypoint"
+<<<<<<< Updated upstream
+=======
+    ],
+    "modmenu": [
+      "dev.vesper.AIUTD.fabric.ModMenuInit"
+>>>>>>> Stashed changes
     ]
   },
   "mixins": [
