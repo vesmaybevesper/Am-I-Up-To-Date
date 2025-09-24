@@ -19,7 +19,7 @@ public class ChatMessagesFabric {
 
     public static MutableComponent ignoreMessage() {
         ClickEvent clickEvent = new ClickEvent.RunCommand("/shouldIgnore");
-        return Component.translatable("Ignore update messages").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY)));
+        return Component.translatable("aiutd.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY)));
     }
 
     private static void registerJoinMessage(MutableComponent message) {
@@ -38,7 +38,7 @@ public class ChatMessagesFabric {
             if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
                 registerJoinMessage((MutableComponent) Component.literal(customMessage));
             } else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
-                registerJoinMessage((MutableComponent) Component.translatable("There is an update available for" + modpackName + "!"));
+                registerJoinMessage((MutableComponent) Component.literal("There is an update available for" + modpackName + "!"));
             } else {
                 registerJoinMessage((MutableComponent) Component.translatable("There is an update available for your modpack!"));
             }

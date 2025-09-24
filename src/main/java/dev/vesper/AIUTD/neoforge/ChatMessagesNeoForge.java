@@ -12,6 +12,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.common.NeoForge;
 
+import java.net.URI;
 import java.util.Objects;
 
 import static dev.vesper.AIUTD.common.UpdateChecker.needUpdate;
@@ -25,11 +26,8 @@ public class ChatMessagesNeoForge {
     }
 
     public Component clickableLink(String message, String URL) {
-        return Component.literal(message)
-                .setStyle(Style.EMPTY
-                        .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, URL))
-                        .withUnderlined(true)
-                        .withColor(TextColor.fromLegacyFormat(ChatFormatting.RED)));
+        ClickEvent clickEvent = new ClickEvent.OpenUrl(URI.create(URL));
+        return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.RED)));
     }
 
     public Component toIgnore(){
@@ -40,13 +38,8 @@ public class ChatMessagesNeoForge {
     }
 
     public Component ignoreMsg() {
-        return Component.literal("Ignore update messages")
-                .setStyle(Style.EMPTY
-                        .withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/shouldIgnore"))
-                        .withUnderlined(true)
-                        .withItalic(true)
-                        .withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY))
-                );
+        ClickEvent clickEvent = new ClickEvent.RunCommand("/shouldIgnore");
+        return Component.literal("Ignore update messages").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY)));
     }
 
     @SubscribeEvent
