@@ -1,6 +1,7 @@
 package dev.vesper.AIUTD.neoforge;
 
-import dev.vesper.AIUTD.config.Config;
+//? neoforge {
+/*import dev.vesper.AIUTD.config.Config;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.ClickEvent;
@@ -112,3 +113,4 @@ public class ChatMessagesNeoForge {
         }
     }
 }
+*///?}

@@ -1,6 +1,7 @@
 package dev.vesper.AIUTD.neoforge;
 
-import com.mojang.brigadier.CommandDispatcher;
+//? neoforge {
+/*import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import dev.vesper.AIUTD.AIUTD;
 import dev.vesper.AIUTD.config.EndUserConfig;
@@ -33,3 +34,4 @@ public class RegisterCommand {
         );
     }
 }
+*///?}

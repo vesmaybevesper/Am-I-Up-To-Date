@@ -13,7 +13,7 @@ pluginManagement {
 
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.9.0"
-    id("dev.kikugie.stonecutter") version "0.7-beta.4"
+    id("dev.kikugie.stonecutter") version "0.7.10"
 }
 
 stonecutter {
@@ -21,8 +21,8 @@ stonecutter {
         fun match(versions: String, vararg loaders: String) = loaders
             .forEach { vers("$versions-$it", versions).buildscript = "build.$it.gradle.kts" }
 
-        match("1.21.1", "fabric", "neoforge")
+        match("1.21.6", "fabric", "neoforge")
 
-        vcsVersion = "1.21.1-fabric"
+        vcsVersion = "1.21.6-fabric"
     }
 }

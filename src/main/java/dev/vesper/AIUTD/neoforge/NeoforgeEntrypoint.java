@@ -2,7 +2,7 @@ package dev.vesper.AIUTD.neoforge;
 
 //? neoforge {
 
-import dev.vesper.AIUTD.AIUTD;
+/*import dev.vesper.AIUTD.AIUTD;
 import dev.vesper.AIUTD.common.CommonClient;
 import dev.vesper.AIUTD.config.Config;
 import dev.vesper.AIUTD.config.EndUserConfig;
@@ -36,4 +36,4 @@ public class NeoforgeEntrypoint {
     }
 
 }
-//?}
+*///?}

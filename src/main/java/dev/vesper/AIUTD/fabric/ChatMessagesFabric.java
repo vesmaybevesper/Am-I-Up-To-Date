@@ -1,6 +1,6 @@
 package dev.vesper.AIUTD.fabric;
 
-//?{
+//? fabric {
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.*;

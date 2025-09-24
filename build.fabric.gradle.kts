@@ -51,8 +51,8 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric-loader")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
-    modImplementation ("dev.isxander:yet-another-config-lib:${property("deps.yacl_version")}")
-    compileOnly("com.terraformersmc:modmenu:${property("modmenu_version")}")
+    modImplementation("com.terraformersmc:modmenu:${property("modmenu_version")}")
+    modImplementation("dev.isxander:yet-another-config-lib:3.7.1+1.21.6-fabric")
 
 
     val modules = listOf("transitive-access-wideners-v1", "registry-sync-v0", "resource-loader-v0")

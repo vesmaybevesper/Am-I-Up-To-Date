@@ -24,7 +24,7 @@ repositories{
 }
 
 dependencies {
-    compileOnly(("dev.isxander:yet-another-config-lib:${property("deps.yacl_version")}"))
+    compileOnly("dev.isxander:yet-another-config-lib:3.7.1+1.21.6-neoforge")
 }
 
 version = "${property("mod.version")}+${property("deps.minecraft")}-neoforge"
