@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.awt.*;
 import java.io.IOException;
@@ -27,7 +28,7 @@ public abstract class TitleScreenMixin extends Screen {
     }
 
     @Inject(method = "createNormalMenuOptions", at = @At("RETURN"))
-    private void addUpdateNotice(int i, int j, CallbackInfo ci) {
+    private void addUpdateNotice(int i, int j, CallbackInfoReturnable<Integer> cir) {
         super.init();
         if (needUpdate && menuAlert){
             this.addRenderableWidget(
