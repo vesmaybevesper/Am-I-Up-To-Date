@@ -21,10 +21,12 @@ repositories{
     maven("https://maven.isxander.dev/releases") {
         name = "Xander Maven"
     }
+    maven("https://api.modrinth.com/maven")
 }
 
 dependencies {
     compileOnly("dev.isxander:yet-another-config-lib:3.7.1+1.21.6-neoforge")
+    compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
 }
 
 version = "${property("mod.version")}+${property("deps.minecraft")}-neoforge"

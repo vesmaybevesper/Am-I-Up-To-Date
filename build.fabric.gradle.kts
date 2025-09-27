@@ -39,6 +39,7 @@ repositories {
     maven("https://maven.terraformersmc.com/") {
         name = "Terraformers"
     }
+    maven("https://api.modrinth.com/maven")
 }
 
 dependencies {
@@ -53,6 +54,7 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
     modImplementation("com.terraformersmc:modmenu:${property("modmenu_version")}")
     modImplementation("dev.isxander:yet-another-config-lib:3.7.1+1.21.6-fabric")
+    compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
 
 
     val modules = listOf("transitive-access-wideners-v1", "registry-sync-v0", "resource-loader-v0")
