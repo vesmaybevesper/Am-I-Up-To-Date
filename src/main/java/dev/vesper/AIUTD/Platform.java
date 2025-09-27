@@ -4,8 +4,7 @@ package dev.vesper.AIUTD;
 import dev.vesper.AIUTD.fabric.FabricPlatformImpl;
 //?}
 //? neoforge {
-/*import dev.spagurder.modtemplate.neoforge.NeoforgePlatformImpl;
-*///?}
+//?}
 
 public interface Platform {
 
@@ -13,7 +12,7 @@ public interface Platform {
     Platform INSTANCE = new FabricPlatformImpl();
     //?}
     //? neoforge {
-    /*Platform INSTANCE = new NeoforgePlatformImpl();
+    /*Platform INSTANCE = new dev.vesper.AIUTD.neoforge.NeoforgePlatformImpl();
     *///?}
 
 

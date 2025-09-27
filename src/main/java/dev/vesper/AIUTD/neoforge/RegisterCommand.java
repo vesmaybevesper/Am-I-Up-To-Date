@@ -14,7 +14,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RegisterClientCommandsEvent;
 
-@EventBusSubscriber(modid = AIUTD.MOD_ID, bus = EventBusSubscriber.Bus.GAME, value = Dist.CLIENT)
+@EventBusSubscriber(modid = AIUTD.MOD_ID, value = Dist.CLIENT)
 public class RegisterCommand {
     private static int executeShouldIgnore(CommandContext<?> context) {
         assert Minecraft.getInstance().player != null;
