@@ -8,6 +8,7 @@ import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
 import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import dev.isxander.yacl3.impl.controller.EnumDropdownControllerBuilderImpl;
+import dev.isxander.yacl3.impl.controller.IntegerFieldControllerBuilderImpl;
 import dev.isxander.yacl3.impl.controller.StringControllerBuilderImpl;
 import dev.isxander.yacl3.impl.controller.TickBoxControllerBuilderImpl;
 import dev.isxander.yacl3.platform.YACLPlatform;
@@ -37,7 +38,6 @@ public class Config {
     public static String versionAPI = "https://api.modrinth.com/v2/project/<id>/version";
     @SerialEntry
     public static String changelogLink = "https://modrinth.com/modpack/<modpack-URL>/changelog";
-    // i can delete this if i do my logic correctly this time
     @SerialEntry
     public static int maxChecks = 5;
 
@@ -103,6 +103,7 @@ public class Config {
                                 .controller(StringControllerBuilderImpl::new)
                                 .build())
                         .build())
+
                 .category(ConfigCategory.createBuilder()
                         .name(Component.translatable("auitd.optional"))
 
@@ -160,6 +161,13 @@ public class Config {
                                 .description(OptionDescription.of(Component.translatable("aiutd.linkChangelog")))
                                 .binding(Config.linkChangelog, () -> Config.linkChangelog, newVal -> Config.linkChangelog = newVal)
                                 .controller(TickBoxControllerBuilderImpl::new)
+                                .build())
+
+                        .option(Option.<Integer>createBuilder()
+                                .name(Component.translatable("aiutd.maxChecks"))
+                                .description(OptionDescription.of(Component.translatable("aiutd.maxChecksDesc")))
+                                .binding(Config.maxChecks, () -> Config.maxChecks, newVal -> Config.maxChecks = newVal)
+                                .controller(IntegerFieldControllerBuilderImpl::new)
                                 .build())
                         .build())
                 .build()
