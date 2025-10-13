@@ -1,14 +1,12 @@
 package dev.vesper.AIUTD.common;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.JsonSyntaxException;
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONObject;
 import dev.vesper.AIUTD.AIUTD;
 import dev.vesper.AIUTD.config.Config;
 import net.minecraft.client.Minecraft;
 import org.jetbrains.annotations.Nullable;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -55,16 +53,16 @@ public class UpdateChecker {
             return versionCache;
         }
 
-        JsonArray array;
+        JSONArray array1;
         try {
-            array = JsonParser.parseString(result.toString()).getAsJsonArray();
-        } catch (JsonSyntaxException e) {
+            array1 = JSON.parseArray(String.valueOf(result));
+        } catch (Exception e) {
             AIUTD.LOG.error("Failed to parse version JSON: ", e);
             AIUTD.LOG.info("Proceeding using cached version: " + versionCache);
             return versionCache;
         }
 
-        if (array.isEmpty()) {
+        if (array1.isEmpty()) {
             AIUTD.LOG.error("Version JSON is Empty");
             AIUTD.LOG.info("Proceeding using cached version: " + versionCache);
             return versionCache;
@@ -85,35 +83,35 @@ public class UpdateChecker {
         }
 
         // trying to avoid using max check logic again for the sake of simplicity, but it may be the only way to cover very niche situations
-        while (location < array.size() && !hasChecked) {
-            JsonObject version = array.get(location).getAsJsonObject();
-            JsonArray gameVersions = version.getAsJsonArray("game_versions");
-            JsonArray loaders = version.getAsJsonArray("loaders");
+        while (location < array1.size() && !hasChecked) {
+            JSONObject version1 = JSONObject.from(array1.get(location));
+            JSONArray gameVersions1 = JSONArray.of(version1.get("game_versions"));
+            JSONArray loaders1 = JSONArray.of(version1.get("loaders"));
 
             if (multiLoaderBool && multiVersion) {
                 boolean versionMatch = false;
                 boolean loaderMatch = false;
-                if (gameVersions != null && !gameVersions.isEmpty()) {
-                    APIMcVersion = gameVersions.get(0).getAsString();
+                if (gameVersions1 != null && !gameVersions1.isEmpty()) {
+                    APIMcVersion = gameVersions1.getFirst().toString();
                     versionMatch = Objects.equals(clientVersion, APIMcVersion);
                 }
-                if (loaders != null && !loaders.isEmpty()) {
-                    versionLoader = loaders.get(0).getAsString();
+                if (loaders1 != null && !loaders1.isEmpty()) {
+                    versionLoader = loaders1.getFirst().toString();
                     loaderMatch = Objects.equals(versionLoader, localLoader);
                 }
                 if (versionMatch && loaderMatch) {
                     break;
                 }
             } else if (multiLoaderBool) {
-                if (loaders != null && !loaders.isEmpty()) {
-                    versionLoader = loaders.get(0).getAsString();
+                if (loaders1 != null && !loaders1.isEmpty()) {
+                    versionLoader = loaders1.getFirst().toString();
                     if (Objects.equals(versionLoader, localLoader)) {
                         break;
                     }
                 }
             } else if (multiVersion) {
-                if (gameVersions != null && !gameVersions.isEmpty()) {
-                    APIMcVersion = gameVersions.get(0).getAsString();
+                if (gameVersions1 != null && !gameVersions1.isEmpty()) {
+                    APIMcVersion = gameVersions1.getFirst().toString();
                     if (Objects.equals(clientVersion, APIMcVersion)) {
                         break;
                     }
@@ -132,10 +130,10 @@ public class UpdateChecker {
             }
         }
 
-        JsonArray jsonArray = JsonParser.parseString(result.toString()).getAsJsonArray();
-        if (!jsonArray.isEmpty() && location < jsonArray.size()) {
-            JsonObject versionObject = jsonArray.get(location).getAsJsonObject();
-            String versionNumber = versionObject.get("version_number").getAsString();
+        JSONArray jsonArray1 = JSONArray.of(result.toString());
+        if (!jsonArray1.isEmpty() && location < jsonArray1.size()) {
+            JSONObject versionObject = (JSONObject) jsonArray1.get(location);
+            String versionNumber = versionObject.get("version_number").toString();
             Config.versionCache = versionNumber;
             return versionNumber;
         }

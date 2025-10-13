@@ -40,6 +40,7 @@ repositories {
         name = "Terraformers"
     }
     maven("https://api.modrinth.com/maven")
+    mavenCentral()
 }
 
 dependencies {
@@ -55,6 +56,8 @@ dependencies {
     modImplementation("com.terraformersmc:modmenu:${property("modmenu_version")}")
     modImplementation("dev.isxander:yet-another-config-lib:3.7.1+1.21.6-fabric")
     compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
+    implementation("com.alibaba.fastjson2:fastjson2:2.0.59")
+    include("com.alibaba.fastjson2:fastjson2:2.0.59")
 
 
     val modules = listOf("transitive-access-wideners-v1", "registry-sync-v0", "resource-loader-v0")
