@@ -7,7 +7,7 @@ import dev.vesper.AIUTD.config.Config;
 public class ModMenuInit implements ModMenuApi {
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return Config::configGui;
+        return Config::config;
     }
 }
 //?}

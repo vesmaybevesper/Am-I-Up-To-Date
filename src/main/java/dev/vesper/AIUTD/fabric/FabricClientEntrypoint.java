@@ -20,11 +20,12 @@ public class FabricClientEntrypoint implements ClientModInitializer {
             dispatcher.register(ClientCommandManager.literal("shouldIgnore").executes(context -> {
                 context.getSource().sendFeedback(Component.translatable("You have set chat notifications to be ignored!"));
                 EndUserConfig.shouldIgnore = Boolean.TRUE;
+                EndUserConfig.USERCONFIG.save();
                 return 1;
             }));
         }));
         Config.HANDLER.load();
-        EndUserConfig.HANDLER.load();
+        EndUserConfig.USERCONFIG.load();
         CommonClient.init();
         ChatMessagesFabric.chatMessage();
     }

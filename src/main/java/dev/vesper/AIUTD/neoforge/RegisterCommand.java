@@ -20,6 +20,7 @@ public class RegisterCommand {
         assert Minecraft.getInstance().player != null;
         Minecraft.getInstance().player.displayClientMessage(Component.literal("You have set chat notifications to be ignored!"), false);
         EndUserConfig.shouldIgnore = true;
+        EndUserConfig.USERCONFIG.save();
         return 1;
     }
 

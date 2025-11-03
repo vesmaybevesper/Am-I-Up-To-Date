@@ -9,16 +9,19 @@
     "issues": ""
   },
   "description": "Checks for modpack updates",
-  "icon": "assets/icon.png",
+  "icon": "assets/aiutd/icon.png",
   "license": "MIT",
   "environment": "*",
-  "accessWidener": "modtemplate.accesswidener",
+  "accessWidener": "aiutd.accesswidener",
   "entrypoints": {
     "main": [
       "dev.vesper.AIUTD.fabric.FabricEntrypoint"
     ],
     "client": [
       "dev.vesper.AIUTD.fabric.FabricClientEntrypoint"
+    ],
+    "modmenu": [
+      "dev.vesper.AIUTD.fabric.ModMenuInit"
     ]
   },
   "mixins": [

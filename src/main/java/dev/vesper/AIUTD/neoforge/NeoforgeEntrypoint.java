@@ -29,7 +29,7 @@ public class NeoforgeEntrypoint {
             AIUTD.LOG.info("Initializing {} Client", AIUTD.MOD_ID);
             // register command here
             Config.HANDLER.load();
-            EndUserConfig.HANDLER.load();
+            EndUserConfig.USERCONFIG.load();
             CommonClient.init();
             new ChatMessagesNeoForge().chatMessageInit();
         }

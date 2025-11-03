@@ -7,7 +7,7 @@ modId = "aiutd"
 displayName = "Am I Up To Date?"
 version = "${version}"
 displayURL = ""
-logoFile = "assets/icon.png"
+logoFile = "assets/aiutd/icon.png"
 authors = "VesMaybeVesper"
 description = '''Checks for modpack updates'''
 

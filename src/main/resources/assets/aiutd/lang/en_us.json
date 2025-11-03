@@ -1,0 +1,20 @@
+{
+  "yacl3.config.aiutd:config.category.Main": "Main Settings",
+  "yacl3.config.aiutd:config.category.Optional": "Optional Settings",
+  "yacl3.config.aiutd:config.menuAlert": "Menu Alert",
+  "yacl3.config.aiutd:config.chatAlert": "Chat Alert",
+  "yacl3.config.aiutd:config.localVersion": "Local Version",
+  "yacl3.config.aiutd:config.versionAPI": "API URL",
+  "yacl3.config.aiutd:config.changelogLink": "Changelog URL",
+  "yacl3.config.aiutd:config.multiVersion": "Multi-Version Support",
+  "yacl3.config.aiutd:config.multiLoaderBool": "Multi-Loader Support",
+  "yacl3.config.aiutd:config.multiLoader": "Loader Selection",
+  "yacl3.config.enum.LoaderEnum.fabric": "Fabric",
+  "yacl3.config.enum.LoaderEnum.quilt": "Quilt",
+  "yacl3.config.enum.LoaderEnum.neoforge": "NeoForge",
+  "yacl3.config.aiutd:config.useModpackName": "Use Modpack Name",
+  "yacl3.config.aiutd:config.modpackName": "Modpack Name",
+  "yacl3.config.aiutd:config.useCustomMessage": "Use Custom Message",
+  "yacl3.config.aiutd:config.linkChangelog": "Link Changelog",
+  "aiutd.msg.ignoreClickable": "Ignore update messages"
+}

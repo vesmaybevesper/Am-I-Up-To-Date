@@ -19,7 +19,7 @@ public class ChatMessagesFabric {
 
     public static MutableComponent ignoreMessage() {
         ClickEvent clickEvent = new ClickEvent.RunCommand("/shouldIgnore");
-        return Component.translatable("aiutd.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY)));
+        return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY)));
     }
 
     private static void registerJoinMessage(MutableComponent message) {
@@ -36,11 +36,11 @@ public class ChatMessagesFabric {
         if (chatAlert && needUpdate && !shouldIgnore) {
             // Determine which primary message to send.
             if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
-                registerJoinMessage((MutableComponent) Component.literal(customMessage));
+                registerJoinMessage(Component.literal(customMessage));
             } else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
-                registerJoinMessage((MutableComponent) Component.literal("There is an update available for" + modpackName + "!"));
+                registerJoinMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg") + modpackName + "!"));
             } else {
-                registerJoinMessage((MutableComponent) Component.translatable("There is an update available for your modpack!"));
+                registerJoinMessage(Component.translatable("There is an update available for your modpack!"));
             }
             // Register changelog link if enabled.
             if (linkChangelog) {
