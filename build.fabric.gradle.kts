@@ -54,7 +54,7 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
     modImplementation("com.terraformersmc:modmenu:${property("modmenu_version")}")
-    modImplementation("dev.isxander:yet-another-config-lib:3.8.0+1.21.1-fabric")
+    modImplementation("dev.isxander:yet-another-config-lib:3.6.6+1.20.1-fabric")
     compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
     implementation("com.alibaba.fastjson2:fastjson2:2.0.60")
     include("com.alibaba.fastjson2:fastjson2:2.0.60")

@@ -10,7 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class EndUserConfig {
     public static ConfigClassHandler<EndUserConfig> USERCONFIG = ConfigClassHandler.createBuilder(EndUserConfig.class)
-            .id(ResourceLocation.fromNamespaceAndPath("aiutd-enduser", "enduserconfig"))
+            .id(ResourceLocation.tryBuild("aiutd-enduser", "enduserconfig"))
             .serializer(config -> GsonConfigSerializerBuilder.create(config)
                     .setPath(YACLPlatform.getConfigDir().resolve("aiutd-enduser.json5"))
                     .setJson5(true)

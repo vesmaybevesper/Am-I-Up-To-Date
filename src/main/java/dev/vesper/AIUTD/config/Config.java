@@ -13,7 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class Config {
     public static ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
-            .id(ResourceLocation.fromNamespaceAndPath("aiutd", "config"))
+            .id(ResourceLocation.tryBuild("aiutd", "config"))
             .serializer(config -> GsonConfigSerializerBuilder.create(config)
                     .setPath(YACLPlatform.getConfigDir().resolve("aiutd.json5"))
                     .setJson5(true)
