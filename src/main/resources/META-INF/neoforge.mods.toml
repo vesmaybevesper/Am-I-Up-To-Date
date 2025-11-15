@@ -31,4 +31,4 @@ side = "CLIENT"
 [[dependencies.aiutd]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21.5,)"
+versionRange = "[1.21.1,)"
