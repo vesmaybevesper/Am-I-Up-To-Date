@@ -21,21 +21,14 @@ repositories{
     maven("https://maven.isxander.dev/releases") {
         name = "Xander Maven"
     }
-<<<<<<< Updated upstream
+    maven("https://api.modrinth.com/maven")
+    mavenCentral()
 }
 
 dependencies {
-    compileOnly(("dev.isxander:yet-another-config-lib:${property("deps.yacl_version")}"))
-=======
-
-    maven("https://maven.parchmentmc.org")
-    maven("https://maven.shedaniel.me/")
-    maven("https://maven.terraformersmc.com/releases/")
-}
-
-dependencies {
-    api("me.shedaniel.cloth:cloth-config-neoforge:19.0.147")
->>>>>>> Stashed changes
+    compileOnly("dev.isxander:yet-another-config-lib:3.7.1+1.21.6-neoforge")
+    compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
+    implementation("com.alibaba.fastjson2:fastjson2:2.0.60")
 }
 
 version = "${property("mod.version")}+${property("deps.minecraft")}-neoforge"

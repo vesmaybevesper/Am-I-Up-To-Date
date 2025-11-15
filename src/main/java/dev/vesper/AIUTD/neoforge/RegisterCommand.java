@@ -1,11 +1,7 @@
-<<<<<<< Updated upstream
 package dev.vesper.AIUTD.neoforge;
-=======
-//? neoforge {
-/*package dev.vesper.AIUTD.neoforge;
->>>>>>> Stashed changes
 
-import com.mojang.brigadier.CommandDispatcher;
+//? neoforge {
+/*import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import dev.vesper.AIUTD.AIUTD;
 import dev.vesper.AIUTD.config.EndUserConfig;
@@ -18,12 +14,13 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RegisterClientCommandsEvent;
 
-@EventBusSubscriber(modid = AIUTD.MOD_ID, bus = EventBusSubscriber.Bus.GAME, value = Dist.CLIENT)
+@EventBusSubscriber(modid = AIUTD.MOD_ID, value = Dist.CLIENT)
 public class RegisterCommand {
     private static int executeShouldIgnore(CommandContext<?> context) {
         assert Minecraft.getInstance().player != null;
-        Minecraft.getInstance().player.displayClientMessage(Component.literal("You have set chat notifications to be ignored!"), false);
+        Minecraft.getInstance().player.displayClientMessage(Component.translatable("aiutd.msgsIgnored"), false);
         EndUserConfig.shouldIgnore = true;
+        EndUserConfig.USERCONFIG.save();
         return 1;
     }
 
@@ -38,7 +35,4 @@ public class RegisterCommand {
         );
     }
 }
-<<<<<<< Updated upstream
-=======
 *///?}
->>>>>>> Stashed changes

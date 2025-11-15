@@ -1,13 +1,11 @@
 package dev.vesper.AIUTD.fabric;
 
-<<<<<<< Updated upstream
-//?{
-=======
 //? fabric {
->>>>>>> Stashed changes
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.*;
+
+import java.net.URI;
 import java.util.Objects;
 import static dev.vesper.AIUTD.common.UpdateChecker.needUpdate;
 import static dev.vesper.AIUTD.config.Config.*;
@@ -15,21 +13,13 @@ import static dev.vesper.AIUTD.config.EndUserConfig.shouldIgnore;
 
 public class ChatMessagesFabric {
     public static MutableComponent clickableLink(String message, String url) {
-        return Component.literal(message)
-                .setStyle(Style.EMPTY
-                        .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, url))
-                        .withUnderlined(true)
-                        .withColor(TextColor.fromLegacyFormat(ChatFormatting.RED)));
+        ClickEvent clickEvent = new ClickEvent.OpenUrl(URI.create(url));
+        return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.RED)));
     }
 
     public static MutableComponent ignoreMessage() {
-
-        return Component.translatable("Ignore update messages")
-                .setStyle(Style.EMPTY
-                        .withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/shouldIgnore"))
-                        .withUnderlined(true)
-                        .withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY))
-                );
+        ClickEvent clickEvent = new ClickEvent.RunCommand("/shouldIgnore");
+        return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY)));
     }
 
     private static void registerJoinMessage(MutableComponent message) {
@@ -46,11 +36,11 @@ public class ChatMessagesFabric {
         if (chatAlert && needUpdate && !shouldIgnore) {
             // Determine which primary message to send.
             if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
-                registerJoinMessage((MutableComponent) Component.literal(customMessage));
+                registerJoinMessage(Component.literal(customMessage));
             } else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
-                registerJoinMessage((MutableComponent) Component.translatable("There is an update available for" + modpackName + "!"));
+                registerJoinMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg") + modpackName + "!"));
             } else {
-                registerJoinMessage((MutableComponent) Component.translatable("There is an update available for your modpack!"));
+                registerJoinMessage(Component.translatable("aiutd.defaultMsg"));
             }
             // Register changelog link if enabled.
             if (linkChangelog) {

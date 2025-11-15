@@ -4,24 +4,15 @@ package dev.vesper.AIUTD;
 import dev.vesper.AIUTD.fabric.FabricPlatformImpl;
 //?}
 //? neoforge {
-<<<<<<< Updated upstream
-/*import dev.spagurder.modtemplate.neoforge.NeoforgePlatformImpl;
-*///?}
+//?}
 
-=======
-/*import dev.vesper.AIUTD.neoforge.NeoforgePlatformImpl;
-*///?}
-
-
-
->>>>>>> Stashed changes
 public interface Platform {
 
     //? fabric {
     Platform INSTANCE = new FabricPlatformImpl();
     //?}
     //? neoforge {
-    /*Platform INSTANCE = new NeoforgePlatformImpl();
+    /*Platform INSTANCE = new dev.vesper.AIUTD.neoforge.NeoforgePlatformImpl();
     *///?}
 
 

@@ -2,11 +2,7 @@ package dev.vesper.AIUTD.neoforge;
 
 //? neoforge {
 
-<<<<<<< Updated upstream
-import dev.vesper.AIUTD.AIUTD;
-=======
 /*import dev.vesper.AIUTD.AIUTD;
->>>>>>> Stashed changes
 import dev.vesper.AIUTD.common.CommonClient;
 import dev.vesper.AIUTD.config.Config;
 import dev.vesper.AIUTD.config.EndUserConfig;
@@ -31,20 +27,13 @@ public class NeoforgeEntrypoint {
         @SubscribeEvent
         public static void onClientSetup(final FMLClientSetupEvent event) {
             AIUTD.LOG.info("Initializing {} Client", AIUTD.MOD_ID);
-<<<<<<< Updated upstream
             // register command here
             Config.HANDLER.load();
-            EndUserConfig.HANDLER.load();
-=======
->>>>>>> Stashed changes
+            EndUserConfig.USERCONFIG.load();
             CommonClient.init();
             new ChatMessagesNeoForge().chatMessageInit();
         }
     }
 
 }
-<<<<<<< Updated upstream
-//?}
-=======
 *///?}
->>>>>>> Stashed changes

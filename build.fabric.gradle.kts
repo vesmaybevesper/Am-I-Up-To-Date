@@ -13,10 +13,6 @@ tasks.named<ProcessResources>("processResources") {
         this["version"] = prop("mod.version")
         this["minecraft"] = prop("deps.minecraft")
     }
-<<<<<<< Updated upstream
-=======
-    from(tasks.named<Sync>("stonecutterGenerate").get().outputs)
->>>>>>> Stashed changes
 
     filesMatching(listOf("fabric.mod.json", "META-INF/neoforge.mods.toml", "META-INF/mods.toml")) {
         expand(props)
@@ -43,41 +39,25 @@ repositories {
     maven("https://maven.terraformersmc.com/") {
         name = "Terraformers"
     }
-<<<<<<< Updated upstream
-=======
-    maven(url = "https://maven.parchmentmc.org"){
-        name = "ParchmentMC"
-    }
-
-    maven {
-        name = "Gegy"
-        url = uri("https://maven.gegy.dev/releases/")
-    }
-    maven("https://maven.shedaniel.me/")
->>>>>>> Stashed changes
+    maven("https://api.modrinth.com/maven")
+    mavenCentral()
 }
 
 dependencies {
     minecraft("com.mojang:minecraft:${property("deps.minecraft")}")
     mappings(loom.layered {
         officialMojangMappings()
-<<<<<<< Updated upstream
         if (hasProperty("deps.parchment"))
             parchment("org.parchmentmc.data:parchment-${property("deps.parchment")}@zip")
-=======
-        parchment("org.parchmentmc.data:parchment-1.21.1:2024.11.17@zip")
-        //mappings("dev.lambdaurora:yalmm:1.21.1+build.7")
->>>>>>> Stashed changes
     })
     modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric-loader")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
-<<<<<<< Updated upstream
-    modImplementation ("dev.isxander:yet-another-config-lib:${property("deps.yacl_version")}")
-=======
-    modApi("me.shedaniel.cloth:cloth-config-fabric:19.0.147")
->>>>>>> Stashed changes
-    compileOnly("com.terraformersmc:modmenu:${property("modmenu_version")}")
+    modImplementation("com.terraformersmc:modmenu:${property("modmenu_version")}")
+    modImplementation("dev.isxander:yet-another-config-lib:3.7.1+1.21.6-fabric")
+    compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
+    implementation("com.alibaba.fastjson2:fastjson2:2.0.60")
+    include("com.alibaba.fastjson2:fastjson2:2.0.60")
 
 
     val modules = listOf("transitive-access-wideners-v1", "registry-sync-v0", "resource-loader-v0")

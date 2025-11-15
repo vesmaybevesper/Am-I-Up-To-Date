@@ -2,11 +2,7 @@ package dev.vesper.AIUTD.neoforge;
 
 //? neoforge {
 
-<<<<<<< Updated upstream
-import dev.vesper.AIUTD.Platform;
-=======
 /*import dev.vesper.AIUTD.Platform;
->>>>>>> Stashed changes
 import net.neoforged.fml.ModList;
 
 public class NeoforgePlatformImpl implements Platform {
@@ -22,8 +18,4 @@ public class NeoforgePlatformImpl implements Platform {
     }
 
 }
-<<<<<<< Updated upstream
-//?}
-=======
 *///?}
->>>>>>> Stashed changes

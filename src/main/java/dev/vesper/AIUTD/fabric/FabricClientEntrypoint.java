@@ -18,16 +18,15 @@ public class FabricClientEntrypoint implements ClientModInitializer {
 
         ClientCommandRegistrationCallback.EVENT.register(((dispatcher, registryAccess) -> {
             dispatcher.register(ClientCommandManager.literal("shouldIgnore").executes(context -> {
-                context.getSource().sendFeedback(Component.translatable("You have set chat notifications to be ignored!"));
+                context.getSource().sendFeedback(Component.translatable("aiutd.msgsIgnored"));
                 EndUserConfig.shouldIgnore = Boolean.TRUE;
+                EndUserConfig.USERCONFIG.save();
+                EndUserConfig.USERCONFIG.load();
                 return 1;
             }));
         }));
-<<<<<<< Updated upstream
         Config.HANDLER.load();
-        EndUserConfig.HANDLER.load();
-=======
->>>>>>> Stashed changes
+        EndUserConfig.USERCONFIG.load();
         CommonClient.init();
         ChatMessagesFabric.chatMessage();
     }

@@ -1,11 +1,7 @@
-<<<<<<< Updated upstream
 package dev.vesper.AIUTD.neoforge;
-=======
-//? neoforge {
-/*package dev.vesper.AIUTD.neoforge;
->>>>>>> Stashed changes
 
-import dev.vesper.AIUTD.config.Config;
+//? neoforge {
+/*import dev.vesper.AIUTD.config.Config;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.ClickEvent;
@@ -15,13 +11,10 @@ import net.minecraft.network.chat.TextColor;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.common.NeoForge;
-<<<<<<< Updated upstream
 
+import java.net.URI;
 import java.util.Objects;
 
-=======
-import java.util.Objects;
->>>>>>> Stashed changes
 import static dev.vesper.AIUTD.common.UpdateChecker.needUpdate;
 import static dev.vesper.AIUTD.config.Config.*;
 import static dev.vesper.AIUTD.config.EndUserConfig.shouldIgnore;
@@ -33,28 +26,20 @@ public class ChatMessagesNeoForge {
     }
 
     public Component clickableLink(String message, String URL) {
-        return Component.literal(message)
-                .setStyle(Style.EMPTY
-                        .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, URL))
-                        .withUnderlined(true)
-                        .withColor(TextColor.fromLegacyFormat(ChatFormatting.RED)));
+        ClickEvent clickEvent = new ClickEvent.OpenUrl(URI.create(URL));
+        return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.RED)));
     }
 
     public Component toIgnore(){
-        return Component.literal("Run the command '/shouldIgnore' to hide this message")
+        return Component.translatable("aiutd.runToIgnore")
                 .setStyle(Style.EMPTY
                         .withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY))
                         .withItalic(true));
     }
 
     public Component ignoreMsg() {
-        return Component.literal("Ignore update messages")
-                .setStyle(Style.EMPTY
-                        .withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/shouldIgnore"))
-                        .withUnderlined(true)
-                        .withItalic(true)
-                        .withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY))
-                );
+        ClickEvent clickEvent = new ClickEvent.RunCommand("/shouldIgnore");
+        return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY)));
     }
 
     @SubscribeEvent
@@ -86,7 +71,7 @@ public class ChatMessagesNeoForge {
                 Minecraft minecraft = Minecraft.getInstance();
                 if (minecraft.player != null) {
                     minecraft.execute(() ->
-                            minecraft.player.displayClientMessage(Component.literal("There is an update available for " + modpackName + "!"), false));
+                            minecraft.player.displayClientMessage(Component.translatable("aiutd.modPackNameMsg" + modpackName + "!"), false));
                 }
 
                 if (Config.linkChangelog) {
@@ -104,7 +89,7 @@ public class ChatMessagesNeoForge {
                 Minecraft minecraft = Minecraft.getInstance();
                 if (minecraft.player != null) {
                     minecraft.execute(() ->
-                            minecraft.player.displayClientMessage(Component.literal("There is an update available for your modpack!"), false));
+                            minecraft.player.displayClientMessage(Component.translatable("aiutd.defaultMsg"), false));
                 }
 
                 if (Config.linkChangelog) {
@@ -121,7 +106,4 @@ public class ChatMessagesNeoForge {
         }
     }
 }
-<<<<<<< Updated upstream
-=======
 *///?}
->>>>>>> Stashed changes

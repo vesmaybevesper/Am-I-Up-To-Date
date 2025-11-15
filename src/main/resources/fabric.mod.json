@@ -9,22 +9,19 @@
     "issues": ""
   },
   "description": "Checks for modpack updates",
-  "icon": "assets/icon.png",
+  "icon": "assets/aiutd/icon.png",
   "license": "MIT",
   "environment": "*",
-  "accessWidener": "modtemplate.accesswidener",
+  "accessWidener": "aiutd.accesswidener",
   "entrypoints": {
     "main": [
       "dev.vesper.AIUTD.fabric.FabricEntrypoint"
     ],
     "client": [
       "dev.vesper.AIUTD.fabric.FabricClientEntrypoint"
-<<<<<<< Updated upstream
-=======
     ],
     "modmenu": [
       "dev.vesper.AIUTD.fabric.ModMenuInit"
->>>>>>> Stashed changes
     ]
   },
   "mixins": [
@@ -32,6 +29,7 @@
   ],
   "depends": {
     "fabric-api": "*",
-    "yet_another_config_lib_v3": ">=3.7.1"
+    "yet_another_config_lib_v3": ">=3.7.1",
+    "minecraft": ">=1.21.5"
   }
 }
