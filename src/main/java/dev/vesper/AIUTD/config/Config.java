@@ -87,7 +87,7 @@ public class Config {
     @dev.isxander.yacl3.config.v2.api.autogen.Boolean(formatter = dev.isxander.yacl3.config.v2.api.autogen.Boolean.Formatter.ON_OFF, colored = true)
     @SerialEntry
     public static boolean linkChangelog = false;
-    
+
     // Cache to prevent crashing. May relocate
     public static String versionCache = "0.0.0";
 }

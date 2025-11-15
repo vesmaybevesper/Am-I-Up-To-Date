@@ -13,13 +13,11 @@ import static dev.vesper.AIUTD.config.EndUserConfig.shouldIgnore;
 
 public class ChatMessagesFabric {
     public static MutableComponent clickableLink(String message, String url) {
-        ClickEvent clickEvent = new ClickEvent.OpenUrl(URI.create(url));
-        return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.RED)));
+        return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, url)).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.RED)));
     }
 
     public static MutableComponent ignoreMessage() {
-        ClickEvent clickEvent = new ClickEvent.RunCommand("/shouldIgnore");
-        return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY)));
+        return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/shouldIgnore")).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY)));
     }
 
     private static void registerJoinMessage(MutableComponent message) {

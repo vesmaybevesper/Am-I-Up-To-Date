@@ -28,7 +28,7 @@ public abstract class TitleScreenMixin extends Screen {
     }
 
     @Inject(method = "createNormalMenuOptions", at = @At("RETURN"))
-    private void addUpdateNotice(int i, int j, CallbackInfoReturnable<Integer> cir) {
+    private void addUpdateNotice(int i, int j, CallbackInfo ci) {
         super.init();
         if (needUpdate && menuAlert){
             this.addRenderableWidget(

@@ -26,8 +26,7 @@ public class ChatMessagesNeoForge {
     }
 
     public Component clickableLink(String message, String URL) {
-        ClickEvent clickEvent = new ClickEvent.OpenUrl(URI.create(URL));
-        return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.RED)));
+        return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, URL)).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.RED)));
     }
 
     public Component toIgnore(){
@@ -37,10 +36,10 @@ public class ChatMessagesNeoForge {
                         .withItalic(true));
     }
 
-    public Component ignoreMsg() {
+    /^public Component ignoreMsg() {
         ClickEvent clickEvent = new ClickEvent.RunCommand("/shouldIgnore");
         return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY)));
-    }
+    }^/
 
     @SubscribeEvent
     private void chatMessageDisplay(ClientPlayerNetworkEvent.LoggingIn event) {
