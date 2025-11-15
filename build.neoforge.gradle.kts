@@ -28,7 +28,7 @@ repositories{
 dependencies {
     compileOnly("dev.isxander:yet-another-config-lib:3.7.1+1.21.6-neoforge")
     compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
-    implementation("com.alibaba.fastjson2:fastjson2:2.0.59")
+    implementation("com.alibaba.fastjson2:fastjson2:2.0.60")
 }
 
 version = "${property("mod.version")}+${property("deps.minecraft")}-neoforge"

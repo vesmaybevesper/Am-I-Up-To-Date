@@ -1,3 +1,4 @@
+/*
 package dev.vesper.AIUTD.common.serializer;
 
 import com.alibaba.fastjson2.JSON;
@@ -179,7 +180,9 @@ public class FastJsonConfigSerializer<T> extends ConfigSerializer<T> {
         }
     }
 
-    /** @deprecated */
+    */
+/** @deprecated *//*
+
     @Deprecated
     public void load() {
         YACLConstants.LOGGER.warn("Calling ConfigSerializer#load() directly is deprecated. Please use ConfigClassHandler#load() instead.");
@@ -257,3 +260,4 @@ public class FastJsonConfigSerializer<T> extends ConfigSerializer<T> {
         }
     }
 }
+*/

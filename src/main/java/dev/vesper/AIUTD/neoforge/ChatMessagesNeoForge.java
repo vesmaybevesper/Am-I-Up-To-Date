@@ -31,7 +31,7 @@ public class ChatMessagesNeoForge {
     }
 
     public Component toIgnore(){
-        return Component.literal("Run the command '/shouldIgnore' to hide this message")
+        return Component.translatable("aiutd.runToIgnore")
                 .setStyle(Style.EMPTY
                         .withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY))
                         .withItalic(true));
@@ -39,7 +39,7 @@ public class ChatMessagesNeoForge {
 
     public Component ignoreMsg() {
         ClickEvent clickEvent = new ClickEvent.RunCommand("/shouldIgnore");
-        return Component.literal("Ignore update messages").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY)));
+        return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY)));
     }
 
     @SubscribeEvent
@@ -71,7 +71,7 @@ public class ChatMessagesNeoForge {
                 Minecraft minecraft = Minecraft.getInstance();
                 if (minecraft.player != null) {
                     minecraft.execute(() ->
-                            minecraft.player.displayClientMessage(Component.literal("There is an update available for " + modpackName + "!"), false));
+                            minecraft.player.displayClientMessage(Component.translatable("aiutd.modPackNameMsg" + modpackName + "!"), false));
                 }
 
                 if (Config.linkChangelog) {
@@ -89,7 +89,7 @@ public class ChatMessagesNeoForge {
                 Minecraft minecraft = Minecraft.getInstance();
                 if (minecraft.player != null) {
                     minecraft.execute(() ->
-                            minecraft.player.displayClientMessage(Component.literal("There is an update available for your modpack!"), false));
+                            minecraft.player.displayClientMessage(Component.translatable("aiutd.defaultMsg"), false));
                 }
 
                 if (Config.linkChangelog) {

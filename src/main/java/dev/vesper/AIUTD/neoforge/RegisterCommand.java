@@ -18,7 +18,7 @@ import net.neoforged.neoforge.client.event.RegisterClientCommandsEvent;
 public class RegisterCommand {
     private static int executeShouldIgnore(CommandContext<?> context) {
         assert Minecraft.getInstance().player != null;
-        Minecraft.getInstance().player.displayClientMessage(Component.literal("You have set chat notifications to be ignored!"), false);
+        Minecraft.getInstance().player.displayClientMessage(Component.translatable("aiutd.msgsIgnored"), false);
         EndUserConfig.shouldIgnore = true;
         EndUserConfig.USERCONFIG.save();
         return 1;

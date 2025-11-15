@@ -37,34 +37,34 @@ public class UpdateChecker {
 
         int responseCode = urlConnection.getResponseCode();
         if (responseCode != 200) {
-            AIUTD.LOG.error("HTTP request failed with response code: " + responseCode);
-            AIUTD.LOG.info("Proceeding using cached version: " + versionCache);
+            AIUTD.LOG.error("HTTP request failed with response code: {}", responseCode);
+            AIUTD.LOG.info("Proceeding using cached version: {}", versionCache);
             return versionCache;
         }
 
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-            while (reader.readLine() != null) {
-                result.append(reader.readLine());
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                result.append(line);
             }
         } catch (Exception e) {
             AIUTD.LOG.error("Error reading version API response: ", e);
-            AIUTD.LOG.info("Proceeding using cached version: " + versionCache);
+            AIUTD.LOG.info("Proceeding using cached version: {}", versionCache);
             return versionCache;
         }
 
-        JSONArray array1;
+        JSONArray versionsArray;
         try {
-            array1 = JSON.parseArray(String.valueOf(result));
+            versionsArray = JSON.parseArray(result.toString());
         } catch (Exception e) {
             AIUTD.LOG.error("Failed to parse version JSON: ", e);
-            AIUTD.LOG.info("Proceeding using cached version: " + versionCache);
+            AIUTD.LOG.info("Proceeding using cached version: {}", versionCache);
             return versionCache;
         }
 
-        if (array1.isEmpty()) {
-            AIUTD.LOG.error("Version JSON is Empty");
-            AIUTD.LOG.info("Proceeding using cached version: " + versionCache);
+        if (versionsArray.isEmpty() || versionsArray == null) {
+            AIUTD.LOG.error("Version JSON is Empty or Null");
+            AIUTD.LOG.info("Proceeding using cached version: {}", versionCache);
             return versionCache;
         }
 
@@ -82,64 +82,61 @@ public class UpdateChecker {
             }
         }
 
-        // trying to avoid using max check logic again for the sake of simplicity, but it may be the only way to cover very niche situations
-        while (location < array1.size() && !hasChecked) {
-            JSONObject version1 = JSONObject.from(array1.get(location));
-            JSONArray gameVersions1 = JSONArray.of(version1.get("game_versions"));
-            JSONArray loaders1 = JSONArray.of(version1.get("loaders"));
+        JSONObject matchedVersion = findMatchingVersion(versionsArray);
 
-            if (multiLoaderBool && multiVersion) {
-                boolean versionMatch = false;
-                boolean loaderMatch = false;
-                if (gameVersions1 != null && !gameVersions1.isEmpty()) {
-                    APIMcVersion = gameVersions1.getFirst().toString();
-                    versionMatch = Objects.equals(clientVersion, APIMcVersion);
+        if (matchedVersion != null){
+            String versionNumber = matchedVersion.getString("version_number");
+            if (versionNumber != null){
+                versionCache = versionNumber;
+                hasChecked = true;
+                return versionNumber;
+            }
+        }
+
+        AIUTD.LOG.info("No matching version found, using cached version: {}", versionCache);
+        return versionCache;
+    }
+
+    private static JSONObject findMatchingVersion(JSONArray versionsArray){
+        for (int i = 0; i < versionsArray.size(); i++){
+            JSONObject version = versionsArray.getJSONObject(i);
+            if (version == null) continue;
+
+            JSONArray gameVersions = version.getJSONArray("game_versions");
+            JSONArray loaders = version.getJSONArray("loaders");
+
+            if (multiLoaderBool && multiVersion){
+                if (matchesGameVersion(gameVersions) && matchesLoader(loaders)){
+                    return version;
                 }
-                if (loaders1 != null && !loaders1.isEmpty()) {
-                    versionLoader = loaders1.getFirst().toString();
-                    loaderMatch = Objects.equals(versionLoader, localLoader);
+            } else if (multiLoaderBool){
+                if (matchesLoader(loaders)){
+                    return version;
                 }
-                if (versionMatch && loaderMatch) {
-                    break;
-                }
-            } else if (multiLoaderBool) {
-                if (loaders1 != null && !loaders1.isEmpty()) {
-                    versionLoader = loaders1.getFirst().toString();
-                    if (Objects.equals(versionLoader, localLoader)) {
-                        break;
-                    }
-                }
-            } else if (multiVersion) {
-                if (gameVersions1 != null && !gameVersions1.isEmpty()) {
-                    APIMcVersion = gameVersions1.getFirst().toString();
-                    if (Objects.equals(clientVersion, APIMcVersion)) {
-                        break;
-                    }
+            } else if (multiVersion){
+                if (matchesGameVersion(gameVersions)){
+                    return version;
                 }
             } else {
-                location = 0;
-                break;
-            }
-            location++;
-        }
-
-        try (BufferedReader rd = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()))) {
-            String line;
-            while ((line = rd.readLine()) != null) {
-                result.append(line);
+                return version;
             }
         }
-
-        JSONArray jsonArray1 = JSONArray.of(result.toString());
-        if (!jsonArray1.isEmpty() && location < jsonArray1.size()) {
-            JSONObject versionObject = (JSONObject) jsonArray1.get(location);
-            String versionNumber = versionObject.get("version_number").toString();
-            Config.versionCache = versionNumber;
-            return versionNumber;
-        }
-
         return null;
     }
+
+    public static boolean matchesGameVersion(JSONArray gameVersions){
+        if (gameVersions != null && !gameVersions.isEmpty()){
+            APIMcVersion = gameVersions.getString(0);
+            return Objects.equals(clientVersion, APIMcVersion);
+        }
+        return false;
+    }
+
+    private static boolean matchesLoader(JSONArray loaders) {
+        if (loaders != null && !loaders.isEmpty()) {
+            versionLoader = loaders.getString(0);
+            return Objects.equals(versionLoader, localLoader);
+        }
+        return false;
+    }
 }
-
-

@@ -1,3 +1,4 @@
+/*
 package dev.vesper.AIUTD.common.serializer;
 
 import com.google.gson.Gson;
@@ -24,3 +25,4 @@ public interface FastJsonConfigSerializerBuilder<T> {
 
     FastJsonConfigSerializerBuilder<T> build();
 }
+*/

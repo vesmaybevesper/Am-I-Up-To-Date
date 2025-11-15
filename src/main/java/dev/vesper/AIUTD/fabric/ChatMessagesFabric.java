@@ -40,7 +40,7 @@ public class ChatMessagesFabric {
             } else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
                 registerJoinMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg") + modpackName + "!"));
             } else {
-                registerJoinMessage(Component.translatable("There is an update available for your modpack!"));
+                registerJoinMessage(Component.translatable("aiutd.defaultMsg"));
             }
             // Register changelog link if enabled.
             if (linkChangelog) {

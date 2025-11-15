@@ -16,5 +16,10 @@
   "yacl3.config.aiutd:config.modpackName": "Modpack Name",
   "yacl3.config.aiutd:config.useCustomMessage": "Use Custom Message",
   "yacl3.config.aiutd:config.linkChangelog": "Link Changelog",
-  "aiutd.msg.ignoreClickable": "Ignore update messages"
+  "aiutd.menuNotice": "Update Available",
+  "aiutd.modPackNameMsg": "There is an update available for ",
+  "aiutd.defaultMsg": "There is an update available for your modpack!",
+  "aiutd.msgsIgnored": "You have set chat notifications to be ignored!",
+  "aiutd.msg.ignoreClickable": "Ignore update messages",
+  "aiutd.runToIgnore": "Run the command '/shouldIgnore' to hide this message"
 }
