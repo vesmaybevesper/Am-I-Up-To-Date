@@ -1,4 +1,4 @@
-{
+ {
   "yacl3.config.aiutd:config.category.Main": "Main Settings",
   "yacl3.config.aiutd:config.category.Optional": "Optional Settings",
   "yacl3.config.aiutd:config.menuAlert": "Menu Alert",
@@ -16,6 +16,7 @@
   "yacl3.config.aiutd:config.modpackName": "Modpack Name",
   "yacl3.config.aiutd:config.useCustomMessage": "Use Custom Message",
   "yacl3.config.aiutd:config.linkChangelog": "Link Changelog",
+  "yacl3.config.aiutd:config.customMessage": "Custom Message",
   "aiutd.menuNotice": "Update Available",
   "aiutd.modPackNameMsg": "There is an update available for ",
   "aiutd.defaultMsg": "There is an update available for your modpack!",
