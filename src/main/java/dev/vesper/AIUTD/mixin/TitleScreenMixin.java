@@ -7,18 +7,15 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.network.chat.Component;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
-
 import static dev.vesper.AIUTD.common.UpdateChecker.needUpdate;
 import static dev.vesper.AIUTD.config.Config.menuAlert;
-
 
 @Mixin(TitleScreen.class)
 public abstract class TitleScreenMixin extends Screen {
@@ -26,15 +23,22 @@ public abstract class TitleScreenMixin extends Screen {
     protected TitleScreenMixin(Component component) {
         super(component);
     }
+    @Unique
+    private static int bounds;
 
     @Inject(method = "createNormalMenuOptions", at = @At("RETURN"))
     private void addUpdateNotice(int i, int j, CallbackInfoReturnable<Integer> cir) {
         super.init();
+        if(AIUTD.isModLoaded("notebook")){
+            bounds = this.width / 2 - 100 + 230;
+        } else {
+            bounds = this.width / 2 - 100 + 205;
+        }
         if (needUpdate && menuAlert){
             this.addRenderableWidget(
                     Button.builder(Component.translatable("aiutd.menuNotice"), button -> {
                         try {
-                            // URL to fetch from
+
                             URI url = new URI(Config.changelogLink);
                             // Check if the Desktop class is supported and if the browser can be opened
                             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
@@ -60,9 +64,8 @@ public abstract class TitleScreenMixin extends Screen {
                             AIUTD.LOG.info(String.valueOf(e));
                         }
                     })
-                            .bounds(this.width / 2 - 100 + 205, i, 90, 20)
+                            .bounds(bounds, i, 90, 20)
                             .build());
         }
     }
-
 }
