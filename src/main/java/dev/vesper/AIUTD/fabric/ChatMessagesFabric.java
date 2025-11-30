@@ -22,7 +22,7 @@ public class ChatMessagesFabric {
         return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY)));
     }
 
-    private static void registerJoinMessage(MutableComponent message) {
+    private static void displayMessage(MutableComponent message) {
         ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
             client.execute(() -> {
                 if (client.player != null) {
@@ -36,18 +36,17 @@ public class ChatMessagesFabric {
         if (chatAlert && needUpdate && !shouldIgnore) {
             // Determine which primary message to send.
             if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
-                registerJoinMessage(Component.literal(customMessage));
+                displayMessage(Component.literal(customMessage));
             } else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
-                registerJoinMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg") + modpackName + "!"));
+                displayMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg") + modpackName + "!"));
             } else {
-                registerJoinMessage(Component.translatable("aiutd.defaultMsg"));
+                displayMessage(Component.translatable("aiutd.defaultMsg"));
             }
             // Register changelog link if enabled.
             if (linkChangelog) {
-                registerJoinMessage(clickableLink("Read the changelog!", changelogLink));
+                displayMessage(clickableLink("Read the changelog!", changelogLink));
             }
-            // Register ignore message.
-            registerJoinMessage(ignoreMessage());
+            displayMessage(ignoreMessage());
         }
     }
 }
