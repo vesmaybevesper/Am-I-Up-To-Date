@@ -24,15 +24,15 @@ public abstract class TitleScreenMixin extends Screen {
         super(component);
     }
     @Unique
-    private static int bounds;
+    private static int height;
 
     @Inject(method = "createNormalMenuOptions", at = @At("RETURN"))
     private void addUpdateNotice(int i, int j, CallbackInfoReturnable<Integer> cir) {
         super.init();
-        if(AIUTD.isModLoaded("notebook")){
-            bounds = this.width / 2 - 100 + 230;
+       if(AIUTD.isModLoaded("notebook")){
+            height = i - 24;
         } else {
-            bounds = this.width / 2 - 100 + 205;
+            height = i;
         }
         if (needUpdate && menuAlert){
             this.addRenderableWidget(
@@ -64,7 +64,7 @@ public abstract class TitleScreenMixin extends Screen {
                             AIUTD.LOG.info(String.valueOf(e));
                         }
                     })
-                            .bounds(bounds, i, 90, 20)
+                            .bounds(this.width / 2 - 100 + 205, height, 90, 20)
                             .build());
         }
     }
