@@ -1,6 +1,7 @@
 package dev.vesper.AIUTD.fabric;
 
 //? fabric {
+import dev.vesper.AIUTD.config.EndUserConfig;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.*;
@@ -33,6 +34,12 @@ public class ChatMessagesFabric {
     }
 
     public static void chatMessage() {
+        // Force userConfig to reload before the rest of the code runs on server switch, may fix #10
+
+        ClientPlayConnectionEvents.JOIN.register((clientPacketListener, packetSender, minecraft) -> {
+            EndUserConfig.USERCONFIG.load();
+        });
+
         if (chatAlert && needUpdate && !shouldIgnore) {
             // Determine which primary message to send.
             if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
@@ -48,6 +55,7 @@ public class ChatMessagesFabric {
             }
             displayMessage(ignoreMessage());
         }
+
     }
 }
 //?}

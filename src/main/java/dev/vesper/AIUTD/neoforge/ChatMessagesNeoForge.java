@@ -2,6 +2,7 @@ package dev.vesper.AIUTD.neoforge;
 
 //? neoforge {
 /*import dev.vesper.AIUTD.config.Config;
+import dev.vesper.AIUTD.config.EndUserConfig;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.ClickEvent;
@@ -44,6 +45,7 @@ public class ChatMessagesNeoForge {
 
     @SubscribeEvent
     private void chatMessageDisplay(ClientPlayerNetworkEvent.LoggingIn event) {
+        EndUserConfig.USERCONFIG.load();
 
         if (Config.chatAlert && needUpdate) {
 
