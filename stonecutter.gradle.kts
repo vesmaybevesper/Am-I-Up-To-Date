@@ -1,10 +1,10 @@
 plugins {
     id("dev.kikugie.stonecutter")
     id("co.uzzu.dotenv.gradle") version "4.0.0"
-    id("fabric-loom") version "1.13-SNAPSHOT" apply false
-    id("net.neoforged.moddev") version "2.0.121" apply false
+    id("fabric-loom") version "1.14-SNAPSHOT" apply false
+    id("net.neoforged.moddev") version "2.0.133" apply false
     id ("dev.kikugie.postprocess.jsonlang") version "2.1-beta.4" apply false
-    id("me.modmuss50.mod-publish-plugin") version "0.8.+" apply false
+    id("me.modmuss50.mod-publish-plugin") version "1.1.0" apply false
 }
 
 stonecutter active "1.21.5-fabric"
@@ -16,7 +16,6 @@ stonecutter parameters {
 
 stonecutter tasks {
     order("publishModrinth")
-    order("publishCurseforge")
 }
 
 for (version in stonecutter.versions.map { it.version }.distinct()) tasks.register("publish$version") {

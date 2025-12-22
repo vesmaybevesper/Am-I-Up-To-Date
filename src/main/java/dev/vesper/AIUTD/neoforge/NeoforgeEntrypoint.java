@@ -8,13 +8,14 @@ import dev.vesper.AIUTD.config.Config;
 import dev.vesper.AIUTD.config.EndUserConfig;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
 
 @Mod(AIUTD.MOD_ID)
-@EventBusSubscriber // sample_content
 public class NeoforgeEntrypoint {
 
     public NeoforgeEntrypoint() {
@@ -27,7 +28,10 @@ public class NeoforgeEntrypoint {
         @SubscribeEvent
         public static void onClientSetup(final FMLClientSetupEvent event) {
             AIUTD.LOG.info("Initializing {} Client", AIUTD.MOD_ID);
-            // register command here
+            ModLoadingContext.get().registerExtensionPoint(
+                    IConfigScreenFactory.class,
+                    () -> (client, parent) -> Config.config(parent)
+            );
             Config.HANDLER.load();
             EndUserConfig.USERCONFIG.load();
             CommonClient.init();

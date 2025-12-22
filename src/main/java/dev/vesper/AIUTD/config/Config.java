@@ -9,9 +9,15 @@ import dev.isxander.yacl3.config.v2.api.autogen.StringField;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import dev.isxander.yacl3.platform.YACLPlatform;
 import net.minecraft.client.gui.screens.Screen;
+//? >=1.21.11 {
+/*import net.minecraft.resources.Identifier;
+*///?}
+//? <1.21.11 {
 import net.minecraft.resources.ResourceLocation;
+//?}
 
 public class Config {
+    //? <1.21.11 && !1.20.1 {
     public static ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
             .id(ResourceLocation.fromNamespaceAndPath("aiutd", "config"))
             .serializer(config -> GsonConfigSerializerBuilder.create(config)
@@ -19,7 +25,26 @@ public class Config {
                     .setJson5(true)
                     .build())
             .build();
+    //?}
+    //? 1.20.1 {
+    /*public static ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
+            .id(ResourceLocation.tryBuild("aiutd", "config"))
+            .serializer(config -> GsonConfigSerializerBuilder.create(config)
+                    .setPath(YACLPlatform.getConfigDir().resolve("aiutd.json5"))
+                    .setJson5(true)
+                    .build())
+            .build();
+    *///?}
 
+//? >= 1.21.11 {
+    /*public static ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
+            .id(Identifier.fromNamespaceAndPath("aiutd", "config"))
+            .serializer(config -> GsonConfigSerializerBuilder.create(config)
+                    .setPath(YACLPlatform.getConfigDir().resolve("aiutd.json5"))
+                    .setJson5(true)
+                    .build())
+            .build();
+*///?}
     public static Screen config(Screen parent){
         return HANDLER.generateGui().generateScreen(parent);
     }

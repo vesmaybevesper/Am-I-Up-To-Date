@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.awt.*;
 import java.io.IOException;
@@ -27,7 +28,12 @@ public abstract class TitleScreenMixin extends Screen {
     private static int height;
 
     @Inject(method = "createNormalMenuOptions", at = @At("RETURN"))
+    //? >=1.21.5 {
     private void addUpdateNotice(int i, int j, CallbackInfoReturnable<Integer> cir) {
+        //?}
+        //? < 1.21.5 {
+    /*private void addUpdateNotice(int i, int j, CallbackInfo ci) {
+        *///?}
         super.init();
        if(AIUTD.isModLoaded("notebook")){
             height = i - 24;

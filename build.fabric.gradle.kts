@@ -19,6 +19,9 @@ tasks.named<ProcessResources>("processResources") {
     }
 }
 
+tasks.named("processResources").configure { dependsOn("stonecutterGenerate") }
+tasks.named("postProcessMainResources").configure { dependsOn("stonecutterGenerate") }
+
 version = "${property("mod.version")}+${property("deps.minecraft")}-fabric"
 base.archivesName = property("mod.id") as String
 
@@ -54,7 +57,7 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
     modImplementation("com.terraformersmc:modmenu:${property("modmenu_version")}")
-    modImplementation("dev.isxander:yet-another-config-lib:3.7.1+1.21.6-fabric")
+    modImplementation("dev.isxander:yet-another-config-lib:${property("deps.yacl")}")
     compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
     implementation("com.alibaba.fastjson2:fastjson2:2.0.60")
     include("com.alibaba.fastjson2:fastjson2:2.0.60")
@@ -118,13 +121,7 @@ publishMods {
         minecraftVersions.add(stonecutter.current.version)
         minecraftVersions.addAll(additionalVersions)
         requires("fabric-api")
-    }
-
-    curseforge {
-        projectId = property("publish.curseforge") as String
-        accessToken = env.CURSEFORGE_API_KEY.orNull()
-        minecraftVersions.add(stonecutter.current.version)
-        minecraftVersions.addAll(additionalVersions)
-        requires("fabric-api")
+        requires("yacl")
+        optional("modmenu")
     }
 }
