@@ -1,1 +1,2 @@
-- Fix some NeoForge Issues
+- Support for 1.21.4
+- Remove some Minecraft version deps that were left over from pre-stonecutter setup

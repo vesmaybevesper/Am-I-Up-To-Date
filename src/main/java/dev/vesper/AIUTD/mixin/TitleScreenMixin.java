@@ -28,10 +28,10 @@ public abstract class TitleScreenMixin extends Screen {
     private static int height;
 
     @Inject(method = "createNormalMenuOptions", at = @At("RETURN"))
-    //? >=1.21.5 {
+    //? >=1.21.4 {
     private void addUpdateNotice(int i, int j, CallbackInfoReturnable<Integer> cir) {
         //?}
-        //? < 1.21.5 {
+        //? < 1.21.4 {
     /*private void addUpdateNotice(int i, int j, CallbackInfo ci) {
         *///?}
         super.init();
