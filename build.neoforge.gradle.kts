@@ -27,7 +27,7 @@ repositories{
 
 dependencies {
     compileOnly("dev.isxander:yet-another-config-lib:${property("deps.yacl")}")
-    compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
+    api("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
     implementation("com.alibaba.fastjson2:fastjson2:2.0.60")
 }
 
