@@ -67,7 +67,7 @@ public class Config {
     @AutoGen(category = "Main")
     @StringField
     @SerialEntry
-    public static String versionAPI = "https://api.modrinth.com/v2/project/<id>/version";
+    public static String versionAPI = "https://api.modrinth.com/v2/project/<id>/version?include_changelog=false";
     @AutoGen(category = "Main")
     @StringField
     @SerialEntry
