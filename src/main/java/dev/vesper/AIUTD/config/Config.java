@@ -114,5 +114,8 @@ public class Config {
     public static boolean linkChangelog = false;
     
     // Cache to prevent crashing. May relocate
+    @SerialEntry
     public static String versionCache = "0.0.0";
+    @SerialEntry
+    public static boolean migrated = false;
 }
