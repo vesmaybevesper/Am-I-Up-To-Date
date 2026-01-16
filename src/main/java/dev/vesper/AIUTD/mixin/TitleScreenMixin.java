@@ -25,7 +25,7 @@ public abstract class TitleScreenMixin extends Screen {
         super(component);
     }
     @Unique
-    private static int height;
+    private int height;
 
     @Inject(method = "createNormalMenuOptions", at = @At("RETURN"))
     //? >=1.21.4 {
