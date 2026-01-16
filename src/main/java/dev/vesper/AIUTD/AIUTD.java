@@ -1,6 +1,7 @@
 package dev.vesper.AIUTD;
 
 //? fabric {
+import dev.vesper.AIUTD.common.MigrationTool;
 import net.fabricmc.loader.api.FabricLoader;
 //?}
 //? neoforge {
@@ -18,6 +19,7 @@ public class AIUTD {
     public static void init() {
         LOG.info("Initializing {} on {}", MOD_ID, Platform.INSTANCE.loader());
         // Make sure all config urls get updated, this will go away after a while, it's just to make sure as many people as possible get it
+        MigrationTool.copy();
         Config.HANDLER.load();
         if (!Config.versionAPI.contains("?include_changelog=false")){
             LOG.warn("?include_changelog=false not detected in version API string, adding");
