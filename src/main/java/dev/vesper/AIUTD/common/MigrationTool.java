@@ -19,6 +19,7 @@ public class MigrationTool {
         try {
             if (Files.exists(Path.of(YACLPlatform.getConfigDir() + "/aiutd.json")) && !migrated) {
 
+                // This try block *should* prevent configs that have been used from being overwritten with old info
                 try {
                     BasicFileAttributes attributes = Files.readAttributes(Path.of(YACLPlatform.getConfigDir() + "/aiutd.json5"), BasicFileAttributes.class);
                     Instant lastModified = attributes.lastModifiedTime().toInstant();
@@ -29,6 +30,8 @@ public class MigrationTool {
 
                     if (minSinceMod > 5) {
                         AIUTD.LOG.info("Activity detected on YACL Config, assuming active, not migrating old config");
+                        Files.deleteIfExists(Path.of(YACLPlatform.getConfigDir() + "/aiutd.json"));
+                        AIUTD.LOG.info("Old config has been deleted");
                         migrated = true;
                         return;
                     }
