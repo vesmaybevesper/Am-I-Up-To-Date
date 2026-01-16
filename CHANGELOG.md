@@ -1,2 +1,6 @@
-- Support for 1.21.4
-- Remove some Minecraft version deps that were left over from pre-stonecutter setup
+- Fix a mixin crash on NeoForge
+
+
+  TO-DO:
+
+- FancyMenu Support
