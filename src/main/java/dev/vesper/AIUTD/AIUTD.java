@@ -18,8 +18,9 @@ public class AIUTD {
 
     public static void init() {
         LOG.info("Initializing {} on {}", MOD_ID, Platform.INSTANCE.loader());
-        // Make sure all config urls get updated, this will go away after a while, it's just to make sure as many people as possible get it
+        // migrate settings from old config to new, will be removed after a while (Likely when updating to 26.1)
         MigrationTool.copy();
+        // Make sure all config urls get updated, this will go away after a while, it's just to make sure as many people as possible get it
         Config.HANDLER.load();
         if (!Config.versionAPI.contains("?include_changelog=false")){
             LOG.warn("?include_changelog=false not detected in version API string, adding");
