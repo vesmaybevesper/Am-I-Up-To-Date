@@ -60,7 +60,7 @@ public abstract class TitleScreenMixin extends Screen {
                                     } else if (os.contains("nix") || os.contains("nux")) {
                                         Runtime.getRuntime().exec(new String[]{"xdg-open", Config.changelogLink});
                                     } else {
-                                        System.out.println("Unsupported OS for opening a browser.");
+                                        AIUTD.LOG.error("Unsupported OS for opening a browser.");
                                     }
                                 }    catch (IOException e) {
                                     AIUTD.LOG.info(String.valueOf(e));
