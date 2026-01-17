@@ -1,12 +1,12 @@
 package dev.vesper.AIUTD;
 
 //? fabric {
-import dev.vesper.AIUTD.common.MigrationTool;
 import net.fabricmc.loader.api.FabricLoader;
 //?}
 //? neoforge {
 /*import net.neoforged.fml.ModList;
 *///?}
+import dev.vesper.AIUTD.common.MigrationTool;
 import dev.vesper.AIUTD.config.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
