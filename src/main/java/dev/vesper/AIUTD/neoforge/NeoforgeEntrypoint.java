@@ -36,6 +36,7 @@ public class NeoforgeEntrypoint {
             EndUserConfig.USERCONFIG.load();
             CommonClient.init();
             new ChatMessagesNeoForge().chatMessageInit();
+            //FancyMenuIntegration.init();
         }
     }
 

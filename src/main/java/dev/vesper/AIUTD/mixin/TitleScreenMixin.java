@@ -54,6 +54,7 @@ public abstract class TitleScreenMixin extends Screen {
                                 String os = System.getProperty("os.name").toLowerCase();
                                 try {
                                     if (os.contains("win")) {
+                                        // link: "https://modrinth.com/modpack/" + {} + "/changelog, Config.modrinthSlug"
                                         Runtime.getRuntime().exec(new String[]{"rundll32", "url.dll,FileProtocolHandler", Config.changelogLink});
                                     } else if (os.contains("mac")) {
                                         Runtime.getRuntime().exec(new String[]{"open", Config.changelogLink});

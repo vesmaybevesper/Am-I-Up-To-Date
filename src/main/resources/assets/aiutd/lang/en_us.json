@@ -22,5 +22,15 @@
   "aiutd.defaultMsg": "There is an update available for your modpack!",
   "aiutd.msgsIgnored": "You have set chat notifications to be ignored!",
   "aiutd.msg.ignoreClickable": "Ignore update messages",
-  "aiutd.runToIgnore": "Run the command '/shouldIgnore' to hide this message"
+  "aiutd.runToIgnore": "Run the command '/shouldIgnore' to hide this message",
+
+   "aiutd.fancymenu.update_button": "AIUTD Update Button",
+   "aiutd.fancymenu.update_button.desc.line1": "A button that appears when a modpack update is available.",
+   "aiutd.fancymenu.update_button.desc.line2": "Fully customizable with backgrounds, sounds, and actions.",
+
+   "aiutd.fancymenu.hide_when_no_update": "Hide When No Update",
+   "aiutd.fancymenu.hide_when_no_update.desc": "Automatically hide this button when no update is available. When disabled, the button will always be visible but inactive when there's no update.",
+
+   "aiutd.fancymenu.open_changelog_on_click": "Open Changelog on Click",
+   "aiutd.fancymenu.open_changelog_on_click.desc": "When enabled, clicking the button will open the changelog URL configured in AIUTD settings. This happens in addition to any custom actions you configure."
 }
