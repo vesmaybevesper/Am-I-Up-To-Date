@@ -7,7 +7,7 @@
 - Use [new `?include_changelog=false` parameter](https://ibb.co/sJz32vwp) on the Modrinth API URL
   - Existing users this will auto append to your URL if it isn't present
 - All text is translatable now
-- Fixed the "Ignore Update" clickable message not working ([#10](https://github.com/vesmaybevesper/Am-I-Up-To-Date/issues/10)) NOT CONFIRMED BUT WILL BE FIXED BEFORE ITS LIVE
+- Fixed the "Ignore Update" clickable message not working ([#10](https://github.com/vesmaybevesper/Am-I-Up-To-Date/issues/10))
 - Add Compatibility with 'Vanilla Notebook' ([#14](https://github.com/vesmaybevesper/Am-I-Up-To-Date/issues/14))
 
 
