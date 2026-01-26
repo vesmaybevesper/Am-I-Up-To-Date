@@ -4,7 +4,6 @@ import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
 import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.autogen.AutoGen;
 import dev.isxander.yacl3.config.v2.api.autogen.EnumCycler;
-import dev.isxander.yacl3.config.v2.api.autogen.FormatTranslation;
 import dev.isxander.yacl3.config.v2.api.autogen.StringField;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import dev.isxander.yacl3.platform.YACLPlatform;
@@ -35,7 +34,6 @@ public class Config {
                     .build())
             .build();
     *///?}
-
 //? >= 1.21.11 {
     /*public static ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
             .id(Identifier.fromNamespaceAndPath("aiutd", "config"))
@@ -72,12 +70,6 @@ public class Config {
     @StringField
     @SerialEntry
     public static String changelogLink = "https://modrinth.com/modpack/<modpack-URL>/changelog";
-/*
-    @AutoGen(category = "Main")
-    @FormatTranslation("Times")
-    @SerialEntry
-    public static int maxChecks = 5;
-*/
 
     // Optional Settings
     @AutoGen(category = "Optional")
