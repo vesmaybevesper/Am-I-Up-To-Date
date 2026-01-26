@@ -8,6 +8,7 @@ import dev.vesper.AIUTD.config.EndUserConfig;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 
 public class FabricClientEntrypoint implements ClientModInitializer {
@@ -19,6 +20,7 @@ public class FabricClientEntrypoint implements ClientModInitializer {
         ClientCommandRegistrationCallback.EVENT.register(((dispatcher, registryAccess) -> {
             dispatcher.register(ClientCommandManager.literal("shouldIgnore").executes(context -> {
                 context.getSource().sendFeedback(Component.translatable("aiutd.msgsIgnored"));
+                EndUserConfig.USERCONFIG.load();
                 EndUserConfig.shouldIgnore = Boolean.TRUE;
                 EndUserConfig.USERCONFIG.save();
                 EndUserConfig.USERCONFIG.load();

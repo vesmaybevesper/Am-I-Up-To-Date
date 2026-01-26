@@ -10,7 +10,6 @@ import java.net.URI;
 import java.util.Objects;
 import static dev.vesper.AIUTD.common.UpdateChecker.needUpdate;
 import static dev.vesper.AIUTD.config.Config.*;
-import static dev.vesper.AIUTD.config.EndUserConfig.shouldIgnore;
 
 public class ChatMessagesFabric {
     //? >=1.21.5 {
@@ -45,13 +44,7 @@ public class ChatMessagesFabric {
     }
 
     public static void chatMessage() {
-        // Force userConfig to reload before the rest of the code runs on server switch, may fix #10
-
-        ClientPlayConnectionEvents.JOIN.register((clientPacketListener, packetSender, minecraft) -> {
-            EndUserConfig.USERCONFIG.load();
-        });
-
-        if (chatAlert && needUpdate && !shouldIgnore) {
+        /*if (chatAlert && needUpdate && !shouldIgnore) {
             // Determine which primary message to send.
             if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
                 displayMessage(Component.literal(customMessage));
@@ -60,13 +53,42 @@ public class ChatMessagesFabric {
             } else {
                 displayMessage(Component.translatable("aiutd.defaultMsg"));
             }
-            // Register changelog link if enabled.
+            // Display changelog link if enabled.
             if (linkChangelog) {
                 displayMessage(clickableLink("Read the changelog!", changelogLink));
             }
             displayMessage(ignoreMessage());
-        }
+        }*/
 
+        ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
+
+            // Reload the config to get fresh shouldIgnore value
+            EndUserConfig.USERCONFIG.load();
+
+            if (!chatAlert || !needUpdate || EndUserConfig.shouldIgnore) {
+                return;
+            }
+
+            client.execute(() -> {
+                if (client.player != null) {
+                    // Determine which primary message to send.
+                    if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
+                        client.player.displayClientMessage(Component.literal(customMessage), false);
+                    } else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
+                        client.player.displayClientMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg") + modpackName + "!"), false);
+                    } else {
+                        client.player.displayClientMessage(Component.translatable("aiutd.defaultMsg"), false);
+                    }
+
+                    // Display changelog link if enabled.
+                    if (linkChangelog) {
+                        client.player.displayClientMessage(clickableLink("Read the changelog!", changelogLink), false);
+                    }
+
+                    client.player.displayClientMessage(ignoreMessage(), false);
+                }
+            });
+        });
     }
 }
 //?}
