@@ -10,6 +10,7 @@ import dev.vesper.AIUTD.common.MigrationTool;
 import dev.vesper.AIUTD.config.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import dev.vesper.AIUTD.common.fancymenu.FancyMenuIntegration;
 
 public class AIUTD {
 
@@ -27,6 +28,7 @@ public class AIUTD {
             Config.versionAPI = Config.versionAPI + "?include_changelog=false";
             Config.HANDLER.save();
         }
+        FancyMenuIntegration.init();
     }
 
     public static boolean isModLoaded(String modId){
