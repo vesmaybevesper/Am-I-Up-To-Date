@@ -1,11 +1,9 @@
-/*
 package dev.vesper.AIUTD.common.fancymenu;
 
+import de.keksuccino.fancymenu.customization.action.ui.ActionScriptEditorScreen;
 import de.keksuccino.fancymenu.customization.element.AbstractElement;
 import de.keksuccino.fancymenu.customization.element.editor.AbstractEditorElement;
 import de.keksuccino.fancymenu.customization.layout.editor.LayoutEditorScreen;
-import de.keksuccino.fancymenu.customization.layout.editor.actions.ManageActionsScreen;
-import de.keksuccino.fancymenu.customization.layout.editor.loadingrequirements.ManageRequirementsScreen;
 import de.keksuccino.fancymenu.util.LocalizationUtils;
 import de.keksuccino.fancymenu.util.input.TextValidators;
 import de.keksuccino.fancymenu.util.rendering.ui.contextmenu.v2.ContextMenu;
@@ -13,6 +11,8 @@ import de.keksuccino.fancymenu.util.rendering.ui.tooltip.Tooltip;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import org.jetbrains.annotations.NotNull;
+import de.keksuccino.fancymenu.customization.loadingrequirement.ui.ManageRequirementsScreen;
+
 
 public class UpdateNoticeEditorElement extends AbstractEditorElement {
     public UpdateNoticeEditorElement(@NotNull AbstractElement element, @NotNull LayoutEditorScreen editor) {
@@ -24,7 +24,7 @@ public class UpdateNoticeEditorElement extends AbstractEditorElement {
         super.init();
 
         this.rightClickMenu.addClickableEntry("manage_actions", Component.translatable("fancymenu.editor.action.screens.manage_screen.manage"), ((contextMenu, clickableContextMenuEntry) -> {
-            ManageActionsScreen s = new ManageActionsScreen(this.getElement().getExecutableBlock(), (call) ->{
+            ActionScriptEditorScreen s = new ActionScriptEditorScreen(this.getElement().getExecutableBlock(), (call) ->{
             if (call != null){
                 this.editor.history.saveSnapshot();
                 this.getElement().actionExecutor = call;
@@ -33,7 +33,7 @@ public class UpdateNoticeEditorElement extends AbstractEditorElement {
             });
             Minecraft.getInstance().setScreen(s);
         })).setTooltipSupplier(((contextMenu, contextMenuEntry) -> Tooltip.of(LocalizationUtils.splitLocalizedLines("fancymenu.editor.elements.button.manage_actions.desc")))).setIcon(ContextMenu.IconFactory.getIcon("script")).setStackable(false);
-
+        
         this.rightClickMenu.addClickableEntry("widget_active_state_controller", Component.translatable("fancymenu.elements.button.active_state_controller"),  ((contextMenu, contextMenuEntry) -> {
             ManageRequirementsScreen s = new ManageRequirementsScreen(this.getElement().activeStateSupplier.copy(false), (call) ->{
                 if (call != null){
@@ -212,4 +212,3 @@ public class UpdateNoticeEditorElement extends AbstractEditorElement {
         return (UpdateNoticeElement) this.element;
     }
 }
-*/

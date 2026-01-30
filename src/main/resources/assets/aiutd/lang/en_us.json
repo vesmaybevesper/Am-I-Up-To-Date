@@ -32,5 +32,21 @@
    "aiutd.fancymenu.hide_when_no_update.desc": "Automatically hide this button when no update is available. When disabled, the button will always be visible but inactive when there's no update.",
 
    "aiutd.fancymenu.open_changelog_on_click": "Open Changelog on Click",
-   "aiutd.fancymenu.open_changelog_on_click.desc": "When enabled, clicking the button will open the changelog URL configured in AIUTD settings. This happens in addition to any custom actions you configure."
+   "aiutd.fancymenu.open_changelog_on_click.desc": "When enabled, clicking the button will open the changelog URL configured in AIUTD settings. This happens in addition to any custom actions you configure.",
+
+   "fancymenu.editor.action.screens.manage_screen.manage": "Edit Action Script",
+   "fancymenu.helper.editor.items.buttons.buttonbackground": "Button Textures",
+   "fancymenu.helper.editor.items.buttons.buttonbackground.set": "Set",
+   "fancymenu.helper.editor.items.buttons.buttonbackground.normal": "Normal Background",
+   "fancymenu.helper.editor.items.buttons.buttonbackground.hover": "Hover Background",
+   "fancymenu.helper.editor.items.buttons.buttonbackground.inactive": "Inactive Background",
+   "fancymenu.helper.editor.items.buttons.textures.restart_animated_on_hover": "Restart Animated Textures on Hover: %s",
+   "fancymenu.helper.editor.items.buttons.textures.nine_slice": "Nine-Slice Custom Background: %s",
+   "fancymenu.helper.editor.items.buttons.textures.nine_slice.border_x": "Nine-Slice X Borders (Left & Right)",
+   "fancymenu.helper.editor.items.buttons.textures.nine_slice.border_y": "Nine-Slice Y Borders (Top & Bottom)",
+   "fancymenu.editor.items.button.editlabel": "Label",
+   "fancymenu.editor.items.button.hoverlabel": "Hover Label",
+   "fancymenu.editor.items.button.hoversound": "Hover Sound",
+   "fancymenu.editor.items.button.clicksound": "Click Sound",
+   "fancymenu.editor.items.button.btndescription": "Tooltip"
 }

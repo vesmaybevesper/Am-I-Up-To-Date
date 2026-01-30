@@ -1,4 +1,3 @@
-/*
 package dev.vesper.AIUTD.common.fancymenu;
 
 import de.keksuccino.fancymenu.customization.action.ActionInstance;
@@ -29,7 +28,7 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
         UpdateNoticeElement element = new UpdateNoticeElement(this);
         element.baseWidth = 90;
         element.baseHeight = 20;
-        element.label = "Update Available!";
+        element.label = String.valueOf(Component.translatable("aiutd.menuNotice"));
         element.setWidget(new ExtendedButton(0,0,0,0, Component.empty(), (press) -> {
             if((CustomizationOverlay.getCurrentMenuBarInstance() == null) || !CustomizationOverlay.getCurrentMenuBarInstance().isUserNavigatingInMenuBar()) {
                 boolean isMousePressed = isAnyMouseButtonPressed();
@@ -49,7 +48,11 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
     }
 
     private static boolean isAnyMouseButtonPressed() {
-        long window = Minecraft.getInstance().getWindow().getWindow();
+        //? <1.21.10{
+        /*long window = Minecraft.getInstance().getWindow().getWindow();
+        *///?} >=1.21.10{
+        long window = Minecraft.getInstance().getWindow().handle();
+        //?}
         return GLFW.glfwGetMouseButton(window, GLFW.GLFW_MOUSE_BUTTON_LEFT) == GLFW.GLFW_PRESS
                 || GLFW.glfwGetMouseButton(window, GLFW.GLFW_MOUSE_BUTTON_RIGHT) == GLFW.GLFW_PRESS;
     }
@@ -192,4 +195,3 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
         };
     }
 }
-*/

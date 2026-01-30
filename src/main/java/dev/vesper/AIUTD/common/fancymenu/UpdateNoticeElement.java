@@ -1,4 +1,3 @@
-/*
 package dev.vesper.AIUTD.common.fancymenu;
 
 import de.keksuccino.fancymenu.customization.action.blocks.GenericExecutableBlock;
@@ -86,11 +85,11 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
         if (!this.shouldRender()) return;
 
         if (isEditor()){
-            //?<1.21.11{
-            net.minecraft.client.gui.components.Tooltip cachedVanillaTooltip = this.widget.getTooltip();
-            //?}
-            //? 1.21.11{
-
+            //?<1.21.10{
+            /*net.minecraft.client.gui.components.Tooltip cachedVanillaTooltip = this.widget.getTooltip();
+            *///?}
+            //? >=1.21.10{
+            net.minecraft.client.gui.components.Tooltip cachedVanillaTooltip = ((IMixinAbstractWidget) this.getWidget()).get_tooltip_FancyMenu().get();
             //?}
             boolean cachedVisible = this.getWidget().visible;
             boolean cachedActive = this.getWidget().active;
@@ -293,4 +292,3 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
         }
     }
 }
-*/

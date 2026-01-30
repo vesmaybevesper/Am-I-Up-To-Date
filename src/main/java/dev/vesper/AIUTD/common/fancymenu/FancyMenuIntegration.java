@@ -1,4 +1,3 @@
-/*
 package dev.vesper.AIUTD.common.fancymenu;
 
 import de.keksuccino.fancymenu.customization.element.ElementRegistry;
@@ -13,11 +12,8 @@ public class FancyMenuIntegration {
         if (AIUTD.isModLoaded("fancymenu")) {
             try {
                 registerElements();
-                AIUTD.LOG.info("FancyMenu integration initialized");
                 initalized = true;
-            } catch (Exception e) {
-                AIUTD.LOG.error("Failed to initialize FancyMenu integration", e);
-            }
+            } catch (Exception ignored) {}
         }
     }
 
@@ -29,4 +25,3 @@ public class FancyMenuIntegration {
 
 
 }
-*/
