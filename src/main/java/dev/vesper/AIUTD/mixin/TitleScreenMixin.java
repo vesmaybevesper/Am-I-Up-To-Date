@@ -25,7 +25,7 @@ public abstract class TitleScreenMixin extends Screen {
         super(component);
     }
     @Unique
-    private int height;
+    private int buttonY;
 
     @Inject(method = "createNormalMenuOptions", at = @At("RETURN"))
     //? >=1.21.4 {
@@ -34,12 +34,11 @@ public abstract class TitleScreenMixin extends Screen {
         //? < 1.21.4 {
     /*private void addUpdateNotice(int i, int j, CallbackInfo ci) {
         *///?}
-        super.init();
         if (!AIUTD.isModLoaded("fancymenu")) {
             if(AIUTD.isModLoaded("notebook")){
-                 height = i - 24;
+                 buttonY = i - 24;
              } else {
-                 height = i;
+                 buttonY = i;
              }
             if (needUpdate && menuAlert){
                 this.addRenderableWidget(
@@ -55,7 +54,7 @@ public abstract class TitleScreenMixin extends Screen {
                                     String os = System.getProperty("os.name").toLowerCase();
                                     try {
                                         if (os.contains("win")) {
-                                            // link: "https://modrinth.com/modpack/" + {} + "/changelog, Config.modrinthSlug"
+                                            // link: "https://modrinth.com/modpack/" + {} + "/changelog", Config.modrinthSlug"
                                             Runtime.getRuntime().exec(new String[]{"rundll32", "url.dll,FileProtocolHandler", Config.changelogLink});
                                         } else if (os.contains("mac")) {
                                             Runtime.getRuntime().exec(new String[]{"open", Config.changelogLink});
@@ -72,7 +71,7 @@ public abstract class TitleScreenMixin extends Screen {
                                 AIUTD.LOG.info(String.valueOf(e));
                             }
                         })
-                                .bounds(this.width / 2 - 100 + 205, height, 90, 20)
+                                .bounds(this.width / 2 - 100 + 205, buttonY, 90, 20)
                                 .build());
             }
         }
