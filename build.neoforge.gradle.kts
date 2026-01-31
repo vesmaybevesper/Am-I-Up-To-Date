@@ -25,11 +25,12 @@ repositories{
     mavenCentral()
 }
 
+
 dependencies {
-    compileOnly("dev.isxander:yet-another-config-lib:${property("deps.yacl")}")
-    api("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
-    implementation("com.alibaba.fastjson2:fastjson2:2.0.60")
+    api("dev.isxander:yet-another-config-lib:${property("deps.yacl")}")
+    compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
     jarJar("com.alibaba.fastjson2:fastjson2:2.0.60")
+    jarJar("com.alibaba.fastjson2", "fastjson2", "[2.0.60,)")
 }
 
 version = "${property("mod.version")}+${property("deps.minecraft")}-neoforge"
