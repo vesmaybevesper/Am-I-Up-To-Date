@@ -28,7 +28,9 @@ public class AIUTD {
             Config.versionAPI = Config.versionAPI + "?include_changelog=false";
             Config.HANDLER.save();
         }
-        FancyMenuIntegration.init();
+        if (AIUTD.isModLoaded("fancymenu")) {
+            FancyMenuIntegration.init();
+        }
     }
 
     public static boolean isModLoaded(String modId){
