@@ -1,3 +1,3 @@
 - FancyMenu Support
+  - I don't personally use FancyMenu to make anything, so if you run into issues or have suggestions for improvements, please let me know! Odds are you have a better grasp of what would make it good than I do!
 - [NeoForge] Fix entire menu getting shifted ([#20](https://github.com/vesmaybevesper/Am-I-Up-To-Date/issues/20))
-- [NeoForge 1.21.1] Fix 'NoClassDefFoundError' when trying to launch the game
