@@ -4,6 +4,7 @@ package dev.vesper.AIUTD.neoforge;
 
 /*import dev.vesper.AIUTD.AIUTD;
 import dev.vesper.AIUTD.common.CommonClient;
+import dev.vesper.AIUTD.common.fancymenu.FancyMenuIntegration;
 import dev.vesper.AIUTD.config.Config;
 import dev.vesper.AIUTD.config.EndUserConfig;
 import net.neoforged.api.distmarker.Dist;
@@ -36,7 +37,9 @@ public class NeoforgeEntrypoint {
             EndUserConfig.USERCONFIG.load();
             CommonClient.init();
             new ChatMessagesNeoForge().chatMessageInit();
-            //FancyMenuIntegration.init();
+            if (AIUTD.isModLoaded("fancymenu")) {
+                FancyMenuIntegration.init();
+            }
         }
     }
 
