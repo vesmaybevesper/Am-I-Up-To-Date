@@ -25,11 +25,16 @@ repositories{
     mavenCentral()
 }
 
+configurations{
+    runtimeClasspath {
+        extendsFrom(configurations.getByName("implementation"))
+    }
+}
 
 dependencies {
     api("dev.isxander:yet-another-config-lib:${property("deps.yacl")}")
     compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
-    jarJar("com.alibaba.fastjson2:fastjson2:2.0.60")
+    implementation("com.alibaba.fastjson2:fastjson2:2.0.60")
     jarJar("com.alibaba.fastjson2", "fastjson2", "[2.0.60,)")
 }
 
@@ -121,5 +126,6 @@ publishMods {
         minecraftVersions.add(stonecutter.current.version)
         minecraftVersions.addAll(additionalVersions)
         requires("yacl")
+        optional("fancymenu")
     }
 }
