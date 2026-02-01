@@ -56,7 +56,7 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric-loader")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
-    modImplementation("com.terraformersmc:modmenu:${property("modmenu_version")}")
+    modCompileOnly("com.terraformersmc:modmenu:${property("modmenu_version")}")
     modImplementation("dev.isxander:yet-another-config-lib:${property("deps.yacl")}")
     modCompileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
     implementation("com.alibaba.fastjson2:fastjson2:2.0.60")
@@ -123,7 +123,7 @@ publishMods {
         minecraftVersions.addAll(additionalVersions)
         requires("fabric-api")
         requires("yacl")
-        requires("modmenu")
+        optional("modmenu")
         optional("fancymenu")
     }
 }
