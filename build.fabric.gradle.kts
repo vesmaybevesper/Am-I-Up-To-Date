@@ -59,8 +59,8 @@ dependencies {
     modCompileOnly("com.terraformersmc:modmenu:${property("modmenu_version")}")
     modImplementation("dev.isxander:yet-another-config-lib:${property("deps.yacl")}")
     modCompileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
-    implementation("com.alibaba.fastjson2:fastjson2:2.0.60")
-    include("com.alibaba.fastjson2:fastjson2:2.0.60")
+    implementation("com.alibaba.fastjson2:fastjson2:2.0.61")
+    include("com.alibaba.fastjson2:fastjson2:2.0.61")
 
     val modules = listOf("transitive-access-wideners-v1", "registry-sync-v0", "resource-loader-v0")
     for (it in modules) modImplementation(fabricApi.module("fabric-$it", property("deps.fabric-api") as String))

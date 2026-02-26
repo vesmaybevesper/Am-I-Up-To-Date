@@ -34,8 +34,8 @@ configurations{
 dependencies {
     api("dev.isxander:yet-another-config-lib:${property("deps.yacl")}")
     compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
-    implementation("com.alibaba.fastjson2:fastjson2:2.0.60")
-    jarJar("com.alibaba.fastjson2", "fastjson2", "[2.0.60,)")
+    implementation("com.alibaba.fastjson2:fastjson2:2.0.61")
+    jarJar("com.alibaba.fastjson2", "fastjson2", "[2.0.61,)")
 }
 
 version = "${property("mod.version")}+${property("deps.minecraft")}-neoforge"
