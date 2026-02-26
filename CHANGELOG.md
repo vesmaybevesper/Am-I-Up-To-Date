@@ -1,2 +1,1 @@
-- Fix FancyMenu support not being properly registered on NeoForge
-- [Fabric] Mod Menu is correctly optional now
+- Fix broken chat message with "Use Modpack Name" option

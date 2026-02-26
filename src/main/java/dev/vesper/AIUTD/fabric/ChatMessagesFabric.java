@@ -75,7 +75,7 @@ public class ChatMessagesFabric {
                     if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
                         client.player.displayClientMessage(Component.literal(customMessage), false);
                     } else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
-                        client.player.displayClientMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg") + modpackName + "!"), false);
+                        client.player.displayClientMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!"), false);
                     } else {
                         client.player.displayClientMessage(Component.translatable("aiutd.defaultMsg"), false);
                     }

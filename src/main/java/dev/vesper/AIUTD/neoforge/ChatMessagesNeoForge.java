@@ -85,7 +85,7 @@ public class ChatMessagesNeoForge {
                 Minecraft minecraft = Minecraft.getInstance();
                 if (minecraft.player != null) {
                     minecraft.execute(() ->
-                            minecraft.player.displayClientMessage(Component.translatable("aiutd.modPackNameMsg" + modpackName + "!"), false));
+                            minecraft.player.displayClientMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!"), false));
                 }
 
                 if (Config.linkChangelog) {
