@@ -12,7 +12,6 @@ import static dev.vesper.AIUTD.common.UpdateChecker.needUpdate;
 import static dev.vesper.AIUTD.config.Config.*;
 
 public class ChatMessagesFabric {
-    //? >=1.21.5 {
     public static MutableComponent clickableLink(String message, String url) {
         ClickEvent clickEvent = new ClickEvent.OpenUrl(URI.create(url));
         return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.RED)));
@@ -22,22 +21,12 @@ public class ChatMessagesFabric {
         ClickEvent clickEvent = new ClickEvent.RunCommand("/shouldIgnore");
         return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY)));
     }
-    //?}
-    //? <1.21.5 {
-    /*public static MutableComponent clickableLink(String message, String url) {
-        return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, url)).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.RED)));
-    }
-
-    public static MutableComponent ignoreMessage() {
-        return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/shouldIgnore")).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY)));
-    }
-    *///?}
 
     private static void displayMessage(MutableComponent message) {
         ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
             client.execute(() -> {
                 if (client.player != null) {
-                    client.player.displayClientMessage(message, false);
+                    client.player.sendSystemMessage(message);
                 }
             });
         });
@@ -73,19 +62,19 @@ public class ChatMessagesFabric {
                 if (client.player != null) {
                     // Determine which primary message to send.
                     if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
-                        client.player.displayClientMessage(Component.literal(customMessage), false);
+                        client.player.sendSystemMessage(Component.literal(customMessage));
                     } else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
-                        client.player.displayClientMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!"), false);
+                        client.player.sendSystemMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!"));
                     } else {
-                        client.player.displayClientMessage(Component.translatable("aiutd.defaultMsg"), false);
+                        client.player.sendSystemMessage(Component.translatable("aiutd.defaultMsg"));
                     }
 
                     // Display changelog link if enabled.
                     if (linkChangelog) {
-                        client.player.displayClientMessage(clickableLink("Read the changelog!", changelogLink), false);
+                        client.player.sendSystemMessage(clickableLink("Read the changelog!", changelogLink));
                     }
 
-                    client.player.displayClientMessage(ignoreMessage(), false);
+                    client.player.sendSystemMessage(ignoreMessage());
                 }
             });
         });

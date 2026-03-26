@@ -18,7 +18,7 @@ import net.neoforged.neoforge.client.event.RegisterClientCommandsEvent;
 public class RegisterCommand {
     private static int executeShouldIgnore(CommandContext<?> context) {
         assert Minecraft.getInstance().player != null;
-        Minecraft.getInstance().player.displayClientMessage(Component.translatable("aiutd.msgsIgnored"), false);
+        Minecraft.getInstance().player.sendSystemMessage(Component.translatable("aiutd.msgsIgnored"));
         EndUserConfig.shouldIgnore = true;
         EndUserConfig.USERCONFIG.save();
         return 1;

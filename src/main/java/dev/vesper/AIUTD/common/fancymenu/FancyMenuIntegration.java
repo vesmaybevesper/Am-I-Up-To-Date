@@ -1,3 +1,4 @@
+/*
 package dev.vesper.AIUTD.common.fancymenu;
 
 import de.keksuccino.fancymenu.customization.element.ElementRegistry;
@@ -22,6 +23,4 @@ public class FancyMenuIntegration {
         ElementRegistry.register(builder);
         AIUTD.LOG.info("Registered AIUTD Update Button element with FancyMenu");
     }
-
-
-}
+}*/

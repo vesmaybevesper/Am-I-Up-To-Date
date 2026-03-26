@@ -33,7 +33,7 @@ configurations{
 
 dependencies {
     api("dev.isxander:yet-another-config-lib:${property("deps.yacl")}")
-    compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
+    //compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
     implementation("com.alibaba.fastjson2:fastjson2:2.0.61")
     jarJar("com.alibaba.fastjson2", "fastjson2", "[2.0.61,)")
 }
@@ -52,7 +52,6 @@ neoForge {
 
     if (hasProperty("deps.parchment")) parchment {
         val (mc, ver) = (property("deps.parchment") as String).split(':')
-        mappingsVersion = ver
         minecraftVersion = mc
     }
 
@@ -94,8 +93,8 @@ tasks {
 
 java {
     withSourcesJar()
-    val javaCompat = if (stonecutter.eval(stonecutter.current.version, ">=1.20.5")) {
-        JavaVersion.VERSION_21
+    val javaCompat = if (stonecutter.eval(stonecutter.current.version, ">=26.1")) {
+        JavaVersion.VERSION_25
     } else {
         JavaVersion.VERSION_17
     }

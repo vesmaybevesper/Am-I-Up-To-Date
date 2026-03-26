@@ -1,3 +1,4 @@
+/*
 package dev.vesper.AIUTD.common.fancymenu;
 
 import de.keksuccino.fancymenu.customization.action.ui.ActionScriptEditorScreen;
@@ -212,3 +213,4 @@ public class UpdateNoticeEditorElement extends AbstractEditorElement {
         return (UpdateNoticeElement) this.element;
     }
 }
+*/

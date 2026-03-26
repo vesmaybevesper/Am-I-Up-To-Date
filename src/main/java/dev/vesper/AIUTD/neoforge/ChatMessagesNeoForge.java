@@ -25,7 +25,7 @@ public class ChatMessagesNeoForge {
 
         NeoForge.EVENT_BUS.register(this);
     }
-//? >=1.21.5 {
+
     public Component clickableLink(String message, String URL) {
         ClickEvent clickEvent = new ClickEvent.OpenUrl(URI.create(URL));
         return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.RED)));
@@ -35,19 +35,6 @@ public class ChatMessagesNeoForge {
         ClickEvent clickEvent = new ClickEvent.RunCommand("/shouldIgnore");
         return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY)));
     }
-    //?}
-
-
-    //? <1.21.5 {
-    /^public Component clickableLink(String message, String URL) {
-        return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, URL)).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.RED)));
-    }
-
-    public Component ignoreMsg() {
-        return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/shouldIgnore")).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY)));
-    }
-
-    ^///?}
     public Component toIgnore(){
         return Component.translatable("aiutd.runToIgnore")
                 .setStyle(Style.EMPTY
@@ -66,18 +53,18 @@ public class ChatMessagesNeoForge {
                 Minecraft minecraft = Minecraft.getInstance();
                 if (minecraft.player != null) {
                     minecraft.execute(() ->
-                            minecraft.player.displayClientMessage(Component.literal(Config.customMessage), false));
+                            minecraft.player.sendSystemMessage(Component.literal(Config.customMessage)));
                 }
 
                 if (Config.linkChangelog) {
                     if (minecraft.player != null) {
                         minecraft.execute(() ->
-                                minecraft.player.displayClientMessage(clickableLink("Read the changelog!", changelogLink), false));
+                                minecraft.player.sendSystemMessage(clickableLink("Read the changelog!", changelogLink)));
 
                     }
                 }
                 assert minecraft.player != null;
-                minecraft.player.displayClientMessage(toIgnore(), false);
+                minecraft.player.sendSystemMessage(toIgnore());
 
             }
 
@@ -85,36 +72,36 @@ public class ChatMessagesNeoForge {
                 Minecraft minecraft = Minecraft.getInstance();
                 if (minecraft.player != null) {
                     minecraft.execute(() ->
-                            minecraft.player.displayClientMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!"), false));
+                            minecraft.player.sendSystemMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!")));
                 }
 
                 if (Config.linkChangelog) {
                     if (minecraft.player != null) {
                         minecraft.execute(() ->
-                                minecraft.player.displayClientMessage(clickableLink("Read the changelog!", changelogLink), false));
+                                minecraft.player.sendSystemMessage(clickableLink("Read the changelog!", changelogLink)));
 
                     }
                 }
                 assert minecraft.player != null;
-                minecraft.player.displayClientMessage(toIgnore(), false);
+                minecraft.player.sendSystemMessage(toIgnore());
             }
 
             else if (!shouldIgnore) {
                 Minecraft minecraft = Minecraft.getInstance();
                 if (minecraft.player != null) {
                     minecraft.execute(() ->
-                            minecraft.player.displayClientMessage(Component.translatable("aiutd.defaultMsg"), false));
+                            minecraft.player.sendSystemMessage(Component.translatable("aiutd.defaultMsg")));
                 }
 
                 if (Config.linkChangelog) {
                     if (minecraft.player != null) {
                         minecraft.execute(() ->
-                                minecraft.player.displayClientMessage(clickableLink("Read the changelog!", changelogLink), false));
+                                minecraft.player.sendSystemMessage(clickableLink("Read the changelog!", changelogLink)));
 
                     }
                 }
                 assert minecraft.player != null;
-                minecraft.player.displayClientMessage(toIgnore(), false);
+                minecraft.player.sendSystemMessage(toIgnore());
 
             }
         }

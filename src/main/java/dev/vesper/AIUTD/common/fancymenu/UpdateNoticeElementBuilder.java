@@ -1,3 +1,4 @@
+/*
 package dev.vesper.AIUTD.common.fancymenu;
 
 import de.keksuccino.fancymenu.customization.action.ActionInstance;
@@ -49,8 +50,10 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
 
     private static boolean isAnyMouseButtonPressed() {
         //? <1.21.10{
-        /*long window = Minecraft.getInstance().getWindow().getWindow();
-        *///?} >=1.21.10{
+        */
+/*long window = Minecraft.getInstance().getWindow().getWindow();
+        *//*
+//?} >=1.21.10{
         long window = Minecraft.getInstance().getWindow().handle();
         //?}
         return GLFW.glfwGetMouseButton(window, GLFW.GLFW_MOUSE_BUTTON_LEFT) == GLFW.GLFW_PRESS
@@ -195,3 +198,4 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
         };
     }
 }
+*/
