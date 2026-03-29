@@ -17,9 +17,6 @@ public class AIUTD {
 
     public static void init() {
         LOG.info("Initializing {} on {}", MOD_ID, Platform.INSTANCE.loader());
-        /*if (AIUTD.isModLoaded("fancymenu")) {
-            FancyMenuIntegration.init();
-        }*/
     }
 
     public static boolean isModLoaded(String modId){
