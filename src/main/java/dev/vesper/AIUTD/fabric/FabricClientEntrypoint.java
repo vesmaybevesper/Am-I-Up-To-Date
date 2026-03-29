@@ -3,6 +3,7 @@ package dev.vesper.AIUTD.fabric;
 //? fabric {
 import dev.vesper.AIUTD.AIUTD;
 import dev.vesper.AIUTD.common.CommonClient;
+import dev.vesper.AIUTD.common.fancymenu.FancyMenuIntegration;
 import dev.vesper.AIUTD.config.Config;
 import dev.vesper.AIUTD.config.EndUserConfig;
 import net.fabricmc.api.ClientModInitializer;
@@ -30,7 +31,9 @@ public class FabricClientEntrypoint implements ClientModInitializer {
         EndUserConfig.USERCONFIG.load();
         CommonClient.init();
         ChatMessagesFabric.chatMessage();
-        //FancyMenuIntegration.init();
+        if (AIUTD.isModLoaded("fancymenu")) {
+            FancyMenuIntegration.init();
+        }
     }
 
 }

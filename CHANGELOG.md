@@ -1,1 +1,3 @@
-- Fix broken chat message with "Use Modpack Name" option
+- Removed config migration tool and url auto-append
+    - I'm fairly confident enough time has passed that most people are on the new config and using the new url, so I'll save us all a few kb lol
+- Move FancyMenu init point just to be safe, hopefully this didn't change anything but please let me know if it does
