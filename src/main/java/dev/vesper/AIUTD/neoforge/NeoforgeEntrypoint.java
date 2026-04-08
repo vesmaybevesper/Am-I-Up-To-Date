@@ -13,7 +13,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
-
+import dev.vesper.AIUTD.common.fancymenu.FancyMenuIntegration;
 
 @Mod(AIUTD.MOD_ID)
 public class NeoforgeEntrypoint {
@@ -36,9 +36,9 @@ public class NeoforgeEntrypoint {
             EndUserConfig.USERCONFIG.load();
             CommonClient.init();
             new ChatMessagesNeoForge().chatMessageInit();
-            /^if (AIUTD.isModLoaded("fancymenu")) {
+            if (AIUTD.isModLoaded("fancymenu")) {
                 FancyMenuIntegration.init();
-            }^/
+            }
         }
     }
 

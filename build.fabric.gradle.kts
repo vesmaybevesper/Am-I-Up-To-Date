@@ -53,7 +53,7 @@ dependencies {
     implementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
     compileOnly("com.terraformersmc:modmenu:${property("modmenu_version")}")
     implementation("dev.isxander:yet-another-config-lib:${property("deps.yacl")}")
-    //compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
+    compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
     implementation("com.alibaba.fastjson2:fastjson2:2.0.61")
     include("com.alibaba.fastjson2:fastjson2:2.0.61")
 

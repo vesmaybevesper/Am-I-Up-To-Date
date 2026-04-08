@@ -1,4 +1,2 @@
-- Update to 26.1
-  - No FancyMenu support until it updates
-- Removed config migration tool and url auto-append
-  - I'm fairly confident enough time has passed that most people are on the new config and using the new url, so I'll save us all a few kb lol
+- Re-add FancyMenu support
+  - RRequires 26.1.1 (or later; I assume, though it has not updated to 26.1.2 at time of writing) due to FancyMenu's versioning.
