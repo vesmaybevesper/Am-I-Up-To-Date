@@ -21,7 +21,6 @@ public class UpdateChecker {
     public static boolean needUpdate;
     public static boolean hasChecked = false;
     public static String clientVersion;
-    public static int location = 0;
     public static String APIMcVersion = "";
     public static String versionLoader = "";
     public static String localLoader;
