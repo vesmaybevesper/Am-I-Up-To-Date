@@ -2,6 +2,7 @@ package dev.vesper.AIUTD.common;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONFactory;
 import com.alibaba.fastjson2.JSONObject;
 import dev.vesper.AIUTD.AIUTD;
 import dev.vesper.AIUTD.config.Config;
@@ -87,7 +88,9 @@ public class UpdateChecker {
         if (matchedVersion != null){
             String versionNumber = matchedVersion.getString("version_number");
             if (versionNumber != null){
+                Config.HANDLER.load();
                 versionCache = versionNumber;
+                Config.HANDLER.load();
                 hasChecked = true;
                 return versionNumber;
             }
