@@ -25,6 +25,8 @@ public class Config {
 
     public enum LoaderEnum {FABRIC, QUILT, NEOFORGE}
 
+    public enum colorEnum {BLACK, DARK_BLUE, DARK_GREEN, DARK_AQUA, DARK_RED, DARK_PURPLE, GOLD, GRAY, DARK_GRAY, BLUE, GREEN, AQUA, RED, LIGHT_PURPLE, YELLOW, WHITE}
+
     // Main Settings
     @AutoGen(category = "Main")
     @dev.isxander.yacl3.config.v2.api.autogen.Boolean(formatter = dev.isxander.yacl3.config.v2.api.autogen.Boolean.Formatter.ON_OFF, colored = true)
@@ -76,14 +78,24 @@ public class Config {
     @StringField
     @SerialEntry
     public static String customMessage = "This is a custom message!";
+/*    @AutoGen(category = "Optional")
+    @EnumCycler
+    @SerialEntry
+    public static colorEnum messageColor = colorEnum.WHITE;*/
     @AutoGen(category = "Optional")
     @dev.isxander.yacl3.config.v2.api.autogen.Boolean(formatter = dev.isxander.yacl3.config.v2.api.autogen.Boolean.Formatter.ON_OFF, colored = true)
     @SerialEntry
     public static boolean linkChangelog = false;
+/*    @AutoGen(category = "Optional")
+    @EnumCycler
+    @SerialEntry
+    public static colorEnum changelogColor = colorEnum.RED;
+    @AutoGen(category = "Optional")
+    @EnumCycler
+    @SerialEntry
+    public static colorEnum ignoreColor = colorEnum.GRAY;*/
     
     // Cache to prevent crashing. May relocate
     @SerialEntry
     public static String versionCache = "0.0.0";
-    @SerialEntry
-    public static boolean migrated = false;
 }
