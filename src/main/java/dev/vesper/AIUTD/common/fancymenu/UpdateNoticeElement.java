@@ -4,11 +4,11 @@ import de.keksuccino.fancymenu.customization.action.blocks.GenericExecutableBloc
 import de.keksuccino.fancymenu.customization.element.AbstractElement;
 import de.keksuccino.fancymenu.customization.element.ElementBuilder;
 import de.keksuccino.fancymenu.customization.element.ExecutableElement;
-import de.keksuccino.fancymenu.customization.loadingrequirement.internal.LoadingRequirementContainer;
 import de.keksuccino.fancymenu.customization.placeholder.PlaceholderParser;
+import de.keksuccino.fancymenu.customization.requirement.internal.RequirementContainer;
 import de.keksuccino.fancymenu.mixin.mixins.common.client.IMixinAbstractWidget;
-import de.keksuccino.fancymenu.util.rendering.ui.tooltip.Tooltip;
 import de.keksuccino.fancymenu.util.rendering.ui.tooltip.TooltipHandler;
+import de.keksuccino.fancymenu.util.rendering.ui.tooltip.UITooltip;
 import de.keksuccino.fancymenu.util.rendering.ui.widget.CustomizableWidget;
 import de.keksuccino.fancymenu.util.rendering.ui.widget.NavigatableWidget;
 import de.keksuccino.fancymenu.util.resource.RenderableResource;
@@ -59,7 +59,7 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
     @NotNull
     public GenericExecutableBlock actionExecutor = new GenericExecutableBlock();
     @NotNull
-    public LoadingRequirementContainer activeStateSupplier = new LoadingRequirementContainer();
+    public RequirementContainer activeStateSupplier = new RequirementContainer();
 
     public boolean hideWhenNoUpdate = true;
     public boolean openChangelogOnClick = true;
@@ -79,7 +79,7 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
         if (!this.shouldRender()) return;
 
         if (isEditor()){
-            net.minecraft.client.gui.components.Tooltip cachedVanillaTooltip = ((IMixinAbstractWidget) this.getWidget()).get_tooltip_FancyMenu().get();
+            net.minecraft.client.gui.components.Tooltip cachedVanillaTooltip = ((IMixinAbstractWidget) this.getWidget()).getTooltipHolderFancyMenu().get();
             boolean cachedVisible = this.getWidget().visible;
             boolean cachedActive = this.getWidget().active;
             this.getWidget().visible = true;
@@ -186,7 +186,7 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
             String tooltip = this.tooltip.replace("%n%", "\n");
             String parsedTooltip = PlaceholderParser.replacePlaceholders(tooltip);
             List<Component> tooltipLines = splitTooltipLines(parsedTooltip);
-            TooltipHandler.INSTANCE.addWidgetTooltip(this.getWidget(), Tooltip.of((Component) tooltipLines), false, false);
+            TooltipHandler.INSTANCE.addWidgetTooltip(this.getWidget(), UITooltip.of((Component) tooltipLines), false, false);
         }
     }
 
