@@ -2,7 +2,6 @@ package dev.vesper.AIUTD.fabric;
 
 //? fabric {
 import dev.vesper.AIUTD.AIUTD;
-import dev.vesper.AIUTD.common.Util;
 import dev.vesper.AIUTD.config.EndUserConfig;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.minecraft.ChatFormatting;
@@ -25,7 +24,7 @@ public class ChatMessagesFabric {
     }
 
     public static void chatMessage() {
-        ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
+        ClientPlayConnectionEvents.JOIN.register((_, _, client) -> {
 
             // Reload the config to get fresh shouldIgnore value
             EndUserConfig.USERCONFIG.load();
