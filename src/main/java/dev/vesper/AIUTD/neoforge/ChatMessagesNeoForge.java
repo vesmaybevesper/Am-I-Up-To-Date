@@ -5,11 +5,11 @@ package dev.vesper.AIUTD.neoforge;
 import dev.vesper.AIUTD.common.Util;
 import dev.vesper.AIUTD.config.Config;
 import dev.vesper.AIUTD.config.EndUserConfig;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
-import net.minecraft.network.chat.TextColor;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.common.NeoForge;
@@ -26,10 +26,10 @@ public class ChatMessagesNeoForge {
 
     public Component clickableLink(String message, String URL) {
         ClickEvent clickEvent = new ClickEvent.OpenUrl(URI.create(URL));
-        return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(Util.changelogColor));
+        return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(ChatFormatting.RED));
     }
 
-    // I cant remember why this didnt work and i would like to use it
+    // I cant remember why this didnt work and i would like to use it lmfao, hopefully in my next update
     public Component ignoreMsg() {
         ClickEvent clickEvent = new ClickEvent.RunCommand("/shouldIgnore");
         return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true)).withStyle(Util.ignoreMsgColor);
@@ -37,8 +37,8 @@ public class ChatMessagesNeoForge {
     public Component toIgnore(){
         return Component.translatable("aiutd.runToIgnore")
                 .setStyle(Style.EMPTY
-                        .withColor(Util.ignoreMsgColor)
-                        .withItalic(true)).withStyle(Util.ignoreMsgColor);
+                        .withColor(ChatFormatting.GRAY)
+                        .withItalic(true));
     }
 
     @SubscribeEvent
@@ -50,13 +50,13 @@ public class ChatMessagesNeoForge {
             assert client.player != null;
 
             if (useCustomMessage && !Objects.equals(Config.customMessage, "This is a custom message!")) {
-                client.player.sendSystemMessage(Component.literal(Config.customMessage).withStyle(Util.updateMsgColor));
+                client.player.sendSystemMessage(Component.literal(Config.customMessage));
             }
             else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
-                client.player.sendSystemMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").withColor(Objects.requireNonNull(TextColor.fromLegacyFormat(Util.updateMsgColor)).getValue()).getString() + modpackName + "!")));
+                client.player.sendSystemMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!"));
             }
             else {
-                client.player.sendSystemMessage(Component.translatable("aiutd.defaultMsg").withStyle(Util.updateMsgColor)));
+                client.player.sendSystemMessage(Component.translatable("aiutd.defaultMsg"));
             }
 
             if (Config.linkChangelog) {
@@ -64,6 +64,7 @@ public class ChatMessagesNeoForge {
             }
             
             client.player.sendSystemMessage(toIgnore());
+            AIUTD.hasNotified = true;
         }
     }
 }

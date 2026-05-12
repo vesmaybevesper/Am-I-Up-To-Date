@@ -1,6 +1,8 @@
 package dev.vesper.AIUTD.fabric;
 
 //? fabric {
+import dev.vesper.AIUTD.AIUTD;
+import dev.vesper.AIUTD.common.Util;
 import dev.vesper.AIUTD.config.EndUserConfig;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.minecraft.ChatFormatting;
@@ -20,16 +22,6 @@ public class ChatMessagesFabric {
     public static MutableComponent ignoreMessage() {
         ClickEvent clickEvent = new ClickEvent.RunCommand("/shouldIgnore");
         return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(ChatFormatting.GRAY)));
-    }
-
-    private static void displayMessage(MutableComponent message) {
-        ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
-            client.execute(() -> {
-                if (client.player != null) {
-                    client.player.sendSystemMessage(message);
-                }
-            });
-        });
     }
 
     public static void chatMessage() {
@@ -54,7 +46,7 @@ public class ChatMessagesFabric {
             // Reload the config to get fresh shouldIgnore value
             EndUserConfig.USERCONFIG.load();
 
-            if (!chatAlert || !needUpdate || EndUserConfig.shouldIgnore) {
+            if (!chatAlert || !needUpdate || EndUserConfig.shouldIgnore || AIUTD.hasNotified) {
                 return;
             }
 
@@ -75,6 +67,7 @@ public class ChatMessagesFabric {
                     }
 
                     client.player.sendSystemMessage(ignoreMessage());
+                    AIUTD.hasNotified = true;
                 }
             });
         });
