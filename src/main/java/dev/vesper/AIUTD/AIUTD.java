@@ -7,6 +7,7 @@ import net.fabricmc.loader.api.FabricLoader;
 /*import net.neoforged.fml.ModList;
 *///?}
 import dev.vesper.AIUTD.config.Config;
+import net.minecraft.ChatFormatting;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,6 +15,8 @@ public class AIUTD {
 
     public static final String MOD_ID = "aiutd";
     public static final Logger LOG = LoggerFactory.getLogger(MOD_ID);
+    public static boolean hasNotified = false;
+    public static String modrinthId;
 
     public static void init() {
         LOG.info("Initializing {} on {}", MOD_ID, Platform.INSTANCE.loader());
