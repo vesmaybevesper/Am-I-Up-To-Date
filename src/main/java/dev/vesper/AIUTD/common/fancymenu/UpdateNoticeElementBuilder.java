@@ -8,8 +8,8 @@ import de.keksuccino.fancymenu.customization.element.AbstractElement;
 import de.keksuccino.fancymenu.customization.element.ElementBuilder;
 import de.keksuccino.fancymenu.customization.element.SerializedElement;
 import de.keksuccino.fancymenu.customization.layout.editor.LayoutEditorScreen;
-import de.keksuccino.fancymenu.customization.loadingrequirement.internal.LoadingRequirementContainer;
 import de.keksuccino.fancymenu.customization.overlay.CustomizationOverlay;
+import de.keksuccino.fancymenu.customization.requirement.internal.RequirementContainer;
 import de.keksuccino.fancymenu.util.rendering.ui.widget.button.ExtendedButton;
 import de.keksuccino.fancymenu.util.threading.MainThreadTaskExecutor;
 import net.minecraft.client.Minecraft;
@@ -108,7 +108,7 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
 
         String activeStateRequirementIdentifier = serializedElement.getValue("widget_active_state_requirement_container_identifier");
         if(activeStateRequirementIdentifier != null) {
-            LoadingRequirementContainer c = LoadingRequirementContainer.deserializeWithIdentifier(activeStateRequirementIdentifier, serializedElement);
+            RequirementContainer c = RequirementContainer.deserializeWithIdentifier(activeStateRequirementIdentifier, serializedElement);
             if(c != null) {
                 element.activeStateSupplier = c;
             }

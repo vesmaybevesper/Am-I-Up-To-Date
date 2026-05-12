@@ -87,7 +87,9 @@ public class UpdateChecker {
         if (matchedVersion != null){
             String versionNumber = matchedVersion.getString("version_number");
             if (versionNumber != null){
+                Config.HANDLER.load();
                 versionCache = versionNumber;
+                Config.HANDLER.save();
                 hasChecked = true;
                 return versionNumber;
             }

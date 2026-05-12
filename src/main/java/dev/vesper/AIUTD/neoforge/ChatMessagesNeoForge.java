@@ -1,7 +1,8 @@
 package dev.vesper.AIUTD.neoforge;
 
 //? neoforge {
-/*import dev.vesper.AIUTD.config.Config;
+/*import dev.vesper.AIUTD.AIUTD;
+import dev.vesper.AIUTD.config.Config;
 import dev.vesper.AIUTD.config.EndUserConfig;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
@@ -59,64 +60,26 @@ public class ChatMessagesNeoForge {
     private void chatMessageDisplay(ClientPlayerNetworkEvent.LoggingIn event) {
         EndUserConfig.USERCONFIG.load();
 
-        if (Config.chatAlert && needUpdate) {
+        if (Config.chatAlert && needUpdate && !AIUTD.hasNotified && !shouldIgnore) {
+            Minecraft client = Minecraft.getInstance();
+            assert client.player != null;
 
-            if (useCustomMessage && !Objects.equals(Config.customMessage, "This is a custom message!") && !shouldIgnore) {
-
-                Minecraft minecraft = Minecraft.getInstance();
-                if (minecraft.player != null) {
-                    minecraft.execute(() ->
-                            minecraft.player.displayClientMessage(Component.literal(Config.customMessage), false));
-                }
-
-                if (Config.linkChangelog) {
-                    if (minecraft.player != null) {
-                        minecraft.execute(() ->
-                                minecraft.player.displayClientMessage(clickableLink("Read the changelog!", changelogLink), false));
-
-                    }
-                }
-                assert minecraft.player != null;
-                minecraft.player.displayClientMessage(toIgnore(), false);
-
+            if (useCustomMessage && !Objects.equals(Config.customMessage, "This is a custom message!")) {
+                client.player.displayClientMessage(Component.literal(Config.customMessage), false);
+            }
+            else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
+                client.player.displayClientMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!"), false);
+            }
+            else {
+                client.player.displayClientMessage(Component.translatable("aiutd.defaultMsg"), false);
             }
 
-            else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage && !shouldIgnore) {
-                Minecraft minecraft = Minecraft.getInstance();
-                if (minecraft.player != null) {
-                    minecraft.execute(() ->
-                            minecraft.player.displayClientMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!"), false));
-                }
-
-                if (Config.linkChangelog) {
-                    if (minecraft.player != null) {
-                        minecraft.execute(() ->
-                                minecraft.player.displayClientMessage(clickableLink("Read the changelog!", changelogLink), false));
-
-                    }
-                }
-                assert minecraft.player != null;
-                minecraft.player.displayClientMessage(toIgnore(), false);
+            if (Config.linkChangelog) {
+                client.player.displayClientMessage(clickableLink("Read the changelog!", changelogLink), false);
             }
 
-            else if (!shouldIgnore) {
-                Minecraft minecraft = Minecraft.getInstance();
-                if (minecraft.player != null) {
-                    minecraft.execute(() ->
-                            minecraft.player.displayClientMessage(Component.translatable("aiutd.defaultMsg"), false));
-                }
-
-                if (Config.linkChangelog) {
-                    if (minecraft.player != null) {
-                        minecraft.execute(() ->
-                                minecraft.player.displayClientMessage(clickableLink("Read the changelog!", changelogLink), false));
-
-                    }
-                }
-                assert minecraft.player != null;
-                minecraft.player.displayClientMessage(toIgnore(), false);
-
-            }
+            client.player.displayClientMessage(toIgnore(), false);
+            AIUTD.hasNotified = true;
         }
     }
 }
