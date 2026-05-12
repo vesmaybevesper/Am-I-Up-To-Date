@@ -1,5 +1,1 @@
-- Slight change to the way version caching is done
-- *Hopefully* handle switching servers better and not spam update messages
-    - This seems to have un-fixed itself after 1.21.11, so I'm implementing the fix I should have done the first time (I don't remember why I didn't lol)
-- Clean up a bunch of code
-- Update for FancyMenu 3.9.0
+- Re-enable support for 1.21.10 with FancyMenu disabled as it dropped support for the version
