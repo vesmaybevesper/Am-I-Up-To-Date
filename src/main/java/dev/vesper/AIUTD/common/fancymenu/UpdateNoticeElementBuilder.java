@@ -19,6 +19,7 @@ import org.jetbrains.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
 
 public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeElement, UpdateNoticeEditorElement> {
+    //? !1.21.10{
     public UpdateNoticeElementBuilder() {
         super("aiutd_update_button");
     }
@@ -194,4 +195,5 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
                 Component.translatable("aiutd.fancymenu.update_button.desc.line2")
         };
     }
+    //?}
 }

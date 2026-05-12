@@ -14,6 +14,7 @@ import org.jetbrains.annotations.NotNull;
 
 
 public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>, N extends UpdateNoticeElement> extends AbstractEditorElement<E, N> {
+    //? !1.21.10{
     public UpdateNoticeEditorElement(@NotNull N element, @NotNull LayoutEditorScreen editor) {
         super(element, editor);
     }
@@ -210,4 +211,5 @@ public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>
     protected UpdateNoticeElement getElement() {
         return (UpdateNoticeElement) this.element;
     }
+    //?}
 }

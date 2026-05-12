@@ -31,9 +31,11 @@ public class FabricClientEntrypoint implements ClientModInitializer {
         EndUserConfig.USERCONFIG.load();
         CommonClient.init();
         ChatMessagesFabric.chatMessage();
+        //? !1.21.10{
         if (AIUTD.isModLoaded("fancymenu")) {
             FancyMenuIntegration.init();
         }
+        //?}
     }
 
 }

@@ -37,9 +37,11 @@ public class NeoforgeEntrypoint {
             EndUserConfig.USERCONFIG.load();
             CommonClient.init();
             new ChatMessagesNeoForge().chatMessageInit();
+            //? !1.21.10{
             if (AIUTD.isModLoaded("fancymenu")) {
                 FancyMenuIntegration.init();
             }
+            //?}
         }
     }
 

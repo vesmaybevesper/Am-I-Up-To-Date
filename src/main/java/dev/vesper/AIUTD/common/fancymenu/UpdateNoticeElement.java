@@ -34,6 +34,7 @@ import java.util.List;
 import static dev.vesper.AIUTD.common.UpdateChecker.needUpdate;
 
 public class UpdateNoticeElement extends AbstractElement implements ExecutableElement {
+    //? !1.21.10{
 
     @Nullable
     private AbstractWidget widget;
@@ -291,4 +292,5 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
             AIUTD.LOG.error("Failed to open changelog URL", e);
         }
     }
+    //?}
 }
