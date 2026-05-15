@@ -1,3 +1,4 @@
+//? !1.21.10{
 package dev.vesper.AIUTD.common.fancymenu;
 
 import de.keksuccino.fancymenu.customization.action.blocks.GenericExecutableBlock;
@@ -34,7 +35,7 @@ import java.util.List;
 import static dev.vesper.AIUTD.common.UpdateChecker.needUpdate;
 
 public class UpdateNoticeElement extends AbstractElement implements ExecutableElement {
-    //? !1.21.10{
+
 
     @Nullable
     private AbstractWidget widget;
@@ -292,5 +293,5 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
             AIUTD.LOG.error("Failed to open changelog URL", e);
         }
     }
-    //?}
 }
+//?}

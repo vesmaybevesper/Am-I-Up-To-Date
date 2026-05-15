@@ -4,7 +4,9 @@ package dev.vesper.AIUTD.neoforge;
 
 /*import dev.vesper.AIUTD.AIUTD;
 import dev.vesper.AIUTD.common.CommonClient;
+//? !1.21.10{
 import dev.vesper.AIUTD.common.fancymenu.FancyMenuIntegration;
+//?}
 import dev.vesper.AIUTD.config.Config;
 import dev.vesper.AIUTD.config.EndUserConfig;
 import net.neoforged.api.distmarker.Dist;

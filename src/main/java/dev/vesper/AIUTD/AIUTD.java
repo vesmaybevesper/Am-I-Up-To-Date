@@ -9,7 +9,6 @@ import net.fabricmc.loader.api.FabricLoader;
 import dev.vesper.AIUTD.config.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import dev.vesper.AIUTD.common.fancymenu.FancyMenuIntegration;
 
 public class AIUTD {
 
