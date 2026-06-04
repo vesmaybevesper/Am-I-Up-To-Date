@@ -29,9 +29,13 @@ public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>
                 this.editor.history.saveSnapshot();
                 this.getElement().actionExecutor = call;
             }
-                Minecraft.getInstance().setScreen(this.editor);
+            //? <26.2{
+                /*Minecraft.getInstance().setScreen(this.editor);
+            *///?}
             });
-            Minecraft.getInstance().setScreen(s);
+            //? <26.2{
+            /*Minecraft.getInstance().setScreen(s);
+            *///?}
         })).setTooltipSupplier(((contextMenu, contextMenuEntry) -> UITooltip.of(LocalizationUtils.splitLocalizedLines("fancymenu.editor.elements.button.manage_actions.desc")))).setIcon(ContextMenu.IconFactory.getIcon("script")).setStackable(false);
         
         this.rightClickMenu.addClickableEntry("widget_active_state_controller", Component.translatable("fancymenu.elements.button.active_state_controller"),  ((contextMenu, contextMenuEntry) -> {
@@ -40,9 +44,13 @@ public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>
                 this.editor.history.saveSnapshot();
                 this.getElement().activeStateSupplier = call;
                 }
-                Minecraft.getInstance().setScreen(this.editor);
+                //? <26.2{
+                /*Minecraft.getInstance().setScreen(this.editor);
+                *///?}
             });
-            Minecraft.getInstance().setScreen(s);
+            //? <26.2{
+            /*Minecraft.getInstance().setScreen(s);
+            *///?}
         })).setTooltipSupplier(((contextMenu, contextMenuEntry) -> UITooltip.of(LocalizationUtils.splitLocalizedLines("fancymenu.elements.button.active_state_controller.desc")))).setStackable(false);
 
         this.rightClickMenu.addSeparatorEntry("update_button_separator_1");
