@@ -1,7 +1,7 @@
 package dev.vesper.AIUTD.neoforge;
 
 //? neoforge {
-import dev.vesper.AIUTD.AIUTD;
+/*import dev.vesper.AIUTD.AIUTD;
 import dev.vesper.AIUTD.common.Util;
 import dev.vesper.AIUTD.config.Config;
 import dev.vesper.AIUTD.config.EndUserConfig;
@@ -40,7 +40,7 @@ public class ChatMessagesNeoForge {
 
 
     //? <1.21.5 {
-    /*public Component clickableLink(String message, String URL) {
+    /^public Component clickableLink(String message, String URL) {
         return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, URL)).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Util.changelogColor)));
     }
 
@@ -48,7 +48,7 @@ public class ChatMessagesNeoForge {
         return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/shouldIgnore")).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Util.ignoreMsgColor)));
     }
 
-    *///?}
+    ^///?}
     public Component toIgnore(){
         return Component.translatable("aiutd.runToIgnore")
                 .setStyle(Style.EMPTY
@@ -83,4 +83,4 @@ public class ChatMessagesNeoForge {
         }
     }
 }
-//?}
+*///?}

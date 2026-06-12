@@ -1,7 +1,7 @@
 package dev.vesper.AIUTD.fabric;
 
 //? fabric {
-/*import dev.vesper.AIUTD.AIUTD;
+import dev.vesper.AIUTD.AIUTD;
 import dev.vesper.AIUTD.common.Util;
 import dev.vesper.AIUTD.config.EndUserConfig;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
@@ -26,14 +26,14 @@ public class ChatMessagesFabric {
     }
     //?}
     //? <1.21.5 {
-    /^public static MutableComponent clickableLink(String message, String url) {
+    /*public static MutableComponent clickableLink(String message, String url) {
         return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, url)).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Util.changelogColor)));
     }
 
     public static MutableComponent ignoreMessage() {
         return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/shouldIgnore")).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Util.ignoreMsgColor)));
     }
-    ^///?}
+    *///?}
 
     private static void displayMessage(MutableComponent message) {
         ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
@@ -78,4 +78,4 @@ public class ChatMessagesFabric {
         });
     }
 }
-*///?}
+//?}
