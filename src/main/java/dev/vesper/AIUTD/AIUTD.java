@@ -1,12 +1,11 @@
 package dev.vesper.AIUTD;
 
 //? fabric {
-import net.fabricmc.loader.api.FabricLoader;
-//?}
-//? neoforge {
-/*import net.neoforged.fml.ModList;
+/*import net.fabricmc.loader.api.FabricLoader;
 *///?}
-import dev.vesper.AIUTD.config.Config;
+//? neoforge {
+import net.neoforged.fml.ModList;
+//?}
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,11 +21,11 @@ public class AIUTD {
 
     public static boolean isModLoaded(String modId){
         //? fabric {
-        return FabricLoader.getInstance().isModLoaded(modId);
-        //?}
-        //? neoforge {
-        /*return ModList.get().isLoaded(modId);
+        /*return FabricLoader.getInstance().isModLoaded(modId);
         *///?}
+        //? neoforge {
+        return ModList.get().isLoaded(modId);
+        //?}
     }
 
 }

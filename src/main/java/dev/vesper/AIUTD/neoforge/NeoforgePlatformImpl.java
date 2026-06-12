@@ -2,7 +2,7 @@ package dev.vesper.AIUTD.neoforge;
 
 //? neoforge {
 
-/*import dev.vesper.AIUTD.Platform;
+import dev.vesper.AIUTD.Platform;
 import net.neoforged.fml.ModList;
 
 public class NeoforgePlatformImpl implements Platform {
@@ -18,4 +18,4 @@ public class NeoforgePlatformImpl implements Platform {
     }
 
 }
-*///?}
+//?}

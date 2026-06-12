@@ -1,7 +1,7 @@
 package dev.vesper.AIUTD.fabric;
 
 //? fabric {
-import dev.vesper.AIUTD.AIUTD;
+/*import dev.vesper.AIUTD.AIUTD;
 import dev.vesper.AIUTD.common.CommonClient;
 //? !1.21.10{
 import dev.vesper.AIUTD.common.fancymenu.FancyMenuIntegration;
@@ -41,4 +41,4 @@ public class FabricClientEntrypoint implements ClientModInitializer {
     }
 
 }
-//?}
+*///?}

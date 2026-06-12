@@ -2,7 +2,7 @@ package dev.vesper.AIUTD.neoforge;
 
 //? neoforge {
 
-/*import dev.vesper.AIUTD.AIUTD;
+import dev.vesper.AIUTD.AIUTD;
 import dev.vesper.AIUTD.common.CommonClient;
 //? !1.21.10{
 import dev.vesper.AIUTD.common.fancymenu.FancyMenuIntegration;
@@ -16,7 +16,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
-
 
 @Mod(AIUTD.MOD_ID)
 public class NeoforgeEntrypoint {
@@ -48,4 +47,4 @@ public class NeoforgeEntrypoint {
     }
 
 }
-*///?}
+//?}
