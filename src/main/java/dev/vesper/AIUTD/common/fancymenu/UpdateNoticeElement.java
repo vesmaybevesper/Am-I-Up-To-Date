@@ -88,6 +88,7 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
             MainThreadTaskExecutor.executeInMainThread(() -> {
                 this.getWidget().visible = cachedVisible;
                 this.getWidget().active = cachedActive;
+                assert this.getWidget() != null;
                 this.getWidget().setTooltip(cachedVanillaTooltip);
             }, MainThreadTaskExecutor.ExecuteTiming.POST_CLIENT_TICK);
         }
@@ -186,7 +187,7 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
             String tooltip = this.tooltip.replace("%n%", "\n");
             String parsedTooltip = PlaceholderParser.replacePlaceholders(tooltip);
             List<Component> tooltipLines = splitTooltipLines(parsedTooltip);
-            TooltipHandler.INSTANCE.addWidgetTooltip(this.getWidget(), UITooltip.of((Component) tooltipLines), false, false);
+            TooltipHandler.INSTANCE.addRenderTickWidgetTooltip(this.getWidget(), UITooltip.of((Component) tooltipLines));
         }
     }
 

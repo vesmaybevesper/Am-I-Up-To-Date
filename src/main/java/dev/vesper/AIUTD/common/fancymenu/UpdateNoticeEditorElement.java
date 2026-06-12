@@ -1,7 +1,6 @@
 package dev.vesper.AIUTD.common.fancymenu;
 
 import de.keksuccino.fancymenu.customization.action.ui.ActionScriptEditorWindowBody;
-import de.keksuccino.fancymenu.customization.element.AbstractElement;
 import de.keksuccino.fancymenu.customization.element.editor.AbstractEditorElement;
 import de.keksuccino.fancymenu.customization.layout.editor.LayoutEditorScreen;
 import de.keksuccino.fancymenu.customization.requirement.ui.ManageRequirementsWindowBody;
