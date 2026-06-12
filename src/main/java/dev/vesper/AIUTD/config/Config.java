@@ -4,6 +4,7 @@ import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
 import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.autogen.AutoGen;
 import dev.isxander.yacl3.config.v2.api.autogen.EnumCycler;
+import dev.isxander.yacl3.config.v2.api.autogen.FormatTranslation;
 import dev.isxander.yacl3.config.v2.api.autogen.StringField;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import dev.isxander.yacl3.platform.YACLPlatform;
@@ -78,22 +79,22 @@ public class Config {
     @StringField
     @SerialEntry
     public static String customMessage = "This is a custom message!";
-/*    @AutoGen(category = "Optional")
+    @AutoGen(category = "Optional")
     @EnumCycler
     @SerialEntry
-    public static colorEnum messageColor = colorEnum.WHITE;*/
+    public static colorEnum messageColor = colorEnum.WHITE;
     @AutoGen(category = "Optional")
     @dev.isxander.yacl3.config.v2.api.autogen.Boolean(formatter = dev.isxander.yacl3.config.v2.api.autogen.Boolean.Formatter.ON_OFF, colored = true)
     @SerialEntry
     public static boolean linkChangelog = false;
-/*    @AutoGen(category = "Optional")
+    @AutoGen(category = "Optional")
     @EnumCycler
     @SerialEntry
     public static colorEnum changelogColor = colorEnum.RED;
     @AutoGen(category = "Optional")
     @EnumCycler
     @SerialEntry
-    public static colorEnum ignoreColor = colorEnum.GRAY;*/
+    public static colorEnum ignoreColor = colorEnum.GRAY;
     
     // Cache to prevent crashing. May relocate
     @SerialEntry

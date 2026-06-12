@@ -1,5 +1,5 @@
-- Slight change to the way version caching is done
-- *Hopefully* handle switching servers better and not spam update messages
-  - This seems to have un-fixed itself after 1.21.11, so I'm implementing the fix I should have done the first time (I don't remember why I didn't lol)
-- Clean up a bunch of code
-- Update for FancyMenu 3.9.0
+- Added support for 26.2
+- Added ability to customize the chat colors of all chat messages
+  - You can find the settings under the Optional Settings tab
+- NEO CLIBALKBLE IGNORE
+- Various small cleanups

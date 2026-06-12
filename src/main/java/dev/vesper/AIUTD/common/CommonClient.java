@@ -14,5 +14,6 @@ public class CommonClient {
                 UpdateChecker.hasChecked = true;
             }
         } catch (URISyntaxException | IOException ignored) {}
+        Util.setColors();
     }
 }

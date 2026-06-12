@@ -1,5 +1,6 @@
 package dev.vesper.AIUTD.common;
 
+import dev.vesper.AIUTD.config.Config;
 import net.minecraft.ChatFormatting;
 
 public class Util {
@@ -8,7 +9,7 @@ public class Util {
     public static ChatFormatting updateMsgColor;
     public static ChatFormatting ignoreMsgColor;
 
-    /*public static void setColors() {
+    public static void setColors() {
 
         switch(Config.changelogColor) {
             case RED -> changelogColor = ChatFormatting.RED;
@@ -66,5 +67,5 @@ public class Util {
             case YELLOW   -> ignoreMsgColor = ChatFormatting.YELLOW;
             case WHITE    -> ignoreMsgColor = ChatFormatting.WHITE;
         }
-    }*/
+    }
 }

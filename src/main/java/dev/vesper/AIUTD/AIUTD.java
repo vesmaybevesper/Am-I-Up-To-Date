@@ -6,10 +6,9 @@ import net.fabricmc.loader.api.FabricLoader;
 //? neoforge {
 /*import net.neoforged.fml.ModList;
 *///?}
-import dev.vesper.AIUTD.config.Config;
-import net.minecraft.ChatFormatting;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import dev.vesper.AIUTD.common.Util;
 
 public class AIUTD {
 

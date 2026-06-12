@@ -26,7 +26,7 @@ public class ChatMessagesNeoForge {
 
     public Component clickableLink(String message, String URL) {
         ClickEvent clickEvent = new ClickEvent.OpenUrl(URI.create(URL));
-        return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(ChatFormatting.RED));
+        return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(Util.changelogColor));
     }
 
     // I cant remember why this didnt work and i would like to use it lmfao, hopefully in my next update
@@ -37,7 +37,7 @@ public class ChatMessagesNeoForge {
     public Component toIgnore(){
         return Component.translatable("aiutd.runToIgnore")
                 .setStyle(Style.EMPTY
-                        .withColor(ChatFormatting.GRAY)
+                        .withColor(Util.ignoreMsgColor)
                         .withItalic(true));
     }
 
@@ -50,13 +50,13 @@ public class ChatMessagesNeoForge {
             assert client.player != null;
 
             if (useCustomMessage && !Objects.equals(Config.customMessage, "This is a custom message!")) {
-                client.player.sendSystemMessage(Component.literal(Config.customMessage));
+                client.player.sendSystemMessage(Component.literal(Config.customMessage).withStyle(Util.updateMsgColor));
             }
             else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
-                client.player.sendSystemMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!"));
+                client.player.sendSystemMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!").withStyle(Util.updateMsgColor));
             }
             else {
-                client.player.sendSystemMessage(Component.translatable("aiutd.defaultMsg"));
+                client.player.sendSystemMessage(Component.translatable("aiutd.defaultMsg").withStyle(Util.updateMsgColor));
             }
 
             if (Config.linkChangelog) {
