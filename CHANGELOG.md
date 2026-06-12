@@ -1,5 +1,4 @@
 - Added support for 26.2
 - Added ability to customize the chat colors of all chat messages
   - You can find the settings under the Optional Settings tab
-- NEO CLIBALKBLE IGNORE
 - Various small cleanups
