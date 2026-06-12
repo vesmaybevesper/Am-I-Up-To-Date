@@ -1,1 +1,4 @@
-- Re-enable support for 1.21.10 with FancyMenu disabled as it dropped support for the version
+- Added support for 26.2
+- Added ability to customize the chat colors of all chat messages
+    - You can find the settings under the Optional Settings tab
+- Various small cleanups

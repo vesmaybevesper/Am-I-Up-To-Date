@@ -19,7 +19,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
 
-public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeElement, UpdateNoticeEditorElement> {
+public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeElement, UpdateNoticeEditorElement<?,?>> {
 
     public UpdateNoticeElementBuilder() {
         super("aiutd_update_button");
@@ -177,8 +177,8 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
     }
 
     @Override
-    public @NotNull UpdateNoticeEditorElement wrapIntoEditorElement(@NotNull UpdateNoticeElement updateNoticeElement, @NotNull LayoutEditorScreen layoutEditorScreen) {
-        return new UpdateNoticeEditorElement(updateNoticeElement, layoutEditorScreen);
+    public @NotNull UpdateNoticeEditorElement<?,?> wrapIntoEditorElement(@NotNull UpdateNoticeElement updateNoticeElement, @NotNull LayoutEditorScreen layoutEditorScreen) {
+        return new UpdateNoticeEditorElement<>(updateNoticeElement, layoutEditorScreen);
     }
 
     @Override
