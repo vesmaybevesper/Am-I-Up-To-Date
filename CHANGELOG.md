@@ -1,4 +1,4 @@
-- Added support for 26.2
-- Added ability to customize the chat colors of all chat messages
-    - You can find the settings under the Optional Settings tab
-- Various small cleanups
+- Add support for raw Modrinth IDs and slugs
+    - Still supports full URLs if for anyone who wants to still use those (or just not update settings)
+    - Defaults for those two settings are now blank
+- Add descriptions for mod options to help explain each setting

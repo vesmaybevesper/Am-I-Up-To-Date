@@ -1,7 +1,6 @@
 package dev.vesper.AIUTD.mixin;
 
 import dev.vesper.AIUTD.AIUTD;
-import dev.vesper.AIUTD.config.Config;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
@@ -10,7 +9,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.awt.*;
 import java.io.IOException;
@@ -45,7 +43,7 @@ public abstract class TitleScreenMixin extends Screen {
                         Button.builder(Component.translatable("aiutd.menuNotice"), button -> {
                             try {
 
-                                URI url = new URI(Config.changelogLink);
+                                URI url = new URI(AIUTD.changelogLink);
                                 // Check if the Desktop class is supported and if the browser can be opened
                                 if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
                                     Desktop.getDesktop().browse(url);
@@ -55,11 +53,11 @@ public abstract class TitleScreenMixin extends Screen {
                                     try {
                                         if (os.contains("win")) {
                                             // link: "https://modrinth.com/modpack/" + {} + "/changelog", Config.modrinthSlug"
-                                            Runtime.getRuntime().exec(new String[]{"rundll32", "url.dll,FileProtocolHandler", Config.changelogLink});
+                                            Runtime.getRuntime().exec(new String[]{"rundll32", "url.dll,FileProtocolHandler", AIUTD.changelogLink});
                                         } else if (os.contains("mac")) {
-                                            Runtime.getRuntime().exec(new String[]{"open", Config.changelogLink});
+                                            Runtime.getRuntime().exec(new String[]{"open", AIUTD.changelogLink});
                                         } else if (os.contains("nix") || os.contains("nux")) {
-                                            Runtime.getRuntime().exec(new String[]{"xdg-open", Config.changelogLink});
+                                            Runtime.getRuntime().exec(new String[]{"xdg-open", AIUTD.changelogLink});
                                         } else {
                                             AIUTD.LOG.error("Unsupported OS for opening a browser.");
                                         }

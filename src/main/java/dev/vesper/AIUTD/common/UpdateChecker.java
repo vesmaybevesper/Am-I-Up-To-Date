@@ -28,7 +28,7 @@ public class UpdateChecker {
     @Nullable
     public static String getVersionNumber() throws URISyntaxException, IOException {
         clientVersion = Minecraft.getInstance().getLaunchedVersion();
-        URI url = new URI(Config.versionAPI);
+        URI url = new URI(AIUTD.modrinthApiLink);
         StringBuilder result = new StringBuilder();
 
         HttpURLConnection urlConnection = (HttpURLConnection) url.toURL().openConnection();

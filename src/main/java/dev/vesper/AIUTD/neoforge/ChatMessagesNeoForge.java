@@ -75,7 +75,7 @@ public class ChatMessagesNeoForge {
             }
 
             if (Config.linkChangelog) {
-                client.player.displayClientMessage(clickableLink("Read the changelog!", changelogLink), false);
+                client.player.displayClientMessage(clickableLink("Read the changelog!", AIUTD.changelogLink), false);
             }
 
             client.player.displayClientMessage(toIgnore(), false);

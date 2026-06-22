@@ -67,11 +67,11 @@ public class Config {
     @AutoGen(category = "Main")
     @StringField
     @SerialEntry
-    public static String versionAPI = "https://api.modrinth.com/v2/project/<id>/version?include_changelog=false";
+    public static String versionAPI = "";
     @AutoGen(category = "Main")
     @StringField
     @SerialEntry
-    public static String changelogLink = "https://modrinth.com/modpack/<modpack-URL>/changelog";
+    public static String changelogLink = "";
 
     // Optional Settings
     @AutoGen(category = "Optional")
