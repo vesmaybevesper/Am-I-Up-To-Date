@@ -2,7 +2,6 @@ package dev.vesper.AIUTD.common;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONArray;
-import com.alibaba.fastjson2.JSONFactory;
 import com.alibaba.fastjson2.JSONObject;
 import dev.vesper.AIUTD.AIUTD;
 import dev.vesper.AIUTD.config.Config;
@@ -28,7 +27,7 @@ public class UpdateChecker {
     @Nullable
     public static String getVersionNumber() throws URISyntaxException, IOException {
         clientVersion = Minecraft.getInstance().getLaunchedVersion();
-        URI url = new URI(Config.versionAPI);
+        URI url = new URI(AIUTD.modrinthApiLink);
         StringBuilder result = new StringBuilder();
 
         HttpURLConnection urlConnection = (HttpURLConnection) url.toURL().openConnection();

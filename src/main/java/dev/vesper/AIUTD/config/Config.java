@@ -4,7 +4,6 @@ import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
 import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.autogen.AutoGen;
 import dev.isxander.yacl3.config.v2.api.autogen.EnumCycler;
-import dev.isxander.yacl3.config.v2.api.autogen.FormatTranslation;
 import dev.isxander.yacl3.config.v2.api.autogen.StringField;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import dev.isxander.yacl3.platform.YACLPlatform;
@@ -44,11 +43,11 @@ public class Config {
     @AutoGen(category = "Main")
     @StringField
     @SerialEntry
-    public static String versionAPI = "https://api.modrinth.com/v2/project/<id>/version?include_changelog=false";
+    public static String versionAPI = "";
     @AutoGen(category = "Main")
     @StringField
     @SerialEntry
-    public static String changelogLink = "https://modrinth.com/modpack/<modpack-URL>/changelog";
+    public static String changelogLink = "";
 
     // Optional Settings
     @AutoGen(category = "Optional")

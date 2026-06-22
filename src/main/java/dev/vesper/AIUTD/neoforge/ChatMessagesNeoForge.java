@@ -5,7 +5,6 @@ package dev.vesper.AIUTD.neoforge;
 import dev.vesper.AIUTD.common.Util;
 import dev.vesper.AIUTD.config.Config;
 import dev.vesper.AIUTD.config.EndUserConfig;
-import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
@@ -60,7 +59,7 @@ public class ChatMessagesNeoForge {
             }
 
             if (Config.linkChangelog) {
-                client.player.sendSystemMessage(clickableLink("Read the changelog!", changelogLink));
+                client.player.sendSystemMessage(clickableLink("Read the changelog!", AIUTD.changelogLink));
             }
             
             client.player.sendSystemMessage(toIgnore());

@@ -8,17 +8,32 @@ import net.fabricmc.loader.api.FabricLoader;
 *///?}
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import dev.vesper.AIUTD.common.Util;
+import dev.vesper.AIUTD.config.Config;
 
 public class AIUTD {
 
     public static final String MOD_ID = "aiutd";
     public static final Logger LOG = LoggerFactory.getLogger(MOD_ID);
     public static boolean hasNotified = false;
-    public static String modrinthId;
+    public static String modrinthApiLink;
+    public static String changelogLink;
 
     public static void init() {
         LOG.info("Initializing {} on {}", MOD_ID, Platform.INSTANCE.loader());
+        Config.HANDLER.load();
+        if (!Config.changelogLink.contains("https://modrinth.com/modpack/")) {
+            changelogLink = "https://modrinth.com/modpack/" + Config.changelogLink + "/changelog".stripTrailing().stripLeading();
+        } else  {
+            changelogLink = Config.changelogLink;
+        }
+
+        if (!Config.versionAPI.contains("https://api.modrinth.com/v2/project/")){
+            modrinthApiLink = "https://api.modrinth.com/v2/project/" + Config.versionAPI + "/version?include_changelog=false".stripTrailing().stripLeading();
+        } else if (!Config.versionAPI.contains("/version?include_changelog=false")) {
+            modrinthApiLink = Config.versionAPI + "/version?include_changelog=false".stripTrailing().stripLeading();
+        } else {
+            modrinthApiLink = Config.versionAPI;
+        }
     }
 
     public static boolean isModLoaded(String modId){

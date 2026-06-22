@@ -46,7 +46,7 @@ public class ChatMessagesFabric {
 
                     // Display changelog link if enabled.
                     if (linkChangelog) {
-                        client.player.sendSystemMessage(clickableLink("Read the changelog!", changelogLink));
+                        client.player.sendSystemMessage(clickableLink("Read the changelog!", AIUTD.changelogLink));
                     }
 
                     client.player.sendSystemMessage(ignoreMessage());

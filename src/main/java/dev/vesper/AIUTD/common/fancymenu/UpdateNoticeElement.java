@@ -264,18 +264,18 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 
     public void openChangelog() {
         try {
-            URI url = new URI(Config.changelogLink);
+            URI url = new URI(AIUTD.changelogLink);
             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
                 Desktop.getDesktop().browse(url);
             } else {
                 String os = System.getProperty("os.name").toLowerCase();
                 try {
                     if (os.contains("win")) {
-                        Runtime.getRuntime().exec(new String[]{"rundll32", "url.dll,FileProtocolHandler", Config.changelogLink});
+                        Runtime.getRuntime().exec(new String[]{"rundll32", "url.dll,FileProtocolHandler", AIUTD.changelogLink});
                     } else if (os.contains("mac")) {
-                        Runtime.getRuntime().exec(new String[]{"open", Config.changelogLink});
+                        Runtime.getRuntime().exec(new String[]{"open", AIUTD.changelogLink});
                     } else if (os.contains("nix") || os.contains("nux")) {
-                        Runtime.getRuntime().exec(new String[]{"xdg-open", Config.changelogLink});
+                        Runtime.getRuntime().exec(new String[]{"xdg-open", AIUTD.changelogLink});
                     } else {
                         AIUTD.LOG.warn("Unsupported OS for opening browser");
                     }
