@@ -113,8 +113,11 @@ publishMods {
     displayName = "${property("mod.name")} ${property("mod.version")} for ${stonecutter.current.version} Fabric"
     version = "${property("mod.version")}+${property("deps.minecraft")}-fabric"
     changelog = provider { rootProject.file("CHANGELOG.md").readText() }
-    modLoaders.add("fabric")
-
+    if (stonecutter.eval(stonecutter.current.version, ">=1.21.10")) {
+        modLoaders.add("fabric")
+    } else {
+        modLoaders.addAll("fabric", "quilt")
+    }
     modrinth {
         projectId = property("publish.modrinth") as String
         accessToken = env.MODRINTH_API_KEY.orNull()
