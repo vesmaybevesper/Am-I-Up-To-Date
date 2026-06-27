@@ -9,6 +9,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import dev.vesper.AIUTD.config.Config;
+import dev.vesper.AIUTD.common.URLMigration;
 
 public class AIUTD {
 
@@ -20,6 +21,7 @@ public class AIUTD {
 
     public static void init() {
         LOG.info("Initializing {} on {}", MOD_ID, Platform.INSTANCE.loader());
+        URLMigration.removeExcess();
         Config.HANDLER.load();
         if (!Config.changelogLink.contains("https://modrinth.com/modpack/")) {
             changelogLink = "https://modrinth.com/modpack/" + Config.changelogLink + "/changelog".trim();
