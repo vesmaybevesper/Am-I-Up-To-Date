@@ -1,5 +1,4 @@
-- Add support for raw Modrinth IDs and slugs for API checks & changelog URL respectively
-    - Still supports full URLs if for anyone who wants to still use those (or just not update settings)
-    - Defaults for those two settings are now blank
-- Add descriptions for mod options to help explain each setting
-- [Fabric] Add support for 26.3-snapshot
+- Move version cache to the end user config
+- The Mod will now auto trim full url's in the Version API option to just the ID
+  - This is preparation for a change in the next future update
+- Tiny organizational change to some code from 2.4.0
