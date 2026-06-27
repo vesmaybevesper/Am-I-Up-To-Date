@@ -118,8 +118,4 @@ public class Config {
     @EnumCycler
     @SerialEntry
     public static colorEnum ignoreColor = colorEnum.GRAY;
-    
-    // Cache to prevent crashing. May relocate
-    @SerialEntry
-    public static String versionCache = "0.0.0";
 }

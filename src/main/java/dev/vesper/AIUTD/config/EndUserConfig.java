@@ -46,4 +46,6 @@ public class EndUserConfig {
     @Boolean
     @SerialEntry
     public static boolean shouldIgnore = false;
+    @SerialEntry
+    public static String versionCache = "0.0.0";
 }
