@@ -15,6 +15,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Objects;
 import static dev.vesper.AIUTD.config.Config.*;
+import static dev.vesper.AIUTD.config.EndUserConfig.*;
 
 public class UpdateChecker {
     public static boolean needUpdate;
