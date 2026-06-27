@@ -15,6 +15,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Objects;
 import static dev.vesper.AIUTD.config.Config.*;
+import static dev.vesper.AIUTD.config.EndUserConfig.versionCache;
 
 public class UpdateChecker {
     public static boolean needUpdate;
@@ -38,7 +39,7 @@ public class UpdateChecker {
         int responseCode = urlConnection.getResponseCode();
         if (responseCode != 200) {
             AIUTD.LOG.error("HTTP request failed with response code: {}", responseCode);
-            AIUTD.LOG.info("Proceeding using cached version: {}", versionCache);
+            useCachedVersionMsg();
             return versionCache;
         }
 
@@ -49,7 +50,7 @@ public class UpdateChecker {
             }
         } catch (Exception e) {
             AIUTD.LOG.error("Error reading version API response: ", e);
-            AIUTD.LOG.info("Proceeding using cached version: {}", versionCache);
+            useCachedVersionMsg();
             return versionCache;
         }
 
@@ -58,13 +59,13 @@ public class UpdateChecker {
             versionsArray = JSON.parseArray(result.toString());
         } catch (Exception e) {
             AIUTD.LOG.error("Failed to parse version JSON: ", e);
-            AIUTD.LOG.info("Proceeding using cached version: {}", versionCache);
+            useCachedVersionMsg();
             return versionCache;
         }
 
         if (versionsArray.isEmpty() || versionsArray == null) {
             AIUTD.LOG.error("Version JSON is Empty or Null");
-            AIUTD.LOG.info("Proceeding using cached version: {}", versionCache);
+            useCachedVersionMsg();
             return versionCache;
         }
 
@@ -140,5 +141,9 @@ public class UpdateChecker {
             return Objects.equals(versionLoader, localLoader);
         }
         return false;
+    }
+
+    public static void useCachedVersionMsg(){
+        AIUTD.LOG.info("Proceeding using cached version: {}", versionCache);
     }
 }
