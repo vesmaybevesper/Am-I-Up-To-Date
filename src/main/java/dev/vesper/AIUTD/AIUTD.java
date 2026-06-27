@@ -22,15 +22,15 @@ public class AIUTD {
         LOG.info("Initializing {} on {}", MOD_ID, Platform.INSTANCE.loader());
         Config.HANDLER.load();
         if (!Config.changelogLink.contains("https://modrinth.com/modpack/")) {
-            changelogLink = "https://modrinth.com/modpack/" + Config.changelogLink + "/changelog".stripTrailing().stripLeading();
+            changelogLink = "https://modrinth.com/modpack/" + Config.changelogLink + "/changelog".trim();
         } else  {
             changelogLink = Config.changelogLink;
         }
 
         if (!Config.versionAPI.contains("https://api.modrinth.com/v2/project/")){
-            modrinthApiLink = "https://api.modrinth.com/v2/project/" + Config.versionAPI + "/version?include_changelog=false".stripTrailing().stripLeading();
+            modrinthApiLink = "https://api.modrinth.com/v2/project/" + Config.versionAPI + "/version?include_changelog=false".trim();
         } else if (!Config.versionAPI.contains("/version?include_changelog=false")) {
-            modrinthApiLink = Config.versionAPI + "/version?include_changelog=false".stripTrailing().stripLeading();
+            modrinthApiLink = Config.versionAPI + "/version?include_changelog=false".trim();
         } else {
             modrinthApiLink = Config.versionAPI;
         }
