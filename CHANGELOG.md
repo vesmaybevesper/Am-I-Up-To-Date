@@ -1,4 +1,5 @@
 - Move version cache to the end user config
-- The Mod will now auto trim full url's in the Version API option to just the ID
-  - This is preparation for a change in the next future update
+- AIUTD will now auto trim full url's in the Version API option to just the ID
+  - This is preparation for a change in the next Major update
+  - Also changed the wording of the config description to only suggest entering the raw ID
 - Tiny organizational change to some code from 2.4.0
