@@ -8,7 +8,7 @@
    "yacl3.config.aiutd:config.localVersion": "Local Version",
    "yacl3.config.aiutd:config.localVersion.desc": "Enter the version of the modpack as it will be set when uploading to Modrinth",
    "yacl3.config.aiutd:config.versionAPI": "API URL",
-   "yacl3.config.aiutd:config.versionAPI.desc": "Enter your Modrinth ID or API URL. eg: 'B9GZBYa6' or 'https://modrinth.com/modpack/B9GZBYa6/version'",
+   "yacl3.config.aiutd:config.versionAPI.desc": "Enter your Modpack's Modrinth ID. eg: 'B9GZBYa6'",
    "yacl3.config.aiutd:config.changelogLink": "Changelog URL",
    "yacl3.config.aiutd:config.changelogLink.desc": "Enter your Modrinth slug or changelog URL. eg: 'modern-hypixel-skyblock' or 'https://api.modrinth.com/v2/project/modern-hypixel-skyblock/changelog'",
    "yacl3.config.aiutd:config.multiVersion": "Multi-Version Support",
