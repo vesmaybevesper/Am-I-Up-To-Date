@@ -1,7 +1,6 @@
 package dev.vesper.AIUTD;
 
 //? fabric {
-import dev.vesper.AIUTD.common.URLMigration;
 import net.fabricmc.loader.api.FabricLoader;
 //?}
 //? neoforge {
@@ -10,6 +9,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import dev.vesper.AIUTD.config.Config;
+import dev.vesper.AIUTD.common.URLMigration;
 
 public class AIUTD {
 
