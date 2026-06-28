@@ -156,8 +156,8 @@ public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>
 
         this.addStringInputContextMenuEntryTo(this.rightClickMenu, "edit_label",
                         this.selfClass(),
-                        consumes -> ((UpdateNoticeElement)consumes.element).label,
-                        (element1, s) -> ((UpdateNoticeElement)element1.element).label = s,
+                        consumes -> consumes.element.label,
+                        (element1, s) -> element1.element.label = s,
                         null, false, true, Component.translatable("fancymenu.editor.items.button.editlabel"),
                         true, null, null, null)
                 .setStackable(true)
@@ -165,8 +165,8 @@ public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>
 
         this.addStringInputContextMenuEntryTo(this.rightClickMenu, "edit_hover_label",
                         this.selfClass(),
-                        consumes -> ((UpdateNoticeElement)consumes.element).hoverLabel,
-                        (element1, s) -> ((UpdateNoticeElement)element1.element).hoverLabel = s,
+                        consumes -> consumes.element.hoverLabel,
+                        (element1, s) -> element1.element.hoverLabel = s,
                         null, false, true, Component.translatable("fancymenu.editor.items.button.hoverlabel"),
                         true, null, null, null)
                 .setStackable(true)
@@ -197,7 +197,7 @@ public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>
         this.addGenericStringInputContextMenuEntryTo(this.rightClickMenu, "edit_tooltip",
                         consumes -> (consumes instanceof UpdateNoticeEditorElement),
                         consumes -> {
-                            String t = ((UpdateNoticeElement)consumes.element).tooltip;
+                            String t = consumes.element.tooltip;
                             if (t != null) t = t.replace("%n%", "\n");
                             return t;
                         },
@@ -205,7 +205,7 @@ public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>
                             if (s != null) {
                                 s = s.replace("\n", "%n%");
                             }
-                            ((UpdateNoticeElement)element1.element).tooltip = s;
+                            element1.element.tooltip = s;
                         },
                         null, true, true, Component.translatable("fancymenu.editor.items.button.btndescription"),
                         true, null, TextValidators.NO_EMPTY_STRING_TEXT_VALIDATOR, null)
@@ -224,6 +224,6 @@ public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>
     }
 
     protected UpdateNoticeElement getElement() {
-        return (UpdateNoticeElement) this.element;
+        return this.element;
     }
 }
