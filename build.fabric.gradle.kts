@@ -66,7 +66,7 @@ dependencies {
 }
 
 fabricApi {
-    configureDataGeneration() {
+    configureDataGeneration {
         outputDirectory = file("$rootDir/src/main/generated")
         client = true
     }
