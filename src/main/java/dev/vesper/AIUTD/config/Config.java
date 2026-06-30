@@ -5,17 +5,16 @@ import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.autogen.AutoGen;
 import dev.isxander.yacl3.config.v2.api.autogen.EnumCycler;
 import dev.isxander.yacl3.config.v2.api.autogen.StringField;
-import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import dev.isxander.yacl3.platform.YACLPlatform;
+import dev.vesper.FastJSONForYACL.common.serializer.FastJsonConfigSerializerBuilder;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.resources.Identifier;
 
 public class Config {
     public static ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
             .id(Identifier.fromNamespaceAndPath("aiutd", "config"))
-            .serializer(config -> GsonConfigSerializerBuilder.create(config)
-                    .setPath(YACLPlatform.getConfigDir().resolve("aiutd.json5"))
-                    .setJson5(true)
+            .serializer(config -> FastJsonConfigSerializerBuilder.create(config)
+                    .setPath(YACLPlatform.getConfigDir().resolve("aiutd.json"))
                     .build())
             .build();
 
@@ -43,11 +42,7 @@ public class Config {
     @AutoGen(category = "Main")
     @StringField
     @SerialEntry
-    public static String versionAPI = "";
-    @AutoGen(category = "Main")
-    @StringField
-    @SerialEntry
-    public static String changelogLink = "";
+    public static String modpackId = "";
 
     // Optional Settings
     @AutoGen(category = "Optional")

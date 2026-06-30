@@ -1,5 +1,6 @@
-- Move version cache to the end user config
-- AIUTD will now auto trim full url's in the Version API option to just the ID
-  - This is preparation for a change in the next Major update
-  - Also changed the wording of the config description to only suggest entering the raw ID
-- Tiny organizational change to some code from 2.4.0
+- Now uses (and requires) [FASTJSON2 Serializer for YACL](https://modrinth.com/project/fastjson-for-yacl)
+  - Config will be auto migrated (unless something goes wrong, check your logs on first launch just to be safe!)
+    - this should be the last time I have to re-write this migration tool... ([unless](https://github.com/wycst/wast))
+- Change the "Version API" setting to "Modpack ID"
+- Removed the "Changelog Link" setting
+  - Changelog is opened using your Modpack's ID now

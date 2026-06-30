@@ -35,6 +35,7 @@ dependencies {
     //api("dev.isxander:yet-another-config-lib:${property("deps.yacl")}")
     api("maven.modrinth:yacl:${property("deps.yacl")}")
     compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
+    implementation("maven.modrinth:PM2j1xwl:${property("deps.fastjson-for-yacl")}")
     implementation("com.alibaba.fastjson2:fastjson2:2.0.62")
     jarJar("com.alibaba.fastjson2:fastjson2:[2.0.62,)")
 }
@@ -126,6 +127,7 @@ publishMods {
         minecraftVersions.add(stonecutter.current.version)
         minecraftVersions.addAll(additionalVersions)
         requires("yacl")
+        requires("fastjson-for-yacl")
         optional("fancymenu")
     }
 }
