@@ -1,6 +1,6 @@
 - Now uses (and requires) [FASTJSON2 Serializer for YACL](https://modrinth.com/project/fastjson-for-yacl)
-  - Config will be auto migrated (unless something goes wrong, check your logs on first launch just to be safe!)
-    - this should be the last time I have to re-write this migration tool... ([unless](https://github.com/wycst/wast))
 - Change the "Version API" setting to "Modpack ID"
 - Removed the "Changelog Link" setting
   - Changelog is opened using your Modpack's ID now
+
+_Config will be auto migrated (unless something goes wrong, check your logs on first launch just to be safe!)_
