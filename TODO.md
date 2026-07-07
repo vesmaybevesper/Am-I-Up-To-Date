@@ -1,0 +1,4 @@
+- Allow changelog links to be opened with MCEF
+- Toast for update notifications
+  - Allow customization
+- Greater update notification button customizations
