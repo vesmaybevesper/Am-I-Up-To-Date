@@ -19,11 +19,11 @@ import static dev.vesper.AIUTD.config.EndUserConfig.*;
 
 public class UpdateChecker {
     public static boolean needUpdate;
-    public static boolean hasChecked = false;
-    public static String clientVersion;
-    public static String APIMcVersion = "";
-    public static String versionLoader = "";
-    public static String localLoader;
+    protected static boolean hasChecked = false;
+    protected static String clientVersion;
+    protected static String APIMcVersion = "";
+    protected static String versionLoader = "";
+    protected static String localLoader;
 
     @Nullable
     public static String getVersionNumber() throws URISyntaxException, IOException {
