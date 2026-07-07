@@ -24,8 +24,16 @@ public class ChatMessagesNeoForge {
     public void chatMessageInit(){NeoForge.EVENT_BUS.register(this);}
 
     public Component clickableLink(String message, String URL) {
-        ClickEvent clickEvent = new ClickEvent.OpenUrl(URI.create(URL));
-        return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(Util.changelogColor));
+        /^if (AIUTD.isModLoaded("mcef")) {
+            //? <26.2{
+            ^//^Minecraft.getInstance().setScreen(new MCEFWindow(Component.literal("Modpack Changelog")));
+            ^//^//?} >=26.2{
+            Minecraft.getInstance().gui.setScreen(new MCEFWindow(Component.literal("Modpack Changelog")));
+            //?}
+            return Component.empty();
+        } else {^/
+            ClickEvent clickEvent = new ClickEvent.OpenUrl(URI.create(URL));
+            return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(Util.changelogColor));
     }
 
     // I cant remember why this didnt work and i would like to use it lmfao, hopefully in my next update
@@ -62,7 +70,7 @@ public class ChatMessagesNeoForge {
                 client.player.sendSystemMessage(clickableLink("Read the changelog!", AIUTD.changelogLink));
             }
             
-            client.player.sendSystemMessage(toIgnore());
+            client.player.sendSystemMessage(ignoreMsg());
             AIUTD.hasNotified = true;
         }
     }
