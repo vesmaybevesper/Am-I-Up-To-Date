@@ -34,9 +34,9 @@ public class ConfigMigration {
                 Config.useCustomMessage = Boolean.parseBoolean(oldConfig.getString("useCustomMessage"));
                 Config.customMessage = oldConfig.getString("customMessage");
                 Config.linkChangelog = Boolean.parseBoolean(oldConfig.getString("linkChangelog"));
-                Config.ignoreColor = Config.colorEnum.valueOf(oldConfig.getString("ignoreColor"));
-                Config.messageColor = Config.colorEnum.valueOf(oldConfig.getString("messageColor"));
-                Config.changelogColor = Config.colorEnum.valueOf(oldConfig.getString("changelogColor"));
+                Config.ignoreColor = Config.ColorEnum.valueOf(oldConfig.getString("ignoreColor"));
+                Config.messageColor = Config.ColorEnum.valueOf(oldConfig.getString("messageColor"));
+                Config.changelogColor = Config.ColorEnum.valueOf(oldConfig.getString("changelogColor"));
                 Config.HANDLER.save();
                 AIUTD.LOG.info("Config migrated, please double check it for accuracy!");
                 Files.deleteIfExists(Path.of(YACLPlatform.getConfigDir() + "/aiutd.json5"));
