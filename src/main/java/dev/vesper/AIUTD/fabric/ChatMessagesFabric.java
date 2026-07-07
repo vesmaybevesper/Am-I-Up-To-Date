@@ -5,6 +5,7 @@ import dev.vesper.AIUTD.AIUTD;
 import dev.vesper.AIUTD.common.Util;
 import dev.vesper.AIUTD.config.EndUserConfig;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.*;
 
 import java.net.URI;
@@ -14,8 +15,16 @@ import static dev.vesper.AIUTD.config.Config.*;
 
 public class ChatMessagesFabric {
     public static MutableComponent clickableLink(String message, String url) {
-        ClickEvent clickEvent = new ClickEvent.OpenUrl(URI.create(url));
-        return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Util.changelogColor)));
+        /*if (AIUTD.isModLoaded("mcef")) {
+            //? <26.2{
+            *//*Minecraft.getInstance().setScreen(new MCEFWindow(Component.literal("Modpack Changelog")));
+            *//*//?} >=26.2{
+            Minecraft.getInstance().gui.setScreen(new MCEFWindow(Component.literal("Modpack Changelog")));
+             //?}
+            return Component.empty();
+        } else {*/
+            ClickEvent clickEvent = new ClickEvent.OpenUrl(URI.create(url));
+            return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Util.changelogColor)));
     }
 
     public static MutableComponent ignoreMessage() {
