@@ -11,7 +11,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.resources.Identifier;
 
 public class Config {
-    public static ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
+    public static final ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
             .id(Identifier.fromNamespaceAndPath("aiutd", "config"))
             .serializer(config -> FastJsonConfigSerializerBuilder.create(config)
                     .setPath(YACLPlatform.getConfigDir().resolve("aiutd.json"))
@@ -24,7 +24,7 @@ public class Config {
 
     public enum LoaderEnum {FABRIC, QUILT, NEOFORGE}
 
-    public enum colorEnum {BLACK, DARK_BLUE, DARK_GREEN, DARK_AQUA, DARK_RED, DARK_PURPLE, GOLD, GRAY, DARK_GRAY, BLUE, GREEN, AQUA, RED, LIGHT_PURPLE, YELLOW, WHITE}
+    public enum ColorEnum {BLACK, DARK_BLUE, DARK_GREEN, DARK_AQUA, DARK_RED, DARK_PURPLE, GOLD, GRAY, DARK_GRAY, BLUE, GREEN, AQUA, RED, LIGHT_PURPLE, YELLOW, WHITE}
 
     // Main Settings
     @AutoGen(category = "Main")
@@ -76,7 +76,7 @@ public class Config {
     @AutoGen(category = "Optional")
     @EnumCycler
     @SerialEntry
-    public static colorEnum messageColor = colorEnum.WHITE;
+    public static ColorEnum messageColor = ColorEnum.WHITE;
     @AutoGen(category = "Optional")
     @dev.isxander.yacl3.config.v2.api.autogen.Boolean(formatter = dev.isxander.yacl3.config.v2.api.autogen.Boolean.Formatter.ON_OFF, colored = true)
     @SerialEntry
@@ -84,9 +84,9 @@ public class Config {
     @AutoGen(category = "Optional")
     @EnumCycler
     @SerialEntry
-    public static colorEnum changelogColor = colorEnum.RED;
+    public static ColorEnum changelogColor = ColorEnum.RED;
     @AutoGen(category = "Optional")
     @EnumCycler
     @SerialEntry
-    public static colorEnum ignoreColor = colorEnum.GRAY;
+    public static ColorEnum ignoreColor = ColorEnum.GRAY;
 }

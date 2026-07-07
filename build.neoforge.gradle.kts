@@ -2,6 +2,7 @@ plugins {
     id("net.neoforged.moddev")
     id ("dev.kikugie.postprocess.jsonlang")
     id("me.modmuss50.mod-publish-plugin")
+    id("com.github.spotbugs") version "6.5.8"
 }
 
 tasks.named<ProcessResources>("processResources") {
@@ -22,7 +23,9 @@ repositories{
         name = "Xander Maven"
     }
     maven("https://api.modrinth.com/maven")
+    maven("https://keksuccino.github.io/maven/")
     mavenCentral()
+    gradlePluginPortal()
 }
 
 configurations{
@@ -32,12 +35,19 @@ configurations{
 }
 
 dependencies {
+    spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0")
     //api("dev.isxander:yet-another-config-lib:${property("deps.yacl")}")
     api("maven.modrinth:yacl:${property("deps.yacl")}")
     compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
-    implementation("maven.modrinth:PM2j1xwl:${property("deps.fastjson-for-yacl")}")
+    compileOnly("de.keksuccino:mcef-neoforge:${property("deps.mcef")}")
+    implementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson-for-yacl")}")
     implementation("com.alibaba.fastjson2:fastjson2:2.0.62")
     jarJar("com.alibaba.fastjson2:fastjson2:[2.0.62,)")
+}
+
+spotbugs {
+    version="4.10.2"
+    ignoreFailures=true
 }
 
 version = "${property("mod.version")}+${property("deps.minecraft")}-neoforge"
@@ -129,5 +139,6 @@ publishMods {
         requires("yacl")
         requires("fastjson-for-yacl")
         optional("fancymenu")
+        optional("mcef-keksuccino")
     }
 }

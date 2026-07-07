@@ -10,7 +10,7 @@ import dev.vesper.FastJSONForYACL.common.serializer.FastJsonConfigSerializerBuil
 import net.minecraft.resources.Identifier;
 
 public class EndUserConfig {
-    public static ConfigClassHandler<EndUserConfig> USERCONFIG = ConfigClassHandler.createBuilder(EndUserConfig.class)
+    public static final ConfigClassHandler<EndUserConfig> USERCONFIG = ConfigClassHandler.createBuilder(EndUserConfig.class)
             .id(Identifier.fromNamespaceAndPath("aiutd-enduser", "enduserconfig"))
             .serializer(config -> FastJsonConfigSerializerBuilder.create(config)
                     .setPath(YACLPlatform.getConfigDir().resolve("aiutd-enduser.json"))

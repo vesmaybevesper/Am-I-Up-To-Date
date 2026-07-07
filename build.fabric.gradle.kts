@@ -4,6 +4,7 @@ plugins {
     id("net.fabricmc.fabric-loom")
     id("dev.kikugie.postprocess.jsonlang")
     id("me.modmuss50.mod-publish-plugin")
+    id("com.github.spotbugs") version "6.5.8"
 }
 
 tasks.named<ProcessResources>("processResources") {
@@ -17,6 +18,11 @@ tasks.named<ProcessResources>("processResources") {
     filesMatching(listOf("fabric.mod.json", "META-INF/neoforge.mods.toml", "META-INF/mods.toml")) {
         expand(props)
     }
+}
+
+spotbugs {
+    version="4.10.2"
+    ignoreFailures=true
 }
 
 tasks.named("processResources").configure { dependsOn("stonecutterGenerate") }
@@ -44,10 +50,13 @@ repositories {
     }
     maven("https://api.modrinth.com/maven")
     maven("https://maven.nucleoid.xyz/") { name = "Nucleoid" }
+    maven("https://keksuccino.github.io/maven/")
     mavenCentral()
+    gradlePluginPortal()
 }
 
 dependencies {
+    spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0")
     minecraft("com.mojang:minecraft:${property("deps.minecraft")}")
     implementation("net.fabricmc:fabric-loader:${property("deps.fabric-loader")}")
     implementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
@@ -55,7 +64,8 @@ dependencies {
     //implementation("dev.isxander:yet-another-config-lib:${property("deps.yacl")}")
     implementation("maven.modrinth:yacl:${property("deps.yacl")}")
     compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
-    implementation("maven.modrinth:PM2j1xwl:${property("deps.fastjson-for-yacl")}")
+    compileOnly("de.keksuccino:mcef-fabric:${property("deps.mcef")}")
+    implementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson-for-yacl")}")
     implementation("com.alibaba.fastjson2:fastjson2:2.0.62")
     include("com.alibaba.fastjson2:fastjson2:2.0.62")
 
@@ -121,5 +131,6 @@ publishMods {
         requires("fastjson-for-yacl")
         optional("modmenu")
         optional("fancymenu")
+        optional("mcef-keksuccino")
     }
 }
