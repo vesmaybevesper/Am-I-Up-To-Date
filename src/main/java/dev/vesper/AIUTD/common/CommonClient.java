@@ -12,7 +12,7 @@ public class CommonClient {
     public static void init(){
         try {
             if (!UpdateChecker.hasChecked){
-                if (Config.versionAPI.isEmpty()) {
+                if (Config.modpackId.isEmpty()) {
                     UpdateChecker.needUpdate = false;
                     return;
                 }
