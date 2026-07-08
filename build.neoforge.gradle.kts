@@ -35,6 +35,7 @@ dependencies {
     api("dev.isxander:yet-another-config-lib:${property("deps.yacl")}")
     compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
     implementation("com.alibaba.fastjson2:fastjson2:2.0.62")
+    implementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson-for-yacl")}")
     jarJar("com.alibaba.fastjson2:fastjson2:[2.0.62,)")
 }
 

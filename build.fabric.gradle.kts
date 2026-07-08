@@ -57,6 +57,7 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
     modCompileOnly("com.terraformersmc:modmenu:${property("modmenu_version")}")
     modImplementation("dev.isxander:yet-another-config-lib:${property("deps.yacl")}")
+    modImplementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson-for-yacl")}")
     modCompileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
     implementation("com.alibaba.fastjson2:fastjson2:2.0.62")
     include("com.alibaba.fastjson2:fastjson2:2.0.62")

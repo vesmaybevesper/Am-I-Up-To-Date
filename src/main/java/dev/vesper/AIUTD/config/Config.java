@@ -5,8 +5,8 @@ import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.autogen.AutoGen;
 import dev.isxander.yacl3.config.v2.api.autogen.EnumCycler;
 import dev.isxander.yacl3.config.v2.api.autogen.StringField;
-import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import dev.isxander.yacl3.platform.YACLPlatform;
+import dev.vesper.FastJSONForYACL.common.serializer.FastJsonConfigSerializerBuilder;
 import net.minecraft.client.gui.screens.Screen;
 //? >=1.21.11 {
 import net.minecraft.resources.Identifier;
@@ -19,27 +19,24 @@ public class Config {
     //? <1.21.11 && !1.20.1 {
     /*public static ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
             .id(ResourceLocation.fromNamespaceAndPath("aiutd", "config"))
-            .serializer(config -> GsonConfigSerializerBuilder.create(config)
-                    .setPath(YACLPlatform.getConfigDir().resolve("aiutd.json5"))
-                    .setJson5(true)
+            .serializer(config -> FastJsonConfigSerializerBuilder.create(config)
+                    .setPath(YACLPlatform.getConfigDir().resolve("aiutd.json"))
                     .build())
             .build();
     *///?}
     //? 1.20.1 {
     /*public static ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
             .id(ResourceLocation.tryBuild("aiutd", "config"))
-            .serializer(config -> GsonConfigSerializerBuilder.create(config)
-                    .setPath(YACLPlatform.getConfigDir().resolve("aiutd.json5"))
-                    .setJson5(true)
+            .serializer(config -> FastJsonConfigSerializerBuilder.create(config)
+                    .setPath(YACLPlatform.getConfigDir().resolve("aiutd.json"))
                     .build())
             .build();
     *///?}
 //? >= 1.21.11 {
     public static ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
             .id(Identifier.fromNamespaceAndPath("aiutd", "config"))
-            .serializer(config -> GsonConfigSerializerBuilder.create(config)
-                    .setPath(YACLPlatform.getConfigDir().resolve("aiutd.json5"))
-                    .setJson5(true)
+            .serializer(config -> FastJsonConfigSerializerBuilder.create(config)
+                    .setPath(YACLPlatform.getConfigDir().resolve("aiutd.json"))
                     .build())
             .build();
 //?}
@@ -49,7 +46,7 @@ public class Config {
 
     public enum LoaderEnum {FABRIC, QUILT, NEOFORGE}
 
-    public enum colorEnum {BLACK, DARK_BLUE, DARK_GREEN, DARK_AQUA, DARK_RED, DARK_PURPLE, GOLD, GRAY, DARK_GRAY, BLUE, GREEN, AQUA, RED, LIGHT_PURPLE, YELLOW, WHITE}
+    public enum ColorEnum {BLACK, DARK_BLUE, DARK_GREEN, DARK_AQUA, DARK_RED, DARK_PURPLE, GOLD, GRAY, DARK_GRAY, BLUE, GREEN, AQUA, RED, LIGHT_PURPLE, YELLOW, WHITE}
 
     // Main Settings
     @AutoGen(category = "Main")
@@ -67,11 +64,7 @@ public class Config {
     @AutoGen(category = "Main")
     @StringField
     @SerialEntry
-    public static String versionAPI = "";
-    @AutoGen(category = "Main")
-    @StringField
-    @SerialEntry
-    public static String changelogLink = "";
+    public static String modpackId = "";
 
     // Optional Settings
     @AutoGen(category = "Optional")
@@ -105,7 +98,7 @@ public class Config {
     @AutoGen(category = "Optional")
     @EnumCycler
     @SerialEntry
-    public static colorEnum messageColor = colorEnum.WHITE;
+    public static ColorEnum messageColor = ColorEnum.WHITE;
     @AutoGen(category = "Optional")
     @dev.isxander.yacl3.config.v2.api.autogen.Boolean(formatter = dev.isxander.yacl3.config.v2.api.autogen.Boolean.Formatter.ON_OFF, colored = true)
     @SerialEntry
@@ -113,9 +106,9 @@ public class Config {
     @AutoGen(category = "Optional")
     @EnumCycler
     @SerialEntry
-    public static colorEnum changelogColor = colorEnum.RED;
+    public static ColorEnum changelogColor = ColorEnum.RED;
     @AutoGen(category = "Optional")
     @EnumCycler
     @SerialEntry
-    public static colorEnum ignoreColor = colorEnum.GRAY;
+    public static ColorEnum ignoreColor = ColorEnum.GRAY;
 }
