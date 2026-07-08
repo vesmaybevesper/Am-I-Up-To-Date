@@ -128,7 +128,7 @@ publishMods {
         minecraftVersions.addAll(additionalVersions)
         requires("fabric-api")
         requires("yacl")
-        requires("fastjson-for-yacl")
+        requires("fastjson4yacl")
         optional("modmenu")
         optional("fancymenu")
         optional("mcef-keksuccino")

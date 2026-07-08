@@ -137,7 +137,7 @@ publishMods {
         minecraftVersions.add(stonecutter.current.version)
         minecraftVersions.addAll(additionalVersions)
         requires("yacl")
-        requires("fastjson-for-yacl")
+        requires("fastjson4yacl")
         optional("fancymenu")
         optional("mcef-keksuccino")
     }
