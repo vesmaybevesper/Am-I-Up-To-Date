@@ -13,6 +13,8 @@ import net.minecraft.network.chat.TextColor;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.common.NeoForge;
+
+import java.net.URI;
 import java.util.Objects;
 
 import static dev.vesper.AIUTD.common.UpdateChecker.needUpdate;
