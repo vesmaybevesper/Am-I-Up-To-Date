@@ -9,7 +9,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import dev.vesper.AIUTD.config.Config;
-import dev.vesper.AIUTD.common.URLMigration;
+import dev.vesper.AIUTD.common.ConfigMigration;
 
 public class AIUTD {
 
@@ -21,21 +21,10 @@ public class AIUTD {
 
     public static void init() {
         LOG.info("Initializing {} on {}", MOD_ID, Platform.INSTANCE.loader());
-        URLMigration.removeExcess();
+        ConfigMigration.change();
         Config.HANDLER.load();
-        if (!Config.changelogLink.contains("https://modrinth.com/modpack/")) {
-            changelogLink = "https://modrinth.com/modpack/" + Config.changelogLink + "/changelog".trim();
-        } else  {
-            changelogLink = Config.changelogLink;
-        }
-
-        if (!Config.versionAPI.contains("https://api.modrinth.com/v2/project/")){
-            modrinthApiLink = "https://api.modrinth.com/v2/project/" + Config.versionAPI + "/version?include_changelog=false".trim();
-        } else if (!Config.versionAPI.contains("/version?include_changelog=false")) {
-            modrinthApiLink = Config.versionAPI + "/version?include_changelog=false".trim();
-        } else {
-            modrinthApiLink = Config.versionAPI;
-        }
+        changelogLink = "https://modrinth.com/modpack/" + Config.modpackId + "/changelog".trim();
+        modrinthApiLink = "https://api.modrinth.com/v2/project/" + Config.modpackId + "/version?include_changelog=false".trim();
     }
 
     public static boolean isModLoaded(String modId){
