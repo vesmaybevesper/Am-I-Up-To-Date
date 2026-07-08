@@ -13,8 +13,6 @@ import net.minecraft.network.chat.TextColor;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.common.NeoForge;
-
-import java.net.URI;
 import java.util.Objects;
 
 import static dev.vesper.AIUTD.common.UpdateChecker.needUpdate;
@@ -78,7 +76,7 @@ public class ChatMessagesNeoForge {
                 client.player.displayClientMessage(clickableLink("Read the changelog!", AIUTD.changelogLink), false);
             }
 
-            client.player.displayClientMessage(toIgnore(), false);
+            client.player.displayClientMessage(ignoreMsg(), false);
             AIUTD.hasNotified = true;
         }
     }
