@@ -23,14 +23,14 @@ side = "CLIENT"
 
 [[dependencies.aiutd]]
 modId = "yet_another_config_lib_v3"
-type = "required"
+mandatory = true
 versionRange = "[3.7.1,)"
 ordering = "NONE"
 side = "CLIENT"
 
 [[dependencies.aiutd]]
 modId = "fastjson4yacl"
-type = "required"
+mandatory = true
 versionRange ="[1.0.1,)"
 ordering = "NONE"
 side = "CLIENT"
