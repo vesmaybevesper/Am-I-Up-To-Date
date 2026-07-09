@@ -120,6 +120,7 @@ publishMods {
     modrinth {
         projectId = property("publish.modrinth") as String
         accessToken = env.MODRINTH_API_KEY.orNull()
+        environment = CLIENT_ONLY
         if ("${property("deps.minecraft")} for ${stonecutter.current.version}".contains("snapshot")){
             minecraftVersions.add("${property("deps.minecraft")} for ${stonecutter.current.version}")
         } else {
