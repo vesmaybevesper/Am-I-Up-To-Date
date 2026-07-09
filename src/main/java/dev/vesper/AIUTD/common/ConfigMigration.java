@@ -27,7 +27,12 @@ public class ConfigMigration {
                 Config.multiLoaderBool = Boolean.parseBoolean(oldConfig.getString("multiLoaderBool"));
                 Config.multiLoader = Config.LoaderEnum.valueOf(oldConfig.getString("multiLoader"));
                 Config.localVersion = oldConfig.getString("localVersion");
-                Config.modpackId = oldConfig.getString("versionAPI");
+                String oldAPI = oldConfig.getString("versionAPI");
+                if (oldAPI.contains("https://api.modrinth.com/v2/project/")){
+                    Config.modpackId = oldConfig.getString("versionAPI").replace("https://api.modrinth.com/v2/project/","").replace("/version?include_changelog=false", "").trim();
+                } else {
+                    Config.modpackId = oldConfig.getString("versionAPI");
+                }
                 Config.multiVersion = Boolean.parseBoolean(oldConfig.getString("multiVersion"));
                 Config.useModpackName = Boolean.parseBoolean(oldConfig.getString("useModpackName"));
                 Config.modpackName = oldConfig.getString("modpackName");
