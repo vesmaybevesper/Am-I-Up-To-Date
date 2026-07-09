@@ -31,7 +31,7 @@ public class ConfigMigration {
                 if (oldAPI.contains("https://api.modrinth.com/v2/project/")){
                     Config.modpackId = oldConfig.getString("versionAPI").replace("https://api.modrinth.com/v2/project/","").replace("/version?include_changelog=false", "").trim();
                 } else {
-                    Config.modpackId = oldConfig.getString("versionAPI");   
+                    Config.modpackId = oldConfig.getString("versionAPI");
                 }
                 Config.multiVersion = Boolean.parseBoolean(oldConfig.getString("multiVersion"));
                 Config.useModpackName = Boolean.parseBoolean(oldConfig.getString("useModpackName"));
