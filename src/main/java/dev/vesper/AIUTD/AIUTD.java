@@ -21,8 +21,8 @@ public class AIUTD {
 
     public static void init() {
         LOG.info("Initializing {} on {}", MOD_ID, Platform.INSTANCE.loader());
-        ConfigMigration.change();
         Config.HANDLER.load();
+        ConfigMigration.change();
         changelogLink = "https://modrinth.com/modpack/" + Config.modpackId + "/changelog".trim();
         modrinthApiLink = "https://api.modrinth.com/v2/project/" + Config.modpackId + "/version?include_changelog=false".trim();
     }
