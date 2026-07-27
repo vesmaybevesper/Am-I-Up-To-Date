@@ -111,7 +111,4 @@ public class Config {
     @EnumCycler
     @SerialEntry
     public static ColorEnum ignoreColor = ColorEnum.GRAY;
-
-    @SerialEntry
-    public static boolean migrated = false;
 }
