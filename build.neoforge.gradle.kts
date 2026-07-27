@@ -1,6 +1,7 @@
 plugins {
 	id("mod-platform")
 	id("net.neoforged.moddev")
+	id("com.github.spotbugs") version "6.5.9"
 }
 
 stonecutter {
@@ -23,6 +24,11 @@ platform {
 			forgeLikeVersionRange.set("[1,)")
 		}
 	}
+}
+
+spotbugs{
+	version="4.10.3"
+	ignoreFailures=true
 }
 
 neoForge {
@@ -60,10 +66,23 @@ neoForge {
 
 repositories {
 	mavenCentral()
+	gradlePluginPortal()
 	strictMaven("https://api.modrinth.com/maven", "maven.modrinth") { name = "Modrinth" }
+	maven("https://maven.isxander.dev/releases") {
+		name = "Xander Maven"
+	}
+	maven("https://maven.nucleoid.xyz/") { name = "Nucleoid" }
+	maven("https://keksuccino.github.io/maven/")
 }
 
 dependencies {
+	spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0")
+	implementation("maven.modrinth:yacl:${property("deps.yacl")}")
+	compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
+	compileOnly("de.keksuccino:mcef-neoforge:${property("deps.mcef")}")
+	implementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson4yacl")}")
+	implementation("com.alibaba.fastjson2:fastjson2:2.0.62")
+	jarJar("com.alibaba.fastjson2:fastjson2:2.0.62")
 	// implementation(libs.moulberry.mixinconstraints)
 	// jarJar(libs.moulberry.mixinconstraints)
 }

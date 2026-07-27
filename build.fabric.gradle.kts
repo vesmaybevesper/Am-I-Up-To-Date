@@ -1,6 +1,7 @@
 plugins {
 	id("mod-platform")
 	id("dev.kikugie.loom-back-compat")
+	id("com.github.spotbugs") version "6.5.9"
 }
 
 stonecutter {
@@ -52,6 +53,11 @@ loom {
 	}
 }
 
+spotbugs{
+	version="4.10.3"
+	ignoreFailures=true
+}
+
 fabricApi {
 	configureDataGeneration {
 		outputDirectory = file("${rootDir}/versions/datagen/${sc.current.version.split("-")[0]}/src/main/generated")
@@ -61,8 +67,14 @@ fabricApi {
 
 repositories {
 	mavenCentral()
+	gradlePluginPortal()
 	strictMaven("https://maven.terraformersmc.com/", "com.terraformersmc") { name = "TerraformersMC" }
 	strictMaven("https://api.modrinth.com/maven", "maven.modrinth") { name = "Modrinth" }
+	maven("https://maven.isxander.dev/releases") {
+		name = "Xander Maven"
+	}
+	maven("https://maven.nucleoid.xyz/") { name = "Nucleoid" }
+	maven("https://keksuccino.github.io/maven/")
 }
 
 configurations.all {
@@ -85,4 +97,11 @@ dependencies {
 	// include(libs.moulberry.mixinconstraints)
 	modImplementation("net.fabricmc.fabric-api:fabric-api:${prop("deps.fabric-api")}")
 	modLocalRuntime("com.terraformersmc:modmenu:${prop("deps.modmenu")}")
+	spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0")
+	implementation("maven.modrinth:yacl:${property("deps.yacl")}")
+	compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
+	compileOnly("de.keksuccino:mcef-fabric:${property("deps.mcef")}")
+	implementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson4yacl")}")
+	implementation("com.alibaba.fastjson2:fastjson2:2.0.62")
+	include("com.alibaba.fastjson2:fastjson2:2.0.62")
 }
