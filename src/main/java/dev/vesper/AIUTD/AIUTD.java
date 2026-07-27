@@ -9,7 +9,6 @@ import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import dev.vesper.AIUTD.config.Config;
-import dev.vesper.AIUTD.common.ConfigMigration;
 
 public class AIUTD {
 
@@ -22,7 +21,6 @@ public class AIUTD {
     public static void init() {
         LOG.info("Initializing {} on {}", MOD_ID, Platform.INSTANCE.loader());
         Config.HANDLER.load();
-        ConfigMigration.change();
         changelogLink = "https://modrinth.com/modpack/" + Config.modpackId + "/changelog".trim();
         modrinthApiLink = "https://api.modrinth.com/v2/project/" + Config.modpackId + "/version?include_changelog=false".trim();
     }
