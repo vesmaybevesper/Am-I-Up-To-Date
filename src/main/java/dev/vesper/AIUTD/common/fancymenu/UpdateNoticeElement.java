@@ -86,6 +86,7 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
             this.getWidget().active = true;
             this.getWidget().setTooltip(null);
             MainThreadTaskExecutor.executeInMainThread(() -> {
+                assert this.getWidget() != null;
                 this.getWidget().visible = cachedVisible;
                 this.getWidget().active = cachedActive;
                 assert this.getWidget() != null;

@@ -20,7 +20,13 @@ import org.cef.browser.CefFrame;
 import org.cef.handler.CefDisplayHandler;
 import org.cef.handler.CefDisplayHandlerAdapter;
 import org.jspecify.annotations.NonNull;
-import org.lwjgl.glfw.GLFW;
+//? <26.3{
+*/
+/*import org.lwjgl.glfw.GLFW;
+*//*
+//?} >=26.3{
+
+//?}
 
 public class MCEFWindow extends Screen {
 
@@ -75,9 +81,10 @@ public class MCEFWindow extends Screen {
 
                 minecraft.execute(() ->{
                     //? <26.2{
-                    */
+                */
 /*if (minecraft.screen != MCEFWindow.this || urlBox == null || url == null || url.isBlank()){
-                    *//*
+
+*//*
 //?} >=26.2{
                     if (minecraft.gui.screen() != MCEFWindow.this || urlBox == null || url == null || url.isBlank()){
                     //?}
@@ -333,7 +340,7 @@ public class MCEFWindow extends Screen {
     }
 
     @Override
-    public boolean keyPressed(@NonNull KeyEvent     event) {
+    public boolean keyPressed(@NonNull KeyEvent event) {
         if (urlBox != null && urlBox.isFocused() && (event.key() == GLFW.GLFW_KEY_ENTER || event.key() == GLFW.GLFW_KEY_KP_ENTER)) {
             navigateFromUrlField();
             setFocused(null);
