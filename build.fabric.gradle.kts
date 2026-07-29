@@ -30,7 +30,15 @@ platform {
 		required("fabricloader") {
 			fabricLikeVersionRange = ">=${prop("deps.fabric-loader")}"
 		}
+		required("yacl") {
+			fabricLikeVersionRange = ">=${prop("deps.yacl")}"
+		}
+		required("fastjson4yacl") {
+			fabricLikeVersionRange = ">=${prop("deps.fastjson4yacl")}"
+		}
 		optional("modmenu") {}
+		optional("fancymenu") {}
+		optional("rinku") {}
 	}
 }
 

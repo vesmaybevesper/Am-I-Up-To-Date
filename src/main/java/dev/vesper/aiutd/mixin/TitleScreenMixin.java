@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.awt.*;
@@ -31,12 +32,24 @@ public class TitleScreenMixin extends Screen {
 	}
 
 	@Inject(method = "createNormalMenuOptions", at = @At("RETURN"))
-	private void addUpdateNotice(int topPos, int spacing, CallbackInfoReturnable<Integer> cir) {
+	//? >=1.21.11{
+	/*private void addUpdateNotice(int topPos, int spacing, CallbackInfoReturnable<Integer> cir) {
+	*///?} <=1.21.1{
+	private void addUpdateNotice(int i, int j, CallbackInfo ci) {
+	//?}
 		if (!AIUTD.isModLoaded("fancymenu")) {
 			if(AIUTD.isModLoaded("notebook")){
-				buttonY = topPos - 24;
+				//? >=1.21.11{
+				/*buttonY = topPos - 24;
+				*///?} <=1.21.1{
+				buttonY = i - 24;
+				//?}
 			} else {
-				buttonY = topPos;
+				//? >=1.21.11{
+				/*buttonY = topPos;
+				*///?} <=1.21.1{
+				buttonY = i;
+				//?}
 			}
 			if (needUpdate && menuAlert){
 				this.addRenderableWidget(

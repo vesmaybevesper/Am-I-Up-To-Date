@@ -28,16 +28,16 @@ public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>
 					this.getElement().actionExecutor = call;
 				}
 				//? <26.2{
-				/*Minecraft.getInstance().setScreen(this.editor);
-				 *///?} >=26.2{
-				Minecraft.getInstance().setScreenAndShow(this.editor);
-				//?}
+				Minecraft.getInstance().setScreen(this.editor);
+				 //?} >=26.2{
+				/*Minecraft.getInstance().setScreenAndShow(this.editor);
+				*///?}
 			});
 			//? <26.2{
-			/*Minecraft.getInstance().setScreen(s);
-			 *///?} >=26.2{
-			Minecraft.getInstance().setScreenAndShow(s);
-			//?}
+			Minecraft.getInstance().setScreen(s);
+			 //?} >=26.2{
+			/*Minecraft.getInstance().setScreenAndShow(s);
+			*///?}
 		})).setTooltipSupplier(((contextMenu, contextMenuEntry) -> UITooltip.of(LocalizationUtils.splitLocalizedLines("fancymenu.editor.elements.button.manage_actions.desc")))).setIcon(ContextMenu.IconFactory.getIcon("script")).setStackable(false);
 
 		this.rightClickMenu.addClickableEntry("widget_active_state_controller", Component.translatable("fancymenu.elements.button.active_state_controller"),  ((contextMenu, contextMenuEntry) -> {
@@ -47,16 +47,16 @@ public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>
 					this.getElement().activeStateSupplier = call;
 				}
 				//? <26.2{
-				/*Minecraft.getInstance().setScreen(this.editor);
-				 *///?} >=26.2{
-				Minecraft.getInstance().setScreenAndShow(this.editor);
-				//?}
+				Minecraft.getInstance().setScreen(this.editor);
+				 //?} >=26.2{
+				/*Minecraft.getInstance().setScreenAndShow(this.editor);
+				*///?}
 			});
 			//? <26.2{
-			/*Minecraft.getInstance().setScreen(s);
-			 *///?} >=26.2{
-			Minecraft.getInstance().setScreenAndShow(s);
-			//?}
+			Minecraft.getInstance().setScreen(s);
+			 //?} >=26.2{
+			/*Minecraft.getInstance().setScreenAndShow(s);
+			*///?}
 		})).setTooltipSupplier(((contextMenu, contextMenuEntry) -> UITooltip.of(LocalizationUtils.splitLocalizedLines("fancymenu.elements.button.active_state_controller.desc")))).setStackable(false);
 
 		this.rightClickMenu.addSeparatorEntry("update_button_separator_1");

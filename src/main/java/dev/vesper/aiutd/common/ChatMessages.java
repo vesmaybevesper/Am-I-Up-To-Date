@@ -31,18 +31,26 @@ import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 public class ChatMessages {
 
 	public static MutableComponent openChangelog(String message, String url) {
-		ClickEvent clickEvent = new ClickEvent.OpenUrl(URI.create(url));
+		//? >=1.21.11{
+		/*ClickEvent clickEvent = new ClickEvent.OpenUrl(URI.create(url));
 		return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Variables.changelogColor)));
+		*///?} <=1.21.1{
+		return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, url)).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Variables.changelogColor)));
+		//?}
 	}
 
 	public static MutableComponent ignoreMessage() {
-		ClickEvent clickEvent = new ClickEvent.RunCommand("/shouldIgnore");
+		//? >=1.21.11{
+		/*ClickEvent clickEvent = new ClickEvent.RunCommand("/shouldIgnore");
 		return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Variables.ignoreMsgColor)));
+		*///?} <=1.21.1{
+		return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/shouldIgnore")).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Variables.ignoreMsgColor)));
+		//?}
 	}
 
 	//? fabric{
 	public static void sendChatMessage() {
-		ClientPlayConnectionEvents.JOIN.register((_, _, client) -> {
+		ClientPlayConnectionEvents.JOIN.register((unusedPacketListener, unusedPacketSender, client) -> {
 
 			// Reload the config to get fresh shouldIgnore value
 			EndUserConfig.USERCONFIG.load();
@@ -54,7 +62,8 @@ public class ChatMessages {
 			client.execute(() -> {
 				if (client.player != null) {
 					// Determine which primary message to send.
-					if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
+					//? >=26.1{
+					/*if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
 						client.player.sendSystemMessage(Component.literal(customMessage).withStyle(Variables.updateMsgColor));
 					} else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
 						client.player.sendSystemMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!").withStyle(Variables.updateMsgColor));
@@ -68,6 +77,22 @@ public class ChatMessages {
 					}
 
 					client.player.sendSystemMessage(ignoreMessage());
+					*///?} <=1.21.11{
+					if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
+						client.player.displayClientMessage(Component.literal(customMessage).withStyle(Variables.updateMsgColor), false);
+					} else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
+						client.player.displayClientMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!").withStyle(Variables.updateMsgColor), false);
+					} else {
+						client.player.displayClientMessage(Component.translatable("aiutd.defaultMsg").withStyle(Variables.updateMsgColor), false);
+					}
+
+					// Display changelog link if enabled.
+					if (linkChangelog) {
+						client.player.displayClientMessage(openChangelog("Read the changelog!", AIUTD.changelogLink), false);
+					}
+
+					client.player.displayClientMessage(ignoreMessage(), false);
+					//?}
 					AIUTD.hasNotified = true;
 				}
 			});
