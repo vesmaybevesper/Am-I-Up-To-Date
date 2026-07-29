@@ -11,6 +11,9 @@ import de.keksuccino.fancymenu.util.rendering.ui.tooltip.UITooltip;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import org.jetbrains.annotations.NotNull;
+//? forge{
+/*import net.minecraft.client.gui.GuiGraphics;
+*///?}
 
 public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>, N extends UpdateNoticeElement> extends AbstractEditorElement<E, N> {
 	public UpdateNoticeEditorElement(@NotNull N element, @NotNull LayoutEditorScreen editor) {
@@ -225,4 +228,21 @@ public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>
 	protected UpdateNoticeElement getElement() {
 		return this.element;
 	}
+
+	//? forge{
+	/*@Override
+	public void render(GuiGraphics guiGraphics, int i, int i1, float v) {
+
+	}
+
+	@Override
+	public void setFocused(boolean b) {
+
+	}
+
+	@Override
+	public boolean isFocused() {
+		return false;
+	}
+	*///?}
 }

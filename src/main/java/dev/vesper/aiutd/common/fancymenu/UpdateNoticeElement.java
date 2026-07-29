@@ -19,6 +19,7 @@ import de.keksuccino.fancymenu.util.threading.MainThreadTaskExecutor;
 import dev.vesper.aiutd.AIUTD;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.events.GuiEventListener;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -336,4 +337,32 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 			AIUTD.LOG.error("Failed to open changelog URL", e);
 		}
 	}
+
+	//? forge{
+	/*@Override
+	public void m_88315_(@NotNull GuiGraphics guiGraphics, int i, int i1, float v) {
+
+	}
+
+	@Override
+	public void setFocused(boolean b) {
+
+	}
+
+	@Override
+	public boolean isFocused() {
+		return false;
+	}
+
+	@NotNull
+	@Override
+	public NarrationPriority narrationPriority() {
+		return null;
+	}
+
+	@Override
+	public void updateNarration(@NotNull NarrationElementOutput narrationElementOutput) {
+
+	}
+	*///?}
 }
