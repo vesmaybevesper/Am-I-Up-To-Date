@@ -41,8 +41,12 @@ platform {
 			fabricLikeVersionRange = ">=${prop("deps.fastjson4yacl")}"
 		}
 		optional("modmenu") {}
-		optional("fancymenu") {}
-		optional("rinku") {}
+		optional("fancymenu") {
+			fabricLikeVersionRange = ">=${prop("deps.fancymenu")}"
+		}
+		/*optional("rinku") {
+			fabricLikeVersionRange = ">=${prop("deps.rinku")}"
+		}*/
 	}
 }
 
@@ -112,7 +116,7 @@ dependencies {
 	spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0")
 	modImplementation("maven.modrinth:yacl:${property("deps.yacl")}")
 	modCompileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
-	modCompileOnly("de.keksuccino:mcef-fabric:${property("deps.mcef")}")
+	//modCompileOnly("de.keksuccino:rinku-fabric:${property("deps.rinku")}")
 	modImplementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson4yacl")}")
 	implementation("com.alibaba.fastjson2:fastjson2:2.0.62")
 	include("com.alibaba.fastjson2:fastjson2:2.0.62")
