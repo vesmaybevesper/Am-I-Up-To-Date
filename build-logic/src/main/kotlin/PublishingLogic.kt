@@ -87,7 +87,7 @@ fun Project.configureModPublishing(ctx: Context) {
 		val deps = ctx.extension.dependencies
 
 		modrinth(ctx, ctx.publishAdditionalVersions, mrStaging, modrinthAccessToken, deps)
-		if (!mrStaging) curseforge(ctx, ctx.publishAdditionalVersions, curseforgeAccessToken, deps)
+		//if (!mrStaging) curseforge(ctx, ctx.publishAdditionalVersions, curseforgeAccessToken, deps)
 	}
 }
 
@@ -114,7 +114,7 @@ private fun ModPublishExtension.modrinth(
 	}
 }
 
-private fun ModPublishExtension.curseforge(
+/*private fun ModPublishExtension.curseforge(
 	ctx: Context, additionalVersions: List<String>, accessToken: String?, deps: DependenciesConfig
 ) = curseforge {
 	projectId = project.env("PUB_CURSEFORGE_PROJECT_ID")
@@ -128,7 +128,7 @@ private fun ModPublishExtension.curseforge(
 	deps.optional.forEach { dep -> whenNotNull(dep.curseforge) { optional(it) } }
 	deps.incompatible.forEach { dep -> whenNotNull(dep.curseforge) { incompatible(it) } }
 	deps.embeds.forEach { dep -> whenNotNull(dep.curseforge) { embeds(it) } }
-}
+}*/
 
 private fun whenNotNull(stringProp: Property<String>, action: (String) -> Unit) {
 	if (!stringProp.orNull.isNullOrBlank()) action(stringProp.get())
