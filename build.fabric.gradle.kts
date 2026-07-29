@@ -8,7 +8,7 @@ stonecutter {
 	val (version, loader) = current.project.split('-', limit = 2)
 	properties.tags(version, loader)
 
-	// For some reason this is changing Identifier TO ResourceLocation when I change versions which is incorrect lmfao
+	// This is changeing FancyMenu's names when it shouldn't as they use the new naming scheme
 	replacements.string(current.parsed >= "1.21.11") {
 		replace("ResourceLocation", "Identifier")
 		replace("location()", "identifier()")
