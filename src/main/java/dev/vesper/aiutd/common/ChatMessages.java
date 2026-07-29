@@ -27,8 +27,9 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 /*import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 *///?} forge{
-
-//?}
+/*import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+*///?}
 
 public class ChatMessages {
 
@@ -146,6 +147,31 @@ public class ChatMessages {
 		}
 	}
 	*///?} forge{
+	/*@SubscribeEvent
+	private void chatMessageDisplay(ClientPlayerNetworkEvent.LoggingIn event) {
+		EndUserConfig.USERCONFIG.load();
 
-	//?}
+		if (chatAlert && needUpdate && !AIUTD.hasNotified && !shouldIgnore) {
+			Minecraft client = Minecraft.getInstance();
+			assert client.player != null;
+
+			if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
+				client.player.displayClientMessage(Component.literal(customMessage).withStyle(Variables.updateMsgColor), false);
+			}
+			else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
+				client.player.displayClientMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!").withStyle(Variables.updateMsgColor), false);
+			}
+			else {
+				client.player.displayClientMessage(Component.translatable("aiutd.defaultMsg").withStyle(Variables.updateMsgColor), false);
+			}
+
+			if (linkChangelog) {
+				client.player.displayClientMessage(openChangelog("Read the changelog!", AIUTD.changelogLink),false);
+			}
+
+			client.player.displayClientMessage(ignoreMessage(), false);
+			AIUTD.hasNotified = true;
+		}
+	}
+	*///?}
 }
