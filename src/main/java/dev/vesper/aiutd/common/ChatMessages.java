@@ -2,6 +2,7 @@ package dev.vesper.aiutd.common;
 
 import dev.vesper.aiutd.AIUTD;
 import dev.vesper.aiutd.common.config.EndUserConfig;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -18,6 +19,7 @@ import static dev.vesper.aiutd.common.config.Config.linkChangelog;
 import static dev.vesper.aiutd.common.config.Config.modpackName;
 import static dev.vesper.aiutd.common.config.Config.useCustomMessage;
 import static dev.vesper.aiutd.common.config.Config.useModpackName;
+import static dev.vesper.aiutd.common.config.EndUserConfig.shouldIgnore;
 
 //? fabric{
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
@@ -108,13 +110,13 @@ public class ChatMessages {
 			assert client.player != null;
 
 			if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
-				client.player.sendSystemMessage(Component.literal(customMessage).withStyle(Util.updateMsgColor));
+				client.player.sendSystemMessage(Component.literal(customMessage).withStyle(Variables.updateMsgColor));
 			}
 			else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
-				client.player.sendSystemMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!").withStyle(Util.updateMsgColor));
+				client.player.sendSystemMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!").withStyle(Variables.updateMsgColor));
 			}
 			else {
-				client.player.sendSystemMessage(Component.translatable("aiutd.defaultMsg").withStyle(Util.updateMsgColor));
+				client.player.sendSystemMessage(Component.translatable("aiutd.defaultMsg").withStyle(Variables.updateMsgColor));
 			}
 
 			if (linkChangelog) {
