@@ -109,6 +109,7 @@ public class ChatMessages {
 			Minecraft client = Minecraft.getInstance();
 			assert client.player != null;
 
+			//? >=26.1{
 			if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
 				client.player.sendSystemMessage(Component.literal(customMessage).withStyle(Variables.updateMsgColor));
 			}
@@ -124,6 +125,23 @@ public class ChatMessages {
 			}
 
 			client.player.sendSystemMessage(ignoreMessage());
+			//?} <=1.21.11 {
+			/^if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
+				client.player.displayClientMessage(Component.literal(customMessage).withStyle(Variables.updateMsgColor), false);
+			}
+			else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
+				client.player.displayClientMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!").withStyle(Variables.updateMsgColor), false);
+			}
+			else {
+				client.player.displayClientMessage(Component.translatable("aiutd.defaultMsg").withStyle(Variables.updateMsgColor), false);
+			}
+
+			if (linkChangelog) {
+				client.player.displayClientMessage(openChangelog("Read the changelog!", AIUTD.changelogLink),false);
+			}
+
+			client.player.displayClientMessage(ignoreMessage(), false);
+			^///?}
 			AIUTD.hasNotified = true;
 		}
 	}
