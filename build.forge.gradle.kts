@@ -12,6 +12,9 @@ stonecutter {
 		replace("ResourceLocation", "Identifier")
 		replace("location()", "identifier()")
 	}
+	replacements.string(current.parsed >= "1.20.1"){
+		replace("deserializeWithResourceLocation", "deserializeWithIdentifier")
+	}
 }
 
 platform {
@@ -83,7 +86,7 @@ dependencies {
 	spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0")
 	implementation("maven.modrinth:yacl:${property("deps.yacl")}")
 	compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
-	compileOnly("de.keksuccino:mcef-forge:${property("deps.mcef")}")
+	//compileOnly("de.keksuccino:rinku-forge:${property("deps.rinku")}")
 	//implementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson4yacl")}")
 	implementation("com.alibaba.fastjson2:fastjson2:2.0.62")
 	jarJar("com.alibaba.fastjson2:fastjson2:2.0.62")
