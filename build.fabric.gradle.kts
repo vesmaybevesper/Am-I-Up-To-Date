@@ -1,3 +1,4 @@
+
 plugins {
 	id("mod-platform")
 	id("dev.kikugie.loom-back-compat")
@@ -8,13 +9,15 @@ stonecutter {
 	val (version, loader) = current.project.split('-', limit = 2)
 	properties.tags(version, loader)
 
-	// This is changeing FancyMenu's names when it shouldn't as they use the new naming scheme
 	replacements.string(current.parsed >= "1.21.11") {
 		replace("ResourceLocation", "Identifier")
 		replace("location()", "identifier()")
 	}
 	replacements.string(current.parsed >= "26.1.2") {
 		replace("FabricDataOutput", "FabricPackOutput")
+	}
+	replacements.string(current.parsed >= "1.20.1"){
+		replace("deserializeWithResourceLocation", "deserializeWithIdentifier")
 	}
 }
 

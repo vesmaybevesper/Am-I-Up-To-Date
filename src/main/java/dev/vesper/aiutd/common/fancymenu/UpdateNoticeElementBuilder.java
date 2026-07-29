@@ -74,11 +74,7 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
 
 		String buttonExecuteBlockId = serializedElement.getValue("button_element_executable_block_identifier");
 		if(buttonExecuteBlockId != null) {
-			//? >=1.21.11{
 			AbstractExecutableBlock buttonExecuteBlock = ExecutableBlockDeserializer.deserializeWithIdentifier(serializedElement, buttonExecuteBlockId);
-			//?} <=1.21.1{
-			/*AbstractExecutableBlock buttonExecuteBlock = ExecutableBlockDeserializer.deserializeWithIdentifier(serializedElement, buttonExecuteBlockId);
-			*///?}
 			if(buttonExecuteBlock instanceof GenericExecutableBlock genericExecutableBlock) {
 				element.actionExecutor = genericExecutableBlock;
 			}
@@ -121,11 +117,8 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
 
 		String activeStateRequirementIdentifier = serializedElement.getValue("widget_active_state_requirement_container_identifier");
 		if(activeStateRequirementIdentifier != null) {
-			//? >=1.21.11{
 			RequirementContainer c = RequirementContainer.deserializeWithIdentifier(activeStateRequirementIdentifier, serializedElement);
-			//?} <=1.21.1{
-			/*RequirementContainer c = RequirementContainer.deserializeWithIdentifier(activeStateRequirementIdentifier, serializedElement);
-			*///?}
+
 			if(c != null) {
 				element.activeStateSupplier = c;
 			}
