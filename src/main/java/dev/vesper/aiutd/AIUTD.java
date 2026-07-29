@@ -68,7 +68,9 @@ public class AIUTD {
 			}
 		} catch (URISyntaxException | IOException ignored) {}
 		Variables.setAll();
+		//? fabric{
 		ChatMessages.sendChatMessage();
+		//?}
 		if (isModLoaded("fancymenu")) {
 			FancyMenuIntegration.init();
 		}
