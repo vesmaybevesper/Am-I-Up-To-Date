@@ -12,6 +12,9 @@ stonecutter {
 		replace("ResourceLocation", "Identifier")
 		replace("location()", "identifier()")
 	}
+	replacements.string(current.parsed >= "1.20.1"){
+		replace("deserializeWithResourceLocation", "deserializeWithIdentifier")
+	}
 }
 
 platform {
@@ -23,6 +26,18 @@ platform {
 		required("neoforge") {
 			forgeLikeVersionRange.set("[1,)")
 		}
+		required("yacl") {
+			forgeLikeVersionRange = ">=${prop("deps.yacl")}"
+		}
+		required("fastjson4yacl") {
+			forgeLikeVersionRange = ">=${prop("deps.fastjson4yacl")}"
+		}
+		optional("fancymenu") {
+			forgeLikeVersionRange = ">=${prop("deps.fancymenu")}"
+		}
+		/*optional("rinku") {
+			forgeLikeVersionRange = ">=${prop("deps.rinku")}"
+		}*/
 	}
 }
 
@@ -79,7 +94,7 @@ dependencies {
 	spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0")
 	implementation("maven.modrinth:yacl:${property("deps.yacl")}")
 	compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
-	compileOnly("de.keksuccino:mcef-neoforge:${property("deps.mcef")}")
+	//compileOnly("de.keksuccino:rinku-neoforge:${property("deps.rinku")}")
 	implementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson4yacl")}")
 	implementation("com.alibaba.fastjson2:fastjson2:2.0.62")
 	jarJar("com.alibaba.fastjson2:fastjson2:2.0.62")
