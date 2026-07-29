@@ -97,7 +97,7 @@ deps.fastjson4yacl="1.0.2+1.20.1-forge"
 
 [neoforge."1.21.1"]
 deps.minecraft = "1.21.1"
-deps.neoforge = "21.1.213"
+deps.neoforge = "21.1.244"
 deps.yacl="3.8.2+1.21.1-neoforge"
 deps.fancymenu="3.9.8-1.21.1-neoforge"
 deps.rinku="3.0.0-1.21.1"
@@ -105,7 +105,7 @@ deps.fastjson4yacl="1.0.2+1.21.1-neoforge"
 
 [neoforge."1.21.11"]
 deps.minecraft = "1.21.11"
-deps.neoforge = "21.1.244"
+deps.neoforge = "21.11.45"
 deps.yacl="3.8.2+1.21.11-neoforge"
 deps.fancymenu="3.9.8-1.21.11-neoforge"
 deps.rinku="3.0.0-1.21.11"
