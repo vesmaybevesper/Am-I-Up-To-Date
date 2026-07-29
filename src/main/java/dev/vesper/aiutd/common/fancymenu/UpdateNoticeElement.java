@@ -17,7 +17,6 @@ import de.keksuccino.fancymenu.util.resource.resources.audio.IAudio;
 import de.keksuccino.fancymenu.util.resource.resources.texture.ITexture;
 import de.keksuccino.fancymenu.util.threading.MainThreadTaskExecutor;
 import dev.vesper.aiutd.AIUTD;
-import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.network.chat.Component;
@@ -31,6 +30,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static dev.vesper.aiutd.common.UpdateChecker.needUpdate;
+
+//? >=26.1{
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+//?} <=1.21.11{
+/*import net.minecraft.client.gui.GuiGraphics;
+*///?}
 
 public class UpdateNoticeElement extends AbstractElement implements ExecutableElement {
 
@@ -67,6 +72,7 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 		super(builder);
 	}
 
+	//? >=26.1{
 	@Override
 	public void extractRenderState(@NotNull GuiGraphicsExtractor guiGraphicsExtractor, int i, int i1, float v) {
 		if (this.getWidget() ==  null) return;
@@ -95,6 +101,39 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 
 		this.renderElementWidget(guiGraphicsExtractor, i, i1, v);
 	}
+	//?} <=1.21.11{
+	/*@Override
+	public void render(@NotNull GuiGraphics guiGraphics, int i, int i1, float v) {
+		if (this.getWidget() ==  null) return;
+
+		this.updateWidget();
+
+		if (hideWhenNoUpdate && !needUpdate) return;
+
+		if (!this.shouldRender()) return;
+
+		if (isEditor()){
+			//?<1.21.10{
+			/^net.minecraft.client.gui.components.Tooltip cachedVanillaTooltip = this.widget.getTooltip();
+			 ^///?}
+			//? >=1.21.10{
+			net.minecraft.client.gui.components.Tooltip cachedVanillaTooltip = ((IMixinAbstractWidget) this.getWidget()).getTooltipHolderFancyMenu().get();
+			//?}
+			boolean cachedVisible = this.getWidget().visible;
+			boolean cachedActive = this.getWidget().active;
+			this.getWidget().visible = true;
+			this.getWidget().active = true;
+			this.getWidget().setTooltip(null);
+			MainThreadTaskExecutor.executeInMainThread(() -> {
+				this.getWidget().visible = cachedVisible;
+				this.getWidget().active = cachedActive;
+				assert this.getWidget() != null;
+				this.getWidget().setTooltip(cachedVanillaTooltip);
+			}, MainThreadTaskExecutor.ExecuteTiming.POST_CLIENT_TICK);
+		}
+		this.renderElementWidget(guiGraphics, i, i1, v);
+	}
+	*///?}
 
 	@Override
 	public void tick() {
@@ -124,6 +163,7 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 		return this.widget;
 	}
 
+	//? >=26.1{
 	protected void renderElementWidget(@NotNull GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partial) {
 		if (this.getWidget() != null) {
 			if (this.getWidget().getHeight() <= 0) return;
@@ -131,6 +171,15 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 			this.getWidget().extractRenderState(graphics, mouseX, mouseY, partial);
 		}
 	}
+	//?} <=1.21.11{
+	/*protected void renderElementWidget(@NotNull GuiGraphics graphics, int mouseX, int mouseY, float partial) {
+		if (this.getWidget() != null) {
+			if (this.getWidget().getHeight() <= 0) return;
+			if (this.getWidget().getWidth() <= 0) return;
+			this.getWidget().render(graphics, mouseX, mouseY, partial);
+		}
+	}
+	*///?}
 
 	public void updateWidget() {
 		this.updateWidgetActiveState();
