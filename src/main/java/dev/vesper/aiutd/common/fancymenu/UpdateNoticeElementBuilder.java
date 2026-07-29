@@ -70,7 +70,7 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
 
 		String buttonExecuteBlockId = serializedElement.getValue("button_element_executable_block_identifier");
 		if(buttonExecuteBlockId != null) {
-			AbstractExecutableBlock buttonExecuteBlock = ExecutableBlockDeserializer.deserializeWithResourceLocation(serializedElement, buttonExecuteBlockId);
+			AbstractExecutableBlock buttonExecuteBlock = ExecutableBlockDeserializer.deserializeWithIdentifier(serializedElement, buttonExecuteBlockId);
 			if(buttonExecuteBlock instanceof GenericExecutableBlock genericExecutableBlock) {
 				element.actionExecutor = genericExecutableBlock;
 			}
@@ -111,9 +111,9 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
 		element.hideWhenNoUpdate = deserializeBoolean(element.hideWhenNoUpdate, serializedElement.getValue("hide_when_no_update"));
 		element.openChangelogOnClick = deserializeBoolean(element.openChangelogOnClick, serializedElement.getValue("open_changelog_on_click"));
 
-		String activeStateRequirementResourceLocation = serializedElement.getValue("widget_active_state_requirement_container_identifier");
-		if(activeStateRequirementResourceLocation != null) {
-			RequirementContainer c = RequirementContainer.deserializeWithResourceLocation(activeStateRequirementResourceLocation, serializedElement);
+		String activeStateRequirementIdentifier = serializedElement.getValue("widget_active_state_requirement_container_identifier");
+		if(activeStateRequirementIdentifier != null) {
+			RequirementContainer c = RequirementContainer.deserializeWithIdentifier(activeStateRequirementIdentifier, serializedElement);
 			if(c != null) {
 				element.activeStateSupplier = c;
 			}

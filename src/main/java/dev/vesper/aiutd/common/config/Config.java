@@ -8,11 +8,11 @@ import dev.isxander.yacl3.config.v2.api.autogen.StringField;
 import dev.isxander.yacl3.platform.YACLPlatform;
 import dev.vesper.FastJSONForYACL.common.serializer.FastJsonConfigSerializerBuilder;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class Config {
 	public static final ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
-			.id(ResourceLocation.fromNamespaceAndPath("aiutd", "config"))
+			.id(Identifier.fromNamespaceAndPath("aiutd", "config"))
 			.serializer(config -> FastJsonConfigSerializerBuilder.create(config)
 					.setPath(YACLPlatform.getConfigDir().resolve("aiutd.json"))
 					.build())
