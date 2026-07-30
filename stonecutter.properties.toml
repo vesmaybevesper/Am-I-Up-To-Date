@@ -32,7 +32,7 @@ deps.modmenu = "7.2.2"
 deps.yacl="3.6.6+1.20.1-fabric"
 deps.fancymenu="3.9.8-1.20.1-fabric"
 deps.rinku="3.0.0-1.20.1"
-deps.fastjson4yacl="1.0.2+1.20.1-fabric"
+deps.fastjson4yacl="1.0.3-fabric+1.20.1"
 
 [fabric."1.21.1"]
 deps.minecraft = "1.21.1"
@@ -41,7 +41,7 @@ deps.modmenu = "11.0.4"
 deps.yacl="3.8.2+1.21.1-fabric"
 deps.fancymenu="3.9.8-1.21.1-fabric"
 deps.rinku="3.0.0-1.21.1"
-deps.fastjson4yacl="1.0.2+1.21.1-fabric"
+deps.fastjson4yacl="1.0.3-fabric+1.21.1"
 
 [fabric."1.21.11"]
 deps.minecraft = "1.21.11"
@@ -50,7 +50,7 @@ deps.modmenu = "17.0.1-beta.1"
 deps.yacl="3.8.2+1.21.11-fabric"
 deps.fancymenu="3.9.8-1.21.11-fabric"
 deps.rinku="3.0.0-1.21.11"
-deps.fastjson4yacl="1.0.2+1.21.5-fabric"
+deps.fastjson4yacl="1.0.3-fabric+1.21.5"
 
 [fabric."26.1"]
 deps.minecraft = "26.1"
@@ -59,7 +59,7 @@ deps.modmenu = "18.0.0"
 deps.yacl="3.9.6+26.1-fabric"
 deps.fancymenu="3.9.6-26.1.1-fabric"
 deps.rinku="3.0.0-26.1.2"
-deps.fastjson4yacl="1.0.2+26.1-fabric"
+deps.fastjson4yacl="1.0.3-fabric+26.1"
 publish.additionalVersions = ["26.1.1", "26.1.2"]
 
 [fabric."26.2"]
@@ -69,7 +69,7 @@ deps.modmenu = "20.0.1"
 deps.yacl="3.9.6+26.2-fabric"
 deps.fancymenu="3.9.8-26.2-fabric"
 deps.rinku="3.0.0-26.2"
-deps.fastjson4yacl="1.0.2+26.1-fabric"
+deps.fastjson4yacl="1.0.3-fabric+26.1"
 publish.additionalVersions = []
 
 [fabric."26.3"]
@@ -79,7 +79,7 @@ deps.modmenu = "21.0.0-alpha.1"
 deps.yacl="3.9.6+26.3-fabric"
 deps.fancymenu="3.9.8-26.2-fabric"
 deps.rinku="3.0.0-26.2"
-deps.fastjson4yacl="1.0.2+26.1-fabric"
+deps.fastjson4yacl="1.0.3-fabric+26.1"
 publish.additionalVersions = []
 
 [forge]
@@ -90,8 +90,7 @@ deps.forge = "47.4.10"
 deps.yacl="3.6.6+1.20.1-forge"
 deps.fancymenu="3.9.8-1.20.1-forge"
 deps.rinku="3.0.0-1.20.1"
-#this doesnt exist yet !!
-deps.fastjson4yacl="1.0.2+1.20.1-forge"
+deps.fastjson4yacl="1.0.3-forge+1.20.1"
 
 [neoforge]
 
@@ -101,7 +100,7 @@ deps.neoforge = "21.1.244"
 deps.yacl="3.8.2+1.21.1-neoforge"
 deps.fancymenu="3.9.8-1.21.1-neoforge"
 deps.rinku="3.0.0-1.21.1"
-deps.fastjson4yacl="1.0.2+1.21.1-neoforge"
+deps.fastjson4yacl="1.0.3-neoforge+1.21.1"
 
 [neoforge."1.21.11"]
 deps.minecraft = "1.21.11"
@@ -109,7 +108,7 @@ deps.neoforge = "21.11.45"
 deps.yacl="3.8.2+1.21.11-neoforge"
 deps.fancymenu="3.9.8-1.21.11-neoforge"
 deps.rinku="3.0.0-1.21.11"
-deps.fastjson4yacl="1.0.2+1.21.5-neoforge"
+deps.fastjson4yacl="1.0.3-neoforge+1.21.5"
 
 [neoforge."26.1"]
 deps.minecraft = "26.1"
@@ -117,7 +116,7 @@ deps.neoforge = "26.1.0.19-beta"
 deps.yacl="3.9.6+26.1-neoforge"
 deps.fancymenu="3.9.6-26.1.1-neoforge"
 deps.rinku="3.0.0-26.1.2"
-deps.fastjson4yacl="1.0.2+26.1-neoforge"
+deps.fastjson4yacl="1.0.3-neoforge+26.1"
 publish.additionalVersions = ["26.1.1", "26.1.2"]
 
 [neoforge."26.2"]
@@ -126,5 +125,5 @@ deps.neoforge = "26.2.0.35-beta"
 deps.yacl="3.9.6+26.2-neoforge"
 deps.fancymenu="3.9.8-26.2-neoforge"
 deps.rinku="3.0.0-26.2"
-deps.fastjson4yacl="1.0.2+26.1-neoforge"
+deps.fastjson4yacl="1.0.3-neoforge+26.1"
 publish.additionalVersions = []

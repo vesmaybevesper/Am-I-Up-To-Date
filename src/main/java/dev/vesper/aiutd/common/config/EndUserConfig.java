@@ -5,7 +5,7 @@ import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.autogen.AutoGen;
 import dev.isxander.yacl3.config.v2.api.autogen.Boolean;
 import dev.isxander.yacl3.platform.YACLPlatform;
-import dev.vesper.FastJSONForYACL.common.serializer.FastJsonConfigSerializerBuilder;
+import dev.vesper.fastjson4yacl.Serializers.FastJsonJson.FastJsonConfigSerializerBuilder;
 import net.minecraft.resources.Identifier;
 
 public class EndUserConfig {
