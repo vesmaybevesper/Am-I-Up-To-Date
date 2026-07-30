@@ -40,3 +40,31 @@ for (version in stonecutter.versions.map { it.version }.distinct()) tasks.regist
 	group = "publishing"
 	dependsOn(stonecutter.tasks.named("publishMods") { metadata.version == version })
 }
+
+val orderedVersions = stonecutter.versions.map { it.version }.distinct()
+	.sortedWith { a, b -> stonecutter.compare(a, b) }
+
+gradle.projectsEvaluated {
+	val realPublishTaskNames = listOf("publishModrinth")
+
+	var previousVersionTasks: List<TaskProvider<Task>>? = null
+	for (version in orderedVersions) {
+		val currentVersionTasks: List<TaskProvider<Task>> = realPublishTaskNames.flatMap { name ->
+			stonecutter.tasks.named<Task>(name) { metadata.version == version }.get().values
+		}
+
+		previousVersionTasks?.let { previous ->
+			currentVersionTasks.forEach { taskProvider ->
+				taskProvider.configure { mustRunAfter(previous) }
+			}
+		}
+
+		previousVersionTasks = currentVersionTasks
+	}
+}
+
+tasks.register("publishAllOrdered") {
+	group = "publishing"
+	description = "Publishes every version in chronological order"
+	dependsOn(orderedVersions.map { tasks.named("publish$it") })
+}
