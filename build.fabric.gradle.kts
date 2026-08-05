@@ -35,13 +35,18 @@ platform {
 			fabricLikeVersionRange = ">=${prop("deps.fabric-loader")}"
 		}
 		required("yet_another_config_lib_v3") {
+			slug("yacl")
 			fabricLikeVersionRange = ">=${prop("deps.yet_another_config_lib_v3")}"
 		}
 		required("fastjson4yacl") {
+			slug("fastjson4yacl")
 			fabricLikeVersionRange = ">=${prop("deps.fastjson4yacl")}"
 		}
-		optional("modmenu") {}
+		optional("modmenu") {
+			slug("modmenu")
+		}
 		optional("fancymenu") {
+			slug("fancymenu")
 			fabricLikeVersionRange = ">=${prop("deps.fancymenu")}"
 		}
 		/*optional("rinku") {
