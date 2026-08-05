@@ -33,10 +33,10 @@ import java.util.List;
 import static dev.vesper.aiutd.common.UpdateChecker.needUpdate;
 
 //? >=26.1{
-/*import net.minecraft.client.gui.GuiGraphicsExtractor;
-*///?} <=1.21.11{
-import net.minecraft.client.gui.GuiGraphics;
-//?}
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+//?} <=1.21.11{
+/*import net.minecraft.client.gui.GuiGraphics;
+*///?}
 
 public class UpdateNoticeElement extends AbstractElement implements ExecutableElement {
 
@@ -74,7 +74,7 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 	}
 
 	//? >=26.1{
-	/*@Override
+	@Override
 	public void extractRenderState(@NotNull GuiGraphicsExtractor guiGraphicsExtractor, int i, int i1, float v) {
 		if (this.getWidget() ==  null) return;
 
@@ -102,8 +102,8 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 
 		this.renderElementWidget(guiGraphicsExtractor, i, i1, v);
 	}
-	*///?} <=1.21.11{
-	@Override
+	//?} <=1.21.11{
+	/*@Override
 	public void render(@NotNull GuiGraphics guiGraphics, int i, int i1, float v) {
 		if (this.getWidget() ==  null) return;
 
@@ -115,11 +115,11 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 
 		if (isEditor()){
 			//?<1.21.10{
-			net.minecraft.client.gui.components.Tooltip cachedVanillaTooltip = this.widget.getTooltip();
-			 //?}
+			/^net.minecraft.client.gui.components.Tooltip cachedVanillaTooltip = this.widget.getTooltip();
+			 ^///?}
 			//? >=1.21.10{
-			/*net.minecraft.client.gui.components.Tooltip cachedVanillaTooltip = ((IMixinAbstractWidget) this.getWidget()).getTooltipHolderFancyMenu().get();
-			*///?}
+			net.minecraft.client.gui.components.Tooltip cachedVanillaTooltip = ((IMixinAbstractWidget) this.getWidget()).getTooltipHolderFancyMenu().get();
+			//?}
 			boolean cachedVisible = this.getWidget().visible;
 			boolean cachedActive = this.getWidget().active;
 			this.getWidget().visible = true;
@@ -134,7 +134,7 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 		}
 		this.renderElementWidget(guiGraphics, i, i1, v);
 	}
-	//?}
+	*///?}
 
 	@Override
 	public void tick() {
@@ -165,22 +165,22 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 	}
 
 	//? >=26.1{
-	/*protected void renderElementWidget(@NotNull GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partial) {
+	protected void renderElementWidget(@NotNull GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partial) {
 		if (this.getWidget() != null) {
 			if (this.getWidget().getHeight() <= 0) return;
 			if (this.getWidget().getWidth() <= 0) return;
 			this.getWidget().extractRenderState(graphics, mouseX, mouseY, partial);
 		}
 	}
-	*///?} <=1.21.11{
-	protected void renderElementWidget(@NotNull GuiGraphics graphics, int mouseX, int mouseY, float partial) {
+	//?} <=1.21.11{
+	/*protected void renderElementWidget(@NotNull GuiGraphics graphics, int mouseX, int mouseY, float partial) {
 		if (this.getWidget() != null) {
 			if (this.getWidget().getHeight() <= 0) return;
 			if (this.getWidget().getWidth() <= 0) return;
 			this.getWidget().render(graphics, mouseX, mouseY, partial);
 		}
 	}
-	//?}
+	*///?}
 
 	public void updateWidget() {
 		this.updateWidgetActiveState();
@@ -339,7 +339,7 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 	}
 
 	//? forge{
-	@Override
+	/*@Override
 	public void m_88315_(@NotNull GuiGraphics guiGraphics, int i, int i1, float v) {
 
 	}
@@ -364,5 +364,5 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 	public void updateNarration(@NotNull NarrationElementOutput narrationElementOutput) {
 
 	}
-	//?}
+	*///?}
 }

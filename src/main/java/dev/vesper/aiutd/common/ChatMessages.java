@@ -111,7 +111,7 @@ public class ChatMessages {
 			assert client.player != null;
 
 			//? >=26.1{
-			if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
+			/^if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
 				client.player.sendSystemMessage(Component.literal(customMessage).withStyle(Variables.updateMsgColor));
 			}
 			else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
@@ -126,8 +126,8 @@ public class ChatMessages {
 			}
 
 			client.player.sendSystemMessage(ignoreMessage());
-			//?} <=1.21.11 {
-			/^if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
+			^///?} <=1.21.11 {
+			if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
 				client.player.displayClientMessage(Component.literal(customMessage).withStyle(Variables.updateMsgColor), false);
 			}
 			else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
@@ -142,7 +142,7 @@ public class ChatMessages {
 			}
 
 			client.player.displayClientMessage(ignoreMessage(), false);
-			^///?}
+			//?}
 			AIUTD.hasNotified = true;
 		}
 	}

@@ -12,8 +12,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import org.jetbrains.annotations.NotNull;
 //? forge{
-import net.minecraft.client.gui.GuiGraphics;
-//?}
+/*import net.minecraft.client.gui.GuiGraphics;
+*///?}
 
 public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>, N extends UpdateNoticeElement> extends AbstractEditorElement<E, N> {
 	public UpdateNoticeEditorElement(@NotNull N element, @NotNull LayoutEditorScreen editor) {
@@ -31,16 +31,16 @@ public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>
 					this.getElement().actionExecutor = call;
 				}
 				//? <26.2{
-				Minecraft.getInstance().setScreen(this.editor);
-				 //?} >=26.2{
-				/*Minecraft.getInstance().setScreenAndShow(this.editor);
-				*///?}
+				/*Minecraft.getInstance().setScreen(this.editor);
+				 *///?} >=26.2{
+				Minecraft.getInstance().setScreenAndShow(this.editor);
+				//?}
 			});
 			//? <26.2{
-			Minecraft.getInstance().setScreen(s);
-			 //?} >=26.2{
-			/*Minecraft.getInstance().setScreenAndShow(s);
-			*///?}
+			/*Minecraft.getInstance().setScreen(s);
+			 *///?} >=26.2{
+			Minecraft.getInstance().setScreenAndShow(s);
+			//?}
 		})).setTooltipSupplier(((contextMenu, contextMenuEntry) -> UITooltip.of(LocalizationUtils.splitLocalizedLines("fancymenu.editor.elements.button.manage_actions.desc")))).setIcon(ContextMenu.IconFactory.getIcon("script")).setStackable(false);
 
 		this.rightClickMenu.addClickableEntry("widget_active_state_controller", Component.translatable("fancymenu.elements.button.active_state_controller"),  ((contextMenu, contextMenuEntry) -> {
@@ -50,16 +50,16 @@ public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>
 					this.getElement().activeStateSupplier = call;
 				}
 				//? <26.2{
-				Minecraft.getInstance().setScreen(this.editor);
-				 //?} >=26.2{
-				/*Minecraft.getInstance().setScreenAndShow(this.editor);
-				*///?}
+				/*Minecraft.getInstance().setScreen(this.editor);
+				 *///?} >=26.2{
+				Minecraft.getInstance().setScreenAndShow(this.editor);
+				//?}
 			});
 			//? <26.2{
-			Minecraft.getInstance().setScreen(s);
-			 //?} >=26.2{
-			/*Minecraft.getInstance().setScreenAndShow(s);
-			*///?}
+			/*Minecraft.getInstance().setScreen(s);
+			 *///?} >=26.2{
+			Minecraft.getInstance().setScreenAndShow(s);
+			//?}
 		})).setTooltipSupplier(((contextMenu, contextMenuEntry) -> UITooltip.of(LocalizationUtils.splitLocalizedLines("fancymenu.elements.button.active_state_controller.desc")))).setStackable(false);
 
 		this.rightClickMenu.addSeparatorEntry("update_button_separator_1");
@@ -230,7 +230,7 @@ public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>
 	}
 
 	//? forge{
-	@Override
+	/*@Override
 	public void render(GuiGraphics guiGraphics, int i, int i1, float v) {
 
 	}
@@ -244,5 +244,5 @@ public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>
 	public boolean isFocused() {
 		return false;
 	}
-	//?}
+	*///?}
 }

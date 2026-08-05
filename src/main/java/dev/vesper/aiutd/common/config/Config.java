@@ -11,12 +11,21 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.resources.Identifier;
 
 public class Config {
+	//? >=1.21.1{
 	public static final ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
 			.id(Identifier.fromNamespaceAndPath("aiutd", "config"))
 			.serializer(config -> FastJsonConfigSerializerBuilder.create(config)
 					.setPath(YACLPlatform.getConfigDir().resolve("aiutd.json"))
 					.build())
 			.build();
+	//?} 1.20.1{
+	/*public static final ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
+			.id(Identifier.tryBuild("aiutd", "config"))
+			.serializer(config -> FastJsonConfigSerializerBuilder.create(config)
+					.setPath(YACLPlatform.getConfigDir().resolve("aiutd.json"))
+					.build())
+			.build();
+	*///?}
 
 	public static Screen config(Screen parent){
 		return HANDLER.generateGui().generateScreen(parent);
