@@ -34,20 +34,22 @@ public class TitleScreenMixin extends Screen {
 	@Inject(method = "createNormalMenuOptions", at = @At("RETURN"))
 	//? >=1.21.11{
 	private void addUpdateNotice(int topPos, int spacing, CallbackInfoReturnable<Integer> cir) {
-	//?} <=1.21.1{
+	//?} <1.21.11 && > 1.21.1{
+	/*private void addUpdateNotice(int i, int j, CallbackInfoReturnable<Integer> cir) {
+	*///?} <=1.21.1{
 	/*private void addUpdateNotice(int i, int j, CallbackInfo ci) {
 	*///?}
 		if (!AIUTD.isModLoaded("fancymenu")) {
 			if(AIUTD.isModLoaded("notebook")){
 				//? >=1.21.11{
 				buttonY = topPos - 24;
-				//?} <=1.21.1{
+				//?} <1.21.11{
 				/*buttonY = i - 24;
 				*///?}
 			} else {
 				//? >=1.21.11{
 				buttonY = topPos;
-				//?} <=1.21.1{
+				//?} <1.21.11{
 				/*buttonY = i;
 				*///?}
 			}

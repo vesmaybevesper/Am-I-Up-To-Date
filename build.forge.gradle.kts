@@ -96,7 +96,7 @@ repositories {
 dependencies {
 	annotationProcessor("org.spongepowered:mixin:${libs.versions.mixin.get()}:processor")
 	spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0")
-	api("maven.modrinth:yacl:${property("deps.yet_another_config_lib_v3")}")
+	implementation("maven.modrinth:yacl:${property("deps.yet_another_config_lib_v3")}")
 	compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
 	//compileOnly("de.keksuccino:rinku-forge:${property("deps.rinku")}")
 	implementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson4yacl")}")

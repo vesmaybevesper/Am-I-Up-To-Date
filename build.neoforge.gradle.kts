@@ -34,13 +34,16 @@ platform {
 			slug("fastjson4yacl")
 			forgeLikeVersionRange = ">=${prop("deps.fastjson4yacl")}"
 		}
-		optional("fancymenu") {
-			slug("fancymenu")
-			forgeLikeVersionRange = ">=${prop("deps.fancymenu")}"
-		}
-		/*optional("rinku") {
+
+		if (stonecutter.project.version == ("1.20.1") || stonecutter.project.version == ("1.21.1") || stonecutter.project.version == ("1.21.11") || stonecutter.project.version == ("26.1") || stonecutter.project.version == ("26.2")) {
+			optional("fancymenu") {
+				slug("fancymenu")
+				forgeLikeVersionRange = ">=${prop("deps.fancymenu")}"
+			}
+			/*optional("rinku") {
 			forgeLikeVersionRange = ">=${prop("deps.rinku")}"
 		}*/
+		}
 	}
 }
 
@@ -99,8 +102,8 @@ dependencies {
 	compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
 	//compileOnly("de.keksuccino:rinku-neoforge:${property("deps.rinku")}")
 	implementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson4yacl")}")
-	implementation("com.alibaba.fastjson2:fastjson2:2.0.62")
-	jarJar("com.alibaba.fastjson2:fastjson2:2.0.62")
+	implementation("com.alibaba.fastjson2:fastjson2:2.0.63")
+	jarJar("com.alibaba.fastjson2:fastjson2:2.0.63")
 	// implementation(libs.moulberry.mixinconstraints)
 	// jarJar(libs.moulberry.mixinconstraints)
 }

@@ -7,18 +7,20 @@ import com.mojang.brigadier.context.CommandContext;
 import dev.vesper.aiutd.AIUTD;
 import dev.vesper.aiutd.common.config.Config;
 import dev.vesper.aiutd.common.config.EndUserConfig;
-import net.minecraft.client.Minecraft;
-import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.commands.Commands;
-import net.minecraft.network.chat.Component;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.Commands;
+import net.minecraft.network.chat.Component;
 import net.neoforged.neoforge.client.event.RegisterClientCommandsEvent;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+
 
 @Mod(AIUTD.MOD_ID)
 public class NeoforgeEntrypoint {
@@ -44,10 +46,10 @@ public class NeoforgeEntrypoint {
 			private static int shouldIgnore(CommandContext<?> context) {
 				assert Minecraft.getInstance().player != null;
 				//? >=26.1{
-				/^Minecraft.getInstance().player.sendSystemMessage(Component.translatable("aiutd.msgsIgnored"));
-				^///?} <= 1.21.11{
-				Minecraft.getInstance().player.displayClientMessage(Component.translatable("aiutd.msgsIgnored"), false);
-				//?}
+				Minecraft.getInstance().player.sendSystemMessage(Component.translatable("aiutd.msgsIgnored"));
+				//?} <= 1.21.11{
+				/^Minecraft.getInstance().player.displayClientMessage(Component.translatable("aiutd.msgsIgnored"), false);
+				^///?}
 				EndUserConfig.shouldIgnore = true;
 				EndUserConfig.USERCONFIG.save();
 				return 1;

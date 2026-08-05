@@ -1,5 +1,6 @@
 package dev.vesper.aiutd.common.fancymenu;
 
+//? 1.21.1 || >= 1.21.11{
 import de.keksuccino.fancymenu.customization.action.blocks.GenericExecutableBlock;
 import de.keksuccino.fancymenu.customization.element.AbstractElement;
 import de.keksuccino.fancymenu.customization.element.ElementBuilder;
@@ -366,3 +367,4 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 	}
 	*///?}
 }
+//?}

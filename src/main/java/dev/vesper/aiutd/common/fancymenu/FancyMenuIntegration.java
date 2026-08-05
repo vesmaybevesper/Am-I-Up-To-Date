@@ -1,5 +1,5 @@
 package dev.vesper.aiutd.common.fancymenu;
-
+//? 1.21.1 || >= 1.21.11{
 import de.keksuccino.fancymenu.customization.element.ElementRegistry;
 import dev.vesper.aiutd.AIUTD;
 
@@ -23,3 +23,4 @@ public class FancyMenuIntegration {
 		AIUTD.LOG.info("Registered AIUTD Update Button element with FancyMenu");
 	}
 }
+//?}

@@ -45,13 +45,16 @@ platform {
 		optional("modmenu") {
 			slug("modmenu")
 		}
-		optional("fancymenu") {
-			slug("fancymenu")
-			fabricLikeVersionRange = ">=${prop("deps.fancymenu")}"
-		}
-		/*optional("rinku") {
+
+		if (stonecutter.project.version == ("1.20.1") || stonecutter.project.version == ("1.21.1") || stonecutter.project.version == ("1.21.11") || stonecutter.project.version == ("26.1") || stonecutter.project.version == ("26.2")) {
+			optional("fancymenu") {
+				slug("fancymenu")
+				fabricLikeVersionRange = ">=${prop("deps.fancymenu")}"
+			}
+			/*optional("rinku") {
 			fabricLikeVersionRange = ">=${prop("deps.rinku")}"
 		}*/
+		}
 	}
 }
 
@@ -123,6 +126,6 @@ dependencies {
 	modCompileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
 	//modCompileOnly("de.keksuccino:rinku-fabric:${property("deps.rinku")}")
 	modImplementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson4yacl")}")
-	implementation("com.alibaba.fastjson2:fastjson2:2.0.62")
-	include("com.alibaba.fastjson2:fastjson2:2.0.62")
+	implementation("com.alibaba.fastjson2:fastjson2:2.0.63")
+	include("com.alibaba.fastjson2:fastjson2:2.0.63")
 }
