@@ -26,6 +26,18 @@ platform {
 		required("forge") {
 			forgeLikeVersionRange.set("[1,)")
 		}
+		required("yet_another_config_lib_v3") {
+			slug("yacl")
+			forgeLikeVersionRange = ">=${prop("deps.yet_another_config_lib_v3")}"
+		}
+		required("fastjson4yacl") {
+			slug("fastjson4yacl")
+			forgeLikeVersionRange = ">=${prop("deps.fastjson4yacl")}"
+		}
+		optional("fancymenu") {
+			slug("fancymenu")
+			forgeLikeVersionRange = ">=${prop("deps.fancymenu")}"
+		}
 	}
 }
 
