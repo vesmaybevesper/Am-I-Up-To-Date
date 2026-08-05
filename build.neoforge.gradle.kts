@@ -21,13 +21,13 @@ platform {
 	loader = "neoforge"
 	dependencies {
 		required("minecraft") {
-			forgeLikeVersionRange = prop("deps.minecraft")
+			forgeLikeVersionRange = ">=${prop("deps.minecraft")}"
 		}
 		required("neoforge") {
 			forgeLikeVersionRange.set("[1,)")
 		}
-		required("yacl") {
-			forgeLikeVersionRange = ">=${prop("deps.yacl")}"
+		required("yet_another_config_lib_v3") {
+			forgeLikeVersionRange = ">=${prop("deps.yet_another_config_lib_v3")}"
 		}
 		required("fastjson4yacl") {
 			forgeLikeVersionRange = ">=${prop("deps.fastjson4yacl")}"
@@ -92,7 +92,7 @@ repositories {
 
 dependencies {
 	spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0")
-	implementation("maven.modrinth:yacl:${property("deps.yacl")}")
+	implementation("maven.modrinth:yacl:${property("deps.yet_another_config_lib_v3")}")
 	compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
 	//compileOnly("de.keksuccino:rinku-neoforge:${property("deps.rinku")}")
 	implementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson4yacl")}")

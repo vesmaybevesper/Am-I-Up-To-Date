@@ -25,7 +25,7 @@ platform {
 	loader = "fabric"
 	dependencies {
 		required("minecraft") {
-			fabricLikeVersionRange = prop("deps.minecraft")
+			fabricLikeVersionRange = ">=${prop("deps.minecraft")}"
 		}
 		required("fabric-api") {
 			slug("fabric-api")
@@ -34,8 +34,8 @@ platform {
 		required("fabricloader") {
 			fabricLikeVersionRange = ">=${prop("deps.fabric-loader")}"
 		}
-		required("yacl") {
-			fabricLikeVersionRange = ">=${prop("deps.yacl")}"
+		required("yet_another_config_lib_v3") {
+			fabricLikeVersionRange = ">=${prop("deps.yet_another_config_lib_v3")}"
 		}
 		required("fastjson4yacl") {
 			fabricLikeVersionRange = ">=${prop("deps.fastjson4yacl")}"
@@ -114,7 +114,7 @@ dependencies {
 	modImplementation("net.fabricmc.fabric-api:fabric-api:${prop("deps.fabric-api")}")
 	modCompileOnly("com.terraformersmc:modmenu:${prop("deps.modmenu")}")
 	spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0")
-	modImplementation("maven.modrinth:yacl:${property("deps.yacl")}")
+	modImplementation("maven.modrinth:yacl:${property("deps.yet_another_config_lib_v3")}")
 	modCompileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
 	//modCompileOnly("de.keksuccino:rinku-fabric:${property("deps.rinku")}")
 	modImplementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson4yacl")}")
