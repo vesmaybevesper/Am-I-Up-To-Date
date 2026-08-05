@@ -8,7 +8,7 @@ import dev.vesper.aiutd.common.config.EndUserConfig;
 import dev.vesper.aiutd.common.fancymenu.FancyMenuIntegration;
 import dev.vesper.aiutd.platform.Platform;
 
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,16 +19,16 @@ import java.util.Objects;
 import static dev.vesper.aiutd.common.config.Config.localVersion;
 
 //? fabric {
-import dev.vesper.aiutd.platform.fabric.FabricPlatform;
+/*import dev.vesper.aiutd.platform.fabric.FabricPlatform;
 import net.fabricmc.loader.api.FabricLoader;
-//?} neoforge {
+*///?} neoforge {
 /*import dev.vesper.aiutd.platform.neoforge.NeoforgePlatform;
 import net.neoforged.fml.ModList;
 import net.neoforged.bus.api.SubscribeEvent;
  *///?} forge {
-/*import dev.vesper.aiutd.platform.forge.ForgePlatform;
+import dev.vesper.aiutd.platform.forge.ForgePlatform;
 import net.minecraftforge.fml.ModList;
- *///?}
+ //?}
 
 @SuppressWarnings("LoggingSimilarMessage")
 public class AIUTD {
@@ -69,8 +69,8 @@ public class AIUTD {
 		} catch (URISyntaxException | IOException ignored) {}
 		Variables.setAll();
 		//? fabric{
-		ChatMessages.sendChatMessage();
-		//?}
+		/*ChatMessages.sendChatMessage();
+		*///?}
 		if (isModLoaded("fancymenu")) {
 			FancyMenuIntegration.init();
 		}
@@ -82,41 +82,41 @@ public class AIUTD {
 
 	private static Platform createPlatformInstance() {
 		//? fabric {
-		return new FabricPlatform();
-		//?} neoforge {
+		/*return new FabricPlatform();
+		*///?} neoforge {
 		/*return new NeoforgePlatform();
 		 *///?} forge {
-		/*return new ForgePlatform();
-		 *///?}
+		return new ForgePlatform();
+		 //?}
 	}
 
-	private static Identifier id(String path) {
+	private static ResourceLocation id(String path) {
 		//? 1.20.1{
-		/*return Identifier.tryBuild(MOD_ID, path);
-		*///?} > 1.20.1 {
-		return Identifier.fromNamespaceAndPath(MOD_ID, path);
-		 //?} <= 1.19.2 {
-		/*return new Identifier(MOD_ID, path);
+		return ResourceLocation.tryBuild(MOD_ID, path);
+		//?} > 1.20.1 {
+		/*return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+		 *///?} <= 1.19.2 {
+		/*return new ResourceLocation(MOD_ID, path);
 		*///?}
 	}
 
-	private static Identifier id(String namespace, String path) {
+	private static ResourceLocation id(String namespace, String path) {
 		//? 1.20.1 {
-		/*return Identifier.tryBuild(namespace, path);
-		*///?} > 1.20.1 {
-		return Identifier.fromNamespaceAndPath(namespace, path);
-		 //?} <= 1.19.2 {
-		/*return new Identifier(namespace, path);
+		return ResourceLocation.tryBuild(namespace, path);
+		//?} > 1.20.1 {
+		/*return ResourceLocation.fromNamespaceAndPath(namespace, path);
+		 *///?} <= 1.19.2 {
+		/*return new ResourceLocation(namespace, path);
 		*///?}
 	}
 
 	public static boolean isModLoaded(String modid) {
 		//? fabric {
-		 return FabricLoader.getInstance().isModLoaded(modid);
-		//?} neoforge {
+		 /*return FabricLoader.getInstance().isModLoaded(modid);
+		*///?} neoforge {
 		/*return ModList.get().isLoaded(modid);
 		*///?} forge {
-		/*return ModList.get().isLoaded(modid);
-		*///?}
+		return ModList.get().isLoaded(modid);
+		//?}
 	}
 }

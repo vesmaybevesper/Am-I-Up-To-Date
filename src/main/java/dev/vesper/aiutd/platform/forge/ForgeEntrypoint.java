@@ -2,7 +2,7 @@ package dev.vesper.aiutd.platform.forge;
 
 //? forge {
 
-/*import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import dev.vesper.aiutd.AIUTD;
 import dev.vesper.aiutd.common.config.Config;
@@ -58,4 +58,4 @@ public class ForgeEntrypoint {
 		}
 	}
 }
-*///?}
+//?}

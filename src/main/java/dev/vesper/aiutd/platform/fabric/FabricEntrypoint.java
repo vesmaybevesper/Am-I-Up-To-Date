@@ -2,7 +2,7 @@ package dev.vesper.aiutd.platform.fabric;
 
 //? fabric {
 
-import dev.vesper.aiutd.AIUTD;
+/*import dev.vesper.aiutd.AIUTD;
 import dev.kikugie.fletching_table.annotation.fabric.Entrypoint;
 import net.fabricmc.api.ModInitializer;
 
@@ -14,4 +14,4 @@ public class FabricEntrypoint implements ModInitializer {
 		AIUTD.onInitialize();
 	}
 }
-//?}
+*///?}

@@ -2,7 +2,7 @@ package dev.vesper.aiutd.platform.fabric;
 
 //? fabric {
 
-import dev.vesper.aiutd.platform.Platform;
+/*import dev.vesper.aiutd.platform.Platform;
 import net.fabricmc.loader.api.FabricLoader;
 
 public class FabricPlatform implements Platform {
@@ -27,4 +27,4 @@ public class FabricPlatform implements Platform {
 		return FabricLoader.getInstance().isDevelopmentEnvironment();
 	}
 }
-//?}
+*///?}

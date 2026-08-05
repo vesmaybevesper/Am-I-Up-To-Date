@@ -52,10 +52,10 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
 
 	private static boolean isAnyMouseButtonPressed() {
 		//? >=1.21.11{
-		long window = Minecraft.getInstance().getWindow().handle();
-		//?} <= 1.21.1{
-		/*long window = Minecraft.getInstance().getWindow().getWindow();
-		*///?}
+		/*long window = Minecraft.getInstance().getWindow().handle();
+		*///?} <= 1.21.1{
+		long window = Minecraft.getInstance().getWindow().getWindow();
+		//?}
 
 		//? <26.3{
         return GLFW.glfwGetMouseButton(window, GLFW.GLFW_MOUSE_BUTTON_LEFT) == GLFW.GLFW_PRESS
@@ -116,9 +116,9 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
 		element.hideWhenNoUpdate = deserializeBoolean(element.hideWhenNoUpdate, serializedElement.getValue("hide_when_no_update"));
 		element.openChangelogOnClick = deserializeBoolean(element.openChangelogOnClick, serializedElement.getValue("open_changelog_on_click"));
 
-		String activeStateRequirementIdentifier = serializedElement.getValue("widget_active_state_requirement_container_identifier");
-		if(activeStateRequirementIdentifier != null) {
-			RequirementContainer c = RequirementContainer.deserializeWithIdentifier(activeStateRequirementIdentifier, serializedElement);
+		String activeStateRequirementResourceLocation = serializedElement.getValue("widget_active_state_requirement_container_identifier");
+		if(activeStateRequirementResourceLocation != null) {
+			RequirementContainer c = RequirementContainer.deserializeWithIdentifier(activeStateRequirementResourceLocation, serializedElement);
 
 			if(c != null) {
 				element.activeStateSupplier = c;
