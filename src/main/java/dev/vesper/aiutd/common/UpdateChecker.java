@@ -66,7 +66,7 @@ public class UpdateChecker {
 			return versionCache;
 		}
 
-		if (versionsArray.isEmpty() || versionsArray == null) {
+		if (versionsArray.isEmpty()) {
 			AIUTD.LOG.error("Version JSON is Empty or Null");
 			useCachedVersionMsg();
 			return versionCache;
