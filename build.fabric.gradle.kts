@@ -124,7 +124,7 @@ dependencies {
 	spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0")
 	modImplementation("maven.modrinth:yacl:${property("deps.yet_another_config_lib_v3")}")
 	modCompileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
-	//modCompileOnly("de.keksuccino:rinku-fabric:${property("deps.rinku")}")
+	modCompileOnly("de.keksuccino:rinku-fabric:${property("deps.rinku")}")
 	modImplementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson4yacl")}")
 	implementation("com.alibaba.fastjson2:fastjson2:2.0.63")
 	include("com.alibaba.fastjson2:fastjson2:2.0.63")

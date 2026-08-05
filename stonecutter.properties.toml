@@ -4,7 +4,7 @@ mod.id = "aiutd"
 mod.name = "Am I Up To Date?"
 mod.group = "dev.vesper"
 mod.version = "2.5.4"
-#mod.channel_tag = "-beta.2"
+# q	mod.channel_tag = "-beta.2"
 mod.description = "Provides notifications for mod pack updates on the main menu and in chat."
 mod.authors = ["VesMaybeVesper"]
 #mod.contributors = ["ContributorName", "AnotherContributorName"]
@@ -31,7 +31,7 @@ deps.fabric-api = "0.92.11+1.20.1"
 deps.modmenu = "7.2.2"
 deps.yet_another_config_lib_v3="3.6.6+1.20.1-fabric"
 deps.fancymenu="3.9.8-1.20.1-fabric"
-deps.rinku="3.0.0-1.20.1"
+deps.rinku="3.0.1-1.20.1"
 deps.fastjson4yacl="1.0.5-fabric+1.20.1"
 
 [fabric."1.21.1"]
@@ -40,7 +40,7 @@ deps.fabric-api = "0.116.14+1.21.1"
 deps.modmenu = "11.0.4"
 deps.yet_another_config_lib_v3="3.8.2+1.21.1-fabric"
 deps.fancymenu="3.9.8-1.21.1-fabric"
-deps.rinku="3.0.0-1.21.1"
+deps.rinku="3.0.1-1.21.1"
 deps.fastjson4yacl="1.0.5-fabric+1.21.1"
 
 [fabric."1.21.2"]
@@ -49,7 +49,7 @@ deps.fabric-api = "0.106.1+1.21.2"
 deps.modmenu = "12.0.1"
 deps.yet_another_config_lib_v3="3.8.2+1.21.3-fabric"
 deps.fancymenu="3.9.8-1.21.1-fabric"
-deps.rinku="3.0.0-1.21.1"
+deps.rinku="3.0.1-1.21.1"
 deps.fastjson4yacl="1.0.5-fabric+1.21.1"
 publish.additionalVersions = ["1.21.3", "1.21.4"]
 
@@ -59,7 +59,7 @@ deps.fabric-api = "0.128.2+1.21.5"
 deps.modmenu = "14.0.2"
 deps.yet_another_config_lib_v3="3.8.2+1.21.5-fabric"
 deps.fancymenu="3.9.8-1.21.1-fabric"
-deps.rinku="3.0.0-1.21.1"
+deps.rinku="3.0.1-1.21.1"
 deps.fastjson4yacl="1.0.5-fabric+1.21.5"
 publish.additionalVersions = ["1.21.6", "1.21.7", "1.21.8", "1.21.9", "1.21.10"]
 
@@ -69,7 +69,7 @@ deps.fabric-api = "0.141.5+1.21.11"
 deps.modmenu = "17.0.1-beta.1"
 deps.yet_another_config_lib_v3="3.8.2+1.21.11-fabric"
 deps.fancymenu="3.9.8-1.21.11-fabric"
-deps.rinku="3.0.0-1.21.11"
+deps.rinku="3.0.1-1.21.11"
 deps.fastjson4yacl="1.0.5-fabric+1.21.5"
 
 [fabric."26.1"]
@@ -78,7 +78,7 @@ deps.fabric-api = "0.146.1+26.1.2"
 deps.modmenu = "18.0.0"
 deps.yet_another_config_lib_v3="3.9.6+26.1-fabric"
 deps.fancymenu="3.9.6-26.1.1-fabric"
-deps.rinku="3.0.0-26.1.2"
+deps.rinku="3.0.1-26.1.2"
 deps.fastjson4yacl="1.0.5-fabric+26.1"
 publish.additionalVersions = ["26.1.1", "26.1.2"]
 
@@ -88,7 +88,7 @@ deps.fabric-api = "0.156.0+26.2"
 deps.modmenu = "20.0.1"
 deps.yet_another_config_lib_v3="3.9.6+26.2-fabric"
 deps.fancymenu="3.9.8-26.2-fabric"
-deps.rinku="3.0.0-26.2"
+deps.rinku="3.0.1-26.2"
 deps.fastjson4yacl="1.0.5-fabric+26.1"
 publish.additionalVersions = []
 
@@ -98,7 +98,7 @@ deps.fabric-api = "0.156.2+26.3"
 deps.modmenu = "21.0.0-alpha.1"
 deps.yet_another_config_lib_v3="3.9.6+26.3-fabric"
 deps.fancymenu="3.9.8-26.2-fabric"
-deps.rinku="3.0.0-26.2"
+deps.rinku="3.0.1-26.2"
 deps.fastjson4yacl="1.0.5-fabric+26.1"
 publish.additionalVersions = []
 
@@ -119,7 +119,7 @@ deps.minecraft = "1.21.1"
 deps.neoforge = "21.1.244"
 deps.yet_another_config_lib_v3="3.8.2+1.21.1-neoforge"
 deps.fancymenu="3.9.8-1.21.1-neoforge"
-deps.rinku="3.0.0-1.21.1"
+deps.rinku="3.0.1-1.21.1"
 deps.fastjson4yacl="1.0.5-neoforge+1.21.1"
 
 [neoforge."1.21.2"]
@@ -127,7 +127,7 @@ deps.minecraft = "1.21.2"
 deps.neoforge = "21.2.1-beta"
 deps.yet_another_config_lib_v3="3.8.2+1.21.3-neoforge"
 deps.fancymenu="3.9.8-1.21.1-neoforge"
-deps.rinku="3.0.0-1.21.1"
+deps.rinku="3.0.1-1.21.1"
 deps.fastjson4yacl="1.0.5-neoforge+1.21.1"
 publish.additionalVersions = ["1.21.3", "1.21.4"]
 
@@ -136,7 +136,7 @@ deps.minecraft = "1.21.5"
 deps.neoforge = "21.5.98"
 deps.yet_another_config_lib_v3="3.8.2+1.21.5-neoforge"
 deps.fancymenu="3.9.8-1.21.1-neoforge"
-deps.rinku="3.0.0-1.21.1"
+deps.rinku="3.0.1-1.21.1"
 deps.fastjson4yacl="1.0.5-neoforge+1.21.5"
 publish.additionalVersions = ["1.21.7", "1.21.8", "1.21.9", "1.21.10"]
 
@@ -145,7 +145,7 @@ deps.minecraft = "1.21.11"
 deps.neoforge = "21.11.45"
 deps.yet_another_config_lib_v3="3.8.2+1.21.11-neoforge"
 deps.fancymenu="3.9.8-1.21.11-neoforge"
-deps.rinku="3.0.0-1.21.11"
+deps.rinku="3.0.1-1.21.11"
 deps.fastjson4yacl="1.0.5-neoforge+1.21.5"
 
 [neoforge."26.1"]
@@ -153,7 +153,7 @@ deps.minecraft = "26.1"
 deps.neoforge = "26.1.0.19-beta"
 deps.yet_another_config_lib_v3="3.9.6+26.1-neoforge"
 deps.fancymenu="3.9.6-26.1.1-neoforge"
-deps.rinku="3.0.0-26.1.2"
+deps.rinku="3.0.1-26.1.2"
 deps.fastjson4yacl="1.0.5-neoforge+26.1"
 publish.additionalVersions = ["26.1.1", "26.1.2"]
 
@@ -162,6 +162,6 @@ deps.minecraft = "26.2"
 deps.neoforge = "26.2.0.35-beta"
 deps.yet_another_config_lib_v3="3.9.6+26.2-neoforge"
 deps.fancymenu="3.9.8-26.2-neoforge"
-deps.rinku="3.0.0-26.2"
+deps.rinku="3.0.1-26.2"
 deps.fastjson4yacl="1.0.5-neoforge+26.1"
 publish.additionalVersions = []
