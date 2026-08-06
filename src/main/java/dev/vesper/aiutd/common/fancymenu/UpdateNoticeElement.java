@@ -338,33 +338,5 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 			AIUTD.LOG.error("Failed to open changelog URL", e);
 		}
 	}
-
-	//? forge{
-	/*@Override
-	public void m_88315_(@NotNull GuiGraphics guiGraphics, int i, int i1, float v) {
-
-	}
-
-	@Override
-	public void setFocused(boolean b) {
-
-	}
-
-	@Override
-	public boolean isFocused() {
-		return false;
-	}
-
-	@NotNull
-	@Override
-	public NarrationPriority narrationPriority() {
-		return null;
-	}
-
-	@Override
-	public void updateNarration(@NotNull NarrationElementOutput narrationElementOutput) {
-
-	}
-	*///?}
 }
 //?}
