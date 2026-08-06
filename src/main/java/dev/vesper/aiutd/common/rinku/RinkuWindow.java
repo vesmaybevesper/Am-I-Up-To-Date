@@ -1,7 +1,7 @@
 package dev.vesper.aiutd.common.rinku;
 
 //? 1.21.1 || >= 1.21.11 {
-import de.keksuccino.rinku.Rinku;
+/*import de.keksuccino.rinku.Rinku;
 import de.keksuccino.rinku.RinkuBrowser;
 import dev.vesper.aiutd.AIUTD;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -377,5 +377,5 @@ public class RinkuWindow extends Screen {
 		browser.setFocus(true);
 		return true;
 	}
-}
+}*/
 //?}
