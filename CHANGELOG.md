@@ -1,4 +1,1 @@
-- Update version parser to FastJSON2 23.0.63
-- Update config parser to fastjson4yacl 1.0.5
-- Added a bunch of versions
-  - FancyMenu support is based on if that version has support for the latest breaking version of FancyMenu (currently 3.9), this means it's supported for: Fabric 1.20.1 & Fabric / NeoForge 1.21.1, 1.21.11, 26.1.2, & 26.2
+- 26.3 full release
