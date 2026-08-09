@@ -1,0 +1,5 @@
+- Allow changelog links to be opened with Rinku
+- Option to open changelog in browser (incl Rinku) or in a little window that pulls the text
+- Toast for update notifications
+  - Allow customization
+- Greater update notification button customizations
