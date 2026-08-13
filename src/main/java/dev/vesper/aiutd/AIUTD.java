@@ -33,7 +33,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 public class AIUTD {
 
 	public static final String MOD_ID = /*$ mod_id*/ "aiutd";
-	public static final String MOD_VERSION = /*$ mod_version*/ "2.5.4";
+	public static final String MOD_VERSION = /*$ mod_version*/ "2.5.6";
 	public static final String MOD_FRIENDLY_NAME = /*$ mod_name*/ "Am I Up To Date?";
 	public static final Logger LOG = LoggerFactory.getLogger(MOD_ID);
 	public static boolean hasNotified = false;
