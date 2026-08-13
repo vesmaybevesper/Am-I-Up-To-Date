@@ -102,8 +102,8 @@ dependencies {
 	compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
 	compileOnly("de.keksuccino:rinku-neoforge:${property("deps.rinku")}")
 	implementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson4yacl")}")
-	implementation("com.alibaba.fastjson2:fastjson2:2.0.63")
-	jarJar("com.alibaba.fastjson2:fastjson2:2.0.63")
+	implementation("com.alibaba.fastjson2:fastjson2:2.0.64")
+	jarJar("com.alibaba.fastjson2:fastjson2:2.0.64")
 	// implementation(libs.moulberry.mixinconstraints)
 	// jarJar(libs.moulberry.mixinconstraints)
 }
