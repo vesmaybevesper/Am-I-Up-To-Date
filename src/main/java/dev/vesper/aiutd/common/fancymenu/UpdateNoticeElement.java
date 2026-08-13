@@ -1,6 +1,6 @@
 package dev.vesper.aiutd.common.fancymenu;
 
-//? 1.21.1 || >= 1.21.11{
+//? 1.20.1 || 1.21.1 || >= 1.21.11{
 import de.keksuccino.fancymenu.customization.action.blocks.GenericExecutableBlock;
 import de.keksuccino.fancymenu.customization.element.AbstractElement;
 import de.keksuccino.fancymenu.customization.element.ElementBuilder;
@@ -313,30 +313,5 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 		this.widget = widget;
 	}
 
-	public void openChangelog() {
-		try {
-			URI url = new URI(AIUTD.changelogLink);
-			if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-				Desktop.getDesktop().browse(url);
-			} else {
-				String os = System.getProperty("os.name").toLowerCase();
-				try {
-					if (os.contains("win")) {
-						Runtime.getRuntime().exec(new String[]{"rundll32", "url.dll,FileProtocolHandler", AIUTD.changelogLink});
-					} else if (os.contains("mac")) {
-						Runtime.getRuntime().exec(new String[]{"open", AIUTD.changelogLink});
-					} else if (os.contains("nix") || os.contains("nux")) {
-						Runtime.getRuntime().exec(new String[]{"xdg-open", AIUTD.changelogLink});
-					} else {
-						AIUTD.LOG.warn("Unsupported OS for opening browser");
-					}
-				} catch (IOException e) {
-					AIUTD.LOG.error("Failed to open changelog", e);
-				}
-			}
-		} catch (Exception e) {
-			AIUTD.LOG.error("Failed to open changelog URL", e);
-		}
-	}
 }
 //?}

@@ -1,6 +1,6 @@
 package dev.vesper.aiutd.common.fancymenu;
 
-//? 1.21.1 || >= 1.21.11{
+//? 1.20.1 || 1.21.1 || >= 1.21.11{
 import de.keksuccino.fancymenu.customization.action.ActionInstance;
 import de.keksuccino.fancymenu.customization.action.blocks.AbstractExecutableBlock;
 import de.keksuccino.fancymenu.customization.action.blocks.ExecutableBlockDeserializer;
@@ -13,6 +13,7 @@ import de.keksuccino.fancymenu.customization.overlay.CustomizationOverlay;
 import de.keksuccino.fancymenu.customization.requirement.internal.RequirementContainer;
 import de.keksuccino.fancymenu.util.rendering.ui.widget.button.ExtendedButton;
 import de.keksuccino.fancymenu.util.threading.MainThreadTaskExecutor;
+import dev.vesper.aiutd.common.ChangelogOpeners;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import org.jetbrains.annotations.NotNull;
@@ -38,7 +39,7 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
 				boolean isMousePressed = isAnyMouseButtonPressed();
 
 				if(element.openChangelogOnClick) {
-					element.openChangelog();
+					ChangelogOpeners.browser();
 				}
 
 				element.getExecutableBlock().execute();
