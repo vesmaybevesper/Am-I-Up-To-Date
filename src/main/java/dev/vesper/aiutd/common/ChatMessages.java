@@ -19,7 +19,6 @@ import static dev.vesper.aiutd.common.config.Config.linkChangelog;
 import static dev.vesper.aiutd.common.config.Config.modpackName;
 import static dev.vesper.aiutd.common.config.Config.useCustomMessage;
 import static dev.vesper.aiutd.common.config.Config.useModpackName;
-import static dev.vesper.aiutd.common.config.EndUserConfig.shouldIgnore;
 
 //? fabric{
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
@@ -103,7 +102,7 @@ public class ChatMessages {
 	private void chatMessageDisplay(ClientPlayerNetworkEvent.LoggingIn event) {
 		EndUserConfig.USERCONFIG.load();
 
-		if (chatAlert && needUpdate && !AIUTD.hasNotified && !shouldIgnore) {
+		if (chatAlert && needUpdate && !AIUTD.hasNotified && !EndUserConfig.shouldIgnore) {
 			Minecraft client = Minecraft.getInstance();
 			assert client.player != null;
 
