@@ -93,8 +93,8 @@ deps.fastjson4yacl="1.0.6-fabric+26.1"
 publish.additionalVersions = []
 
 [fabric."26.3"]
-deps.minecraft = "26.3-snapshot-8"
-deps.fabric-api = "0.157.1+26.3"
+deps.minecraft = "26.3-snapshot-9"
+deps.fabric-api = "0.157.2+26.3"
 deps.modmenu = "21.0.0-alpha.1"
 deps.yet_another_config_lib_v3="3.9.6+26.3-fabric"
 deps.fancymenu="3.9.8-26.2-fabric"
@@ -167,7 +167,7 @@ deps.fastjson4yacl="1.0.6-neoforge+26.1"
 publish.additionalVersions = []
 
 [neoforge."26.3"]
-deps.minecraft = "26.3-snapshot-8"
+deps.minecraft = "26.3-snapshot-9"
 deps.neoforge = "26.2.0.49-beta"
 deps.yet_another_config_lib_v3="3.9.6+26.2-neoforge"
 deps.fancymenu="3.9.8-26.2-neoforge"
