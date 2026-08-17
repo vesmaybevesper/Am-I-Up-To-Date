@@ -229,22 +229,5 @@ public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>
 	protected UpdateNoticeElement getElement() {
 		return this.element;
 	}
-
-	//? forge{
-	/*@Override
-	public void render(GuiGraphics guiGraphics, int i, int i1, float v) {
-
-	}
-
-	@Override
-	public void setFocused(boolean b) {
-
-	}
-
-	@Override
-	public boolean isFocused() {
-		return false;
-	}
-	*///?}
 }
 //?}
