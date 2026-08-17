@@ -1,26 +1,34 @@
+/*
 package dev.vesper.aiutd.common.rinku;
 
-//? 1.21.1 || >= 1.21.11 {
-/*import de.keksuccino.rinku.Rinku;
+//? 1.20.1 || 1.21.1 || >=1.21.11{
+import de.keksuccino.rinku.Rinku;
 import de.keksuccino.rinku.RinkuBrowser;
 import dev.vesper.aiutd.AIUTD;
-import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.input.CharacterEvent;
-import net.minecraft.client.input.KeyEvent;
-import net.minecraft.client.input.MouseButtonEvent;
-import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
-import net.minecraft.util.Util;
 import org.cef.browser.CefBrowser;
 import org.cef.browser.CefFrame;
 import org.cef.handler.CefDisplayHandler;
 import org.cef.handler.CefDisplayHandlerAdapter;
-import org.jspecify.annotations.NonNull;
 import org.lwjgl.glfw.GLFW;
+
+//?} >=26.1{
+*/
+/*import net.minecraft.client.gui.GuiGraphicsExtractor;
+*//*
+//?} >=1.21.11{
+*/
+/*import net.minecraft.client.input.CharacterEvent;
+import net.minecraft.client.input.KeyEvent;
+import net.minecraft.client.input.MouseButtonEvent;
+import net.minecraft.client.renderer.RenderPipelines;
+import net.minecraft.util.Util;
+*//*
+//?}
 
 public class RinkuWindow extends Screen {
 
@@ -41,7 +49,7 @@ public class RinkuWindow extends Screen {
 	private Button reloadButton;
 	private CefDisplayHandler addressBarDisplayHandler;
 
-	protected RinkuWindow(Component title) {
+	public RinkuWindow(Component title) {
 		super(title);
 	}
 
@@ -377,5 +385,6 @@ public class RinkuWindow extends Screen {
 		browser.setFocus(true);
 		return true;
 	}
-}*/
+}
 //?}
+*/
