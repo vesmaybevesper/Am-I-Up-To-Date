@@ -4,9 +4,9 @@ import dev.vesper.aiutd.common.config.Config;
 import net.minecraft.ChatFormatting;
 
 public class Variables {
-	protected static ChatFormatting changelogColor;
-	protected static ChatFormatting updateMsgColor;
-	protected static ChatFormatting ignoreMsgColor;
+	static ChatFormatting changelogColor;
+	static ChatFormatting updateMsgColor;
+	static ChatFormatting ignoreMsgColor;
 
 	public static void setAll(){
 		setColors();
