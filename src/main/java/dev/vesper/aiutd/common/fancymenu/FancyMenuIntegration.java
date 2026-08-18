@@ -4,15 +4,15 @@ import de.keksuccino.fancymenu.customization.element.ElementRegistry;
 import dev.vesper.aiutd.AIUTD;
 
 public class FancyMenuIntegration {
-	private static boolean initalized = false;
+	private static boolean initialized = false;
 
 	public static void init() {
-		if(initalized) return;
+		if(initialized) return;
 
 		if (AIUTD.isModLoaded("fancymenu")) {
 			try {
 				registerElements();
-				initalized = true;
+				initialized = true;
 			} catch (Exception ignored) {}
 		}
 	}
