@@ -24,10 +24,10 @@ import static dev.vesper.aiutd.common.config.EndUserConfig.versionCache;
 public class UpdateChecker {
 	public static boolean needUpdate;
 	public static boolean hasChecked = false;
-	protected static String clientVersion;
-	protected static String APIMcVersion = "";
-	protected static String versionLoader = "";
-	protected static String localLoader;
+	static String clientVersion;
+	static String APIMcVersion = "";
+	static String versionLoader = "";
+	static String localLoader;
 
 	@Nullable
 	public static String getVersionNumber() throws URISyntaxException, IOException {
