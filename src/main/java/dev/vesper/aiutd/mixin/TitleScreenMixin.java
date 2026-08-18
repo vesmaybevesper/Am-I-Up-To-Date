@@ -14,10 +14,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.awt.*;
-import java.io.IOException;
-import java.net.URI;
-
 import static dev.vesper.aiutd.common.UpdateChecker.needUpdate;
 import static dev.vesper.aiutd.common.config.Config.menuAlert;
 
