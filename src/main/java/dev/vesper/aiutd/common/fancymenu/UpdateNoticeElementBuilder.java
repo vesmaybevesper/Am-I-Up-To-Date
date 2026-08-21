@@ -1,6 +1,6 @@
 package dev.vesper.aiutd.common.fancymenu;
 
-//? 1.20.1 || 1.21.1 || >= 1.21.11{
+//? 1.20.1 && !forge || 1.21.1 || >= 1.21.11{
 import de.keksuccino.fancymenu.customization.action.ActionInstance;
 import de.keksuccino.fancymenu.customization.action.blocks.AbstractExecutableBlock;
 import de.keksuccino.fancymenu.customization.action.blocks.ExecutableBlockDeserializer;

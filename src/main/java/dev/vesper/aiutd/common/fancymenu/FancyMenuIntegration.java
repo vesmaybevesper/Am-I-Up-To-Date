@@ -1,5 +1,5 @@
 package dev.vesper.aiutd.common.fancymenu;
-//? 1.20.1 || 1.21.1 || >= 1.21.11{
+//? 1.20.1 && !forge || 1.21.1 || >= 1.21.11{
 import de.keksuccino.fancymenu.customization.element.ElementRegistry;
 import dev.vesper.aiutd.AIUTD;
 

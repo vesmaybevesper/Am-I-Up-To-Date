@@ -1,6 +1,6 @@
 package dev.vesper.aiutd.common.fancymenu;
 
-//? 1.20.1 || 1.21.1 || >= 1.21.11{
+//? 1.20.1 && !forge || 1.21.1 || >= 1.21.11{
 import de.keksuccino.fancymenu.customization.action.blocks.GenericExecutableBlock;
 import de.keksuccino.fancymenu.customization.element.AbstractElement;
 import de.keksuccino.fancymenu.customization.element.ElementBuilder;
@@ -17,17 +17,12 @@ import de.keksuccino.fancymenu.util.resource.ResourceSupplier;
 import de.keksuccino.fancymenu.util.resource.resources.audio.IAudio;
 import de.keksuccino.fancymenu.util.resource.resources.texture.ITexture;
 import de.keksuccino.fancymenu.util.threading.MainThreadTaskExecutor;
-import dev.vesper.aiutd.AIUTD;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.events.GuiEventListener;
-import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.awt.*;
-import java.io.IOException;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -312,6 +307,5 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 	public void setWidget(@Nullable AbstractWidget widget) {
 		this.widget = widget;
 	}
-
 }
 //?}
