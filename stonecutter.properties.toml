@@ -3,7 +3,7 @@ loomx.loom_version="1.17-SNAPSHOT"
 mod.id = "aiutd"
 mod.name = "Am I Up To Date?"
 mod.group = "dev.vesper"
-mod.version = "2.5.7"
+mod.version = "2.5.8"
 # q	mod.channel_tag = "-beta.2"
 mod.description = "Provides notifications for mod pack updates on the main menu and in chat."
 mod.authors = ["VesMaybeVesper"]
@@ -93,7 +93,7 @@ deps.fastjson4yacl="1.0.6-fabric+26.1"
 publish.additionalVersions = []
 
 [fabric."26.3"]
-deps.minecraft = "26.3-snapshot-9"
+deps.minecraft = "26.3-snapshot-10"
 deps.fabric-api = "0.158.0+26.3"
 deps.modmenu = "21.0.0-alpha.1"
 deps.yet_another_config_lib_v3="3.9.6+26.3-fabric"
@@ -106,7 +106,7 @@ publish.additionalVersions = []
 
 [forge."1.20.1"]
 deps.minecraft = "1.20.1"
-deps.forge = "47.4.10"
+deps.forge = "47.4.23"
 deps.yet_another_config_lib_v3="3.6.6+1.20.1-forge"
 deps.fancymenu="3.9.10-1.20.1-forge"
 deps.rinku="3.0.0-1.20.1"

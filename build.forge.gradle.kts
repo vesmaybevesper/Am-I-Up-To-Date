@@ -17,6 +17,10 @@ stonecutter {
 	}
 }
 
+/*tasks.withType<Javadoc>().configureEach {
+	(options as StandardJavadocDocletOptions).addStringOption("Xdoclint:-missing", "-quiet")
+}*/
+
 platform {
 	loader = "forge"
 	dependencies {

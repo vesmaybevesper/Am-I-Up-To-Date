@@ -1,6 +1,6 @@
 package dev.vesper.aiutd.common.fancymenu;
 
-//? 1.20.1 && !forge || 1.21.1 || >= 1.21.11{
+//? 1.20.1 || 1.21.1 || >= 1.21.11{
 import de.keksuccino.fancymenu.customization.action.blocks.GenericExecutableBlock;
 import de.keksuccino.fancymenu.customization.element.AbstractElement;
 import de.keksuccino.fancymenu.customization.element.ElementBuilder;
@@ -18,7 +18,9 @@ import de.keksuccino.fancymenu.util.resource.resources.audio.IAudio;
 import de.keksuccino.fancymenu.util.resource.resources.texture.ITexture;
 import de.keksuccino.fancymenu.util.threading.MainThreadTaskExecutor;
 import net.minecraft.client.gui.components.AbstractWidget;
+import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.components.events.GuiEventListener;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -69,6 +71,35 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 		super(builder);
 	}
 
+	//? if forge {
+	/*@Override
+	public void m_88315_(@NotNull GuiGraphics guiGraphics, int i, int i1, float v) {
+		if (this.getWidget() ==  null) return;
+
+		this.updateWidget();
+
+		if (hideWhenNoUpdate && !needUpdate) return;
+
+		if (!this.shouldRender()) return;
+
+		if (isEditor()){
+			Tooltip cachedVanillaTooltip = this.widget.getTooltip();
+			boolean cachedVisible = this.getWidget().visible;
+			boolean cachedActive = this.getWidget().active;
+			this.getWidget().visible = true;
+			this.getWidget().active = true;
+			this.getWidget().setTooltip(null);
+			MainThreadTaskExecutor.executeInMainThread(() -> {
+				this.getWidget().visible = cachedVisible;
+				this.getWidget().active = cachedActive;
+				assert this.getWidget() != null;
+				this.getWidget().setTooltip(cachedVanillaTooltip);
+			}, MainThreadTaskExecutor.ExecuteTiming.POST_CLIENT_TICK);
+		}
+		this.renderElementWidget(guiGraphics, i, i1, v);
+	}
+	*///?}
+
 	//? >=26.1{
 	@Override
 	public void extractRenderState(@NotNull GuiGraphicsExtractor guiGraphicsExtractor, int i, int i1, float v) {
@@ -111,7 +142,7 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 
 		if (isEditor()){
 			//?<1.21.10{
-			/^net.minecraft.client.gui.components.Tooltip cachedVanillaTooltip = this.widget.getTooltip();
+			/^Tooltip cachedVanillaTooltip = this.widget.getTooltip();
 			 ^///?}
 			//? >=1.21.10{
 			net.minecraft.client.gui.components.Tooltip cachedVanillaTooltip = ((IMixinAbstractWidget) this.getWidget()).getTooltipHolderFancyMenu().get();
@@ -307,5 +338,27 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 	public void setWidget(@Nullable AbstractWidget widget) {
 		this.widget = widget;
 	}
+
+	//? if forge {
+	/*@Override
+	public void setFocused(boolean b) {
+
+	}
+
+	@Override
+	public boolean isFocused() {
+		return false;
+	}
+
+	@Override
+	public NarrationPriority narrationPriority() {
+		return null;
+	}
+
+	@Override
+	public void updateNarration(NarrationElementOutput narrationElementOutput) {
+
+	}
+	*///?}
 }
 //?}

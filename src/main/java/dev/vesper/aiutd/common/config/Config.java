@@ -20,7 +20,7 @@ public class Config {
 			.build();
 	//?} 1.20.1{
 	/*public static final ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
-			.id(Identifier.tryBuild("aiutd", "config"))
+			.id(new Identifier("aiutd", "config"))
 			.serializer(config -> FastJsonConfigSerializerBuilder.create(config)
 					.setPath(YACLPlatform.getConfigDir().resolve("aiutd.json"))
 					.build())
@@ -39,63 +39,63 @@ public class Config {
 	@AutoGen(category = "Main")
 	@dev.isxander.yacl3.config.v2.api.autogen.Boolean(formatter = dev.isxander.yacl3.config.v2.api.autogen.Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
-	public static boolean menuAlert = true;
+	public static final boolean menuAlert = true;
 	@AutoGen(category = "Main")
 	@dev.isxander.yacl3.config.v2.api.autogen.Boolean(formatter = dev.isxander.yacl3.config.v2.api.autogen.Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
-	public static boolean chatAlert = true;
+	public static final boolean chatAlert = true;
 	@AutoGen(category = "Main")
 	@StringField
 	@SerialEntry
-	public static String localVersion = "1.0.0";
+	public static final String localVersion = "1.0.0";
 	@AutoGen(category = "Main")
 	@StringField
 	@SerialEntry
-	public static String modpackId = "";
+	public static final String modpackId = "";
 
 	// Optional Settings
 	@AutoGen(category = "Optional")
 	@dev.isxander.yacl3.config.v2.api.autogen.Boolean(formatter = dev.isxander.yacl3.config.v2.api.autogen.Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
-	public static boolean multiVersion = false;
+	public static final boolean multiVersion = false;
 	@AutoGen(category = "Optional")
 	@dev.isxander.yacl3.config.v2.api.autogen.Boolean(formatter = dev.isxander.yacl3.config.v2.api.autogen.Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
-	public static boolean multiLoaderBool = false;
+	public static final boolean multiLoaderBool = false;
 	@AutoGen(category = "Optional")
 	@EnumCycler
 	@SerialEntry
-	public static LoaderEnum multiLoader = LoaderEnum.FABRIC;
+	public static final LoaderEnum multiLoader = LoaderEnum.FABRIC;
 	@AutoGen(category = "Optional")
 	@dev.isxander.yacl3.config.v2.api.autogen.Boolean(formatter = dev.isxander.yacl3.config.v2.api.autogen.Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
-	public static boolean useModpackName = false;
+	public static final boolean useModpackName = false;
 	@AutoGen(category = "Optional")
 	@StringField
 	@SerialEntry
-	public static String modpackName = "Default";
+	public static final String modpackName = "Default";
 	@AutoGen(category = "Optional")
 	@dev.isxander.yacl3.config.v2.api.autogen.Boolean(formatter = dev.isxander.yacl3.config.v2.api.autogen.Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
-	public static boolean useCustomMessage = false;
+	public static final boolean useCustomMessage = false;
 	@AutoGen(category = "Optional")
 	@StringField
 	@SerialEntry
-	public static String customMessage = "This is a custom message!";
+	public static final String customMessage = "This is a custom message!";
 	@AutoGen(category = "Optional")
 	@EnumCycler
 	@SerialEntry
-	public static ColorEnum messageColor = ColorEnum.WHITE;
+	public static final ColorEnum messageColor = ColorEnum.WHITE;
 	@AutoGen(category = "Optional")
 	@dev.isxander.yacl3.config.v2.api.autogen.Boolean(formatter = dev.isxander.yacl3.config.v2.api.autogen.Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
-	public static boolean linkChangelog = false;
+	public static final boolean linkChangelog = false;
 	@AutoGen(category = "Optional")
 	@EnumCycler
 	@SerialEntry
-	public static ColorEnum changelogColor = ColorEnum.RED;
+	public static final ColorEnum changelogColor = ColorEnum.RED;
 	@AutoGen(category = "Optional")
 	@EnumCycler
 	@SerialEntry
-	public static ColorEnum ignoreColor = ColorEnum.GRAY;
+	public static final ColorEnum ignoreColor = ColorEnum.GRAY;
 }

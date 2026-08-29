@@ -3,3 +3,4 @@
 - Toast for update notifications
   - Allow customization
 - Greater update notification button customizations
+- Address as many of the spotbugs issues as possible

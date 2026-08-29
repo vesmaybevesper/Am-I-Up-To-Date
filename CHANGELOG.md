@@ -1,1 +1,3 @@
-- 26.3 full release
+- Enable FancyMenu on Forge 1.20.1
+  - This was being kind of weird please let me know if there are any issue with it
+- Really minor code tweaks

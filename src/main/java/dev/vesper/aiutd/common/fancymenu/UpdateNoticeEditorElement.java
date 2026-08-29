@@ -1,6 +1,6 @@
 package dev.vesper.aiutd.common.fancymenu;
 
-//? 1.20.1 && !forge || 1.21.1 || >= 1.21.11{
+//? 1.20.1 || 1.21.1 || >= 1.21.11{
 import de.keksuccino.fancymenu.customization.action.ui.ActionScriptEditorWindowBody;
 import de.keksuccino.fancymenu.customization.element.editor.AbstractEditorElement;
 import de.keksuccino.fancymenu.customization.layout.editor.LayoutEditorScreen;
@@ -229,5 +229,20 @@ public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>
 	protected UpdateNoticeElement getElement() {
 		return this.element;
 	}
+
+	//? if forge {
+	/*@Override
+	public void render(GuiGraphics guiGraphics, int i, int i1, float v) {
+	}
+
+	@Override
+	public void setFocused(boolean b) {
+	}
+
+	@Override
+	public boolean isFocused() {
+		return false;
+	}
+	*///?}
 }
 //?}

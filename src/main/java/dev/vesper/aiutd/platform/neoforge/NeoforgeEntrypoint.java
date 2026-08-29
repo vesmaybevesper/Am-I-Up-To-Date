@@ -46,10 +46,10 @@ public class NeoforgeEntrypoint {
 			private static int shouldIgnore(CommandContext<?> context) {
 				assert Minecraft.getInstance().player != null;
 				//? >=26.1{
-				Minecraft.getInstance().player.sendSystemMessage(Component.translatable("aiutd.msgsIgnored"));
-				//?} <= 1.21.11{
-				/^Minecraft.getInstance().player.displayClientMessage(Component.translatable("aiutd.msgsIgnored"), false);
-				^///?}
+				/^Minecraft.getInstance().player.sendSystemMessage(Component.translatable("aiutd.msgsIgnored"));
+				^///?} <= 1.21.11{
+				Minecraft.getInstance().player.displayClientMessage(Component.translatable("aiutd.msgsIgnored"), false);
+				//?}
 				EndUserConfig.shouldIgnore = true;
 				EndUserConfig.USERCONFIG.save();
 				return 1;
