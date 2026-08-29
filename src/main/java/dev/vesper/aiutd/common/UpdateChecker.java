@@ -14,6 +14,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.Objects;
 
 import static dev.vesper.aiutd.common.config.Config.multiLoader;
@@ -32,10 +33,19 @@ public class UpdateChecker {
 	@Nullable
 	public static String getVersionNumber() throws URISyntaxException, IOException {
 		clientVersion = Minecraft.getInstance().getLaunchedVersion();
-		URI url = new URI(AIUTD.modrinthApiLink);
+		URI url = new URI(AIUTD.getApiLink());
 		StringBuilder result = new StringBuilder();
 
+		URL parsed = URI.create(AIUTD.getApiLink()).toURL();
+		if (!"api.modrinth.com".equalsIgnoreCase(parsed.getHost()) || !"https".equals(parsed.getProtocol())) {
+			throw new SecurityException("Invalid URL for update check: " + parsed.getHost());
+		}
+
 		HttpURLConnection urlConnection = (HttpURLConnection) url.toURL().openConnection();
+		urlConnection.setConnectTimeout(5000);
+		urlConnection.setReadTimeout(5000);
+		urlConnection.setInstanceFollowRedirects(false);
+
 		urlConnection.setRequestMethod("GET");
 		urlConnection.setRequestProperty("User-Agent", "Mozilla/5.0");
 
@@ -108,18 +118,19 @@ public class UpdateChecker {
 			JSONObject version = versionsArray.getJSONObject(i);
 			if (version == null) continue;
 
-			JSONArray gameVersions = version.getJSONArray("game_versions");
-			JSONArray loaders = version.getJSONArray("loaders");
-
 			if (multiLoaderBool && multiVersion){
+				JSONArray loaders = version.getJSONArray("loaders");
+				JSONArray gameVersions = version.getJSONArray("game_versions");
 				if (matchesGameVersion(gameVersions) && matchesLoader(loaders)){
 					return version;
 				}
 			} else if (multiLoaderBool){
+				JSONArray loaders = version.getJSONArray("loaders");
 				if (matchesLoader(loaders)){
 					return version;
 				}
 			} else if (multiVersion){
+				JSONArray gameVersions = version.getJSONArray("game_versions");
 				if (matchesGameVersion(gameVersions)){
 					return version;
 				}

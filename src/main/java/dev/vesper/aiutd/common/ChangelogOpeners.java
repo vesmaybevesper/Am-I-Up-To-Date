@@ -20,18 +20,23 @@ public class ChangelogOpeners {
 
 	public static void browser(){
 		try {
-			URI url = new URI(AIUTD.changelogLink);
+			URI url = new URI(AIUTD.getChangelogLink());
 			// Check if the browser can be opened
 			if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
 				Desktop.getDesktop().browse(url);
 			} else {
 				// fallback link opening logic to try again
 				String os = System.getProperty("os.name").toLowerCase();
+				String osKey = os.contains("win") ? "win"
+						: os.contains("mac") ? "mac"
+						: (os.contains("nux") || os.contains("nix")) ? "nix"
+						: "unsupported";
 				try {
-					switch (os){
-						case "win" -> Runtime.getRuntime().exec(new String[]{"rundll32", "url.dll,FileProtocolHandler", AIUTD.changelogLink});
-						case "mac" -> Runtime.getRuntime().exec(new String[]{"open", AIUTD.changelogLink});
-						case "nix", "nux" -> Runtime.getRuntime().exec(new String[]{"xdg-open", AIUTD.changelogLink});
+					switch (osKey){
+						case "win" -> Runtime.getRuntime().exec(new String[]{"rundll32", "url.dll,FileProtocolHandler", AIUTD.getChangelogLink()});
+						case "mac" -> Runtime.getRuntime().exec(new String[]{"open", AIUTD.getChangelogLink()});
+						// I have a feeling this fallback isn't robust enough the handle all linux distros, but from my experience it works fine with the main open command
+						case "nix" -> Runtime.getRuntime().exec(new String[]{"xdg-open", AIUTD.getChangelogLink()});
 						default -> AIUTD.LOG.error("Your OS is currently unsupported for link opening, please open an issue on the AIUTD GitHub with information on it");
 					}
 				} catch (IOException e) {

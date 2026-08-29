@@ -1,3 +1,4 @@
-- Enable FancyMenu on Forge 1.20.1
-  - This was being kind of weird please let me know if there are any issue with it
-- Really minor code tweaks
+- I did it again
+  - "it" being forgot to remove a condition canceling out the init for FancyMenu on a version (Forge 1.20.1)
+- A bunch of code tweaks
+  - Should be fewer chances of errors, better error messages when they happen, and it's slightly more efficient!
