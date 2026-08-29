@@ -5,7 +5,7 @@ import dev.vesper.aiutd.common.UpdateChecker;
 import dev.vesper.aiutd.common.Variables;
 import dev.vesper.aiutd.common.config.Config;
 import dev.vesper.aiutd.common.config.EndUserConfig;
-//? 1.20.1 && !forge || 1.21.1 || >= 1.21.11{
+//? 1.20.1 || 1.21.1 || >= 1.21.11{
 import dev.vesper.aiutd.common.fancymenu.FancyMenuIntegration;
 //?}
 import dev.vesper.aiutd.platform.Platform;
@@ -15,7 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.Objects;
+import java.net.URLEncoder;import java.nio.charset.StandardCharsets;import java.util.Objects;
 
 import static dev.vesper.aiutd.common.config.Config.localVersion;
 
@@ -35,12 +35,12 @@ import net.minecraftforge.fml.ModList;
 public class AIUTD {
 
 	public static final String MOD_ID = /*$ mod_id*/ "aiutd";
-	public static final String MOD_VERSION = /*$ mod_version*/ "2.5.8";
+	public static final String MOD_VERSION = /*$ mod_version*/ "2.5.9";
 	public static final String MOD_FRIENDLY_NAME = /*$ mod_name*/ "Am I Up To Date?";
 	public static final Logger LOG = LoggerFactory.getLogger(MOD_ID);
 	public static boolean hasNotified = false;
-	public static String modrinthApiLink;
-	public static String changelogLink;
+	private static String modrinthApiLink;
+	private static String changelogLink;
 
 	private static final Platform PLATFORM = createPlatformInstance();
 
@@ -53,13 +53,15 @@ public class AIUTD {
 		LOG.info("Initializing {} Client on {}", MOD_ID, AIUTD.xplat().loader());
 		LOG.debug("{}: { version: {}; friendly_name: {} }", MOD_ID, MOD_VERSION, MOD_FRIENDLY_NAME);
 		Config.HANDLER.load();
-		changelogLink = "https://modrinth.com/modpack/" + Config.modpackId + "/changelog".trim();
-		modrinthApiLink = "https://api.modrinth.com/v2/project/" + Config.modpackId + "/version?include_changelog=false".trim();
+		String encodedId = URLEncoder.encode(Config.modpackId, StandardCharsets.UTF_8);
+		changelogLink = "https://modrinth.com/modpack/" + encodedId + "/changelog".trim();
+		modrinthApiLink = "https://api.modrinth.com/v2/project/" + encodedId + "/version?include_changelog=false".trim();
 
 		Config.HANDLER.load();
 		EndUserConfig.USERCONFIG.load();
 		try {
 			if (!UpdateChecker.hasChecked){
+				// This says it's always true as our default config has a blank string, can be safely ignored
 				if (Config.modpackId.isEmpty()) {
 					UpdateChecker.needUpdate = false;
 					return;
@@ -72,7 +74,7 @@ public class AIUTD {
 		//? fabric{
 		ChatMessages.sendChatMessage();
 		//?}
-		//? 1.20.1 && !forge || 1.21.1 || >= 1.21.11{
+		//? 1.20.1 || 1.21.1 || >= 1.21.11{
 		if (isModLoaded("fancymenu")) {
 			FancyMenuIntegration.init();
 		}
@@ -121,5 +123,13 @@ public class AIUTD {
 		*///?} forge {
 		/*return ModList.get().isLoaded(modid);
 		*///?}
+	}
+
+	public static String getApiLink(){
+		return modrinthApiLink;
+	}
+
+	public static String getChangelogLink(){
+		return changelogLink;
 	}
 }
