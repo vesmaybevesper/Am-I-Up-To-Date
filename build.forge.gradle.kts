@@ -1,7 +1,7 @@
 plugins {
 	id("mod-platform")
 	id("net.neoforged.moddev.legacyforge")
-	id("com.github.spotbugs") version "6.5.9"
+	//id("com.github.spotbugs") version "6.5.9"
 }
 
 stonecutter {
@@ -15,11 +15,20 @@ stonecutter {
 	replacements.string(current.parsed >= "1.20.1"){
 		replace("deserializeWithResourceLocation", "deserializeWithIdentifier")
 	}
+	replacements.string(current.parsed >= "1.20.1"){
+		replace("cefBrowser.getResourceLocation", "cefBrowser.getIdentifier")
+	}
+	replacements.string(current.parsed >= "1.20.1"){
+		replace("browser.getResourceLocation", "browser.getIdentifier")
+	}
+	replacements.string(current.parsed >= "1.20.1"){
+		replace("browser.getTextureResourceLocation", "browser.getTextureIdentifier")
+	}
 }
 
-/*tasks.withType<Javadoc>().configureEach {
+tasks.withType<Javadoc>().configureEach {
 	(options as StandardJavadocDocletOptions).addStringOption("Xdoclint:-missing", "-quiet")
-}*/
+}
 
 platform {
 	loader = "forge"
@@ -42,13 +51,17 @@ platform {
 			slug("fancymenu")
 			forgeLikeVersionRange = ">=${prop("deps.fancymenu")}"
 		}
+		optional("rinku") {
+			slug("rinku")
+			fabricLikeVersionRange = ">=${prop("deps.rinku")}"
+		}
 	}
 }
 
-spotbugs{
+/*spotbugs{
 	version="4.10.3"
 	ignoreFailures=true
-}
+}*/
 
 legacyForge {
 	version = "${prop("deps.minecraft")}-${prop("deps.forge")}"
@@ -99,10 +112,10 @@ repositories {
 
 dependencies {
 	annotationProcessor("org.spongepowered:mixin:${libs.versions.mixin.get()}:processor")
-	spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0")
+	//spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0")
 	implementation("maven.modrinth:yacl:${property("deps.yet_another_config_lib_v3")}")
 	compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
-	//compileOnly("de.keksuccino:rinku-forge:${property("deps.rinku")}")
+	compileOnly("de.keksuccino:rinku-forge:${property("deps.rinku")}")
 	implementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson4yacl")}")
 	implementation("com.alibaba.fastjson2:fastjson2:2.0.64")
 	jarJar("com.alibaba.fastjson2:fastjson2:2.0.64")

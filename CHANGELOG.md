@@ -1,4 +1,7 @@
-- I did it again
-  - "it" being forgot to remove a condition canceling out the init for FancyMenu on a version (Forge 1.20.1)
-- A bunch of code tweaks
-  - Should be fewer chances of errors, better error messages when they happen, and it's slightly more efficient!
+- Add support for opening changelogs in game with [Rinku](https://modrinth.com/mod/rinku)
+  - Supported on 1.20.1, 1.21.1, 1.21.11, and >=26.1.2 (excluding snapshot builds)
+  - Select opening method in the config, either Browser or Rinku (Default: Browser)
+- The "Optional" config category is now called "Customization"
+- Add the option to make the menu update notice button smaller (90, 20 → 20, 20)
+  - My plan is to make this the default in the future, but I have another feature I want to implement first
+    - The icon on 1.20.1 is pretty bad right now that will be improved before making it the default

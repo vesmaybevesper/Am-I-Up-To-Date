@@ -5,7 +5,7 @@ package dev.vesper.aiutd.platform.neoforge;
 /*import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import dev.vesper.aiutd.AIUTD;
-import dev.vesper.aiutd.common.config.Config;
+import dev.vesper.aiutd.common.ChangelogOpeners;import dev.vesper.aiutd.common.config.Config;
 import dev.vesper.aiutd.common.config.EndUserConfig;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -46,12 +46,17 @@ public class NeoforgeEntrypoint {
 			private static int shouldIgnore(CommandContext<?> context) {
 				assert Minecraft.getInstance().player != null;
 				//? >=26.1{
-				Minecraft.getInstance().player.sendSystemMessage(Component.translatable("aiutd.msgsIgnored"));
-				//?} <= 1.21.11{
-				/^Minecraft.getInstance().player.displayClientMessage(Component.translatable("aiutd.msgsIgnored"), false);
-				^///?}
+				/^Minecraft.getInstance().player.sendSystemMessage(Component.translatable("aiutd.msgsIgnored"));
+				^///?} <= 1.21.11{
+				Minecraft.getInstance().player.displayClientMessage(Component.translatable("aiutd.msgsIgnored"), false);
+				//?}
 				EndUserConfig.shouldIgnore = true;
 				EndUserConfig.USERCONFIG.save();
+				return 1;
+			}
+
+			private static int rinkuOpen(CommandContext<?> context) {
+				ChangelogOpeners.rinku();
 				return 1;
 			}
 		}
@@ -64,6 +69,8 @@ public class NeoforgeEntrypoint {
 					Commands.literal("shouldIgnore")
 							.executes(RegisterCommand::shouldIgnore)
 			);
+			CommandDispatcher<CommandSourceStack> dispatcher2 = event.getDispatcher();
+			dispatcher2.register(Commands.literal("rinkuOpen").executes(RegisterCommand::rinkuOpen));
 		}
 	}
 }

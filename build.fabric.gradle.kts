@@ -2,7 +2,7 @@
 plugins {
 	id("mod-platform")
 	id("dev.kikugie.loom-back-compat")
-	id("com.github.spotbugs") version "6.5.9"
+	//id("com.github.spotbugs") version "6.5.9"
 }
 
 stonecutter {
@@ -19,11 +19,20 @@ stonecutter {
 	replacements.string(current.parsed >= "1.20.1"){
 		replace("deserializeWithResourceLocation", "deserializeWithIdentifier")
 	}
+	replacements.string(current.parsed >= "1.20.1"){
+		replace("cefBrowser.getResourceLocation", "cefBrowser.getIdentifier")
+	}
+	replacements.string(current.parsed >= "1.20.1"){
+		replace("browser.getResourceLocation", "browser.getIdentifier")
+	}
+	replacements.string(current.parsed >= "1.20.1"){
+		replace("browser.getTextureResourceLocation", "browser.getTextureIdentifier")
+	}
 }
 
-/*tasks.withType<Javadoc>().configureEach {
+tasks.withType<Javadoc>().configureEach {
 	(options as StandardJavadocDocletOptions).addStringOption("Xdoclint:-missing", "-quiet")
-}*/
+}
 
 platform {
 	loader = "fabric"
@@ -55,9 +64,10 @@ platform {
 				slug("fancymenu")
 				fabricLikeVersionRange = ">=${prop("deps.fancymenu")}"
 			}
-			/*optional("rinku") {
+			optional("rinku") {
+				slug("rinku")
 			fabricLikeVersionRange = ">=${prop("deps.rinku")}"
-		}*/
+		}
 		}
 	}
 }
@@ -81,10 +91,10 @@ loom {
 	}
 }
 
-spotbugs{
+/*spotbugs{
 	version="4.10.3"
 	ignoreFailures=true
-}
+}*/
 
 fabricApi {
 	configureDataGeneration {
@@ -125,7 +135,7 @@ dependencies {
 	// include(libs.moulberry.mixinconstraints)
 	modImplementation("net.fabricmc.fabric-api:fabric-api:${prop("deps.fabric-api")}")
 	modCompileOnly("com.terraformersmc:modmenu:${prop("deps.modmenu")}")
-	spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0")
+	//spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0")
 	modImplementation("maven.modrinth:yacl:${property("deps.yet_another_config_lib_v3")}")
 	modCompileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
 	modCompileOnly("de.keksuccino:rinku-fabric:${property("deps.rinku")}")

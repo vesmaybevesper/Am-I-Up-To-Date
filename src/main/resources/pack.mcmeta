@@ -1,6 +1,12 @@
 {
 	"pack": {
 		"pack_format": 15,
-		"description": "stonecutter-mod-template Resources"
+		"supported_formats": {
+			"min_inclusive": 15,
+			"max_inclusive": 999
+		},
+		"min_format": 15,
+		"max_format": 999,
+		"description": "Am I Up To Date? Resources"
 	}
 }

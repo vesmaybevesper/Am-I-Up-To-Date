@@ -1,6 +1,15 @@
 package dev.vesper.aiutd.common;
 
 import dev.vesper.aiutd.AIUTD;
+//? if 1.20.1
+//import dev.vesper.aiutd.common.rinku.RinkuWindow201;
+//? if 1.21.1 && fabric
+//import dev.vesper.aiutd.common.rinku.RinkuWindow211;
+//? if 1.21.11 && fabric
+//import dev.vesper.aiutd.common.rinku.RinkuWindow11;
+//? if >=26.1 && ! 26.3
+import dev.vesper.aiutd.common.rinku.RinkuWindow26;
+import dev.vesper.aiutd.common.config.Config;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 
@@ -10,13 +19,19 @@ import java.net.URI;
 
 public class ChangelogOpeners {
 
-	/*public static void rinku(){
-		//? <26.2{
-		Minecraft.getInstance().setScreen(new RinkuWindow(Component.literal("Modpack Changelog")));
-		//?} >=26.2{
-		*//*Minecraft.getInstance().gui.setScreen(new RinkuWindow(Component.literal("Modpack Changelog")));
-		*//*//?}
-	}*/
+	public static void rinku(){
+		//? 1.20.1 {
+			/*Minecraft.getInstance().setScreen(new RinkuWindow201(Component.empty()));
+		*///?} 1.21.1 && fabric{
+			/*Minecraft.getInstance().setScreen(new RinkuWindow211(Component.empty()));
+		*///?} 1.21.11 && fabric{
+			/*Minecraft.getInstance().setScreenAndShow(new RinkuWindow11(Component.empty()));
+		*///?} >=26.1 && !26.3{
+			Minecraft.getInstance().setScreenAndShow(new RinkuWindow26(Component.empty()));
+		//?} else {
+			/*AIUTD.LOG.error("Rinku window opening should never be called on this version!");
+		*///?}
+	}
 
 	public static void browser(){
 		try {
@@ -52,4 +67,15 @@ public class ChangelogOpeners {
 
 	}
 
+    public static void pick() {
+		if (Config.openingMethod == Config.LinkMethod.BROWSER) {
+			ChangelogOpeners.browser();
+		} else if (Config.openingMethod == Config.LinkMethod.RINKU){
+			if (!AIUTD.isModLoaded("rinku")){
+				AIUTD.LOG.error("Rinku opening was attempted without Rinku installed, falling back to browser!");
+				ChangelogOpeners.browser();
+			}
+			ChangelogOpeners.rinku();
+		}
+    }
 }

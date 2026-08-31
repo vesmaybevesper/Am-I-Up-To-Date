@@ -13,7 +13,9 @@ import de.keksuccino.fancymenu.customization.overlay.CustomizationOverlay;
 import de.keksuccino.fancymenu.customization.requirement.internal.RequirementContainer;
 import de.keksuccino.fancymenu.util.rendering.ui.widget.button.ExtendedButton;
 import de.keksuccino.fancymenu.util.threading.MainThreadTaskExecutor;
+import dev.vesper.aiutd.AIUTD;
 import dev.vesper.aiutd.common.ChangelogOpeners;
+import dev.vesper.aiutd.common.config.Config;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import org.jetbrains.annotations.NotNull;
@@ -39,7 +41,15 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
 				boolean isMousePressed = isAnyMouseButtonPressed();
 
 				if(element.openChangelogOnClick) {
-					ChangelogOpeners.browser();
+					if (Config.openingMethod == Config.LinkMethod.BROWSER) {
+						ChangelogOpeners.browser();
+					} else if (Config.openingMethod == Config.LinkMethod.RINKU){
+						if (!AIUTD.isModLoaded("rinku")){
+							AIUTD.LOG.error("Rinku opening was attempted without Rinku installed, falling back to browser!");
+							ChangelogOpeners.browser();
+						}
+						ChangelogOpeners.rinku();
+					}
 				}
 
 				element.getExecutableBlock().execute();

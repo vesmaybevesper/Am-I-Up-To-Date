@@ -1,37 +1,24 @@
-/*
 package dev.vesper.aiutd.common.rinku;
 
-//? 1.20.1 || 1.21.1 || >=1.21.11{
-import de.keksuccino.rinku.Rinku;
+//? 1.21.1 && fabric{
+/*import de.keksuccino.rinku.Rinku;
 import de.keksuccino.rinku.RinkuBrowser;
-import dev.vesper.aiutd.AIUTD;
+import de.keksuccino.rinku.RinkuBrowserTextureBlitter;
+import net.minecraft.Util;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 import org.cef.browser.CefBrowser;
 import org.cef.browser.CefFrame;
 import org.cef.handler.CefDisplayHandler;
 import org.cef.handler.CefDisplayHandlerAdapter;
+import org.jetbrains.annotations.NotNull;
 import org.lwjgl.glfw.GLFW;
 
-//?} >=26.1{
-*/
-/*import net.minecraft.client.gui.GuiGraphicsExtractor;
-*//*
-//?} >=1.21.11{
-*/
-/*import net.minecraft.client.input.CharacterEvent;
-import net.minecraft.client.input.KeyEvent;
-import net.minecraft.client.input.MouseButtonEvent;
-import net.minecraft.client.renderer.RenderPipelines;
-import net.minecraft.util.Util;
-*//*
-//?}
-
-public class RinkuWindow extends Screen {
-
+public class RinkuWindow211 extends Screen {
 	private static final int FRAME_MARGIN = 20;
 	private static final int NAV_BAR_HEIGHT = 20;
 	private static final int NAV_BAR_GAP = 6;
@@ -40,7 +27,7 @@ public class RinkuWindow extends Screen {
 	private static final int LOADING_BAR_HEIGHT = 2;
 	private static final int LOADING_BAR_TRACK_COLOR = 0x55000000;
 	private static final int LOADING_BAR_FILL_COLOR = 0xFF3BA8FF;
-	private static final String DEFAULT_URL = AIUTD.changelogLink;
+	private static final String DEFAULT_URL = "https://www.google.com";
 
 	private RinkuBrowser browser;
 	private EditBox urlBox;
@@ -49,32 +36,32 @@ public class RinkuWindow extends Screen {
 	private Button reloadButton;
 	private CefDisplayHandler addressBarDisplayHandler;
 
-	public RinkuWindow(Component title) {
-		super(title);
+	public RinkuWindow211(Component component) {
+		super(component);
 	}
 
 	@Override
 	protected void init() {
 		super.init();
-		if (browser == null){
+		if (browser == null) {
 			boolean transparent = true;
 			browser = Rinku.createBrowser(DEFAULT_URL, transparent);
 		}
-		registerAddressBarDisplayHandler();
+		//registerAddressBarDisplayHandler();
 		initNavigationWidgets();
 		resizeBrowser();
 		refreshNavigationState();
 	}
 
-	private  void registerAddressBarDisplayHandler() {
+	/^private void registerAddressBarDisplayHandler() {
 		if (addressBarDisplayHandler != null) {
 			return;
 		}
 
 		addressBarDisplayHandler = new CefDisplayHandlerAdapter() {
 			@Override
-			public void onAddressChange(CefBrowser cefBrowser, CefFrame cefFrame, String url) {
-				if (browser == null || cefBrowser == null || cefFrame == null || !cefFrame.isMain()) {
+			public void onAddressChange(CefBrowser cefBrowser, CefFrame frame, String url) {
+				if (browser == null || cefBrowser == null || frame == null || !frame.isMain()) {
 					return;
 				}
 				if (cefBrowser.getIdentifier() != browser.getIdentifier()) {
@@ -82,8 +69,8 @@ public class RinkuWindow extends Screen {
 				}
 
 				minecraft.execute(() -> {
-					if (minecraft.gui.screen() != RinkuWindow.this || urlBox == null || url == null || url.isBlank()) {
-					return;
+					if (minecraft.screen != RinkuWindow211.this || urlBox == null || url == null || url.isBlank()) {
+						return;
 					}
 					if (!url.equals(urlBox.getValue())) {
 						urlBox.setValue(url);
@@ -92,9 +79,9 @@ public class RinkuWindow extends Screen {
 			}
 		};
 		Rinku.getClient().addDisplayHandler(addressBarDisplayHandler);
-	}
+	}^/
 
-	private  void initNavigationWidgets() {
+	private void initNavigationWidgets() {
 		int navX = FRAME_MARGIN;
 		int navY = FRAME_MARGIN;
 
@@ -163,17 +150,17 @@ public class RinkuWindow extends Screen {
 	}
 
 	@Override
-	public void resize(int width, int height) {
-		super.resize(width, height);
+	public void resize(@NotNull Minecraft minecraft, int width, int height) {
+		super.resize(minecraft, width, height);
 		resizeBrowser();
 	}
 
 	@Override
 	public void onClose() {
-		if (addressBarDisplayHandler != null && Rinku.isInitialized()) {
+		/^if (addressBarDisplayHandler != null && Rinku.isInitialized()) {
 			Rinku.getClient().removeDisplayHandler(addressBarDisplayHandler);
 		}
-		addressBarDisplayHandler = null;
+		addressBarDisplayHandler = null;^/
 		browser.close();
 		super.onClose();
 	}
@@ -185,13 +172,19 @@ public class RinkuWindow extends Screen {
 	}
 
 	private void refreshNavigationState() {
-		if (browser == null) return;
+		if (browser == null) {
+			return;
+		}
 
-		if (backButton != null) backButton.active = browser.canGoBack();
-
-		if (forwardButton != null) forwardButton.active = browser.canGoForward();
-
-		if (reloadButton != null) reloadButton.active = true;
+		if (backButton != null) {
+			backButton.active = browser.canGoBack();
+		}
+		if (forwardButton != null) {
+			forwardButton.active = browser.canGoForward();
+		}
+		if (reloadButton != null) {
+			reloadButton.active = true;
+		}
 
 		if (urlBox != null && !urlBox.isFocused()) {
 			String currentUrl = browser.getURL();
@@ -228,35 +221,33 @@ public class RinkuWindow extends Screen {
 		return "https://" + input;
 	}
 
-	@Override
-	public void extractRenderState(@NonNull GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
-		super.extractRenderState(graphics, mouseX, mouseY, a);
-		renderLoadingIndicator(graphics);
-
-		if (browser != null && browser.isTextureReady()) renderBrowserTexture(graphics);
+	private void clearNavigationFocus() {
+		setFocused(null);
+		if (backButton != null) backButton.setFocused(false);
+		if (forwardButton != null) forwardButton.setFocused(false);
+		if (reloadButton != null) reloadButton.setFocused(false);
+		if (urlBox != null) urlBox.setFocused(false);
 	}
 
-	private void renderBrowserTexture(GuiGraphicsExtractor graphics){
-		Identifier textureLocation = browser.getTextureIdentifier();
-		if (textureLocation == null) return;
+	@Override
+	public void render(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY, float partial) {
+		super.render(guiGraphics, mouseX, mouseY, partial);
+		renderLoadingIndicator(guiGraphics);
 
+		// Check if the browser texture is ready for rendering
+		if (browser != null && browser.isTextureReady()) {
+			renderBrowserTexture(guiGraphics);
+		}
+
+	}
+
+	private void renderBrowserTexture(GuiGraphics guiGraphics) {
 		int frameRenderWidth = getBrowserWidth();
 		int frameRenderHeight = getBrowserHeight();
-		graphics.blit(
-				RenderPipelines.GUI_TEXTURED,
-				textureLocation,
-				getBrowserX(),
-				getBrowserY(),
-				0.0F,
-				0.0F,
-				frameRenderWidth,
-				frameRenderHeight,
-				frameRenderWidth,
-				frameRenderHeight
-		);
+		RinkuBrowserTextureBlitter.blit(guiGraphics, browser, getBrowserX(), getBrowserY(), frameRenderWidth, frameRenderHeight);
 	}
 
-	private void renderLoadingIndicator(GuiGraphicsExtractor graphics) {
+	private void renderLoadingIndicator(GuiGraphics guiGraphics) {
 		if (browser == null || urlBox == null || !browser.isLoading()) {
 			return;
 		}
@@ -265,7 +256,7 @@ public class RinkuWindow extends Screen {
 		int barY = urlBox.getY() + 1;
 		int barWidth = urlBox.getWidth();
 		int barBottom = barY + LOADING_BAR_HEIGHT;
-		graphics.fill(barX, barY, barX + barWidth, barBottom, LOADING_BAR_TRACK_COLOR);
+		guiGraphics.fill(barX, barY, barX + barWidth, barBottom, LOADING_BAR_TRACK_COLOR);
 
 		int segmentWidth = Math.max(20, barWidth / 4);
 		int travelRange = barWidth + segmentWidth;
@@ -273,76 +264,77 @@ public class RinkuWindow extends Screen {
 		int segmentStart = Math.max(barX, barX + animatedOffset);
 		int segmentEnd = Math.min(barX + barWidth, barX + animatedOffset + segmentWidth);
 		if (segmentEnd > segmentStart) {
-			graphics.fill(segmentStart, barY, segmentEnd, barBottom, LOADING_BAR_FILL_COLOR);
+			guiGraphics.fill(segmentStart, barY, segmentEnd, barBottom, LOADING_BAR_FILL_COLOR);
 		}
 	}
 
 	@Override
-	public boolean mouseClicked(@NonNull MouseButtonEvent event, boolean doubleClick) {
-		boolean handled = super.mouseClicked(event, doubleClick);
+	public boolean mouseClicked(double mouseX, double mouseY, int button) {
+		boolean handled = super.mouseClicked(mouseX, mouseY, button);
 		if (handled) {
 			return true;
 		}
 
-		if (!isInBrowserBounds(event.x(), event.y())) {
+		if (!isInBrowserBounds(mouseX, mouseY)) {
 			return false;
 		}
 
-		browser.sendMousePress(mouseX(event.x()), mouseY(event.y()), event.button());
+		clearNavigationFocus();
+		browser.sendMousePress(mouseX(mouseX), mouseY(mouseY), button);
 		browser.setFocus(true);
 		return true;
 	}
 
 	@Override
-	public boolean mouseReleased(MouseButtonEvent event) {
-		boolean handled = super.mouseReleased(event);
+	public boolean mouseReleased(double mouseX, double mouseY, int button) {
+		boolean handled = super.mouseReleased(mouseX, mouseY, button);
 		if (handled) {
 			return true;
 		}
 
-		browser.sendMouseRelease(mouseX(event.x()), mouseY(event.y()), event.button());
+		browser.sendMouseRelease(this.mouseX(mouseX), this.mouseY(mouseY), button);
 		browser.setFocus(true);
 		return true;
 	}
 
 	@Override
-	public void mouseMoved(double x, double y) {
-		if (isInBrowserBounds(x, y)) {
-			browser.sendMouseMove(this.mouseX(x), this.mouseY(y));
+	public void mouseMoved(double mouseX, double mouseY) {
+		if (isInBrowserBounds(mouseX, mouseY)) {
+			browser.sendMouseMove(this.mouseX(mouseX), this.mouseY(mouseY));
 		}
-		super.mouseMoved(x, y);
+		super.mouseMoved(mouseX, mouseY);
 	}
 
 	@Override
-	public boolean mouseDragged(MouseButtonEvent event, double dx, double dy) {
-		return super.mouseDragged(event, dx, dy);
+	public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+		return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
 	}
 
 	@Override
-	public boolean mouseScrolled(double x, double y, double scrollX, double scrollY) {
-		boolean handled = super.mouseScrolled(x, y, scrollX, scrollY);
+	public boolean mouseScrolled(double mouseX, double mouseY, double scrollX, double scrollY) {
+		boolean handled = super.mouseScrolled(mouseX, mouseY, scrollX, scrollY);
 		if (handled) {
 			return true;
 		}
 
-		if (!isInBrowserBounds(x, y)) {
+		if (!isInBrowserBounds(mouseX, mouseY)) {
 			return false;
 		}
 
-		browser.sendMouseWheel(this.mouseX(x), this.mouseY(y), scrollY, 0);
+		browser.sendMouseWheel(this.mouseX(mouseX), this.mouseY(mouseY), scrollY, 0);
 		return true;
 	}
 
 	@Override
-	public boolean keyPressed(@NonNull KeyEvent event) {
-		if (urlBox != null && urlBox.isFocused() && (event.key() == GLFW.GLFW_KEY_ENTER || event.key() == GLFW.GLFW_KEY_KP_ENTER)) {
+	public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+		if (urlBox != null && urlBox.isFocused() && (keyCode == GLFW.GLFW_KEY_ENTER || keyCode == GLFW.GLFW_KEY_KP_ENTER)) {
 			navigateFromUrlField();
 			setFocused(null);
 			browser.setFocus(true);
 			return true;
 		}
 
-		if (super.keyPressed(event)) {
+		if (super.keyPressed(keyCode, scanCode, modifiers)) {
 			return true;
 		}
 
@@ -350,14 +342,14 @@ public class RinkuWindow extends Screen {
 			return true;
 		}
 
-		browser.sendKeyPress(event.key(), event.scancode(), event.modifiers());
+		browser.sendKeyPress(keyCode, scanCode, modifiers);
 		browser.setFocus(true);
 		return true;
 	}
 
 	@Override
-	public boolean keyReleased(@NonNull KeyEvent event) {
-		if (super.keyReleased(event)) {
+	public boolean keyReleased(int keyCode, int scanCode, int modifiers) {
+		if (super.keyReleased(keyCode, scanCode, modifiers)) {
 			return true;
 		}
 
@@ -365,14 +357,14 @@ public class RinkuWindow extends Screen {
 			return true;
 		}
 
-		browser.sendKeyRelease(event.key(), event.scancode(), event.modifiers());
+		browser.sendKeyRelease(keyCode, scanCode, modifiers);
 		browser.setFocus(true);
 		return true;
 	}
 
 	@Override
-	public boolean charTyped(CharacterEvent event) {
-		if (super.charTyped(event)) {
+	public boolean charTyped(char codePoint, int modifiers) {
+		if (super.charTyped(codePoint, modifiers)) {
 			return true;
 		}
 
@@ -380,11 +372,10 @@ public class RinkuWindow extends Screen {
 			return true;
 		}
 
-		if (event.codepoint() == (char) 0) return false;
-		browser.sendKeyTyped((char) event.codepoint(), 0);
+		if (codePoint == 0) return false;
+		browser.sendKeyTyped(codePoint, modifiers);
 		browser.setFocus(true);
 		return true;
 	}
 }
-//?}
-*/
+*///?}

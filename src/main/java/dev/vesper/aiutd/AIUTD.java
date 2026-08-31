@@ -5,9 +5,8 @@ import dev.vesper.aiutd.common.UpdateChecker;
 import dev.vesper.aiutd.common.Variables;
 import dev.vesper.aiutd.common.config.Config;
 import dev.vesper.aiutd.common.config.EndUserConfig;
-//? 1.20.1 || 1.21.1 || >= 1.21.11{
+//? if 1.20.1 || 1.21.1 || >= 1.21.11
 import dev.vesper.aiutd.common.fancymenu.FancyMenuIntegration;
-//?}
 import dev.vesper.aiutd.platform.Platform;
 import net.minecraft.resources.Identifier;
 
@@ -26,7 +25,7 @@ import net.fabricmc.loader.api.FabricLoader;
 /*import dev.vesper.aiutd.platform.neoforge.NeoforgePlatform;
 import net.neoforged.fml.ModList;
 import net.neoforged.bus.api.SubscribeEvent;
- *///?} forge{
+*///?} forge{
 /*import dev.vesper.aiutd.platform.forge.ForgePlatform;
 import net.minecraftforge.fml.ModList;
 *///?}
@@ -35,7 +34,7 @@ import net.minecraftforge.fml.ModList;
 public class AIUTD {
 
 	public static final String MOD_ID = /*$ mod_id*/ "aiutd";
-	public static final String MOD_VERSION = /*$ mod_version*/ "2.5.9";
+	public static final String MOD_VERSION = /*$ mod_version*/ "2.6.0";
 	public static final String MOD_FRIENDLY_NAME = /*$ mod_name*/ "Am I Up To Date?";
 	public static final Logger LOG = LoggerFactory.getLogger(MOD_ID);
 	public static boolean hasNotified = false;

@@ -2,8 +2,8 @@ package dev.vesper.aiutd.mixin;
 
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import dev.vesper.aiutd.AIUTD;
-import dev.vesper.aiutd.common.ChangelogOpeners;
-import net.minecraft.client.gui.components.Button;
+import dev.vesper.aiutd.common.Buttons;
+import dev.vesper.aiutd.common.config.Config;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.network.chat.Component;
@@ -50,13 +50,13 @@ public class TitleScreenMixin extends Screen {
 				/*buttonY = i;
 				*///?}
 			}
+
 			if (needUpdate && menuAlert){
-				this.addRenderableWidget(
-						Button.builder(Component.translatable("aiutd.menuNotice"), button -> {
-									ChangelogOpeners.browser();
-								})
-								.bounds(this.width / 2 - 100 + 205, buttonY, 90, 20)
-								.build());
+				if (Config.bigButton) {
+					this.addRenderableWidget(Buttons.largeButton(this.width / 2 - 100 + 205, buttonY));
+				} else {
+					this.addRenderableWidget(Buttons.smallButton(this.width / 2 - 100 + 205, buttonY));
+				}
 			}
 		}
 	}

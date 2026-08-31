@@ -5,7 +5,7 @@ package dev.vesper.aiutd.platform.forge;
 /*import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import dev.vesper.aiutd.AIUTD;
-import dev.vesper.aiutd.common.config.Config;
+import dev.vesper.aiutd.common.ChangelogOpeners;import dev.vesper.aiutd.common.config.Config;
 import dev.vesper.aiutd.common.config.EndUserConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.commands.CommandSourceStack;
@@ -45,6 +45,11 @@ public class ForgeEntrypoint {
 				EndUserConfig.USERCONFIG.save();
 				return 1;
 			}
+
+			private static int rinkuOpen(CommandContext<?> context){
+				ChangelogOpeners.rinku();
+				return 1;
+			}
 		}
 
 		@SubscribeEvent
@@ -55,6 +60,8 @@ public class ForgeEntrypoint {
 					Commands.literal("shouldIgnore")
 							.executes(RegisterCommand::shouldIgnore)
 			);
+			CommandDispatcher<CommandSourceStack> dispatcher2 = event.getDispatcher();
+			dispatcher2.register(Commands.literal("rinkuOpen").executes(RegisterCommand::rinkuOpen));
 		}
 	}
 }
