@@ -66,8 +66,8 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
 		//? >=1.21.11{
 		long window = Minecraft.getInstance().getWindow().handle();
 		//?} <= 1.21.1{
-		/*long window = Minecraft.getInstance().getWindow().getWindow();
-		*///?}
+		//long window = Minecraft.getInstance().getWindow().getWindow();
+		//?}
 
 		//? <26.3{
         return GLFW.glfwGetMouseButton(window, GLFW.GLFW_MOUSE_BUTTON_LEFT) == GLFW.GLFW_PRESS

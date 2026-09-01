@@ -13,8 +13,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import org.jetbrains.annotations.NotNull;
 //? forge{
-/*import net.minecraft.client.gui.GuiGraphics;
-*///?}
+//import net.minecraft.client.gui.GuiGraphics;
+//?}
 
 public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>, N extends UpdateNoticeElement> extends AbstractEditorElement<E, N> {
 	public UpdateNoticeEditorElement(@NotNull N element, @NotNull LayoutEditorScreen editor) {
@@ -32,14 +32,14 @@ public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>
 					this.getElement().actionExecutor = call;
 				}
 				//? <26.2{
-				/*Minecraft.getInstance().setScreen(this.editor);
-				 *///?} >=26.2{
+				//Minecraft.getInstance().setScreen(this.editor);
+				 //?} >=26.2{
 				Minecraft.getInstance().setScreenAndShow(this.editor);
 				//?}
 			});
 			//? <26.2{
-			/*Minecraft.getInstance().setScreen(s);
-			 *///?} >=26.2{
+			//Minecraft.getInstance().setScreen(s);
+			 //?} >=26.2{
 			Minecraft.getInstance().setScreenAndShow(s);
 			//?}
 		})).setTooltipSupplier(((contextMenu, contextMenuEntry) -> UITooltip.of(LocalizationUtils.splitLocalizedLines("fancymenu.editor.elements.button.manage_actions.desc")))).setIcon(ContextMenu.IconFactory.getIcon("script")).setStackable(false);
@@ -51,14 +51,14 @@ public class UpdateNoticeEditorElement<E extends UpdateNoticeEditorElement<?, ?>
 					this.getElement().activeStateSupplier = call;
 				}
 				//? <26.2{
-				/*Minecraft.getInstance().setScreen(this.editor);
-				 *///?} >=26.2{
+				//Minecraft.getInstance().setScreen(this.editor);
+				 //?} >=26.2{
 				Minecraft.getInstance().setScreenAndShow(this.editor);
 				//?}
 			});
 			//? <26.2{
-			/*Minecraft.getInstance().setScreen(s);
-			 *///?} >=26.2{
+			//Minecraft.getInstance().setScreen(s);
+			 //?} >=26.2{
 			Minecraft.getInstance().setScreenAndShow(s);
 			//?}
 		})).setTooltipSupplier(((contextMenu, contextMenuEntry) -> UITooltip.of(LocalizationUtils.splitLocalizedLines("fancymenu.elements.button.active_state_controller.desc")))).setStackable(false);

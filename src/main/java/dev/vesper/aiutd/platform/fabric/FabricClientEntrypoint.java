@@ -10,8 +10,8 @@ import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallba
 //? >=26.1{
 import net.fabricmc.fabric.api.client.command.v2.ClientCommands;
 //?} <=1.21.11{
-/*import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
-*///?}
+//import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
+//?}
 import net.minecraft.client.Minecraft;import net.minecraft.network.chat.Component;
 
 @Entrypoint("client")

@@ -6,6 +6,7 @@ import dev.isxander.yacl3.config.v2.api.autogen.AutoGen;
 import dev.isxander.yacl3.config.v2.api.autogen.Boolean;
 import dev.isxander.yacl3.config.v2.api.autogen.EnumCycler;
 import dev.isxander.yacl3.config.v2.api.autogen.IntField;
+import dev.isxander.yacl3.config.v2.api.autogen.LongField;
 import dev.isxander.yacl3.config.v2.api.autogen.StringField;
 import dev.isxander.yacl3.platform.YACLPlatform;
 import dev.vesper.fastjson4yacl.Serializers.FastJsonJson.FastJsonConfigSerializerBuilder;
@@ -62,12 +63,36 @@ public class Config {
 	@SerialEntry
 	//?}
 	public static LinkMethod openingMethod = LinkMethod.BROWSER;
+	@AutoGen(category = "Main")
+	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
+	@SerialEntry
+	public static boolean showToast = true;
 
 	// Customization Settings
 	@AutoGen(category = "Optional")
 	@Boolean(formatter =  Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
 	public static boolean bigButton = true;
+	@AutoGen(category = "Optional")
+	@Boolean(formatter =  Boolean.Formatter.ON_OFF, colored = true)
+	@SerialEntry
+	public static boolean customToastMessage = false;
+	@AutoGen(category = "Optional")
+	@StringField
+	@SerialEntry
+	public static String toastMessage = "";
+	@AutoGen(category = "Optional")
+	@Boolean(formatter =  Boolean.Formatter.ON_OFF, colored = true)
+	@SerialEntry
+	public static boolean customToastTitle = false;
+	@AutoGen(category = "Optional")
+	@StringField
+	@SerialEntry
+	public static String toastTitle = "";
+	@AutoGen(category = "Optional")
+	@LongField
+	@SerialEntry
+	public static long toastDisplayTime = 5000L;
 	@AutoGen(category = "Optional")
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry

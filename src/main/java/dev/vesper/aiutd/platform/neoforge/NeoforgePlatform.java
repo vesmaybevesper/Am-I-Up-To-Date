@@ -1,8 +1,8 @@
 package dev.vesper.aiutd.platform.neoforge;
 
 //? neoforge {
-
-/*import dev.vesper.aiutd.platform.Platform;
+/*
+import dev.vesper.aiutd.platform.Platform;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLLoader;
 import net.neoforged.fml.loading.VersionInfo;
@@ -26,7 +26,7 @@ public class NeoforgePlatform implements Platform {
 
 	@Override
 	public boolean isDevelopmentEnvironment() {
-		return !FMLLoader/^? if > 1.21.7 {^//^.getCurrent()^//^?}^/.isProduction();
+		return !FMLLoader/^? if > 1.21.7 {^/.getCurrent()/^?}^/.isProduction();
 	}
 }
 *///?}

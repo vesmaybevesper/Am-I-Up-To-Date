@@ -33,9 +33,9 @@ import net.minecraftforge.fml.ModList;
 @SuppressWarnings("LoggingSimilarMessage")
 public class AIUTD {
 
-	public static final String MOD_ID = /*$ mod_id*/ "aiutd";
-	public static final String MOD_VERSION = /*$ mod_version*/ "2.6.0";
-	public static final String MOD_FRIENDLY_NAME = /*$ mod_name*/ "Am I Up To Date?";
+	public static final String MOD_ID = /*$ mod_id*/"aiutd";
+	public static final String MOD_VERSION = /*$ mod_version*/"2.6.0";
+	public static final String MOD_FRIENDLY_NAME = /*$ mod_name*/"Am I Up To Date?";
 	public static final Logger LOG = LoggerFactory.getLogger(MOD_ID);
 	public static boolean hasNotified = false;
 	private static String modrinthApiLink;
@@ -88,40 +88,40 @@ public class AIUTD {
 		//? fabric {
 		return new FabricPlatform();
 		//?} neoforge {
-		/*return new NeoforgePlatform();
-		 *///?} forge {
-		/*return new ForgePlatform();
-		 *///?}
+		//return new NeoforgePlatform();
+		 //?} forge {
+		//return new ForgePlatform();
+		 //?}
 	}
 
 	private static Identifier id(String path) {
 		//? 1.20.1{
-		/*return Identifier.tryBuild(MOD_ID, path);
-		*///?} > 1.20.1 {
+		//return Identifier.tryBuild(MOD_ID, path);
+		//?} > 1.20.1 {
 		return Identifier.fromNamespaceAndPath(MOD_ID, path);
 		 //?} <= 1.19.2 {
-		/*return new Identifier(MOD_ID, path);
-		*///?}
+		//return new Identifier(MOD_ID, path);
+		//?}
 	}
 
 	private static Identifier id(String namespace, String path) {
 		//? 1.20.1 {
-		/*return Identifier.tryBuild(namespace, path);
-		*///?} > 1.20.1 {
+		//return Identifier.tryBuild(namespace, path);
+		//?} > 1.20.1 {
 		return Identifier.fromNamespaceAndPath(namespace, path);
 		 //?} <= 1.19.2 {
-		/*return new Identifier(namespace, path);
-		*///?}
+		//return new Identifier(namespace, path);
+		//?}
 	}
 
 	public static boolean isModLoaded(String modid) {
 		//? fabric {
 		 return FabricLoader.getInstance().isModLoaded(modid);
 		//?} neoforge {
-		/*return ModList.get().isLoaded(modid);
-		*///?} forge {
-		/*return ModList.get().isLoaded(modid);
-		*///?}
+		//return ModList.get().isLoaded(modid);
+		//?} forge {
+		//return ModList.get().isLoaded(modid);
+		//?}
 	}
 
 	public static String getApiLink(){

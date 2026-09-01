@@ -21,16 +21,16 @@ public class ChangelogOpeners {
 
 	public static void rinku(){
 		//? 1.20.1 {
-			/*Minecraft.getInstance().setScreen(new RinkuWindow201(Component.empty()));
-		*///?} 1.21.1 && fabric{
-			/*Minecraft.getInstance().setScreen(new RinkuWindow211(Component.empty()));
-		*///?} 1.21.11 && fabric{
-			/*Minecraft.getInstance().setScreenAndShow(new RinkuWindow11(Component.empty()));
-		*///?} >=26.1 && !26.3{
+			//Minecraft.getInstance().setScreen(new RinkuWindow201(Component.empty()));
+		//?} 1.21.1 && fabric{
+			//Minecraft.getInstance().setScreen(new RinkuWindow211(Component.empty()));
+		//?} 1.21.11 && fabric{
+			//Minecraft.getInstance().setScreenAndShow(new RinkuWindow11(Component.empty()));
+		//?} >=26.1 && !26.3{
 			Minecraft.getInstance().setScreenAndShow(new RinkuWindow26(Component.empty()));
 		//?} else {
-			/*AIUTD.LOG.error("Rinku window opening should never be called on this version!");
-		*///?}
+			//AIUTD.LOG.error("Rinku window opening should never be called on this version!");
+		//?}
 	}
 
 	public static void browser(){

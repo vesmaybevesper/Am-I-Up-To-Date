@@ -33,8 +33,8 @@ import static dev.vesper.aiutd.common.UpdateChecker.needUpdate;
 //? >=26.1{
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 //?} <=1.21.11{
-/*import net.minecraft.client.gui.GuiGraphics;
-*///?}
+//import net.minecraft.client.gui.GuiGraphics;
+//?}
 
 public class UpdateNoticeElement extends AbstractElement implements ExecutableElement {
 
@@ -142,8 +142,8 @@ public class UpdateNoticeElement extends AbstractElement implements ExecutableEl
 
 		if (isEditor()){
 			//?<1.21.10{
-			/^Tooltip cachedVanillaTooltip = this.widget.getTooltip();
-			 ^///?}
+			//Tooltip cachedVanillaTooltip = this.widget.getTooltip();
+			 //?}
 			//? >=1.21.10{
 			net.minecraft.client.gui.components.Tooltip cachedVanillaTooltip = ((IMixinAbstractWidget) this.getWidget()).getTooltipHolderFancyMenu().get();
 			//?}
