@@ -28,12 +28,12 @@ tasks.register("runActiveServer") {
 
 stonecutter parameters {
 	constants.match(current.project.substringAfterLast('-'), "fabric", "neoforge", "forge")
-	swaps["mod_version"] = "\"${properties.get<String>("mod.version")}\";"
-	swaps["mod_id"] = "\"${properties.get<String>("mod.id")}\";"
-	swaps["mod_name"] = "\"${properties.get<String>("mod.name")}\";"
-	swaps["mod_group"] = "\"${properties.get<String>("mod.group")}\";"
+	swaps["mod_version"] = "\"${properties.get("mod.version")}\";"
+	swaps["mod_id"] = "\"${properties.get("mod.id")}\";"
+	swaps["mod_name"] = "\"${properties.get("mod.name")}\";"
+	swaps["mod_group"] = "\"${properties.get("mod.group")}\";"
 	swaps["minecraft"] = "\"${current.version}\";"
-	constants["release"] = properties.get<String>("mod.id") != "modtemplate"
+	constants["release"] = properties.get("mod.id") != "modtemplate"
 }
 
 for (version in stonecutter.versions.map { it.version }.distinct()) tasks.register("publish$version") {
