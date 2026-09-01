@@ -63,7 +63,7 @@ public class Config {
 	@SerialEntry
 	//?}
 	public static LinkMethod openingMethod = LinkMethod.BROWSER;
-	@AutoGen(category = "Main")
+	//@AutoGen(category = "Main")
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
 	public static boolean showToast = true;
@@ -73,23 +73,23 @@ public class Config {
 	@Boolean(formatter =  Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
 	public static boolean bigButton = true;
-	@AutoGen(category = "Optional")
+	//@AutoGen(category = "Optional")
 	@Boolean(formatter =  Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
 	public static boolean customToastMessage = false;
-	@AutoGen(category = "Optional")
+	//@AutoGen(category = "Optional")
 	@StringField
 	@SerialEntry
 	public static String toastMessage = "";
-	@AutoGen(category = "Optional")
+	//@AutoGen(category = "Optional")
 	@Boolean(formatter =  Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
 	public static boolean customToastTitle = false;
-	@AutoGen(category = "Optional")
+	//@AutoGen(category = "Optional")
 	@StringField
 	@SerialEntry
 	public static String toastTitle = "";
-	@AutoGen(category = "Optional")
+	//@AutoGen(category = "Optional")
 	@LongField
 	@SerialEntry
 	public static long toastDisplayTime = 5000L;
