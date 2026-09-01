@@ -58,6 +58,8 @@ public class RinkuWindow26 extends Screen {
 		refreshNavigationState();
 	}
 
+	// AddressBarDisplayHander would cause missing class errors when called, no clue how to fix, and I'm not joining a discord to ask.
+	// If you're reading this, and you know how to go ahead and open a PR
 	/*private void registerAddressBarDisplayHandler() {
 		if (addressBarDisplayHandler != null) {
 			return;
