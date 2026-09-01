@@ -8,14 +8,7 @@ public class Variables {
 	static ChatFormatting updateMsgColor;
 	static ChatFormatting ignoreMsgColor;
 
-	public static void setAll(){
-		setColors();
-		// the following do nothing at this time, functionality will be added later
-		setWidgetPos();
-		setWidgetSize();
-	}
-
-	private static void setColors() {
+	public static void setColors() {
 
 		switch(Config.changelogColor) {
 			case RED -> changelogColor = ChatFormatting.RED;
@@ -73,13 +66,5 @@ public class Variables {
 			case YELLOW   -> ignoreMsgColor = ChatFormatting.YELLOW;
 			case WHITE    -> ignoreMsgColor = ChatFormatting.WHITE;
 		}
-	}
-
-	private static void setWidgetPos(){
-
-	}
-
-	private static void setWidgetSize(){
-
 	}
 }
