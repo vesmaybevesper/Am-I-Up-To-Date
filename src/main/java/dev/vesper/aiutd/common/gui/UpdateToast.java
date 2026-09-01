@@ -11,7 +11,7 @@ import net.minecraft.client.gui.components.toasts.Toast;
 import net.minecraft.client.gui.components.toasts.ToastManager;
 //? if >=1.21.5
 import net.minecraft.client.renderer.RenderPipelines;
-//? if <=1.21.4
+//? if <=1.21.1
 //import net.minecraft.client.gui.components.toasts.ToastComponent;
 //? if <=1.21.5
 //import net.minecraft.client.renderer.RenderType;
@@ -65,10 +65,8 @@ public class UpdateToast implements Toast {
 
 		//? if >=1.21.11 {
 		graphics.blitSprite(RenderPipelines.GUI_TEXTURED, Identifier.fromNamespaceAndPath(AIUTD.MOD_ID, "update"), 20, 90, 20, 20);
-		//?} 1.21.5 && 1.21.2 {
+		//?} 1.21.5 || 1.21.2 {
 		//graphics.blitSprite(RenderType::guiTextured, Identifier.fromNamespaceAndPath(AIUTD.MOD_ID, "update"), 20, 90, 20, 20);
-		//?} else {
-		//graphics.blitSprite(Identifier.fromNamespaceAndPath(AIUTD.MOD_ID, "update"), 20, 90, 20, 20);
 		//?}
 
 		int textX = 32;
