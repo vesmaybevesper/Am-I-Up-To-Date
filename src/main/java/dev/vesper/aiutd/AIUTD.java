@@ -2,7 +2,7 @@ package dev.vesper.aiutd;
 
 import dev.vesper.aiutd.common.ChatMessages;
 import dev.vesper.aiutd.common.UpdateChecker;
-import dev.vesper.aiutd.common.Variables;
+import dev.vesper.aiutd.common.Utils;
 import dev.vesper.aiutd.common.config.Config;
 import dev.vesper.aiutd.common.config.EndUserConfig;
 //? if 1.20.1 || 1.21.1 || >= 1.21.11
@@ -34,7 +34,7 @@ import net.minecraftforge.fml.ModList;
 public class AIUTD {
 
 	public static final String MOD_ID = /*$ mod_id*/"aiutd";
-	public static final String MOD_VERSION = /*$ mod_version*/"2.6.0";
+	public static final String MOD_VERSION = /*$ mod_version*/"2.6.1";
 	public static final String MOD_FRIENDLY_NAME = /*$ mod_name*/"Am I Up To Date?";
 	public static final Logger LOG = LoggerFactory.getLogger(MOD_ID);
 	public static boolean hasNotified = false;
@@ -69,7 +69,7 @@ public class AIUTD {
 				UpdateChecker.hasChecked = true;
 			}
 		} catch (URISyntaxException | IOException ignored) {}
-		Variables.setColors();
+		Utils.setColors();
 		//? fabric{
 		ChatMessages.sendChatMessage();
 		//?}

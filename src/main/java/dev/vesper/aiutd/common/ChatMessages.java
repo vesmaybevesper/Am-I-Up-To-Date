@@ -3,12 +3,12 @@ package dev.vesper.aiutd.common;
 import dev.vesper.aiutd.AIUTD;
 import dev.vesper.aiutd.common.config.Config;
 import dev.vesper.aiutd.common.config.EndUserConfig;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
+import net.minecraft.client.Minecraft;
 
 import java.net.URI;
 import java.util.Objects;
@@ -22,7 +22,7 @@ import static dev.vesper.aiutd.common.config.Config.useCustomMessage;
 import static dev.vesper.aiutd.common.config.Config.useModpackName;
 
 //? fabric{
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;import net.minecraft.resources.Identifier;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 //?} neoforge{
 /*import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
@@ -36,18 +36,18 @@ public class ChatMessages {
 		//? >=1.21.5{
 		if (Config.openingMethod == Config.LinkMethod.BROWSER) {
 			ClickEvent clickEvent = new ClickEvent.OpenUrl(URI.create(url));
-			return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Variables.changelogColor)));
+			return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Utils.changelogColor)));
 		} else if (Config.openingMethod == Config.LinkMethod.RINKU){
 			ClickEvent clickEvent = new ClickEvent.RunCommand("/rinkuOpen");
-			return  Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Variables.changelogColor)));
+			return  Component.literal(message).setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Utils.changelogColor)));
 		} else {
 			return null;
 		}
 		//?} <=1.21.4{
 		/*if (Config.openingMethod == Config.LinkMethod.BROWSER) {
-			return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, url)).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Variables.changelogColor)));
+			return Component.literal(message).setStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, url)).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Utils.changelogColor)));
 		} else if (Config.openingMethod == Config.LinkMethod.RINKU){
-			return  Component.literal(message).setStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/rinkuOpen")).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Variables.changelogColor)));
+			return  Component.literal(message).setStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/rinkuOpen")).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Utils.changelogColor)));
 		} else {
 			return null;
 		}
@@ -57,9 +57,9 @@ public class ChatMessages {
 	public static MutableComponent ignoreMessage() {
 		//? >=1.21.5{
 		ClickEvent clickEvent = new ClickEvent.RunCommand("/shouldIgnore");
-		return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Variables.ignoreMsgColor)));
+		return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(clickEvent).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Utils.ignoreMsgColor)));
 		//?} <=1.21.4{
-		//return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/shouldIgnore")).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Variables.ignoreMsgColor)));
+		//return Component.translatable("aiutd.msg.ignoreClickable").setStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/shouldIgnore")).withUnderlined(true).withColor(TextColor.fromLegacyFormat(Utils.ignoreMsgColor)));
 		//?}
 	}
 
@@ -79,11 +79,11 @@ public class ChatMessages {
 					// Determine which primary message to send.
 					//? >=26.1{
 					if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
-						client.player.sendSystemMessage(Component.literal(customMessage).withStyle(Variables.updateMsgColor));
+						client.player.sendSystemMessage(Component.literal(customMessage).withStyle(Utils.updateMsgColor));
 					} else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
-						client.player.sendSystemMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!").withStyle(Variables.updateMsgColor));
+						client.player.sendSystemMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!").withStyle(Utils.updateMsgColor));
 					} else {
-						client.player.sendSystemMessage(Component.translatable("aiutd.defaultMsg").withStyle(Variables.updateMsgColor));
+						client.player.sendSystemMessage(Component.translatable("aiutd.defaultMsg").withStyle(Utils.updateMsgColor));
 					}
 
 					// Display changelog link if enabled.
@@ -94,11 +94,11 @@ public class ChatMessages {
 					client.player.sendSystemMessage(ignoreMessage());
 					//?} <=1.21.11{
 					/*if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
-						client.player.displayClientMessage(Component.literal(customMessage).withStyle(Variables.updateMsgColor), false);
+						client.player.displayClientMessage(Component.literal(customMessage).withStyle(Utils.updateMsgColor), false);
 					} else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
-						client.player.displayClientMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!").withStyle(Variables.updateMsgColor), false);
+						client.player.displayClientMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!").withStyle(Utils.updateMsgColor), false);
 					} else {
-						client.player.displayClientMessage(Component.translatable("aiutd.defaultMsg").withStyle(Variables.updateMsgColor), false);
+						client.player.displayClientMessage(Component.translatable("aiutd.defaultMsg").withStyle(Utils.updateMsgColor), false);
 					}
 
 					// Display changelog link if enabled.
@@ -124,13 +124,13 @@ public class ChatMessages {
 
 			//? >=26.1{
 			if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
-				client.player.sendSystemMessage(Component.literal(customMessage).withStyle(Variables.updateMsgColor));
+				client.player.sendSystemMessage(Component.literal(customMessage).withStyle(Utils.updateMsgColor));
 			}
 			else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
-				client.player.sendSystemMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!").withStyle(Variables.updateMsgColor));
+				client.player.sendSystemMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!").withStyle(Utils.updateMsgColor));
 			}
 			else {
-				client.player.sendSystemMessage(Component.translatable("aiutd.defaultMsg").withStyle(Variables.updateMsgColor));
+				client.player.sendSystemMessage(Component.translatable("aiutd.defaultMsg").withStyle(Utils.updateMsgColor));
 			}
 
 			if (linkChangelog) {
@@ -140,13 +140,13 @@ public class ChatMessages {
 			client.player.sendSystemMessage(ignoreMessage());
 			//?} <=1.21.11 {
 			/^if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
-				client.player.displayClientMessage(Component.literal(customMessage).withStyle(Variables.updateMsgColor), false);
+				client.player.displayClientMessage(Component.literal(customMessage).withStyle(Utils.updateMsgColor), false);
 			}
 			else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
-				client.player.displayClientMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!").withStyle(Variables.updateMsgColor), false);
+				client.player.displayClientMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!").withStyle(Utils.updateMsgColor), false);
 			}
 			else {
-				client.player.displayClientMessage(Component.translatable("aiutd.defaultMsg").withStyle(Variables.updateMsgColor), false);
+				client.player.displayClientMessage(Component.translatable("aiutd.defaultMsg").withStyle(Utils.updateMsgColor), false);
 			}
 
 			if (linkChangelog) {
@@ -167,13 +167,13 @@ public class ChatMessages {
 
 		if (chatAlert && needUpdate && !AIUTD.hasNotified && !EndUserConfig.shouldIgnore){
 			if (useCustomMessage && !Objects.equals(customMessage, "This is a custom message!")) {
-				client.player.displayClientMessage(Component.literal(customMessage).withStyle(Variables.updateMsgColor), false);
+				client.player.displayClientMessage(Component.literal(customMessage).withStyle(Utils.updateMsgColor), false);
 			}
 			else if (useModpackName && !Objects.equals(modpackName, "Default") && !useCustomMessage) {
-				client.player.displayClientMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!").withStyle(Variables.updateMsgColor), false);
+				client.player.displayClientMessage(Component.literal(Component.translatable("aiutd.modPackNameMsg").getString() + modpackName + "!").withStyle(Utils.updateMsgColor), false);
 			}
 			else {
-				client.player.displayClientMessage(Component.translatable("aiutd.defaultMsg").withStyle(Variables.updateMsgColor), false);
+				client.player.displayClientMessage(Component.translatable("aiutd.defaultMsg").withStyle(Utils.updateMsgColor), false);
 			}
 
 			if (linkChangelog) {
