@@ -1,9 +1,9 @@
  {
   "yacl3.config.aiutd:config.category.Main": "Main Settings",
   "yacl3.config.aiutd:config.category.Optional": "Customization Settings",
-  "yacl3.config.aiutd:config.menuAlert": "Menu Alert",
+  "yacl3.config.aiutd:config.menuAlert": "Menu Button",
   "yacl3.config.aiutd:config.menuAlert.desc": "Should a button display on the Main Menu when an update is available",
-  "yacl3.config.aiutd:config.chatAlert": "Chat Alert",
+  "yacl3.config.aiutd:config.chatAlert": "Chat Message",
   "yacl3.config.aiutd:config.chatAlert.desc": "Should a message display in the chat when an update is available",
   "yacl3.config.aiutd:config.localVersion": "Local Version",
   "yacl3.config.aiutd:config.localVersion.desc": "Enter the version of the modpack as it will be set when uploading to Modrinth",
