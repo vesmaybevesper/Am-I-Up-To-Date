@@ -1,3 +1,6 @@
-- Option to open changelog in browser (incl Rinku) or in a little window that pulls the text
+- Add a popup changelog option as a changelog opener
 - Toast for update notifications
   - Allow customization
+    - Colors (OH GOD! SO MANY CONFIG ENTRIES!)
+    - Text (DONE!)
+    - Image (WIP!)
