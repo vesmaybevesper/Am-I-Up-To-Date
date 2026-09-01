@@ -1,9 +1,11 @@
 package dev.vesper.aiutd.common;
 
+import dev.vesper.aiutd.AIUTD;
 import dev.vesper.aiutd.common.config.Config;
 import net.minecraft.ChatFormatting;
+import net.minecraft.resources.Identifier;
 
-public class Variables {
+public class Utils {
 	static ChatFormatting changelogColor;
 	static ChatFormatting updateMsgColor;
 	static ChatFormatting ignoreMsgColor;
@@ -67,4 +69,14 @@ public class Variables {
 			case WHITE    -> ignoreMsgColor = ChatFormatting.WHITE;
 		}
 	}
+
+	/*public static Identifier identifierFromPath(){
+		String namespace;
+		String path;
+		// grab from before the : in (ex) aiutd:resources/assets/aiutd/textures/gui/sprites/update.png
+		namespace = AIUTD.MOD_ID;
+		// grab just the png in (ex) aiutd:resources/assets/aiutd/textures/gui/sprites/update.png
+		path = AIUTD.MOD_ID;
+		return Identifier.fromNamespaceAndPath(namespace, path);
+	}*/
 }
