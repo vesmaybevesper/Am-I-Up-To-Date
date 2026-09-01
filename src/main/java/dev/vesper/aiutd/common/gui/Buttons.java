@@ -1,10 +1,9 @@
-package dev.vesper.aiutd.common;
+package dev.vesper.aiutd.common.gui;
 
 import dev.vesper.aiutd.AIUTD;
-import net.minecraft.client.gui.components.Button;
+import dev.vesper.aiutd.common.ChangelogOpeners;import net.minecraft.client.gui.components.Button;
 //? if >=1.21.1
 import net.minecraft.client.gui.components.SpriteIconButton;
-import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
