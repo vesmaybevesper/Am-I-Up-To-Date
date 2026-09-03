@@ -1,6 +1,1 @@
-- Change the names of some config options
-  - Change Menu Alert to Menu Button
-  - Change Chat Alert to Chat Message
-- Add a background to the 1.20.1 small update button
-  - Hurray for no more floating png!
-- Add Tooltip to 1.20.1's small update button
+- Update FastJson2 to 2.0.65

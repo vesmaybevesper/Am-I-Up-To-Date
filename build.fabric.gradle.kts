@@ -140,6 +140,6 @@ dependencies {
 	modCompileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
 	modCompileOnly("de.keksuccino:rinku-fabric:${property("deps.rinku")}")
 	modImplementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson4yacl")}")
-	implementation("com.alibaba.fastjson2:fastjson2:2.0.64")
-	include("com.alibaba.fastjson2:fastjson2:2.0.64")
+	implementation("com.alibaba.fastjson2:fastjson2:2.0.65")
+	include("com.alibaba.fastjson2:fastjson2:2.0.65")
 }
