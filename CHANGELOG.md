@@ -10,3 +10,5 @@
        - All the customization features
          - Message colors, button size, etc
 - Update FastJson2 to 2.0.65
+- Fix the way the NeoForge buildscript was creating the version range in the mods.toml
+  - No idea if this was causing issues but now it defiantly wont
