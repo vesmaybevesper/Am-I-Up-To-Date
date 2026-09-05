@@ -1,6 +1,7 @@
  {
   "yacl3.config.aiutd:config.category.Main": "Main Settings",
-  "yacl3.config.aiutd:config.category.Optional": "Customization Settings",
+  "yacl3.config.aiutd:config.category.Optional": "Optional Features",
+  "yacl3.config.aiutd:config.category.Customization": "Customization",
   "yacl3.config.aiutd:config.menuAlert": "Menu Button",
   "yacl3.config.aiutd:config.menuAlert.desc": "Should a button display on the Main Menu when an update is available",
   "yacl3.config.aiutd:config.chatAlert": "Chat Message",

@@ -1,4 +1,12 @@
 - Removed the multi loader Enum cycler in favor of simply checking the mod loader at update check
-  - This Enum didn't even have a Forge option and now the customization screen is a little less cluttered
-- Reorder the config a little
+  - This Enum didn't even have a Forge option and now the optional features screen is a little less cluttered
+- Reorder the config a lot
+  - Shuffled the order of the main settings to have the "more important" settings at the top
+  - Previously "Optional" or "Customization" screen has been split into two screens
+     - Optional features
+       - All the extra features that were in "Optional" before
+         - Multiversion, multiloader, etc
+     - Customization
+       - All the customization features
+         - Message colors, button size, etc
 - Update FastJson2 to 2.0.65

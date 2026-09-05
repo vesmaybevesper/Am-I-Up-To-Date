@@ -35,8 +35,6 @@ public class Config {
 		return HANDLER.generateGui().generateScreen(parent);
 	}
 
-	public enum LoaderEnum {FABRIC, QUILT, NEOFORGE}
-
 	public enum ColorEnum {BLACK, DARK_BLUE, DARK_GREEN, DARK_AQUA, DARK_RED, DARK_PURPLE, GOLD, GRAY, DARK_GRAY, BLUE, GREEN, AQUA, RED, LIGHT_PURPLE, YELLOW, WHITE}
 
 	public enum LinkMethod {BROWSER, RINKU}
@@ -69,31 +67,11 @@ public class Config {
 	//?}
 	public static LinkMethod openingMethod = LinkMethod.BROWSER;
 
-	// Customization Settings
+	// Optional Features
 	@AutoGen(category = "Optional")
-	@Boolean(formatter =  Boolean.Formatter.ON_OFF, colored = true)
+	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
-	public static boolean bigButton = true;
-	//@AutoGen(category = "Optional")
-	@Boolean(formatter =  Boolean.Formatter.ON_OFF, colored = true)
-	@SerialEntry
-	public static boolean customToastMessage = false;
-	//@AutoGen(category = "Optional")
-	@StringField
-	@SerialEntry
-	public static String toastMessage = "";
-	//@AutoGen(category = "Optional")
-	@Boolean(formatter =  Boolean.Formatter.ON_OFF, colored = true)
-	@SerialEntry
-	public static boolean customToastTitle = false;
-	//@AutoGen(category = "Optional")
-	@StringField
-	@SerialEntry
-	public static String toastTitle = "";
-	//@AutoGen(category = "Optional")
-	@LongField
-	@SerialEntry
-	public static long toastDisplayTime = 5000L;
+	public static boolean linkChangelog = false;
 	@AutoGen(category = "Optional")
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
@@ -118,20 +96,47 @@ public class Config {
 	@StringField
 	@SerialEntry
 	public static String customMessage = "This is a custom message!";
-	@AutoGen(category = "Optional")
+
+
+	// Customization
+	@AutoGen(category = "Customization")
+	@Boolean(formatter =  Boolean.Formatter.ON_OFF, colored = true)
+	@SerialEntry
+	public static boolean bigButton = true;
+	@AutoGen(category = "Customization")
 	@EnumCycler
 	@SerialEntry
 	public static ColorEnum messageColor = ColorEnum.WHITE;
-	@AutoGen(category = "Optional")
-	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
-	@SerialEntry
-	public static boolean linkChangelog = false;
-	@AutoGen(category = "Optional")
+	@AutoGen(category = "Customization")
 	@EnumCycler
 	@SerialEntry
 	public static ColorEnum changelogColor = ColorEnum.RED;
-	@AutoGen(category = "Optional")
+	@AutoGen(category = "Customization")
 	@EnumCycler
 	@SerialEntry
 	public static ColorEnum ignoreColor = ColorEnum.GRAY;
+
+
+	// all my unimplemented options
+
+	//@AutoGen(category = "Optional")
+	@Boolean(formatter =  Boolean.Formatter.ON_OFF, colored = true)
+	@SerialEntry
+	public static boolean customToastMessage = false;
+	//@AutoGen(category = "Optional")
+	@StringField
+	@SerialEntry
+	public static String toastMessage = "";
+	//@AutoGen(category = "Optional")
+	@Boolean(formatter =  Boolean.Formatter.ON_OFF, colored = true)
+	@SerialEntry
+	public static boolean customToastTitle = false;
+	//@AutoGen(category = "Optional")
+	@StringField
+	@SerialEntry
+	public static String toastTitle = "";
+	//@AutoGen(category = "Optional")
+	@LongField
+	@SerialEntry
+	public static long toastDisplayTime = 5000L;
 }
