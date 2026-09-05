@@ -14,6 +14,8 @@
 <br>
 <div align="center">Join the <a href="https://fluxer.gg/QzoBSTAo">Fluxer</a> server for community & mod support</div>
 
+<p align="center">Contributions are welcome see the TODO file for ideas.</p>
+
 ## Usage
 
 https://www.youtube-nocookie.com/embed/-4aT-2MZlNQ?si=sNtXRMMPIhOQtdgv
