@@ -1,16 +1,14 @@
 package dev.vesper.aiutd.common;
 
-import dev.vesper.aiutd.AIUTD;
 import dev.vesper.aiutd.common.config.Config;
 import net.minecraft.ChatFormatting;
-import net.minecraft.resources.Identifier;
 
 public class Utils {
 	static ChatFormatting changelogColor;
 	static ChatFormatting updateMsgColor;
 	static ChatFormatting ignoreMsgColor;
 
-	public static void setColors() {
+	public static void setConfigColors() {
 
 		switch(Config.changelogColor) {
 			case RED -> changelogColor = ChatFormatting.RED;
@@ -68,6 +66,17 @@ public class Utils {
 			case YELLOW   -> ignoreMsgColor = ChatFormatting.YELLOW;
 			case WHITE    -> ignoreMsgColor = ChatFormatting.WHITE;
 		}
+	}
+
+	private static int validateColor(int color){
+		if (Integer.toString(color).contains("0x")){
+			return color;
+		}
+
+		String colorString = Integer.toString(color);
+		colorString = "0x"+ colorString;
+
+		return Integer.parseInt(colorString);
 	}
 
 	/*public static Identifier identifierFromPath(){
