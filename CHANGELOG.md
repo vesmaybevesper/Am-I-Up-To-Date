@@ -1,1 +1,4 @@
+- Removed the multi loader Enum cycler in favor of simply checking the mod loader at update check
+  - This Enum didn't even have a Forge option and now the customization screen is a little less cluttered
+- Reorder the config a little
 - Update FastJson2 to 2.0.65
