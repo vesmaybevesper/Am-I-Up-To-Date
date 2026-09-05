@@ -5,7 +5,6 @@ import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.autogen.AutoGen;
 import dev.isxander.yacl3.config.v2.api.autogen.Boolean;
 import dev.isxander.yacl3.config.v2.api.autogen.EnumCycler;
-import dev.isxander.yacl3.config.v2.api.autogen.IntField;
 import dev.isxander.yacl3.config.v2.api.autogen.LongField;
 import dev.isxander.yacl3.config.v2.api.autogen.StringField;
 import dev.isxander.yacl3.platform.YACLPlatform;
@@ -30,6 +29,8 @@ public class Config {
 			.build();
 	*///?}
 
+	public static boolean showLoaderOpts = false;
+
 	public static Screen config(Screen parent){
 		return HANDLER.generateGui().generateScreen(parent);
 	}
@@ -42,6 +43,18 @@ public class Config {
 
 	// Main Settings
 	@AutoGen(category = "Main")
+	@StringField
+	@SerialEntry
+	public static String modpackId = "";
+	@AutoGen(category = "Main")
+	@StringField
+	@SerialEntry
+	public static String localVersion = "1.0.0";
+	//@AutoGen(category = "Main")
+	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
+	@SerialEntry
+	public static boolean showToast = true;
+	@AutoGen(category = "Main")
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
 	public static boolean menuAlert = true;
@@ -49,24 +62,12 @@ public class Config {
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
 	public static boolean chatAlert = true;
-	@AutoGen(category = "Main")
-	@StringField
-	@SerialEntry
-	public static String localVersion = "1.0.0";
-	@AutoGen(category = "Main")
-	@StringField
-	@SerialEntry
-	public static String modpackId = "";
 	//? if 1.20.1 || 1.21.1 || 1.21.11 || >= 26.1 && !26.3 {
 	@AutoGen(category = "Main")
 	@EnumCycler
 	@SerialEntry
 	//?}
 	public static LinkMethod openingMethod = LinkMethod.BROWSER;
-	//@AutoGen(category = "Main")
-	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
-	@SerialEntry
-	public static boolean showToast = true;
 
 	// Customization Settings
 	@AutoGen(category = "Optional")
@@ -101,10 +102,6 @@ public class Config {
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
 	public static boolean multiLoaderBool = false;
-	@AutoGen(category = "Optional")
-	@EnumCycler
-	@SerialEntry
-	public static LoaderEnum multiLoader = LoaderEnum.FABRIC;
 	@AutoGen(category = "Optional")
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
