@@ -69,7 +69,7 @@ public class AIUTD {
 				UpdateChecker.hasChecked = true;
 			}
 		} catch (URISyntaxException | IOException ignored) {}
-		Utils.setColors();
+		Utils.setConfigColors();
 		//? fabric{
 		ChatMessages.sendChatMessage();
 		//?}
