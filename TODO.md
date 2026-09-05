@@ -4,4 +4,3 @@
     - Colors (OH GOD! SO MANY CONFIG ENTRIES!)
     - Text (DONE!)
     - Image (WIP!)
-- Switch to wast after all features implemented (config and version parser) :)
