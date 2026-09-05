@@ -17,7 +17,6 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Objects;
 
-import static dev.vesper.aiutd.common.config.Config.multiLoader;
 import static dev.vesper.aiutd.common.config.Config.multiLoaderBool;
 import static dev.vesper.aiutd.common.config.Config.multiVersion;
 import static dev.vesper.aiutd.common.config.EndUserConfig.versionCache;
@@ -51,7 +50,7 @@ public class UpdateChecker {
 
 		int responseCode = urlConnection.getResponseCode();
 		if (responseCode != 200) {
-			AIUTD.LOG.error("HTTP request failed with response code: {}", responseCode);
+			AIUTD.LOG.error("HTTP request failed with response code: {}, falling back to cached version.", responseCode);
 			useCachedVersionMsg();
 			return versionCache;
 		}
@@ -83,17 +82,18 @@ public class UpdateChecker {
 		}
 
 		if (multiLoaderBool) {
-			switch (multiLoader) {
-				case FABRIC:
-					localLoader = "fabric";
-					break;
-				case QUILT:
-					localLoader = "quilt";
-					break;
-				case NEOFORGE:
-					localLoader = "neoforge";
-					break;
+			//? if fabric {
+			if (Minecraft.checkModStatus().description().contains("fabric")){
+				localLoader = "fabric";
+			} else {
+				localLoader = "quilt";
 			}
+			//?}
+			//? if neoforge
+			//localLoader = "neoforge";
+
+			//? if forge
+			//localLoader = "forge";
 		}
 
 		JSONObject matchedVersion = findMatchingVersion(versionsArray);
