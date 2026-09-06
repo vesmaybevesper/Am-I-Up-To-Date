@@ -68,7 +68,7 @@ public class Utils {
 		}
 	}
 
-	private static int validateColor(int color){
+	private static int formatColor(int color){
 		if (Integer.toString(color).contains("0x")){
 			return color;
 		}
