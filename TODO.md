@@ -1,4 +1,3 @@
-- Performance pass on the version parser using [fastjson's provided info](https://github.com/alibaba/fastjson2/blob/main/docs/performance_en.md)
 - Add a popup changelog option as a changelog opener
 - Toast for update notifications
   - Allow customization
