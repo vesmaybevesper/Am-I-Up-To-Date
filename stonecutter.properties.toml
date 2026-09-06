@@ -167,7 +167,7 @@ deps.fastjson4yacl="1.0.6-neoforge+26.1"
 publish.additionalVersions = []
 
 [neoforge."26.3"]
-deps.minecraft = "26.3-pre-1"
+deps.minecraft = "26.3-pre-2"
 deps.neoforge = "26.2.0.75"
 deps.yet_another_config_lib_v3="3.9.6+26.2-neoforge"
 deps.fancymenu="3.9.12-26.2-neoforge"
