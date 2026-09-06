@@ -7,16 +7,12 @@ import dev.vesper.aiutd.AIUTD;
 import dev.vesper.aiutd.common.config.Config;
 import net.minecraft.client.Minecraft;
 import org.jetbrains.annotations.Nullable;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Objects;
-
 import static dev.vesper.aiutd.common.config.Config.multiLoaderBool;
 import static dev.vesper.aiutd.common.config.Config.multiVersion;
 import static dev.vesper.aiutd.common.config.EndUserConfig.versionCache;
@@ -33,7 +29,6 @@ public class UpdateChecker {
 	public static String getVersionNumber() throws URISyntaxException, IOException {
 		clientVersion = Minecraft.getInstance().getLaunchedVersion();
 		URI url = new URI(AIUTD.getApiLink());
-		StringBuilder result = new StringBuilder();
 
 		URL parsed = URI.create(AIUTD.getApiLink()).toURL();
 		if (!"api.modrinth.com".equalsIgnoreCase(parsed.getHost()) || !"https".equals(parsed.getProtocol())) {
@@ -44,7 +39,6 @@ public class UpdateChecker {
 		urlConnection.setConnectTimeout(5000);
 		urlConnection.setReadTimeout(5000);
 		urlConnection.setInstanceFollowRedirects(false);
-
 		urlConnection.setRequestMethod("GET");
 		urlConnection.setRequestProperty("User-Agent", "Mozilla/5.0");
 
@@ -55,11 +49,9 @@ public class UpdateChecker {
 			return versionCache;
 		}
 
-		try (BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()))) {
-			String line;
-			while ((line = reader.readLine()) != null) {
-				result.append(line);
-			}
+		byte[] bytes;
+		try (var in = urlConnection.getInputStream()) {
+			bytes = in.readAllBytes();
 		} catch (Exception e) {
 			AIUTD.LOG.error("Error reading version API response: ", e);
 			useCachedVersionMsg();
@@ -67,8 +59,9 @@ public class UpdateChecker {
 		}
 
 		JSONArray versionsArray;
+
 		try {
-			versionsArray = JSON.parseArray(result.toString());
+			versionsArray = JSON.parseArray(bytes);
 		} catch (Exception e) {
 			AIUTD.LOG.error("Failed to parse version JSON: ", e);
 			useCachedVersionMsg();
@@ -103,7 +96,7 @@ public class UpdateChecker {
 			if (versionNumber != null){
 				Config.HANDLER.load();
 				versionCache = versionNumber;
-				Config.HANDLER.load();
+				Config.HANDLER.save();
 				hasChecked = true;
 				return versionNumber;
 			}
