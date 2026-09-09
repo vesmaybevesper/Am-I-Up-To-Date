@@ -43,10 +43,6 @@ platform {
 			slug("yacl")
 			forgeLikeVersionRange = ">=${prop("deps.yet_another_config_lib_v3")}"
 		}
-		required("fastjson4yacl") {
-			slug("fastjson4yacl")
-			forgeLikeVersionRange = ">=${prop("deps.fastjson4yacl")}"
-		}
 		optional("fancymenu") {
 			slug("fancymenu")
 			forgeLikeVersionRange = ">=${prop("deps.fancymenu")}"
@@ -116,7 +112,6 @@ dependencies {
 	implementation("maven.modrinth:yacl:${property("deps.yet_another_config_lib_v3")}")
 	compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
 	compileOnly("de.keksuccino:rinku-forge:${property("deps.rinku")}")
-	implementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson4yacl")}")
 	implementation("com.alibaba.fastjson2:fastjson2:2.0.65")
 	jarJar("com.alibaba.fastjson2:fastjson2:2.0.65")
 

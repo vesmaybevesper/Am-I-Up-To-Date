@@ -43,10 +43,6 @@ platform {
 			slug("yacl")
 			forgeLikeVersionRange = ">=${prop("deps.yet_another_config_lib_v3")}"
 		}
-		required("fastjson4yacl") {
-			slug("fastjson4yacl")
-			forgeLikeVersionRange = ">=${prop("deps.fastjson4yacl")}"
-		}
 
 		if (stonecutter.project.version == ("1.20.1") || stonecutter.project.version == ("1.21.1") || stonecutter.project.version == ("1.21.11") || stonecutter.project.version == ("26.1") || stonecutter.project.version == ("26.2")) {
 			optional("fancymenu") {
@@ -115,7 +111,6 @@ dependencies {
 	implementation("maven.modrinth:yacl:${property("deps.yet_another_config_lib_v3")}")
 	compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
 	compileOnly("de.keksuccino:rinku-neoforge:${property("deps.rinku")}")
-	implementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson4yacl")}")
 	implementation("com.alibaba.fastjson2:fastjson2:2.0.65")
 	jarJar("com.alibaba.fastjson2:fastjson2:2.0.65")
 	// implementation(libs.moulberry.mixinconstraints)

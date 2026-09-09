@@ -51,10 +51,6 @@ platform {
 			slug("yacl")
 			fabricLikeVersionRange = ">=${prop("deps.yet_another_config_lib_v3")}"
 		}
-		required("fastjson4yacl") {
-			slug("fastjson4yacl")
-			fabricLikeVersionRange = ">=${prop("deps.fastjson4yacl")}"
-		}
 		optional("modmenu") {
 			slug("modmenu")
 		}
@@ -139,7 +135,6 @@ dependencies {
 	modImplementation("maven.modrinth:yacl:${property("deps.yet_another_config_lib_v3")}")
 	modCompileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
 	modCompileOnly("de.keksuccino:rinku-fabric:${property("deps.rinku")}")
-	modImplementation("maven.modrinth:fastjson4yacl:${property("deps.fastjson4yacl")}")
 	implementation("com.alibaba.fastjson2:fastjson2:2.0.65")
 	include("com.alibaba.fastjson2:fastjson2:2.0.65")
 }

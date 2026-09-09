@@ -8,7 +8,7 @@ import dev.isxander.yacl3.config.v2.api.autogen.EnumCycler;
 import dev.isxander.yacl3.config.v2.api.autogen.LongField;
 import dev.isxander.yacl3.config.v2.api.autogen.StringField;
 import dev.isxander.yacl3.platform.YACLPlatform;
-import dev.vesper.fastjson4yacl.Serializers.FastJsonJson.FastJsonConfigSerializerBuilder;
+import dev.vesper.aiutd.common.serializer.FastJsonConfigSerializerBuilder;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.resources.Identifier;
 
@@ -51,7 +51,7 @@ public class Config {
 	//@AutoGen(category = "Main")
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
-	public static boolean showToast = true;
+	public static boolean showToast = false;
 	@AutoGen(category = "Main")
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
