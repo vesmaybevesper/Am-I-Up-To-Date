@@ -17,7 +17,7 @@ public class BackgroundImageButton extends ImageButton {
 	@Override
 	public void renderWidget(GuiGraphics guiGraphics, int i, int j, float f) {
 		int state = this.isHoveredOrFocused() ? 1 : 0;
-		guiGraphics.blitNineSliced(AbstractButton.WIDGETS_LOCATION, this.getX(), this.getY(), this.getWidth(), this.getHeight(), 20, 4, 200, 20, 0, 46 + state * 20);
+		guiGraphics.blitNineSliced(AbstractButton.WIDGETS_LOCATION, this.getX(), this.getY(), this.getWidth(), this.getHeight(), 20, 4, 200, 20, 0, 46 + (state * 20));
 
 		super.renderWidget(guiGraphics, i, j, f);
 	}
