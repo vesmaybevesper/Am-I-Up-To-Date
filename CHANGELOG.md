@@ -1,5 +1,9 @@
 - Add a Main Menu Toast to notify of updates
   - Enabled by default
+  - Customization options are available
+    - Background & border colors
+    - Text Colors
+    - Text
+    - Display Time
 - Small button on menu is now the default
   - Previous configs will have to toggle large button off
-- 
