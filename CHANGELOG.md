@@ -1,3 +1,1 @@
-- Minor Update Check optimization
-- Substantial optimization to the config serializer
-  - This is now bundled into the mod rather than be an external dependency (ie: you can delete FASTJSON2 Serializer for YACL and this mod will still work correctly)
+- 
