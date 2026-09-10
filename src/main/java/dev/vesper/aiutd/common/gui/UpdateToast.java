@@ -18,7 +18,6 @@ import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 
-
 public class UpdateToast implements Toast {
 
 	private Visibility visibility;
@@ -40,6 +39,7 @@ public class UpdateToast implements Toast {
 	public void update(ToastManager manager, long fullyVisibleForMs) {
 		// this shouldn't get called at all if showToast is false but...
 		if (!Config.showToast) visibility = Visibility.HIDE;
+		else visibility = Visibility.SHOW;
 		if (fullyVisibleForMs >= Config.toastDisplayTime * manager.getNotificationDisplayTimeMultiplier()) {
 			visibility = Visibility.HIDE;
 		}
@@ -54,19 +54,19 @@ public class UpdateToast implements Toast {
 		int h = height();
 
 		//background
-		graphics.fill(0, 0, w, h, 0x5d5858);
+		graphics.fill(0, 0, w - 1, h - 1, Config.toastBgColor);
 
 
 		//border
-		graphics.fill(0, 0, width(), height() - 1, 0xFFFFFFFF);
-		graphics.fill(0, height() - 1, width(), height(), 0xFFFFFFFF);
-		graphics.fill(0, 0, 1, height(), 0xFFFFFFFF);
-		graphics.fill(width() - 1, 0, width(), height(), 0xFFFFFFFF);
+		graphics.fill(0, 0, width(), height() - (height() - 1), Config.toastBorderColor);
+		graphics.fill(0, height() - 1, width(), height(), Config.toastBorderColor);
+		graphics.fill(0, 0, 1, height(), Config.toastBorderColor);
+		graphics.fill(width() - 1, 0, width(), height(), Config.toastBorderColor);
 
 		//? if >=1.21.11 {
-		graphics.blitSprite(RenderPipelines.GUI_TEXTURED, Identifier.fromNamespaceAndPath(AIUTD.MOD_ID, "update"), 20, 90, 20, 20);
+		graphics.blitSprite(RenderPipelines.GUI_TEXTURED, Identifier.fromNamespaceAndPath(AIUTD.MOD_ID, "update"),  width() / 16 - 5, (height() / 2) - 10, 20, 20);
 		//?} 1.21.5 || 1.21.2 {
-		//graphics.blitSprite(RenderType::guiTextured, Identifier.fromNamespaceAndPath(AIUTD.MOD_ID, "update"), 20, 90, 20, 20);
+		//graphics.blitSprite(RenderType::guiTextured, Identifier.fromNamespaceAndPath(AIUTD.MOD_ID, "update"), width() / 16 - 5, (height() / 2) - 10, 20, 20);
 		//?}
 
 		int textX = 32;
@@ -75,26 +75,25 @@ public class UpdateToast implements Toast {
 
 		//~ if <26.1 '.text' -> '.drawString' {
 		graphics.text(font, title, textX, titleY, 0xFFFFFFFF, false);
-		graphics.text(font, message, textX, messageY, 0xcdc2c2, false);
+		graphics.text(font, message, textX, messageY, 0xFFcdc2c2, false);
 		//~}
 
 	}
 	//?} else {
-	/*// yeah so this could be very wrong but i see no other way so we're just going to have to try it
-	@Override
+	/*@Override
 	public Visibility render(GuiGraphics graphics, ToastComponent toastComponent, long l) {
 		int w = width();
 		int h = height();
 
 		//background
-		graphics.fill(0, 0, w, h, 0x5d5858);
+		graphics.fill(0, 0, w, h, Config.toastBgColor);
 
 
 		//border
-		graphics.fill(0, 0, width(), height() - 1, 0xFFFFFFFF);
-		graphics.fill(0, height() - 1, width(), height(), 0xFFFFFFFF);
-		graphics.fill(0, 0, 1, height(), 0xFFFFFFFF);
-		graphics.fill(width() - 1, 0, width(), height(), 0xFFFFFFFF);
+		graphics.fill(0, 0, width(), height() - (height() - 1), Config.toastBorderColor);
+		graphics.fill(0, height() - 1, width(), height(), Config.toastBorderColor);
+		graphics.fill(0, 0, 1, height(), Config.toastBorderColor);
+		graphics.fill(width() - 1, 0, width(), height(), Config.toastBorderColor);
 
 		//? if 1.21.1
 		//graphics.blitSprite(Identifier.fromNamespaceAndPath(AIUTD.MOD_ID, "update"), 20, 90, 20, 20);
@@ -119,6 +118,7 @@ public class UpdateToast implements Toast {
 	}
 	*///?}
 
+	// this cuts off the default message, so we got to find a way to scale this (or auto newline)
 	@Override
 	public int width() {
 		return 180;
@@ -126,7 +126,9 @@ public class UpdateToast implements Toast {
 
 	@Override
 	public int height() {
-		return 45;
+		int titleHeight = (this.title.toFlatList().size() - 1) * 12;
+		int messageHeight = Math.max(this.message.toFlatList().size(), 1) * 12;
+		return 20 + titleHeight + messageHeight;
 	}
 
 	public static void show(){
