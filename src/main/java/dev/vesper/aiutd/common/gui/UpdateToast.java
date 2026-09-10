@@ -73,10 +73,10 @@ public class UpdateToast implements Toast {
 		int titleY = h / 2 - font.lineHeight - 1;
 		int messageY = h / 2 + 1;
 
-		//~ if <26.1 '.text' -> '.drawString' {
+		//~ if <26.1 '.text' -> '.drawString'
 		graphics.text(font, title, textX, titleY, Config.toastTitleColor, false);
+		//~ if <=1.21.11 'textWithWordWrap(font, message, textX, messageY, width(), Config.toastMsgColor, false)' -> 'drawWordWrap(font, message, textX, messageY, width(), Config.toastMsgColor)'
 		graphics.textWithWordWrap(font, message, textX, messageY, width(), Config.toastMsgColor, false);
-		//~}
 
 	}
 	//?} else {
