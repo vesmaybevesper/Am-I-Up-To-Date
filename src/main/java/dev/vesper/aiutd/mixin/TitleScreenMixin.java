@@ -25,6 +25,8 @@ public class TitleScreenMixin extends Screen {
 
 	@Unique
 	private int buttonY;
+	@Unique
+	private boolean aiutd$toastShown = false;
 
 	protected TitleScreenMixin(Component component) {
 		super(component);
@@ -60,7 +62,10 @@ public class TitleScreenMixin extends Screen {
 					this.addRenderableWidget(Buttons.smallButton(this.width / 2 - 100 + 205, buttonY));
 				}
 			}
-			if (needUpdate && showToast) UpdateToast.show();
+			if (needUpdate && showToast && !aiutd$toastShown){
+				UpdateToast.show();
+				aiutd$toastShown = true;
+			}
 		}
 	}
 }
