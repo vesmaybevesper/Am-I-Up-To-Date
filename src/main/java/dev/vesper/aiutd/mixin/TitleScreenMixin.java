@@ -59,9 +59,8 @@ public class TitleScreenMixin extends Screen {
 				} else {
 					this.addRenderableWidget(Buttons.smallButton(this.width / 2 - 100 + 205, buttonY));
 				}
-			} /*else if (needUpdate && showToast) {
-				UpdateToast.show();
-			}*/
+			}
+			if (needUpdate && showToast) UpdateToast.show();
 		}
 	}
 }
