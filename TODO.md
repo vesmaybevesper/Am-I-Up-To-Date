@@ -1,3 +1,4 @@
+- Custom texture for 1.20.1 button
 - Add a popup changelog option as a changelog opener
 - Toast for update notifications
   - Allow customization
