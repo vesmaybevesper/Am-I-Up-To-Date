@@ -1,9 +1,5 @@
 - Custom texture for 1.20.1 button
 - Add a popup changelog option as a changelog opener
 - Toast for update notifications
-  - Fixes Needed
-    - Word wrap 1.21.1 and before
   - Allow customization
-    - Colors (DONE!)
-    - Text (DONE!)
     - Image
