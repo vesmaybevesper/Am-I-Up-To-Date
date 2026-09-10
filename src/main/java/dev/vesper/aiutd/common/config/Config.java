@@ -5,6 +5,7 @@ import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.autogen.AutoGen;
 import dev.isxander.yacl3.config.v2.api.autogen.Boolean;
 import dev.isxander.yacl3.config.v2.api.autogen.EnumCycler;
+import dev.isxander.yacl3.config.v2.api.autogen.IntField;
 import dev.isxander.yacl3.config.v2.api.autogen.LongField;
 import dev.isxander.yacl3.config.v2.api.autogen.StringField;
 import dev.isxander.yacl3.platform.YACLPlatform;
@@ -73,6 +74,26 @@ public class Config {
 	@SerialEntry
 	public static boolean linkChangelog = false;
 	@AutoGen(category = "Optional")
+	@Boolean(formatter =  Boolean.Formatter.ON_OFF, colored = true)
+	@SerialEntry
+	public static boolean customToastMessage = false;
+	@AutoGen(category = "Optional")
+	@StringField
+	@SerialEntry
+	public static String toastMessage = "";
+	@AutoGen(category = "Optional")
+	@Boolean(formatter =  Boolean.Formatter.ON_OFF, colored = true)
+	@SerialEntry
+	public static boolean customToastTitle = false;
+	@AutoGen(category = "Optional")
+	@StringField
+	@SerialEntry
+	public static String toastTitle = "";
+	@AutoGen(category = "Optional")
+	@LongField
+	@SerialEntry
+	public static long toastDisplayTime = 5000L;
+	@AutoGen(category = "Optional")
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
 	public static boolean multiVersion = false;
@@ -115,28 +136,12 @@ public class Config {
 	@EnumCycler
 	@SerialEntry
 	public static ColorEnum ignoreColor = ColorEnum.GRAY;
-
-
-	// all my unimplemented options
-
-	@AutoGen(category = "Optional")
-	@Boolean(formatter =  Boolean.Formatter.ON_OFF, colored = true)
+	@AutoGen(category = "Customization")
+	@IntField
 	@SerialEntry
-	public static boolean customToastMessage = false;
-	@AutoGen(category = "Optional")
-	@StringField
+	public static int toastBgColor = 0xFF5d5858;
+	@AutoGen(category = "Customization")
+	@IntField
 	@SerialEntry
-	public static String toastMessage = "";
-	@AutoGen(category = "Optional")
-	@Boolean(formatter =  Boolean.Formatter.ON_OFF, colored = true)
-	@SerialEntry
-	public static boolean customToastTitle = false;
-	@AutoGen(category = "Optional")
-	@StringField
-	@SerialEntry
-	public static String toastTitle = "";
-	@AutoGen(category = "Optional")
-	@LongField
-	@SerialEntry
-	public static long toastDisplayTime = 5000L;
+	public static int toastBorderColor = 0xFFFFFFFF;
 }
