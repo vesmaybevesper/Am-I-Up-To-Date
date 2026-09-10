@@ -144,4 +144,12 @@ public class Config {
 	@IntField
 	@SerialEntry
 	public static int toastBorderColor = 0xFFFFFFFF;
+	@AutoGen(category = "Customization")
+	@IntField
+	@SerialEntry
+	public static int toastTitleColor = 0xFFFFFFFF;
+	@AutoGen(category = "Customization")
+	@IntField
+	@SerialEntry
+	public static int toastMsgColor = 0xFFcdc2c2;
 }

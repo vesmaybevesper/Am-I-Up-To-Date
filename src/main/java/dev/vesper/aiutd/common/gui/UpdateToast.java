@@ -74,8 +74,8 @@ public class UpdateToast implements Toast {
 		int messageY = h / 2 + 1;
 
 		//~ if <26.1 '.text' -> '.drawString' {
-		graphics.text(font, title, textX, titleY, 0xFFFFFFFF, false);
-		graphics.text(font, message, textX, messageY, 0xFFcdc2c2, false);
+		graphics.text(font, title, textX, titleY, Config.toastTitleColor, false);
+		graphics.text(font, message, textX, messageY, Config.toastMsgColor, false);
 		//~}
 
 	}
