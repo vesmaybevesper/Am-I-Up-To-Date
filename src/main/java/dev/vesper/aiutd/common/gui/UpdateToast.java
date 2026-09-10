@@ -75,7 +75,7 @@ public class UpdateToast implements Toast {
 
 		//~ if <26.1 '.text' -> '.drawString' {
 		graphics.text(font, title, textX, titleY, Config.toastTitleColor, false);
-		graphics.text(font, message, textX, messageY, Config.toastMsgColor, false);
+		graphics.textWithWordWrap(font, message, textX, messageY, width(), Config.toastMsgColor, false);
 		//~}
 
 	}
@@ -106,8 +106,8 @@ public class UpdateToast implements Toast {
 		int titleY = h / 2 - Minecraft.getInstance().font.lineHeight - 1;
 		int messageY = h / 2 + 1;
 
-		graphics.drawString(Minecraft.getInstance().font, title, textX, titleY, 0xFFFFFFFF, false);
-		graphics.drawString(Minecraft.getInstance().font, message, textX, messageY, 0xcdc2c2, false);
+		graphics.drawString(Minecraft.getInstance().font, title, textX, titleY, Config.toastTitleColor, false);
+		graphics.drawString(Minecraft.getInstance().font, message, textX, messageY, Config.toastMsgColor, false);
 
 		// this shouldn't get called at all if showToast is false but...
 		if (!Config.showToast) visibility = Visibility.HIDE;
