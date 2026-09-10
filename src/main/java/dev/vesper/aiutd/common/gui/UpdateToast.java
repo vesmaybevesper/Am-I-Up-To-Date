@@ -96,18 +96,18 @@ public class UpdateToast implements Toast {
 		graphics.fill(width() - 1, 0, width(), height(), Config.toastBorderColor);
 
 		//? if 1.21.1
-		//graphics.blitSprite(Identifier.fromNamespaceAndPath(AIUTD.MOD_ID, "update"), 20, 90, 20, 20);
+		//graphics.blitSprite(Identifier.fromNamespaceAndPath(AIUTD.MOD_ID, "update"), (height() / 2) - 10, (height() / 2) - 10, 20, 20);
 
 		//I think my numbers are in the wrong place, needs testing
 		//? if 1.20.1
-		//graphics.blit(new Identifier(AIUTD.MOD_ID, "update"), 20, 90, 20, 20, 0, 0);
+		//graphics.blit(new Identifier(AIUTD.MOD_ID, "update"), (height() / 2) - 10, (height() / 2) - 10, 20, 20, 0, 0);
 
 		int textX = 32;
 		int titleY = h / 2 - Minecraft.getInstance().font.lineHeight - 1;
 		int messageY = h / 2 + 1;
 
 		graphics.drawString(Minecraft.getInstance().font, title, textX, titleY, Config.toastTitleColor, false);
-		graphics.drawString(Minecraft.getInstance().font, message, textX, messageY, Config.toastMsgColor, false);
+		graphics.drawWordWrap(Minecraft.getInstance().font, message, textX, messageY, width(), Config.toastMsgColor);
 
 		// this shouldn't get called at all if showToast is false but...
 		if (!Config.showToast) visibility = Visibility.HIDE;
