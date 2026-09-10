@@ -67,7 +67,7 @@
    "yacl3.config.enum.LinkMethod.browser": "Browser",
    "yacl3.config.enum.LinkMethod.rinku": "Rinku",
   "aiutd.menuNotice": "Update Available",
-  "aiutd.defaultToastText": "There is an update available for your modpack!",
+  "aiutd.defaultToastText": "There is an update available!",
   "aiutd.modPackNameMsg": "There is an update available for ",
   "aiutd.defaultMsg": "There is an update available for your modpack!",
   "aiutd.msgsIgnored": "You have set chat notifications to be ignored!",
