@@ -1,1 +1,5 @@
+- Add a Main Menu Toast to notify of updates
+  - Enabled by default
+- Small button on menu is now the default
+  - Previous configs will have to toggle large button off
 - 

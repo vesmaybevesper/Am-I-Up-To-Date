@@ -48,10 +48,10 @@ public class Config {
 	@StringField
 	@SerialEntry
 	public static String localVersion = "1.0.0";
-	//@AutoGen(category = "Main")
+	@AutoGen(category = "Main")
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
-	public static boolean showToast = false;
+	public static boolean showToast = true;
 	@AutoGen(category = "Main")
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
@@ -102,7 +102,7 @@ public class Config {
 	@AutoGen(category = "Customization")
 	@Boolean(formatter =  Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
-	public static boolean bigButton = true;
+	public static boolean bigButton = false;
 	@AutoGen(category = "Customization")
 	@EnumCycler
 	@SerialEntry
@@ -119,23 +119,23 @@ public class Config {
 
 	// all my unimplemented options
 
-	//@AutoGen(category = "Optional")
+	@AutoGen(category = "Optional")
 	@Boolean(formatter =  Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
 	public static boolean customToastMessage = false;
-	//@AutoGen(category = "Optional")
+	@AutoGen(category = "Optional")
 	@StringField
 	@SerialEntry
 	public static String toastMessage = "";
-	//@AutoGen(category = "Optional")
+	@AutoGen(category = "Optional")
 	@Boolean(formatter =  Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
 	public static boolean customToastTitle = false;
-	//@AutoGen(category = "Optional")
+	@AutoGen(category = "Optional")
 	@StringField
 	@SerialEntry
 	public static String toastTitle = "";
-	//@AutoGen(category = "Optional")
+	@AutoGen(category = "Optional")
 	@LongField
 	@SerialEntry
 	public static long toastDisplayTime = 5000L;
