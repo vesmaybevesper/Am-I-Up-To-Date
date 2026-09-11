@@ -20,7 +20,7 @@ import net.minecraft.resources.Identifier;
 
 public class UpdateToast implements Toast {
 
-	private Visibility visibility;
+	private Visibility visibility = Visibility.SHOW;
 	private final Component title;
 	private final Component message;
 
@@ -98,9 +98,8 @@ public class UpdateToast implements Toast {
 		//? if 1.21.1
 		//graphics.blitSprite(Identifier.fromNamespaceAndPath(AIUTD.MOD_ID, "update"), (height() / 2) - 10, (height() / 2) - 10, 20, 20);
 
-		//I think my numbers are in the wrong place, needs testing
 		//? if 1.20.1
-		//graphics.blit(new Identifier(AIUTD.MOD_ID, "update"), (height() / 2) - 10, (height() / 2) - 10, 20, 20, 0, 0);
+		//graphics.blit(new Identifier(AIUTD.MOD_ID, "textures/gui/sprites/update.png"), (height() / 2) - 10, (height() / 2) - 10, 20, 20, 20, 20, 20, 20);
 
 		int textX = 32;
 		int titleY = h / 2 - Minecraft.getInstance().font.lineHeight - 1;
@@ -118,7 +117,6 @@ public class UpdateToast implements Toast {
 	}
 	*///?}
 
-	// this cuts off the default message, so we got to find a way to scale this (or auto newline)
 	@Override
 	public int width() {
 		return 180;
