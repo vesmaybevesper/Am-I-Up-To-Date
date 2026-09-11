@@ -2,8 +2,12 @@
   - Enabled by default
   - Customization options are available
     - Background & border colors
+      - By default, this is themed after the mod icon (gray), so I would recommend customizing this.
     - Text Colors
     - Text
     - Display Time
+  - Does not currently have a FancyMenu implementation
 - Small button on menu is now the default
-  - Previous configs will have to toggle large button off
+  - Previous configs will have to toggle large button off manually if they want to mimic the new default setup
+- Improve Small Button appearance on 1.20.1
+  - Still could use a tweak, but it's so much better now
