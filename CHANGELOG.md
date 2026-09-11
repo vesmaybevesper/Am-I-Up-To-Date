@@ -9,5 +9,4 @@
   - Does not currently have a FancyMenu implementation
 - Small button on menu is now the default
   - Previous configs will have to toggle large button off manually if they want to mimic the new default setup
-- Improve Small Button appearance on 1.20.1
-  - Still could use a tweak, but it's so much better now
+- Improve Small Button appearance on 1.20.1 (again)

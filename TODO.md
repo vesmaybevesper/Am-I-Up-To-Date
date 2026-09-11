@@ -1,4 +1,3 @@
-- Fix button being just the corner of a long button lol
 - Add a popup changelog option as a changelog opener
 - Toast
   - Allow customization
