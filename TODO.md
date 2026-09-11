@@ -1,5 +1,6 @@
-- Custom texture for 1.20.1 button
+- Fix button being just the corner of a long button lol
 - Add a popup changelog option as a changelog opener
-- Toast for update notifications
+- Toast
   - Allow customization
     - Image
+  - Delay rendering till after loading screen
