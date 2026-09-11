@@ -1,5 +1,9 @@
-- Add a popup changelog option as a changelog opener
+- Add a popup changelog option as a changelog opener (2.8.0)
 - Toast
   - Allow customization
-    - Image
-  - Delay rendering till after loading screen
+    - Image (2.7.x)
+  - Delay rendering till after loading screen (2.7.x)
+  - FancyMenu option (2.7.x)
+- Do FancyMenu button way better (2.7.x)
+  - I know there is a way i just need to sit down and look at it
+- Switch serializer to wast and its faster and smaller (3.0.0)
