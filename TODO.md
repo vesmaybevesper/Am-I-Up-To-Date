@@ -1,3 +1,4 @@
+- Line small button on >=26.2 with the other sprite buttons
 - Add a popup changelog option as a changelog opener (2.8.0)
 - Toast
   - Allow customization
