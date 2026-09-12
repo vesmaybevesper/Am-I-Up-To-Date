@@ -137,19 +137,19 @@ public class Config {
 	@SerialEntry
 	public static ColorEnum ignoreColor = ColorEnum.GRAY;
 	@AutoGen(category = "Customization")
-	@IntField
+	@StringField
 	@SerialEntry
-	public static int toastBgColor = 0xFF5d5858;
+	public static String toastBgColor = "0xFF5d5858";
 	@AutoGen(category = "Customization")
-	@IntField
+	@StringField
 	@SerialEntry
-	public static int toastBorderColor = 0xFFFFFFFF;
+	public static String toastBorderColor = "0xFFFFFFFF";
 	@AutoGen(category = "Customization")
-	@IntField
+	@StringField
 	@SerialEntry
-	public static int toastTitleColor = 0xFFFFFFFF;
+	public static String toastTitleColor = "0xFFFFFFFF";
 	@AutoGen(category = "Customization")
-	@IntField
+	@StringField
 	@SerialEntry
-	public static int toastMsgColor = 0xFFcdc2c2;
+	public static String toastMsgColor = "0xFFcdc2c2";
 }

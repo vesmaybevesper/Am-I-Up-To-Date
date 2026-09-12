@@ -7,6 +7,10 @@ public class Utils {
 	static ChatFormatting changelogColor;
 	static ChatFormatting updateMsgColor;
 	static ChatFormatting ignoreMsgColor;
+	public static int toastBgColor = formatColor(Config.toastBgColor);
+	public static int toastBorderColor = formatColor(Config.toastBorderColor);
+	public static int toastTitleColor = formatColor(Config.toastTitleColor);
+	public static int toastMsgColor = formatColor(Config.toastMsgColor);
 
 	public static void setConfigColors() {
 
@@ -68,15 +72,17 @@ public class Utils {
 		}
 	}
 
-	private static int formatColor(int color){
-		if (Integer.toString(color).contains("0x")){
-			return color;
+	private static int formatColor(String color){
+		String hex = color.startsWith("#") ? color.substring(1) : color;
+
+		if (hex.length() == 6) {
+			int rgb = Integer.parseInt(hex, 16);
+			return 0xFF000000 | rgb;
+		} else if (hex.length() == 8) {
+			return (int) Long.parseLong(hex, 16);
+		} else {
+			throw new IllegalArgumentException("Invalid color string: " + color);
 		}
-
-		String colorString = Integer.toString(color);
-		colorString = "0x"+ colorString;
-
-		return Integer.parseInt(colorString);
 	}
 
 	/*public static Identifier identifierFromPath(){

@@ -1,7 +1,7 @@
 package dev.vesper.aiutd.common.gui;
 
 import dev.vesper.aiutd.AIUTD;
-import dev.vesper.aiutd.common.config.Config;
+import dev.vesper.aiutd.common.Utils;import dev.vesper.aiutd.common.config.Config;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 //~ if >=26.1 'import net.minecraft.client.gui.GuiGraphics;' -> 'import net.minecraft.client.gui.GuiGraphicsExtractor;'
@@ -54,14 +54,14 @@ public class UpdateToast implements Toast {
 		int h = height();
 
 		//background
-		graphics.fill(0, 0, w - 1, h - 1, Config.toastBgColor);
+		graphics.fill(0, 0, w - 1, h - 1, Utils.toastBgColor);
 
 
 		//border
-		graphics.fill(0, 0, width(), height() - (height() - 1), Config.toastBorderColor);
-		graphics.fill(0, height() - 1, width(), height(), Config.toastBorderColor);
-		graphics.fill(0, 0, 1, height(), Config.toastBorderColor);
-		graphics.fill(width() - 1, 0, width(), height(), Config.toastBorderColor);
+		graphics.fill(0, 0, width(), height() - (height() - 1), Utils.toastBorderColor);
+		graphics.fill(0, height() - 1, width(), height(), Utils.toastBorderColor);
+		graphics.fill(0, 0, 1, height(), Utils.toastBorderColor);
+		graphics.fill(width() - 1, 0, width(), height(), Utils.toastBorderColor);
 
 		//? if >=1.21.11 {
 		graphics.blitSprite(RenderPipelines.GUI_TEXTURED, Identifier.fromNamespaceAndPath(AIUTD.MOD_ID, "update"),  width() / 16 - 5, (height() / 2) - 10, 20, 20);
@@ -74,9 +74,9 @@ public class UpdateToast implements Toast {
 		int messageY = h / 2 + 1;
 
 		//~ if <26.1 '.text' -> '.drawString'
-		graphics.text(font, title, textX, titleY, Config.toastTitleColor, false);
-		//~ if <=1.21.11 'textWithWordWrap(font, message, textX, messageY, width(), Config.toastMsgColor, false)' -> 'drawWordWrap(font, message, textX, messageY, width(), Config.toastMsgColor)'
-		graphics.textWithWordWrap(font, message, textX, messageY, width(), Config.toastMsgColor, false);
+		graphics.text(font, title, textX, titleY, Utils.toastTitleColor, false);
+		//~ if <=1.21.11 'textWithWordWrap(font, message, textX, messageY, width(), Utils.toastMsgColor, false)' -> 'drawWordWrap(font, message, textX, messageY, width(), Utils.toastMsgColor)'
+		graphics.textWithWordWrap(font, message, textX, messageY, width(), Utils.toastMsgColor, false);
 
 	}
 	//?} else {
@@ -86,14 +86,14 @@ public class UpdateToast implements Toast {
 		int h = height();
 
 		//background
-		graphics.fill(0, 0, w, h, Config.toastBgColor);
+		graphics.fill(0, 0, w, h, Utils.toastBgColor);
 
 
 		//border
-		graphics.fill(0, 0, width(), height() - (height() - 1), Config.toastBorderColor);
-		graphics.fill(0, height() - 1, width(), height(), Config.toastBorderColor);
-		graphics.fill(0, 0, 1, height(), Config.toastBorderColor);
-		graphics.fill(width() - 1, 0, width(), height(), Config.toastBorderColor);
+		graphics.fill(0, 0, width(), height() - (height() - 1), Utils.toastBorderColor);
+		graphics.fill(0, height() - 1, width(), height(), Utils.toastBorderColor);
+		graphics.fill(0, 0, 1, height(), Utils.toastBorderColor);
+		graphics.fill(width() - 1, 0, width(), height(), Utils.toastBorderColor);
 
 		//? if 1.21.1
 		//graphics.blitSprite(Identifier.fromNamespaceAndPath(AIUTD.MOD_ID, "update"), (height() / 2) - 10, (height() / 2) - 10, 20, 20);
@@ -105,8 +105,8 @@ public class UpdateToast implements Toast {
 		int titleY = h / 2 - Minecraft.getInstance().font.lineHeight - 1;
 		int messageY = h / 2 + 1;
 
-		graphics.drawString(Minecraft.getInstance().font, title, textX, titleY, Config.toastTitleColor, false);
-		graphics.drawWordWrap(Minecraft.getInstance().font, message, textX, messageY, width(), Config.toastMsgColor);
+		graphics.drawString(Minecraft.getInstance().font, title, textX, titleY, Utils.toastTitleColor, false);
+		graphics.drawWordWrap(Minecraft.getInstance().font, message, textX, messageY, width(), Utils.toastMsgColor);
 
 		// this shouldn't get called at all if showToast is false but...
 		if (!Config.showToast) visibility = Visibility.HIDE;
