@@ -4,13 +4,13 @@ import dev.vesper.aiutd.common.config.Config;
 import net.minecraft.ChatFormatting;
 
 public class Utils {
-	static ChatFormatting changelogColor;
-	static ChatFormatting updateMsgColor;
-	static ChatFormatting ignoreMsgColor;
 	public static int toastBgColor = formatColor(Config.toastBgColor);
 	public static int toastBorderColor = formatColor(Config.toastBorderColor);
 	public static int toastTitleColor = formatColor(Config.toastTitleColor);
 	public static int toastMsgColor = formatColor(Config.toastMsgColor);
+	static ChatFormatting changelogColor;
+	static ChatFormatting updateMsgColor;
+	static ChatFormatting ignoreMsgColor;
 
 	public static void setConfigColors() {
 
