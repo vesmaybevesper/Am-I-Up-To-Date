@@ -22,6 +22,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 //? <=26.2{
 //import org.lwjgl.glfw.GLFW;
+//?} else {
+
 //?}
 
 public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeElement, UpdateNoticeEditorElement<?,?>> {
