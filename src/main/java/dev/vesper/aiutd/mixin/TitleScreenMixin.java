@@ -62,6 +62,7 @@ public class TitleScreenMixin extends Screen {
 					this.addRenderableWidget(Buttons.smallButton(this.width / 2 - 100 + 205, buttonY));
 				}
 			}
+			// No attempt to delay the toast until we are truly on the title screen has worked so far :(
 			if (needUpdate && showToast && !aiutd$toastShown){
 				UpdateToast.show();
 				aiutd$toastShown = true;
