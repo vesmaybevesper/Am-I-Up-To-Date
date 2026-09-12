@@ -30,8 +30,6 @@ public class Config {
 			.build();
 	*///?}
 
-	public static boolean showLoaderOpts = false;
-
 	public static Screen config(Screen parent){
 		return HANDLER.generateGui().generateScreen(parent);
 	}
@@ -139,17 +137,17 @@ public class Config {
 	@AutoGen(category = "Customization")
 	@StringField
 	@SerialEntry
-	public static String toastBgColor = "0xFF5d5858";
+	public static String toastBgColor = "FF082c4c";
 	@AutoGen(category = "Customization")
 	@StringField
 	@SerialEntry
-	public static String toastBorderColor = "0xFFFFFFFF";
+	public static String toastBorderColor = "FF286485";
 	@AutoGen(category = "Customization")
 	@StringField
 	@SerialEntry
-	public static String toastTitleColor = "0xFFFFFFFF";
+	public static String toastTitleColor = "FFFFFF00";
 	@AutoGen(category = "Customization")
 	@StringField
 	@SerialEntry
-	public static String toastMsgColor = "0xFFcdc2c2";
+	public static String toastMsgColor = "FFFFFFFF";
 }

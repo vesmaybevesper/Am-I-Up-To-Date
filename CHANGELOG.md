@@ -2,7 +2,7 @@
   - Enabled by default
   - Customization options are available
     - Background & border colors
-      - By default, this is themed after the mod icon (gray), so I would recommend customizing this.
+      - By default, this is themed after the Minecraft "system" toast.
     - Text Colors
     - Text
     - Display Time
