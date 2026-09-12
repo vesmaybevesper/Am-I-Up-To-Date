@@ -8,7 +8,7 @@ import dev.vesper.aiutd.AIUTD;
 //? if 1.21.11 && fabric
 //import dev.vesper.aiutd.common.rinku.RinkuWindow11;
 //? if >=26.1 && ! 26.3
-import dev.vesper.aiutd.common.rinku.RinkuWindow26;
+//import dev.vesper.aiutd.common.rinku.RinkuWindow26;
 import dev.vesper.aiutd.common.config.Config;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
@@ -27,9 +27,9 @@ public class ChangelogOpeners {
 		//?} 1.21.11 && fabric{
 			//Minecraft.getInstance().setScreenAndShow(new RinkuWindow11(Component.empty()));
 		//?} >=26.1 && !26.3{
-			Minecraft.getInstance().setScreenAndShow(new RinkuWindow26(Component.empty()));
+			//Minecraft.getInstance().setScreenAndShow(new RinkuWindow26(Component.empty()));
 		//?} else {
-			//AIUTD.LOG.error("Rinku window opening should never be called on this version!");
+			AIUTD.LOG.error("Rinku window opening should never be called on this version!");
 		//?}
 	}
 

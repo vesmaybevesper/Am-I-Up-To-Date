@@ -1,7 +1,7 @@
 package dev.vesper.aiutd.common.rinku;
 
 //? >=26.1 && !26.3{
-import de.keksuccino.rinku.Rinku;
+/*import de.keksuccino.rinku.Rinku;
 import de.keksuccino.rinku.RinkuBrowser;
 import dev.vesper.aiutd.AIUTD;
 import net.minecraft.client.gui.components.Button;
@@ -60,7 +60,7 @@ public class RinkuWindow26 extends Screen {
 
 	// AddressBarDisplayHander would cause missing class errors when called, no clue how to fix, and I'm not joining a discord to ask.
 	// If you're reading this, and you know how to go ahead and open a PR
-	/*private void registerAddressBarDisplayHandler() {
+	/^private void registerAddressBarDisplayHandler() {
 		if (addressBarDisplayHandler != null) {
 			return;
 		}
@@ -87,7 +87,7 @@ public class RinkuWindow26 extends Screen {
 			}
 		};
 		Rinku.getClient().addDisplayHandler(addressBarDisplayHandler);
-	}*/
+	}^/
 
 	private void initNavigationWidgets() {
 		int navX = FRAME_MARGIN;
@@ -165,10 +165,10 @@ public class RinkuWindow26 extends Screen {
 
 	@Override
 	public void onClose() {
-		/*if (addressBarDisplayHandler != null && Rinku.isInitialized()) {
+		/^if (addressBarDisplayHandler != null && Rinku.isInitialized()) {
 			Rinku.getClient().removeDisplayHandler(addressBarDisplayHandler);
 		}
-		addressBarDisplayHandler = null;*/
+		addressBarDisplayHandler = null;^/
 		browser.close();
 		super.onClose();
 	}
@@ -393,4 +393,4 @@ public class RinkuWindow26 extends Screen {
 		return true;
 	}
 }
-//?}
+*///?}

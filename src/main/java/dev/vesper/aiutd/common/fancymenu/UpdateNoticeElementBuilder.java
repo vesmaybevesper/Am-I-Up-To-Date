@@ -21,7 +21,7 @@ import net.minecraft.network.chat.Component;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 //? <=26.2{
-import org.lwjgl.glfw.GLFW;
+//import org.lwjgl.glfw.GLFW;
 //?}
 
 public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeElement, UpdateNoticeEditorElement<?,?>> {
@@ -70,12 +70,12 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
 		//?}
 
 		//? <26.3{
-        return GLFW.glfwGetMouseButton(window, GLFW.GLFW_MOUSE_BUTTON_LEFT) == GLFW.GLFW_PRESS
+        /*return GLFW.glfwGetMouseButton(window, GLFW.GLFW_MOUSE_BUTTON_LEFT) == GLFW.GLFW_PRESS
                 || GLFW.glfwGetMouseButton(window, GLFW.GLFW_MOUSE_BUTTON_RIGHT) == GLFW.GLFW_PRESS;
-        //?} >=26.3{
-		/*// temp to be able to build :)
+        *///?} >=26.3{
+		// temp to be able to build :)
 		return false;
-		*///?}
+		//?}
 
 	}
 

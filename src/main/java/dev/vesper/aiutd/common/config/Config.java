@@ -62,10 +62,10 @@ public class Config {
 	@SerialEntry
 	public static boolean chatAlert = true;
 	//? if 1.20.1 || 1.21.1 || 1.21.11 || >= 26.1 && !26.3 {
-	@AutoGen(category = "Main")
+	/*@AutoGen(category = "Main")
 	@EnumCycler
 	@SerialEntry
-	//?}
+	*///?}
 	public static LinkMethod openingMethod = LinkMethod.BROWSER;
 
 	// Optional Features

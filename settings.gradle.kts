@@ -23,7 +23,7 @@ stonecutter {
 		fun match(version: String, vararg loaders: String) =
 			loaders.forEach { version("$version-$it", version).buildscript = "build.$it.gradle.kts" }
 
-		match("26.3", "fabric")
+		match("26.3", "fabric", "neoforge")
 		match("26.2", "fabric", "neoforge")
 		match("26.1", "fabric", "neoforge")
 		match("1.21.11", "fabric", "neoforge")
@@ -32,7 +32,7 @@ stonecutter {
 		match("1.21.1", "fabric", "neoforge")
 		match("1.20.1", "fabric", "forge")
 
-		vcsVersion = "26.2-fabric"
+		vcsVersion = "26.3-fabric"
 	}
 }
 
