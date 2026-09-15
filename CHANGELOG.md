@@ -1,3 +1,5 @@
+- Support for 26.3
+  - No FancyMenu or Rinku support until they update
 - Add a Main Menu Toast to notify of updates
   - Enabled by default
   - Customization options are available

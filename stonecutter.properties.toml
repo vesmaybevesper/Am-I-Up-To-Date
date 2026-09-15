@@ -86,9 +86,9 @@ deps.rinku="3.0.4-26.2"
 publish.additionalVersions = []
 
 [fabric."26.3"]
-deps.minecraft = "26.3-rc-2"
-deps.fabric-api = "0.160.4+26.3"
-deps.modmenu = "21.0.0-alpha.1"
+deps.minecraft = "26.3"
+deps.fabric-api = "0.160.5+26.3"
+deps.modmenu = "21.0.0-beta.1"
 deps.yet_another_config_lib_v3="3.9.6+26.3-fabric"
 deps.fancymenu="3.9.12-26.2-fabric"
 deps.rinku="3.0.4-26.2"
@@ -145,15 +145,15 @@ publish.additionalVersions = ["26.1.1", "26.1.2"]
 
 [neoforge."26.2"]
 deps.minecraft = "26.2"
-deps.neoforge = "26.2.0.75"
+deps.neoforge = "26.2.0.88"
 deps.yet_another_config_lib_v3="3.9.6+26.2-neoforge"
 deps.fancymenu="3.9.12-26.2-neoforge"
 deps.rinku="3.0.4-26.2"
 publish.additionalVersions = []
 
 [neoforge."26.3"]
-deps.minecraft = "26.3-rc-2"
-deps.neoforge = "26.2.0.75"
+deps.minecraft = "26.3"
+deps.neoforge = "26.3.0.0-beta"
 deps.yet_another_config_lib_v3="3.9.6+26.2-neoforge"
 deps.fancymenu="3.9.12-26.2-neoforge"
 deps.rinku="3.0.4-26.2"
