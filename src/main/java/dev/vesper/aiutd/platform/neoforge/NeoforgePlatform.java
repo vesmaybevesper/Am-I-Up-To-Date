@@ -1,8 +1,8 @@
 package dev.vesper.aiutd.platform.neoforge;
 
 //? neoforge {
-/*
-import dev.vesper.aiutd.platform.Platform;
+
+/*import dev.vesper.aiutd.platform.Platform;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLLoader;
 import net.neoforged.fml.loading.VersionInfo;

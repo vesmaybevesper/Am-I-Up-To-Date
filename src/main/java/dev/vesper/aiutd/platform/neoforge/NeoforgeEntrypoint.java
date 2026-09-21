@@ -1,8 +1,8 @@
 package dev.vesper.aiutd.platform.neoforge;
 
 //? neoforge {
-/*
-import com.mojang.brigadier.CommandDispatcher;
+
+/*import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import dev.vesper.aiutd.AIUTD;
 import dev.vesper.aiutd.common.ChangelogOpeners;import dev.vesper.aiutd.common.config.Config;
