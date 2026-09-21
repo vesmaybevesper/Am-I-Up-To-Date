@@ -26,10 +26,6 @@ public class Buttons {
 	}
 	//?} else {
 	/*public static BackgroundImageButton smallButton(int posX, int posY){
-		// This could be so much better, maybe something I will come back to at some point
-		// Specifically:
-		// I want the button to be 20 px while the icon is 16, without it trying to tile
-		// The background of the button to look a little more like an actual button
 		BackgroundImageButton imageButton = new BackgroundImageButton(posX, posY, 20, 20, 0, 0, 1, new Identifier(AIUTD.MOD_ID, "textures/gui/sprites/update.png"), 20, 20, new Button.OnPress() {
 			@Override
 			public void onPress(Button button) {
