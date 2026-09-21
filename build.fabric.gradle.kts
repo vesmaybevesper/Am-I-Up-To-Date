@@ -57,7 +57,7 @@ platform {
 			slug("modmenu")
 		}
 
-		if (stonecutter.project.version in supportedVersions) {
+		if (stonecutter.current.version in supportedVersions) {
 			optional("fancymenu") {
 				slug("fancymenu")
 				fabricLikeVersionRange = ">=${prop("deps.fancymenu")}"
@@ -135,8 +135,12 @@ dependencies {
 	modCompileOnly("com.terraformersmc:modmenu:${prop("deps.modmenu")}")
 	//spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0")
 	modImplementation("maven.modrinth:yacl:${property("deps.yet_another_config_lib_v3")}")
+	if (stonecutter.current.version == "26.3") {
+		modCompileOnly("maven.modrinth:bQhBuv7x:${property("deps.rinku")}")
+	} else {
+		modCompileOnly("de.keksuccino:rinku-fabric:${property("deps.rinku")}")
+	}
 	modCompileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
-	modCompileOnly("de.keksuccino:rinku-fabric:${property("deps.rinku")}")
 	implementation("com.alibaba.fastjson2:fastjson2:2.0.65")
 	include("com.alibaba.fastjson2:fastjson2:2.0.65")
 }

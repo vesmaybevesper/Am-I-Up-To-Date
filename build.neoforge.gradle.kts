@@ -112,7 +112,11 @@ dependencies {
 	//spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0")
 	implementation("maven.modrinth:yacl:${property("deps.yet_another_config_lib_v3")}")
 	compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
-	compileOnly("de.keksuccino:rinku-neoforge:${property("deps.rinku")}")
+	if (stonecutter.current.version == "26.3") {
+		compileOnly("maven.modrinth:bQhBuv7x:${property("deps.rinku")}")
+	} else {
+		compileOnly("de.keksuccino:rinku-neoforge:${property("deps.rinku")}")
+	}
 	implementation("com.alibaba.fastjson2:fastjson2:2.0.65")
 	jarJar("com.alibaba.fastjson2:fastjson2:2.0.65")
 	// implementation(libs.moulberry.mixinconstraints)
