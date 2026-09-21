@@ -1,3 +1,5 @@
+import java.util.zip.ZipFile
+
 plugins {
 	id("mod-platform")
 	id("net.neoforged.moddev")
@@ -108,12 +110,55 @@ repositories {
 	maven("https://keksuccino.github.io/maven/")
 }
 
+val rinkuArtifact by configurations.creating
+
+dependencies {
+	if (stonecutter.current.version != "26.3") {
+		rinkuArtifact("de.keksuccino:rinku-neoforge:${property("deps.rinku")}")
+	} else {
+		rinkuArtifact("maven.modrinth:bQhBuv7x:${property("deps.rinku")}")
+	}
+}
+
+val rinkuClassesDir = layout.buildDirectory.dir("rinku-compile")
+
+val unwrapRinku by tasks.registering {
+	inputs.files(rinkuArtifact)
+	outputs.dir(rinkuClassesDir)
+
+	doLast {
+		val dir = rinkuClassesDir.get().asFile
+		dir.deleteRecursively()
+		dir.mkdirs()
+
+		val source = rinkuArtifact.singleFile
+		val target = File(dir, "rinku.jar")
+
+		ZipFile(source).use { zip ->
+			val nested = zip.entries().asSequence().firstOrNull() {
+				it.name.startsWith("META-INF/jarjar/") && it.name.endsWith(".jar")
+			}
+			if (nested != null){
+				zip.getInputStream(nested).use { input ->
+					target.outputStream().use { out ->
+						input.copyTo(out)
+					}
+				}
+			} else {
+				source.copyTo(target, overwrite = true)
+			}
+		}
+	}
+}
+
 dependencies {
 	//spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0")
 	implementation("maven.modrinth:yacl:${property("deps.yet_another_config_lib_v3")}")
 	compileOnly("maven.modrinth:fancymenu:${property("deps.fancymenu")}")
 	if (stonecutter.current.version == "26.3") {
 		compileOnly("maven.modrinth:bQhBuv7x:${property("deps.rinku")}")
+	} else if (stonecutter.current.version == "1.21.1" || stonecutter.current.version == "1.21.11" || stonecutter.current.version == "26.1") {
+		compileOnly(files(rinkuClassesDir.map { it.file("rinku.jar") }).builtBy(unwrapRinku))
 	} else {
 		compileOnly("de.keksuccino:rinku-neoforge:${property("deps.rinku")}")
 	}
