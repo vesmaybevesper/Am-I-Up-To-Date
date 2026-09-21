@@ -30,6 +30,8 @@ tasks.withType<Javadoc>().configureEach {
 	(options as StandardJavadocDocletOptions).addStringOption("Xdoclint:-missing", "-quiet")
 }
 
+val supportedVersions = arrayOf("1.20.1", "1.21.1", "1.21.11", "26.1", "26.2", "26.3")
+
 platform {
 	loader = "neoforge"
 	dependencies {
@@ -44,7 +46,7 @@ platform {
 			forgeLikeVersionRange = ">=${prop("deps.yet_another_config_lib_v3")}"
 		}
 
-		if (stonecutter.project.version == ("1.20.1") || stonecutter.project.version == ("1.21.1") || stonecutter.project.version == ("1.21.11") || stonecutter.project.version == ("26.1") || stonecutter.project.version == ("26.2")) {
+		if (stonecutter.project.version in supportedVersions) {
 			optional("fancymenu") {
 				slug("fancymenu")
 				forgeLikeVersionRange = ">=${prop("deps.fancymenu")}"
