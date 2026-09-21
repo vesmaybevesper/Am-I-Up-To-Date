@@ -37,7 +37,6 @@ public class UpdateToast implements Toast {
 
 	@Override
 	public void update(ToastManager manager, long fullyVisibleForMs) {
-		// this shouldn't get called at all if showToast is false but...
 		if (!Config.showToast) visibility = Visibility.HIDE;
 		else visibility = Visibility.SHOW;
 		if (fullyVisibleForMs >= Config.toastDisplayTime * manager.getNotificationDisplayTimeMultiplier()) {
@@ -53,11 +52,11 @@ public class UpdateToast implements Toast {
 		int w = width();
 		int h = height();
 
-		//background
+		//background color
 		graphics.fill(0, 0, w - 1, h - 1, Utils.toastBgColor);
 
 
-		//border
+		//border color(s), they all use the same but i could break them up if someone wanted
 		graphics.fill(0, 0, width(), height() - (height() - 1), Utils.toastBorderColor);
 		graphics.fill(0, height() - 1, width(), height(), Utils.toastBorderColor);
 		graphics.fill(0, 0, 1, height(), Utils.toastBorderColor);
@@ -108,7 +107,6 @@ public class UpdateToast implements Toast {
 		graphics.drawString(Minecraft.getInstance().font, title, textX, titleY, Utils.toastTitleColor, false);
 		graphics.drawWordWrap(Minecraft.getInstance().font, message, textX, messageY, width(), Utils.toastMsgColor);
 
-		// this shouldn't get called at all if showToast is false but...
 		if (!Config.showToast) visibility = Visibility.HIDE;
 		if (l >= Config.toastDisplayTime * toastComponent.getNotificationDisplayTimeMultiplier()) {
 			visibility = Visibility.HIDE;
@@ -119,6 +117,7 @@ public class UpdateToast implements Toast {
 
 	@Override
 	public int width() {
+		// I'd really like to adapt this to the msg length
 		return 180;
 	}
 
