@@ -1,14 +1,4 @@
-- Support for 26.3
-  - No FancyMenu or Rinku support until they update
-- Add a Main Menu Toast to notify of updates
-  - Enabled by default
-  - Customization options are available
-    - Background & border colors
-      - By default, this is themed after the Minecraft "system" toast.
-    - Text Colors
-    - Text
-    - Display Time
-  - Does not currently have a FancyMenu implementation
-- Small button on menu is now the default
-  - Previous configs will have to toggle large button off manually if they want to mimic the new default setup
-- Improve Small Button appearance on 1.20.1 (again)
+- Add support for Rinku & FancyMenu on 26.3
+- Fix Rinku support being disabled on NeoForge 1.21.1 & 1.21.11
+- Fix Rinku opening to Google instead of the changelog
+  - I used Google as the testing URL in some cases and forgot to remove it whoops
