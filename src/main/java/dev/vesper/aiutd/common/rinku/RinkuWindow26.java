@@ -1,7 +1,9 @@
 package dev.vesper.aiutd.common.rinku;
 
-//? >=26.1 && !26.3{
-/*import de.keksuccino.rinku.Rinku;
+//? >=26.1{
+//? if >=26.3
+import com.mojang.blaze3d.platform.InputConstants;
+import de.keksuccino.rinku.Rinku;
 import de.keksuccino.rinku.RinkuBrowser;
 import dev.vesper.aiutd.AIUTD;
 import net.minecraft.client.gui.components.Button;
@@ -14,7 +16,8 @@ import org.cef.browser.CefFrame;
 import org.cef.handler.CefDisplayHandler;
 import org.cef.handler.CefDisplayHandlerAdapter;
 import org.jetbrains.annotations.NotNull;
-import org.lwjgl.glfw.GLFW;
+//? if <26.3
+//import org.lwjgl.glfw.GLFW;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.input.CharacterEvent;
 import net.minecraft.client.input.KeyEvent;
@@ -60,7 +63,7 @@ public class RinkuWindow26 extends Screen {
 
 	// AddressBarDisplayHander would cause missing class errors when called, no clue how to fix, and I'm not joining a discord to ask.
 	// If you're reading this, and you know how to go ahead and open a PR
-	/^private void registerAddressBarDisplayHandler() {
+	/*private void registerAddressBarDisplayHandler() {
 		if (addressBarDisplayHandler != null) {
 			return;
 		}
@@ -87,7 +90,7 @@ public class RinkuWindow26 extends Screen {
 			}
 		};
 		Rinku.getClient().addDisplayHandler(addressBarDisplayHandler);
-	}^/
+	}*/
 
 	private void initNavigationWidgets() {
 		int navX = FRAME_MARGIN;
@@ -165,10 +168,10 @@ public class RinkuWindow26 extends Screen {
 
 	@Override
 	public void onClose() {
-		/^if (addressBarDisplayHandler != null && Rinku.isInitialized()) {
+		/*if (addressBarDisplayHandler != null && Rinku.isInitialized()) {
 			Rinku.getClient().removeDisplayHandler(addressBarDisplayHandler);
 		}
-		addressBarDisplayHandler = null;^/
+		addressBarDisplayHandler = null;*/
 		browser.close();
 		super.onClose();
 	}
@@ -342,7 +345,8 @@ public class RinkuWindow26 extends Screen {
 
 	@Override
 	public boolean keyPressed(KeyEvent event) {
-		if (urlBox != null && urlBox.isFocused() && (event.key() == GLFW.GLFW_KEY_ENTER || event.key() == GLFW.GLFW_KEY_KP_ENTER)) {
+		//~ if >=26.3 'urlBox != null && urlBox.isFocused() && (event.key() == GLFW.GLFW_KEY_ENTER || event.key() == GLFW.GLFW_KEY_KP_ENTER)' -> 'urlBox != null && urlBox.isFocused() && (event.key() == InputConstants.KEY_RETURN || event.key() == InputConstants.KEY_NUMPADENTER)'
+		if (urlBox != null && urlBox.isFocused() && (event.key() == InputConstants.KEY_RETURN || event.key() == InputConstants.KEY_NUMPADENTER)) {
 			navigateFromUrlField();
 			setFocused(null);
 			browser.setFocus(true);
@@ -357,7 +361,8 @@ public class RinkuWindow26 extends Screen {
 			return true;
 		}
 
-		browser.sendKeyPress(event.key(), event.scancode(), event.modifiers());
+		//~ if >=26.3 'event.key(), event.scancode(), event.modifiers()' -> 'event'
+		browser.sendKeyPress(event);
 		browser.setFocus(true);
 		return true;
 	}
@@ -372,7 +377,8 @@ public class RinkuWindow26 extends Screen {
 			return true;
 		}
 
-		browser.sendKeyRelease(event.key(), event.scancode(), event.modifiers());
+		//~ if >=26.3 'event.key(), event.scancode(), event.modifiers()' -> 'event'
+		browser.sendKeyRelease(event);
 		browser.setFocus(true);
 		return true;
 	}
@@ -393,4 +399,4 @@ public class RinkuWindow26 extends Screen {
 		return true;
 	}
 }
-*///?}
+//?}

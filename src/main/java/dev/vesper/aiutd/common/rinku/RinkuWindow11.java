@@ -1,6 +1,6 @@
 package dev.vesper.aiutd.common.rinku;
 
-//? 1.21.11 && fabric{
+//? 1.21.11{
 /*import com.mojang.blaze3d.pipeline.RenderPipeline;
 import dev.vesper.aiutd.AIUTD;
 import net.minecraft.client.gui.GuiGraphics;

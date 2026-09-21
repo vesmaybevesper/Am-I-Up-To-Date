@@ -5,6 +5,7 @@ package dev.vesper.aiutd.common.rinku;
 import com.mojang.blaze3d.systems.RenderSystem;
 import de.keksuccino.rinku.Rinku;
 import de.keksuccino.rinku.RinkuBrowser;
+import dev.vesper.aiutd.AIUTD;
 import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -28,7 +29,7 @@ public class RinkuWindow201 extends Screen {
 	private static final int LOADING_BAR_HEIGHT = 2;
 	private static final int LOADING_BAR_TRACK_COLOR = 0x55000000;
 	private static final int LOADING_BAR_FILL_COLOR = 0xFF3BA8FF;
-	private static final String DEFAULT_URL = "https://www.google.com";
+	private static final String DEFAULT_URL = AIUTD.getChangelogLink();
 
 	private RinkuBrowser browser;
 	private EditBox urlBox;
