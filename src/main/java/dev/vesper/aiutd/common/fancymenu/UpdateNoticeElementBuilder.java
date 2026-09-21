@@ -1,6 +1,8 @@
 package dev.vesper.aiutd.common.fancymenu;
 
 //? 1.20.1 || 1.21.1 || >= 1.21.11{
+//? if >=26.3
+import com.mojang.blaze3d.platform.InputConstants;
 import de.keksuccino.fancymenu.customization.action.ActionInstance;
 import de.keksuccino.fancymenu.customization.action.blocks.AbstractExecutableBlock;
 import de.keksuccino.fancymenu.customization.action.blocks.ExecutableBlockDeserializer;
@@ -22,8 +24,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 //? <=26.2{
 //import org.lwjgl.glfw.GLFW;
-//?} else {
-
 //?}
 
 public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeElement, UpdateNoticeEditorElement<?,?>> {
@@ -40,7 +40,8 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
 		element.label = String.valueOf(Component.translatable("aiutd.menuNotice"));
 		element.setWidget(new ExtendedButton(0,0,0,0, Component.empty(), (press) -> {
 			if((CustomizationOverlay.getCurrentMenuBarInstance() == null) || !CustomizationOverlay.getCurrentMenuBarInstance().isUserNavigatingInMenuBar()) {
-				boolean isMousePressed = isAnyMouseButtonPressed();
+				//~ if >=26.3 'isAnyMouseButtonPressed()' -> 'InputConstants.isKeyDown(InputConstants.MOUSE_BUTTON_LEFT) || InputConstants.isKeyDown(InputConstants.MOUSE_BUTTON_RIGHT)'
+				boolean isMousePressed = InputConstants.isKeyDown(InputConstants.MOUSE_BUTTON_LEFT) || InputConstants.isKeyDown(InputConstants.MOUSE_BUTTON_RIGHT);
 
 				if(element.openChangelogOnClick) {
 					if (Config.openingMethod == Config.LinkMethod.BROWSER) {
@@ -75,7 +76,7 @@ public class UpdateNoticeElementBuilder extends ElementBuilder<UpdateNoticeEleme
         /*return GLFW.glfwGetMouseButton(window, GLFW.GLFW_MOUSE_BUTTON_LEFT) == GLFW.GLFW_PRESS
                 || GLFW.glfwGetMouseButton(window, GLFW.GLFW_MOUSE_BUTTON_RIGHT) == GLFW.GLFW_PRESS;
         *///?} >=26.3{
-		// temp to be able to build :)
+		// we never call this on 26.3, but it needs to return something
 		return false;
 		//?}
 
