@@ -9,6 +9,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.network.chat.Component;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -21,7 +22,7 @@ import static dev.vesper.aiutd.common.config.Config.showToast;
 
 @Mixin(TitleScreen.class)
 @MixinEnvironment(type = MixinEnvironment.Env.MAIN)
-public class TitleScreenMixin extends Screen {
+public abstract class TitleScreenMixin extends Screen {
 
 	@Unique
 	private int buttonY;
@@ -62,7 +63,6 @@ public class TitleScreenMixin extends Screen {
 					this.addRenderableWidget(Buttons.smallButton(this.width / 2 - 100 + 205, buttonY));
 				}
 			}
-			// No attempt to delay the toast until we are truly on the title screen has worked so far :(
 			if (needUpdate && showToast && !aiutd$toastShown){
 				UpdateToast.show();
 				aiutd$toastShown = true;
