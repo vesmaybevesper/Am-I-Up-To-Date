@@ -135,6 +135,18 @@ public class Config {
 	@SerialEntry
 	public static ColorEnum ignoreColor = ColorEnum.GRAY;
 	@AutoGen(category = "Customization")
+	@Boolean(formatter = Boolean.Formatter.TRUE_FALSE, colored = true)
+	@SerialEntry
+	public static boolean useCustomToastSprite = false;
+	@AutoGen(category = "Customization")
+	@StringField
+	@SerialEntry
+	public static String spriteNameSpace = "";
+	@AutoGen(category = "Customization")
+	@StringField
+	@SerialEntry
+	public static String spriteName = "";
+	@AutoGen(category = "Customization")
 	@StringField
 	@SerialEntry
 	public static String toastBgColor = "FF082c4c";

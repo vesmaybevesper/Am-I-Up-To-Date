@@ -15,7 +15,7 @@ import net.minecraft.resources.Identifier;
 
 public class Buttons {
 	/**
-	 * The update icon is an alteration of update by dokodemo from <a href="https://thenounproject.com/browse/icons/term/update/" target="_blank" title="update Icons">Noun Project</a> (CC BY 3.0)
+	 * The default update icon is an alteration of update by dokodemo from <a href="https://thenounproject.com/browse/icons/term/update/" target="_blank" title="update Icons">Noun Project</a> (CC BY 3.0)
 	 */
 	//? if >1.20.1 {
 	public static SpriteIconButton smallButton(int posX, int posY) {
