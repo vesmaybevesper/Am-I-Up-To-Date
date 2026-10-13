@@ -1,4 +1,3 @@
 - Add support for using a custom image path on the update toast [WIP]
   - Check the text usage guide on the main page for more information (video guide coming soon)
 - Scale Toast size based on title & message length
-- 
