@@ -2,9 +2,7 @@
 - Add a popup changelog option as a changelog opener (2.8.0)
 - Toast
   - Allow customization
-    - Image (2.7.x)
-  - FancyMenu option (2.7.x)
-  - Adapt to  msg length similar to vanilla toasts (2.7.x)
+    - Image (2.7.x) think this is done? idk i need to test
 - Do FancyMenu button way better (2.7.x, ok maybe 2.8.0 it'll prob break old things now I think about it)
   - I know there is a way I just need to sit down and look at it
 - Switch serializer to wast as its faster and smaller (3.0.0)
