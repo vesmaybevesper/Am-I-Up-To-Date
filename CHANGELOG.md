@@ -1,4 +1,4 @@
-- Add support for Rinku & FancyMenu on 26.3
-- Fix Rinku support being disabled on NeoForge 1.21.1 & 1.21.11
-- Fix Rinku opening to Google instead of the changelog
-  - I used Google as the testing URL in some cases and forgot to remove it whoops
+- Add support for using a custom image path on the update toast [WIP]
+  - Check the text usage guide on the main page for more information (video guide coming soon)
+- Scale Toast size based on title & message length
+- 
