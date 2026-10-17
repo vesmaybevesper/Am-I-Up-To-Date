@@ -62,19 +62,11 @@ public class UpdateToast implements Toast {
 		graphics.fill(0, 0, 1, height(), Utils.toastBorderColor);
 		graphics.fill(width() - 1, 0, width(), height(), Utils.toastBorderColor);
 
-		if (!Config.useCustomToastSprite) {
-			//? if >=1.21.11 {
-			graphics.blitSprite(RenderPipelines.GUI_TEXTURED, Identifier.fromNamespaceAndPath(AIUTD.MOD_ID, "update"),  width() / 16 - 5, (height() / 2) - 10, 20, 20);
-			//?} 1.21.5 || 1.21.2 {
-			//graphics.blitSprite(RenderType::guiTextured, Identifier.fromNamespaceAndPath(AIUTD.MOD_ID, "update"), width() / 16 - 5, (height() / 2) - 10, 20, 20);
-			//?}
-		} else if (!Config.spriteNameSpace.isEmpty() && !Config.spriteName.isEmpty()){
-			//? if >=1.21.11 {
-			graphics.blitSprite(RenderPipelines.GUI_TEXTURED, Identifier.fromNamespaceAndPath(Config.spriteNameSpace, Config.spriteName),  width() / 16 - 5, (height() / 2) - 10, 20, 20);
-			//?} 1.21.5 || 1.21.2 {
-			//graphics.blitSprite(RenderType::guiTextured, Identifier.fromNamespaceAndPath(Config.spriteNameSpace, Config.spriteName), width() / 16 - 5, (height() / 2) - 10, 20, 20);
-			//?}
-		}
+		//? if >=1.21.11 {
+		graphics.blitSprite(RenderPipelines.GUI_TEXTURED, Identifier.fromNamespaceAndPath(AIUTD.MOD_ID, "update"),  width() / 16 - 5, (height() / 2) - 10, 20, 20);
+		//?} 1.21.5 || 1.21.2 {
+		//graphics.blitSprite(RenderType::guiTextured, Identifier.fromNamespaceAndPath(AIUTD.MOD_ID, "update"), width() / 16 - 5, (height() / 2) - 10, 20, 20);
+		//?}
 
 		int textX = 32;
 		int titleY = h / 2 - font.lineHeight - 1;
@@ -102,19 +94,11 @@ public class UpdateToast implements Toast {
 		graphics.fill(0, 0, 1, height(), Utils.toastBorderColor);
 		graphics.fill(width() - 1, 0, width(), height(), Utils.toastBorderColor);
 
-		if (!Config.useCustomToastSprite) {
-			//? if 1.21.1
-			//graphics.blitSprite(Identifier.fromNamespaceAndPath(AIUTD.MOD_ID, "update"), (height() / 2) - 10, (height() / 2) - 10, 20, 20);
+		//? if 1.21.1
+		//graphics.blitSprite(Identifier.fromNamespaceAndPath(AIUTD.MOD_ID, "update"), (height() / 2) - 10, (height() / 2) - 10, 20, 20);
 
-			//? if 1.20.1
-			//graphics.blit(new Identifier(AIUTD.MOD_ID, "textures/gui/sprites/update.png"), (height() / 2) - 10, (height() / 2) - 10, 20, 20, 20, 20, 20, 20);
-		} else if (!Config.spriteName.isEmpty() && !Config.spriteNameSpace.isEmpty()){
-			//? if 1.21.1
-			//graphics.blitSprite(Identifier.fromNamespaceAndPath(Config.spriteNameSpace, Config.spriteName), (height() / 2) - 10, (height() / 2) - 10, 20, 20);
-
-			//? if 1.20.1
-			//graphics.blit(new Identifier(AIUTD.MOD_ID, "textures/gui/sprites/" + Config.spriteName), (height() / 2) - 10, (height() / 2) - 10, 20, 20, 20, 20, 20, 20);
-		}
+		//? if 1.20.1
+		//graphics.blit(new Identifier(AIUTD.MOD_ID, "textures/gui/sprites/update.png"), (height() / 2) - 10, (height() / 2) - 10, 20, 20, 20, 20, 20, 20);
 
 		int textX = 32;
 		int titleY = h / 2 - Minecraft.getInstance().font.lineHeight - 1;
