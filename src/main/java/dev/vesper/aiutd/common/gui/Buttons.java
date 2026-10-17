@@ -26,7 +26,7 @@ public class Buttons {
 	}
 	//?} else {
 	/*public static BackgroundImageButton smallButton(int posX, int posY){
-		BackgroundImageButton imageButton = new BackgroundImageButton(posX, posY, 20, 20, 0, 0, 1, new Identifier(AIUTD.MOD_ID, "textures/gui/sprites/update.png"), 20, 20, new Button.OnPress() {
+		BackgroundImageButton imageButton = new BackgroundImageButton(posX, posY, 20, 20, 0, 0, 0, new Identifier(AIUTD.MOD_ID, "textures/gui/sprites/update.png"), 20, 20, new Button.OnPress() {
 			@Override
 			public void onPress(Button button) {
 				ChangelogOpeners.pick();
