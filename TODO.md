@@ -1,9 +1,8 @@
-- Line small button on >=26.2 with the other sprite buttons (2.7.x)
+- Line small button on >=26.2 with the other sprite buttons (2.8.x)
 - Add a popup changelog option as a changelog opener (2.8.0)
-- Toast
-  - Allow customization
-    - Image (2.7.x) think this is done? idk i need to test
 - Do FancyMenu button way better (2.7.x, ok maybe 2.8.0 it'll prob break old things now I think about it)
   - I know there is a way I just need to sit down and look at it
 - Switch serializer to wast as its faster and smaller (3.0.0)
-- Make config options dependent (3.x.0)
+- Make config options dependent (3.x.x)
+- Drop support for 1.21.2 - 1.20.10 (After 3.0.0)
+- Put 1.20.1 into maintenance mode (After 3.0.0)
