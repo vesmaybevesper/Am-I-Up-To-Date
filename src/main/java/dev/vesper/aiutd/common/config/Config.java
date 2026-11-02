@@ -36,7 +36,7 @@ public class Config {
 
 	public enum ColorEnum {BLACK, DARK_BLUE, DARK_GREEN, DARK_AQUA, DARK_RED, DARK_PURPLE, GOLD, GRAY, DARK_GRAY, BLUE, GREEN, AQUA, RED, LIGHT_PURPLE, YELLOW, WHITE}
 
-	public enum LinkMethod {BROWSER, RINKU}
+	public enum LinkMethod {BROWSER, RINKU, POPUP}
 
 	// Main Settings
 	@AutoGen(category = "Main")
@@ -59,12 +59,12 @@ public class Config {
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
 	public static boolean chatAlert = true;
-	//? if 1.20.1 || 1.21.1 || 1.21.11 || >= 26.1 && !26.3 {
-	/*@AutoGen(category = "Main")
+	//? if 1.20.1 || 1.21.1 || 1.21.11 || >= 26.1{
+	@AutoGen(category = "Main")
 	@EnumCycler
 	@SerialEntry
-	*///?}
-	public static LinkMethod openingMethod = LinkMethod.BROWSER;
+	//?}
+	public static LinkMethod openingMethod = LinkMethod.POPUP;
 
 	// Optional Features
 	@AutoGen(category = "Optional")
