@@ -1,4 +1,5 @@
-- Scale toast size based on title & message length
-- Remove the icon shift on hover for 1.20.1's small button
+- Add an option to open  the changelog in a pop-up inside the game [WIP]
+- Made several config fields inaccessible when the relevant feature is disabled [WIP]
+- Fix the option to change changelog opening method not being visible on 26.3
 
-_I've added instructions on how the sprite for the toast/ small button can be customized to the text guide on the main page. Check it out if that's something you are interested in!_
+_This (outside of potential major bugs in new features if needed) is the final version for 1.21.2 - 1.21.10. The only "features" I have planned after this are only applicable to versions with FancyMenu support or >=26.2_
